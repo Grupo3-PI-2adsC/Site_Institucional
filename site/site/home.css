@@ -1,33 +1,49 @@
 body{
-    background-color: #fafbfd;
+    background-color: #000000;
   }
-
+  
+ .backgroundimage{
+   background-image: url("img/banner1.png");
+   background-repeat: no-repeat;
+   width: 100%;
+   background-size: cover;
+   height: 45vh;
+  }
  
+ 
+
+ .inicio{
+
+  display: flex;
+  justify-content: space-between;
+ }
+
+
   .inicial{
-    display: grid;
-    grid-template-columns: 500px 2fr;
-    justify-items: left;
+   display: flex;
+   max-width: fit-content ;
+   margin-left: 90vh;
   }
+  
+
   .inicial-conteudo h1, .dashboard h1, .site-h1{
     font-size: 36px;
-    max-width: 22ch;
-    padding-bottom: 48px;
-  }
-  .inicial-conteudo p{
-    font-size: 20px;
     max-width: 30ch;
-    padding-bottom: 48px;
+    padding-left: 50px;
+    padding-bottom: 2vh;  
   }
-  .inicial-img img, .dashboard img{
-    padding-left: 96px;
-    width: 540px;
-    padding-top: 30px;
+
+
+  .inicial-conteudo p{
+    font-size: 25px;
+    max-width: 35ch;
+    padding-bottom: 40px;
+    padding-left: 10vh;
   }
-  .inicial-conteudo a, .dashboard a{
-    margin-left: 80px;
-    background-color: #012569;
-    padding: 10px 18px;
-    border-radius: 100px;
-    color: #fafbfd;
-    box-shadow: 0px 3px 1px #868C9F;
-  }
+
+
+
+
+  
+
+

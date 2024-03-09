@@ -4,78 +4,22 @@
     font-family: Lexend;
     list-style: none;
     text-decoration: none;
+    max-width: 100%;
   }
   a{
     color: inherit;  
   }
-  img{
-    max-width: 100%;
-  }
+
   /* páginas com mais de uma sessão usar a class abaixo para cada section*/
   .section-width{
-    width: 540px;
+    width: 600px;
   }
   /* Altura banner */
-  .banner{
-    height: 340px;
-  }
-  
-  /* Margem automatica
-   sempre colocar na div conteúdo */
-  .margin{
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  }
-  
-  
-  /* Cores dos backgrounds */
-  
-  /* background azul escuro */
-  .background-a{
-    background-color: #012569;
-  }
-  /* background branco */
-  .background-b{
-    background-color: #000000;
-  }
-  
-  
-  
-  /* Tamanho das fontes */
-  
-  /* Tamanho da fonte para span footer */
-  .font-12{
-    font-size: 12px;
-  }
-  /* Tamanho da fonte para p */
-  .font-16{
-    font-size: 16px;
-  }
-  /* Tamanho da fonte para p */
-  .font-20{
-    font-size: 20px;
-  }
-  /* Tamanho da fonte para h3 */
-  .font-24{
-    font-size: 24px;
-  }
-  /* Tamanho da fonte para h2 */
-  .font-32{
-    font-size: 32px;
-  }
-  /* Tamanho da fonte para h1 */
-  .font-36{
-    font-size: 36px
-  }
-  /* Tamanho da fonte para h1 banner para a calculadora*/
-  .font-42{
-    font-size: 42px;
-  }
+
   
   /* Botão */
   .botao{
-    background-color: #0059ff;
+    background-color: #0037ffa4;
     padding: 10px 18px;
     border-radius: 100px;
     color: #fafbfd;
@@ -116,19 +60,18 @@
   
   /* header css */
   .header-background{
-    background-color: #012569;
+    background-color: #5274e4;
+  
   }
   .header-container{
     display: flex;
     justify-content: space-between;
+    margin-left: 90px;
+    margin-right: 90px;
   }
   
   .logo img{
     max-width: 260px;
-  }
-  .navbar li{
-    display: flex;
-    width: fit-content;
   }
 
   .login-botao {
@@ -136,35 +79,54 @@
       justify-content: space-between;
       position: relative;
       width: 90px;
-      color:#f4f4f4;
-      border-radius: 100px;
-     
-      
+      top: 20px;
+     color: #fafbfd;
+     font-size:xx-large;
   }
  
   
   .back-cadastro{
     color: #ffffff;
-    position: absolute;
-    top: 32px;
-    right: 500px;
-    height: 20px;
-    width: 120px;
-   
-    
+   position: absolute;
+    right: 250px;
+    width: 90px;
+    font-size: xx-large;
+  }
+
+
+
+  .navbarmeio{
+
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: #5274e4;
+
   }
 
   
+.opcoes{
+margin-top: 5px;
+  background-color: #ffffff;
+  height: 500px;
+
+}
+
+
+
   /* footer css */
   .footer-container {
-    background-color: #012569;
+    background-color: #5274e4;
   }
   .footer-conteudo{
     display:flex;
-    color: #fafbfd;
+    color: #000000;
     justify-content: space-between;
     justify-items: center;
-  padding-top: 48px;
+  padding-top: 20px;
   padding-bottom: 24px;
   }
   .footer-conteudo h3{
@@ -189,11 +151,11 @@
     max-width: 47px;
   }
   .footer-direitos{
-    border-top: #868C9F solid 1px;
+    border-top: #000000 solid 1px;
     padding-bottom: 16px;
     padding-top: 16px;
     grid-column: 1/4;
-    color: #868C9F;
+    color: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
