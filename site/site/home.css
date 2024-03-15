@@ -1,5 +1,5 @@
 body{
-    background-color: #000000;
+    background-color: #ffffff;
   }
   
  .backgroundimage{
@@ -7,43 +7,236 @@ body{
    background-repeat: no-repeat;
    width: 100%;
    background-size: cover;
-   height: 45vh;
+   height: 55vh;
+   box-shadow: black 10px;
   }
+  a{
+    color: inherit;  
+  }
+
  
- 
 
- .inicio{
-
-  display: flex;
-  justify-content: space-between;
- }
-
-
-  .inicial{
-   display: flex;
-   max-width: fit-content ;
-   margin-left: 90vh;
+  .botao{
+    background-color: #0037ff00;
+    padding: 5px 30px 5px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-bottom-style: hidden;
+    color: #fafbfd;
   }
   
+  /* inputs */
+  .input{
+    width: 240px;
+    height:36px ; 
+    background-color: #EEEE; 
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 0px 3px 1px #d4d5d7;
+  }
+  
+  
+  /* Cores de fonte */
+  
+  /* fonte branca */
+  .b-1{
+    color: #fafbfd;  
+  }
+  /* fonte preta */
+  .p-1{
+    color:#010203;
+  }
+  /* fonte azul escura */
+  .a-1{
+    color: #08102B;
+  }
+  /* fonte cinza */
+  .c-1{
+    color: #868C9F;
+  }
+  
+  
+  
+  /* header css */
+  .header-background{
+    background-color: #5274e4;
+  
+  }
+  .header-container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+  
+  .logo img{
+    max-width: 260px;
+  }
 
-  .inicial-conteudo h1, .dashboard h1, .site-h1{
+  .login-botao {
+    display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 90px;
+      top: 20px;
+     color: #fafbfd;
+     font-size:x-large;
+  }
+ 
+  
+  .back-cadastro{
+    color: #ffffff;
+   position: absolute;
+    right: 250px;
+    width: 90px;
+    font-size: x-large;
+  }
+
+
+.inicio{
+  padding-left: 750px;
+  padding-top: 30px;
+}
+ 
+  .inicial-conteudo h1, .site-h1{
     font-size: 36px;
-    max-width: 30ch;
-    padding-left: 50px;
-    padding-bottom: 2vh;  
+    max-width: 25ch;
+    padding-bottom: 10px;
   }
-
-
   .inicial-conteudo p{
-    font-size: 25px;
-    max-width: 35ch;
-    padding-bottom: 40px;
-    padding-left: 10vh;
+    font-size: 20px;
+    max-width: 30ch;
   }
-
-
 
 
   
+  .sobre-nos{
+    display: grid;
+    grid-template-columns: 400px 4fr;
+    justify-items: left;
+    align-items: center;
+    padding-left: 170px;
+    padding-top: 50px;
+  }
 
+  .sobre-nos-img img{
+    padding-left: 80px;
+   
+  }
+
+  .sobre-nos-conteudo h3, .cultura h3{
+    color: #08102B;
+    font-size: 36px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+  }
+
+  .sobre-nos-conteudo h2, .cultura h2{
+    font-size: 28px;
+    padding-bottom: 20px;
+  
+  }
+
+  .sobre-nos-conteudo p, .cultura p{
+    font-size: x-large;
+    max-width: 50ch;
+  }
+
+
+
+  .cultura-segurança{
+    display: grid;
+    grid-template-columns: 400px 4fr ;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    
+    
+  }
+  
+  .cultura-relacionamento {
+    display: grid;
+    grid-template-columns: 400px 4fr ;
+    padding-bottom: 40px;
+    padding-left: 150px;
+    padding-top: 50px;
+    
+    
+  }
+  .cultura-relacionamento p{
+    max-width: 45ch;
+    padding-top: 20px;
+  }
+  
+  .cultura-segurança p{
+    max-width: 40ch;
+    padding-left: 190px;
+    font-size:x-large;
+    padding-top: 10px;
+    
+  }
+  
+  .cultura-conteudo img{
+    max-width: 500px;
+   
+  
+  }
+
+  .cultura, .sobre-nos, .inicial{
+    min-height: 600px;
+    display: grid;
+  }
+ 
+
+  /* footer css */
+  .footer-container {
+    background-color: #5274e4;
+  }
+
+  .footer-conteudo{
+    display:flex;
+    color: #000000;
+    justify-content: space-between;
+    justify-items: center;
+  padding-top: 20px;
+  padding-bottom: 24px;
+  }
+
+  .footer-conteudo h3{
+    padding-bottom: 24px;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .footer-conteudo a{
+    padding-bottom: 8px;
+    align-items: center;
+    display: flex;
+  }
+
+  .footer-conteudo a img{
+    padding-right: 8px;
+  }
+  .redes-icon{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 14px;
+  }
+  .redes-icon img{
+    max-width: 47px;
+  }
+  .footer-direitos{
+    border-top: #000000 solid 1px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    grid-column: 1/4;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-direitos span{
+    font-size: 12px;
+  }
+ 
+ 
 
