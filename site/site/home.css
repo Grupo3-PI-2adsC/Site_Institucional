@@ -1,5 +1,6 @@
 body{
-    background-color: #ffffff;
+    background-color: #bcddf1;
+  
   }
   
  .backgroundimage{
@@ -8,22 +9,17 @@ body{
    width: 100%;
    background-size: cover;
    height: 55vh;
-   box-shadow: black 10px;
-  }
+   box-shadow: 0vh 1vh 1vh 1vh black;
+
+
+   }
+
   a{
     color: inherit;  
   }
 
  
 
-  .botao{
-    background-color: #0037ff00;
-    padding: 5px 30px 5px 30px;
-    font-size: 20px;
-    border-radius: 10px;
-    border-bottom-style: hidden;
-    color: #fafbfd;
-  }
   
   /* inputs */
   .input{
@@ -36,24 +32,7 @@ body{
   }
   
   
-  /* Cores de fonte */
-  
-  /* fonte branca */
-  .b-1{
-    color: #fafbfd;  
-  }
-  /* fonte preta */
-  .p-1{
-    color:#010203;
-  }
-  /* fonte azul escura */
-  .a-1{
-    color: #08102B;
-  }
-  /* fonte cinza */
-  .c-1{
-    color: #868C9F;
-  }
+ 
   
   
   
@@ -65,46 +44,51 @@ body{
   .header-container{
     display: flex;
     justify-content: space-between;
-    margin-left: 90px;
-    margin-right: 90px;
+    margin-left: 30vh;
+    margin-right: 30vh;
   }
   
   .logo img{
-    max-width: 260px;
+    max-width: 50vh;
   }
 
   .login-botao {
     display: flex;
       justify-content: space-between;
       position: relative;
-      width: 90px;
-      top: 20px;
-     color: #fafbfd;
+      width: 12vh ;
+      top: 5vh;
+     color: #000000;
      font-size:x-large;
+     background-color: white ;
+     height: 5vh;
   }
  
   
   .back-cadastro{
-    color: #ffffff;
+    color: #020202;
    position: absolute;
-    right: 250px;
-    width: 90px;
+    right: 25vh;
+    width: 9vh;
     font-size: x-large;
+    background-color: white;
+    height: 5vh;
+    padding-right: 8vh;
   }
 
 
 .inicio{
-  padding-left: 750px;
-  padding-top: 30px;
+  padding-left: 130vh;
+  padding-top: 5vh;
 }
  
   .inicial-conteudo h1, .site-h1{
-    font-size: 36px;
+    font-size: 6vh;
     max-width: 25ch;
-    padding-bottom: 10px;
+    padding-bottom: 2vh;
   }
   .inicial-conteudo p{
-    font-size: 20px;
+    font-size: 4vh;
     max-width: 30ch;
   }
 
@@ -112,33 +96,33 @@ body{
   
   .sobre-nos{
     display: grid;
-    grid-template-columns: 400px 4fr;
+    grid-template-columns: 70vh 4fr;
     justify-items: left;
     align-items: center;
-    padding-left: 170px;
-    padding-top: 50px;
+    padding-left: 30vh;
+    padding-top: 10vh;
   }
 
   .sobre-nos-img img{
-    padding-left: 80px;
+    padding-left: 10vh;
    
   }
 
   .sobre-nos-conteudo h3, .cultura h3{
     color: #08102B;
-    font-size: 36px;
-    padding-bottom: 30px;
-    padding-left: 50px;
+    font-size: 6vh;
+    padding-bottom: 4vh;
+    padding-left: 10vh;
   }
 
   .sobre-nos-conteudo h2, .cultura h2{
-    font-size: 28px;
-    padding-bottom: 20px;
+    font-size: 4vh;
+    padding-bottom: 3vh;
   
   }
 
   .sobre-nos-conteudo p, .cultura p{
-    font-size: x-large;
+    font-size: 5vh;
     max-width: 50ch;
   }
 
@@ -146,17 +130,17 @@ body{
 
   .cultura-segurança{
     display: grid;
-    grid-template-columns: 400px 4fr ;
-    padding-bottom: 25px;
-    padding-left: 50px;
+    grid-template-columns: 70vh 4fr ;
+    padding-bottom: 20vh;
+    padding-left: 5vh;
     
     
   }
   
   .cultura-relacionamento {
     display: grid;
-    grid-template-columns: 400px 4fr ;
-    padding-bottom: 40px;
+    grid-template-columns: 70vh 4fr ;
+    padding-bottom: 20vh;
     padding-left: 150px;
     padding-top: 50px;
     
@@ -185,11 +169,51 @@ body{
     min-height: 600px;
     display: grid;
   }
- 
+ .tituloColab{
+
+  font-style: italic;
+  font-size: 10vh;
+
+ }
+
+  .colaboradores{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vh;
+   padding-right: 5vh;
+   margin-top: 15vh;
+   height: fit-content;
+   background-color: #ffffff;
+   box-shadow: 5px 0px 5px 10px black;
+  }
+
+  
+  .p{
+    padding-left: 0.5vh;
+  }
+
+  .imgcolaboradores{
+
+    max-width: 40vh;
+    width: 30vh;
+
+  }
+  
+  .colaboração{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
 
   /* footer css */
   .footer-container {
     background-color: #5274e4;
+    box-shadow: 5px 0px 5px 10px black;
+
   }
 
   .footer-conteudo{
