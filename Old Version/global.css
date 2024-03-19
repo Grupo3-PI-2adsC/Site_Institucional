@@ -4,6 +4,6 @@
     font-family: Lexend;
     list-style: none;
     text-decoration: none;
-    box-sizing: border-box;
+    max-width: 100%;
   }
  

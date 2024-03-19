@@ -1,0 +1,266 @@
+body{
+    background-color: #bcddf1;
+  
+  }
+  
+ .backgroundimage{
+   background-image: url("img/banner1.png");
+   background-repeat: no-repeat;
+   width: 100%;
+   background-size: cover;
+   height: 55vh;
+   box-shadow: 0vh 1vh 1vh 1vh black;
+
+
+   }
+
+  a{
+    color: inherit;  
+  }
+
+ 
+
+  
+  /* inputs */
+  .input{
+    width: 240px;
+    height:36px ; 
+    background-color: #EEEE; 
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 0px 3px 1px #d4d5d7;
+  }
+  
+  
+ 
+  
+  
+  
+  /* header css */
+  .header-background{
+    background-color: #5274e4;
+  
+  }
+  .header-container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30vh;
+    margin-right: 30vh;
+  }
+  
+  .logo img{
+    max-width: 50vh;
+  }
+
+  .login-botao {
+    display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 12vh ;
+      top: 5vh;
+     color: #000000;
+     font-size:x-large;
+     background-color: white ;
+     height: 5vh;
+  }
+ 
+  
+  .back-cadastro{
+    color: #020202;
+   position: absolute;
+    right: 25vh;
+    width: 9vh;
+    font-size: x-large;
+    background-color: white;
+    height: 5vh;
+    padding-right: 8vh;
+  }
+
+
+.inicio{
+  padding-left: 130vh;
+  padding-top: 5vh;
+}
+ 
+  .inicial-conteudo h1, .site-h1{
+    font-size: 6vh;
+    max-width: 25ch;
+    padding-bottom: 2vh;
+  }
+  .inicial-conteudo p{
+    font-size: 4vh;
+    max-width: 30ch;
+  }
+
+
+  
+  .sobre-nos{
+    display: grid;
+    grid-template-columns: 70vh 4fr;
+    justify-items: left;
+    align-items: center;
+    padding-left: 30vh;
+    padding-top: 10vh;
+  }
+
+  .sobre-nos-img img{
+    padding-left: 10vh;
+   
+  }
+
+  .sobre-nos-conteudo h3, .cultura h3{
+    color: #08102B;
+    font-size: 6vh;
+    padding-bottom: 4vh;
+    padding-left: 10vh;
+  }
+
+  .sobre-nos-conteudo h2, .cultura h2{
+    font-size: 4vh;
+    padding-bottom: 3vh;
+  
+  }
+
+  .sobre-nos-conteudo p, .cultura p{
+    font-size: 5vh;
+    max-width: 50ch;
+  }
+
+
+
+  .cultura-segurança{
+    display: grid;
+    grid-template-columns: 70vh 4fr ;
+    padding-bottom: 20vh;
+    padding-left: 5vh;
+    
+    
+  }
+  
+  .cultura-relacionamento {
+    display: grid;
+    grid-template-columns: 70vh 4fr ;
+    padding-bottom: 20vh;
+    padding-left: 150px;
+    padding-top: 50px;
+    
+    
+  }
+  .cultura-relacionamento p{
+    max-width: 45ch;
+    padding-top: 20px;
+  }
+  
+  .cultura-segurança p{
+    max-width: 40ch;
+    padding-left: 190px;
+    font-size:x-large;
+    padding-top: 10px;
+    
+  }
+  
+  .cultura-conteudo img{
+    max-width: 500px;
+   
+  
+  }
+
+  .cultura, .sobre-nos, .inicial{
+    min-height: 600px;
+    display: grid;
+  }
+ .tituloColab{
+
+  font-style: italic;
+  font-size: 10vh;
+
+ }
+
+  .colaboradores{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vh;
+   padding-right: 5vh;
+   margin-top: 15vh;
+   height: fit-content;
+   background-color: #ffffff;
+   box-shadow: 5px 0px 5px 10px black;
+  }
+
+  
+  .p{
+    padding-left: 0.5vh;
+  }
+
+  .imgcolaboradores{
+
+    max-width: 40vh;
+    width: 30vh;
+
+  }
+  
+  .colaboração{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+
+  /* footer css */
+  .footer-container {
+    background-color: #5274e4;
+    box-shadow: 5px 0px 5px 10px black;
+
+  }
+
+  .footer-conteudo{
+    display:flex;
+    color: #000000;
+    justify-content: space-between;
+    justify-items: center;
+  padding-top: 20px;
+  padding-bottom: 24px;
+  }
+
+  .footer-conteudo h3{
+    padding-bottom: 24px;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .footer-conteudo a{
+    padding-bottom: 8px;
+    align-items: center;
+    display: flex;
+  }
+
+  .footer-conteudo a img{
+    padding-right: 8px;
+  }
+  .redes-icon{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 14px;
+  }
+  .redes-icon img{
+    max-width: 47px;
+  }
+  .footer-direitos{
+    border-top: #000000 solid 1px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    grid-column: 1/4;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-direitos span{
+    font-size: 12px;
+  }
+ 
+ 
+
