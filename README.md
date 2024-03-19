@@ -1,8 +1,5 @@
-![Auto Assign](https://github.com/Grupo3-PI-2adsC/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
+<h1>NetMed</h1> ⚕️
+O projeto **NetMed** consiste no desenvolvimento de um sistema para monitoramento de hardware e rede na área de atendimento de hospitais
 
-![Proof HTML](https://github.com/Grupo3-PI-2adsC/demo-repository/actions/workflows/proof-html.yml/badge.svg)
-
-# Welcome to your organization's demo respository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
-
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+<h1>SPTECH</h1>
+O desenvolvimento deste projeto faz parte da grade curricular do segundo semestre do curso de análise e desenvolvimento de sistemas da instituição **São Paulo Tech School**.
