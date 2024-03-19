@@ -1,0 +1,397 @@
+@font-face {
+    font-family: Bwrlin Sans FB Demi Bold;
+    src: local(Bwrlin Sans FB Demi Bold), url(../fonts/berlin-sans-fb-demi-bold.ttf);
+}
+
+* {
+    font-family: Bwrlin Sans FB Demi Bold;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.divMostrar {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    background-color: #f5deb3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    top: 100px;
+    position: relative;
+}
+
+.inpt {
+    border-radius: 15px;
+    background-color: #FDF2DC;
+    color: black;
+    height: 50px;
+    font-size: 20px;
+    width: 80%;
+}
+
+.botao {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: #712323;
+    background-color: #FDF2DC;
+    width: 170px;
+    height: 35px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.inpts_dash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 0px;
+    min-height: 100%;
+    position: fixed;
+    left: 0;
+    top: 100px;
+    background-color: #712323;
+    font-size: 20px;
+    z-index: 100;
+    transition: 1s;
+}
+
+/* .inpts_dash:hover{
+    
+    width: 15%;
+}
+
+.inpts_dash:hover .content{
+    width: 85%;
+} */
+
+.abridor {
+    position: absolute;
+    right: -50px;
+    top: 1%;
+    /* top:40%; */
+    background-color: #712323;
+    color: #f5deb3;
+    /* border: 5px solid black; */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: left;
+    padding-left: 15px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h3 {
+    color: #f5deb3;
+    font-size: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.inps_limitador {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 20px;
+    color: #f5deb3;
+}
+
+
+.graf {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.graficos {
+    margin-bottom: 50px;
+}
+
+.Sensor {
+    width: 100%;
+    height: 30px;
+}
+
+select {
+    color: #712323;
+    padding: 10px;
+}
+
+.select {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar a:hover {
+    border-left: 4px solid black;
+    background-color: #f5deb3;
+    color: #712323;
+    font-weight: bold;
+}
+
+/* fim da sidebar */
+
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* background-color: rgba(224, 220, 220, 0.425); */
+    /* padding: 10px; */
+    right: 0;
+    transition: 1s;
+
+}
+
+.titulo-secao {
+    border-radius: 10px;
+    background-color: #712323;
+    padding: 10px;
+    border: black 1px solid;
+}
+
+.titulo-secao h2 {
+    font: 19px;
+
+}
+
+.titulo-secao p,
+h2 {
+    color: #000;
+}
+
+.separador {
+    width: 1px;
+    height: 100%;
+    background-color: #f5deb3;
+}
+
+.divInforma {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #f5deb3;
+}
+
+.box-informacoes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: space-between;
+    min-height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 30px;
+    background-color: #712323;
+}
+
+.box-ideal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 20px;
+    width: 250px;
+    min-height: 150px;
+}
+
+.ideal {
+    background-color: #29cf00;
+    padding: 10px;
+    border-radius: 10px;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.canva {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 45%;
+    justify-content: center;
+
+}
+
+.canva2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    row-gap: 10px;
+    margin-top: 30px;
+}
+
+.graf-conteudo {
+    display: flex;
+    /* height: 100%; */
+    width: 50%;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #fff0;
+    margin-right: 90px;
+}
+
+.btnMostrar {
+    align-self: center;
+    width: 50%;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #712323;
+    background-color: #f5deb3;
+    font-family: Bwrlin Sans FB Demi Bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.Sensor {
+    text-align: center;
+}
+
+.doughnut {
+    width: 25%;
+    align-self: center;
+    justify-content: flex-end;
+    margin-bottom: 45px;
+    flex-direction: column;
+}
+
+.doughnut>h1 {
+    font-size: 20px;
+}
+
+.cnvs {
+    width: 100%;
+    height: 322px;
+}
+
+
+
+/* TESTEEEEE */
+
+
+.conteudo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.infosSensores {
+    /* background-color: green; */
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cardsDash {
+    height: 30%;
+    width: 95%;
+    border: 1px solid #712323;
+    background-color: #ffffff54;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.cd2 {
+
+    flex-direction: row;
+    column-gap: 20px;
+
+}
+
+.cardsSeparacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    /* border: 1px solid black; */
+}
+
+.cardInformacoes {
+    height: 70%;
+    width: 100%;
+    display: flex;
+}
+
+.cardMetricas {
+    display: flex;
+    width: 50%;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.metricasInfo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgMetricas {
+    width: 25%;
+}
+
+.divGraficos {
+    width: 70%;
+    height: 97%;
+    text-align: center;
+    background-color: #f8e9cc;
+    margin-top: 15px;
+    border-radius: 15px;
+    border: 1px solid #712323;
+    margin-right: 20px;
+}
+
+.divGraficos h2 {
+    margin-top: 20px;
+}
