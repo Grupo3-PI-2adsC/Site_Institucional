@@ -1,5 +1,5 @@
 <h1>NetMed ⚕️</h1>
-![site/site/img/logo2.5](https://github.com/Grupo3-PI-2adsC/Repositorio_Site/blob/main/site/site/img/logo2.5.png)
+![image](/site/site/img/logo2.5.png
 O projeto **NetMed** consiste no desenvolvimento de um sistema para monitoramento de hardware e rede na área de atendimento de hospitais
 
 <h1>SPTECH</h1>
