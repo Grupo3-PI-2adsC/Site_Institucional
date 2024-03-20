@@ -1,5 +1,5 @@
 <h1>NetMed ⚕️</h1>
-![image](/site/site/img/logo1.png)
+! [image](/site/site/img/logo1.png)
 <br>
 O projeto **NetMed** consiste no desenvolvimento de um sistema para monitoramento de hardware e rede na área de atendimento de hospitais
 
