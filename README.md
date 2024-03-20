@@ -1,4 +1,4 @@
-<img src="/site/site/img/logo2.5.png" alt="">
+<img widht="200px" src="/site/site/img/logo2.5.png" alt="">
 O projeto **NetMed** consiste no desenvolvimento de um sistema para monitoramento de hardware e rede na área de atendimento de hospitais
 
 <h1>SPTECH</h1>
