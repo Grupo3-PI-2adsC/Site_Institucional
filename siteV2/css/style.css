@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
+*{
+    font-family: "Varela", sans-serif;
+    font-weight: 400;
+    font-size: large;
+    font-style: normal;
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    align-items: center;
+}
+
+.logoHeader{
+    font-size: x-large;
+}
+
+.headerLeft{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+
+.navbar{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+}
+
+.headerRight{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    column-gap: 30px;
+    padding-right: 50px;
+}
+
+.navbarBtn{
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: #1D3557;
+    color: #F1FAEE;
+}

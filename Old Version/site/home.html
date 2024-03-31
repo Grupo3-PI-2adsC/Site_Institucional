@@ -1,85 +1,236 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>NetMed</title>
-    
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="global.css">
-    
-  </head>
-  <body id="home">
-    <header class="header">
-      
-      <div class="logo">
-        <img src="img/logo1.png" alt="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>NetMed</title>
+
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="global.css">
+
+</head>
+
+<body id="home">
+  <header class="header">
+
+    <div class="logo">
+      <img src="img/logo1.png" alt="">
+    </div>
+    <div class="header-container">
+      <div class="divUL">
+
+        <ul class="UL">
+          <li class="liepa">
+            <a href="cadastro.html">
+
+              <button class="btnHeader">Cadastro</button>
+            </a>
+          </li>
+          <li class="liepa">
+            <a href="login.html">
+
+              <button class="btnHeader">Login</button>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="header-container">
-        <div class="divUL">
+    </div>
+  </header>
 
-          <ul class="UL">
-            <li class="liepa">
-             <a href="cadastro.html">
 
-               <button class="btnHeader">Cadastro</button>
-             </a>
-            </li>
-            <li class="liepa">
-             <a href="login.html">
+  <main>
 
-               <button class="btnHeader">Login</button>
-             </a> 
-            </li>
-          </ul>
+    <div class="abridor" onclick="abrir()">| | |</div>
+
+    <div class="sidebar">
+      <div class="abridor">| | |</div>
+      <div id="div_mensagem" class="divErro"></div>
+      <div class="divCad" id="divLogin">
+        <div class="input_titulo inpt_side">Login</div>
+        <div class="inpt_side">
+          Email <input class="inptLogin" type="email" id="emailLogin" name="" />
+        </div>
+        <div class="inpt_side">
+          Senha
+          <input class="inptLogin" type="password" id="senhaLogin" name="" />
+        </div>
+        <div class="inpt_side">
+          <br />
+          <a href="#" class="buttonTeste" onclick="entrar()" style="--colorBack: #fee07c"><span>Logar</span><i></i></a>
+          <br /><br />
+          <a onclick="aparecer()" class="btnAparecer"><u><i>Não possui cadastro? clique aqui</i></u></a>
         </div>
       </div>
-      </header>
-    
-
-<main>
-
-  <div class="abridor" onclick="abrir()">| | |</div>
   
-  <section class="backgroundimage">
-    
-    <div class="inicio ">  
-      
-      <div class=" inicial-conteudo">
-
-        <h1>A empresa parceira que te auxilia a monitorar</h1>
-        
-        <p>Seja bem-vindo(a) à NetMed, a sua parceira confiável em monitoramento de trafego de redes em hospitais!</p>
-
-        <div class="opcoesresponsivo">
-          <ul class="UL">
-            <li class="liepa">
-             <a href="cadastro.html">
-
-               <button class="btnHeader">Cadastro</button>
-             </a>
-            </li>
-            <li class="liepa">
-             <a href="login.html">
-
-               <button class="btnHeader">Login</button>
-             </a> 
-            </li>
-          </ul>
+      <div class="divCad" id="divPerfil">
+        <div class="input_titulo inpt_side">Perfil</div>
+        <div class="inpt_side imgSide" id="divFoto">
+          <img src="img/default.png" width="100%" height="200px" />
         </div>
-        
+        <div class="inpt_side">
+          <span style="display: flex; flex-direction: column">
+            <!--<input name="foto" id="fotoTroca" type="file" style="display: none;"/>-->
+            <label for="fotoTroca" id="lblFoto" style="display: none">Enviar arquivo</label>
+            <input type="file" name="foto" id="fotoTroca" />
+          </span>
+          <br />
+          <a href="#" class="buttonPerfil" onclick="mudarfoto()" style="--colorBack: #fee07c"><span>Mudar foto de
+              perfil</span><i></i></a>
+          <br />
+        </div>
+        <div class="inpt_side">
+          <span id="spnNome"></span>
+        </div>
+        <div class="inpt_side">
+          <span id="spnEmail"></span>
+        </div>
+        <div class="inpt_side">
+          <br />
+          <a href="#" class="buttonTeste" onclick="sair()" style="--colorBack: #fee07c"><span>Sair</span><i></i></a>
+          <br />
+        </div>
       </div>
+  
+      <div class="divCad" id="divCad" style="display: none">
+        <div class="input_titulo inpt_side">Cadastro</div>
+        <div class="inpt_side">
+          Nome <input class="inptLogin" type="email" id="nomeCad" name="" />
+        </div>
+        <div class="inpt_side">
+          Orientação sexual
+          <select name="slcOrientacao" class="slcGrafico" id="slcOrientacao">
+            <option value="Masculino">Masculino</option>
+            <option value="Feminimo">Feminimo</option>
+            <option value="outros">outros</option>
+            <input type="text" id="inpt_Orientacao" style="display: none" />
+          </select>
+        </div>
+        <div class="inpt_side">
+          Email <input class="inptLogin" type="email" id="emailCad" name="" />
+        </div>
+        <div class="inpt_side">
+          Senha
+          <input class="inptLogin" type="password" id="senhaCad" name="" />
+        </div>
+        <div class="inpt_side">
+          Confirmar Senha
+          <input class="inptLogin" type="password" id="confsenhaCad" name="" />
+        </div>
+        <div class="inpt_side">
+          Data de nascimento <input type="date" id="dtNascCad" name="" />
+        </div>
+        <div class="inpt_side">
+          <br />
+          <a href="#" class="buttonTeste" onclick="cadastrar()"
+            style="--colorBack: #fee07c"><span>Cadastrar</span><i></i></a>
+          <br /><br />
+          <a onclick="aparecer()" class="btnAparecer"><u><i>Já possui um cadastro? clique aqui</i></u></a>
+        </div>
+      </div>
+  
+      <div class="divCad" id="divCad2" style="display: none">
+        <div class="input_titulo inpt_side">Cadastro</div>
+        <div class="inpt_side">
+          Cep
+          <input class="inptLogin" type="email" id="cepCad" name="" maxlength="8" />
+        </div>
+        <div class="inpt_side">
+          Banda Favorita:
+          <select id="slcBanda" name="" class="slcGrafico">
+            <option value="metalica">Metalica</option>
+            <option value="Red Hot Chili Peppers">Red Hot Chili Peppers</option>
+            <option value="The Beatles">The Beatles</option>
+            <option value="The Rolling Stones">The Rolling Stones</option>
+            <option value="AC/DC">AC/DC</option>
+            <option value="Guns N' Roses">Guns N' Roses</option>
+            <option value="Black Sabbath">Black Sabbath</option>
+            <option value="Led Zeppelin">Led Zeppelin</option>
+            <option value="The who">The who</option>
+            <option value="Nirvana">Nirvana</option>
+            <option value="Pink Floyd">Pink Floyd</option>
+            <option value="Queen">Queen</option>
+            <option value="U2">U2</option>
+            <option value="The Doors">The Doors</option>
+            <option value="Pearl Jam">Pearl Jam</option>
+            <option value="Journey">Journey</option>
+            <option value="Aerosmith">Aerosmith</option>
+            <option value="Foo Fighters">Foo Fighters</option>
+            <option value="Van Halen">Van Halen</option>
+            <option value="Green Day">Green Day</option>
+            <option value="Bon Jovi">Bon Jovi</option>
+            <option value="Def Leppard">Def Leppard</option>
+            <option value="Boston">Boston</option>
+            <option value="Joan Jett and the Blackhearts">
+              Joan Jett and the Blackhearts
+            </option>
+            <option value="outro">outro</option>
+          </select>
+        </div>
+        <div class="inpt_side">
+          Estilo de musica favorita:
+          <select id="slcEstilo" name="" class="slcGrafico">
+            <option value="Rock" selected>Selecione uma banda</option>
+            <option value="Rock">Rock</option>
+            <option value="Metal">Metal</option>
+            <option value="Punk">Punk</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Pop">Pop</option>
+            <option value="Blues">Blues</option>
+            <option value="Reggae">Reggae</option>
+            <option value="outros">outros</option>
+          </select>
+        </div>
+        <div class="inpt_side">
+          <br />
+          <a href="#" class="buttonTeste" onclick="cadastrarBanda()"
+            style="--colorBack: #fee07c"><span>Cadastrar</span><i></i></a>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+    <section class="backgroundimage">
+
+      <div class="inicio ">
+
+        <div class=" inicial-conteudo">
+
+          <h1>A empresa parceira que te auxilia a monitorar</h1>
+
+          <p>Seja bem-vindo(a) à NetMed, a sua parceira confiável em monitoramento de trafego de redes em hospitais!</p>
+
+          <div class="opcoesresponsivo">
+            <ul class="UL">
+              <li class="liepa">
+                <a href="cadastro.html">
+
+                  <button class="btnHeader">Cadastro</button>
+                </a>
+              </li>
+              <li class="liepa">
+                <a href="login.html">
+
+                  <button class="btnHeader">Login</button>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
     </section>
-    
-    
-    
-    
-    
+
+
+
+
+
     <section class="sobre-nos">
-      
+
       <div class="sobre-nos-conteudo">
         <h3>Quem somos nós?</h3>
-        <p>Na <span> <b>NetMed</b></span>, estamos comprometidos em fornecer soluções de monitoramento, que garantam a conectividade e a confiabilidade da sua máquina em relação á rede. <br> Com uma equipe de <span> <b>especialistas</b></span> apaixonados por tecnologia e inovação, trabalhamos incansavelmente para proteger os ativos mais críticos da sua empresa.
+        <p>Na <span> <b>NetMed</b></span>, estamos comprometidos em fornecer soluções de monitoramento, que garantam a
+          conectividade e a confiabilidade da sua máquina em relação á rede. <br> Com uma equipe de <span>
+            <b>especialistas</b></span> apaixonados por tecnologia e inovação, trabalhamos incansavelmente para proteger
+          os ativos mais críticos da sua empresa.
         </p>
       </div>
 
@@ -87,169 +238,179 @@
         <img style="width: 550px;" src="img/conexão.png" alt="aaaaaaaaaaaaaaaa">
       </div>
     </section>
-    <hr style="margin: 0px 50px 30px 50px;" >
+    <hr style="margin: 0px 50px 30px 50px;">
     <section id="cultura" class="cultura">
       <div>
-        
+
         <h1 class="culturattl">Cultura</h1>
-       
-        
+
+
         <div class="cultura-conteudo">
           <div class="cultura-segurança">
-            
-            <img class="img-seg"  src="img/segurancaresponsive.png" alt="Ilustração">
-            
-            <div class="seguranca">  
-              <h2 >Segurança</h2>
-              
-              <p>Na <b>NetMed</b>, acreditamos que a segurança é a base de qualquer ambiente que garanta a integridade dos seus dados. <br>
-                Juntamente com nossos colaboradores, oferecemos um ótimo monitoramento, com segurança e confidencialidade.</p>
-              </div>
-            </div>
-            
-          
 
-            <div class="cultura-relacionamento">
-              <div class="relacionamento">
-                <h2 >Relacionamento</h2>
-                <p>Acreditamos que para entregamos o melhor projeto possível, o relacionamento entre a <b>NetMed</b> e a sua empresa devem ser fortes. <br> A comunicação do relacionamento será ativa para atingir os objetivos e as metas.
-                </p>
-              </div>
-                <img src="img/relacionamento.png" alt="">
-     </div>
-    </div>
-  </div>
- 
-  <div class="conectividade">
-    
-    <img src="img/NoticiasAnimada.gif" alt="aaaaaaaaaa">
-    
-    <div>
-      <h1> Conectividade </h1>
-      <P> Acreditamos que a <span><b> Conectividade</b></span>
-        é essêncial nos tempos de hoje, principalmente em hospitais, aonde reside diversas pessoas com necessidades maiores de atenção á saúde. Esse é um dos nossos valores mais importantes, sem ele não geramos bons resultados.</P></div>
+            <img class="img-seg" src="img/segurancaresponsive.png" alt="Ilustração">
+
+            <div class="seguranca">
+              <h2>Segurança</h2>
+
+              <p>Na <b>NetMed</b>, acreditamos que a segurança é a base de qualquer ambiente que garanta a integridade
+                dos seus dados. <br>
+                Juntamente com nossos colaboradores, oferecemos um ótimo monitoramento, com segurança e
+                confidencialidade.</p>
+            </div>
+          </div>
+
+
+
+          <div class="cultura-relacionamento">
+            <div class="relacionamento">
+              <h2>Relacionamento</h2>
+              <p>Acreditamos que para entregamos o melhor projeto possível, o relacionamento entre a <b>NetMed</b> e a
+                sua empresa devem ser fortes. <br> A comunicação do relacionamento será ativa para atingir os objetivos
+                e as metas.
+              </p>
+            </div>
+            <img src="img/relacionamento.png" alt="">
+          </div>
+        </div>
       </div>
-      
-   
+
+      <div class="conectividade">
+
+        <img src="img/NoticiasAnimada.gif" alt="aaaaaaaaaa">
+
+        <div>
+          <h1> Conectividade </h1>
+          <P> Acreditamos que a <span><b> Conectividade</b></span>
+            é essêncial nos tempos de hoje, principalmente em hospitais, aonde reside diversas pessoas com necessidades
+            maiores de atenção á saúde. Esse é um dos nossos valores mais importantes, sem ele não geramos bons
+            resultados.</P>
+        </div>
+      </div>
+
+
 
       <div class="solucao">
-        
+
         <div>
           <h1> Solução proposta </h1>
-          
-          <P> Nossa soluçao aborda a entrega de um software intuitivo que permite aos nossos clientes acompanhar em tempo real o status de sua rede atual. Periodicamente de acordo com o nível de acionamento, poderemos estar atuando indiretamente dentro de sua máquina, para eventual resolução de requisições, incidentes ou problemas, por meio de um manual! 
+
+          <P> Nossa soluçao aborda a entrega de um software intuitivo que permite aos nossos clientes acompanhar em
+            tempo real o status de sua rede atual. Periodicamente de acordo com o nível de acionamento, poderemos estar
+            atuando indiretamente dentro de sua máquina, para eventual resolução de requisições, incidentes ou
+            problemas, por meio de um manual!
           </P>
-          
+
         </div>
         <img src="img/solucao.png" alt="aaaaaaaaaa">
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <h1 class="tituloColab">Colaboradores NetMed</h1>
-      
+
       <div class="backcolaboradores">
-        
-        
+
+
         <div class="colaboradores">
-          
+
           <div>
             <img class="imgcolaboradores" src="colaboradores/kaiqui.png" alt="kaiqui">
             <p class="p">Kaiqui Petty</p>
           </div>
-          
+
           <div>
             <img class="imgcolaboradores" src="colaboradores/bins.png" alt="bins">
             <p class="p">Matteus Bins</p>
           </div>
-          
+
           <div>
             <img class="imgcolaboradores" src="colaboradores/ket.png" alt="ket">
             <p class="p">Kettelyn Medina</p>
           </div>
         </div>
-        
+
         <div class="colaboradores">
           <div>
             <img class="imgcolaboradores" src="colaboradores/vagner.png" alt="vagner">
             <p class="p">Vagner Di Benedetto</p>
           </div>
-          
+
           <div>
             <img class="imgcolaboradores" src="colaboradores/gabriel.png" alt="gabriel">
             <p class="p">Gabriel Gonçalves</p>
           </div>
-          
+
           <div>
             <img class="imgcolaboradores" src="colaboradores/bins.png" alt="karen">
             <p class="p">Karen Almeida</p>
           </div>
-          
-        </div>
-        
-        
-      </div>
-      
-    </section>
-    
-    <section>
-      
-      
-      
-        <div class="apoio">
 
-          <h1 style="padding-bottom: 12vh;">Apoio:</h1>
-          
-          
-          <img width="300vh" height="100vh" src="colaboradores/sptech.png" alt="">
         </div>
-          
-      
+
+
+      </div>
+
+    </section>
+
+    <section>
+
+
+
+      <div class="apoio">
+
+        <h1 style="padding-bottom: 12vh;">Apoio:</h1>
+
+
+        <img width="300vh" height="100vh" src="colaboradores/sptech.png" alt="">
+      </div>
+
+
       <hr style="margin: 70px 50px 0px 50px;">
-      
-      
+
+
       <div class="colaboração">
-        
+
         <img class="v8" width="300vh" src="colaboradores/v8.png" alt="">
-        <img class="vokeialfa" width="200vh" height="70vh"  src="colaboradores/voke.png" alt="">
+        <img class="vokeialfa" width="200vh" height="70vh" src="colaboradores/voke.png" alt="">
         <img class="stefanini" width="200vh" height="100vh" src="colaboradores/stefanini.png" alt="">
         <img class="vokeialfa" width="200vh" height="70vh" src="colaboradores/alfa.png" alt="">
         <img class="rapi" src="colaboradores/rappi.png" alt="">
-        
-        
+
+
       </div>
 
-      <div >
-          <div class="colaboraçãorsp">
+      <div>
+        <div class="colaboraçãorsp">
           <img class="v8" width="300vh" src="colaboradores/v8.png" alt="">
-          <img class="vokeialfa"  src="colaboradores/voke.png" alt="">
+          <img class="vokeialfa" src="colaboradores/voke.png" alt="">
         </div>
 
-        
-        
+
+
         <div class="colaboraçãorsp">
-          
-          <img class="stefanini"  src="colaboradores/stefanini.png" alt="">
-          <img class="vokeialfa"  src="colaboradores/alfa.png" alt="">
+
+          <img class="stefanini" src="colaboradores/stefanini.png" alt="">
+          <img class="vokeialfa" src="colaboradores/alfa.png" alt="">
         </div>
-        <img class="rappi"  src="colaboradores/rappi.png" alt="">
+        <img class="rappi" src="colaboradores/rappi.png" alt="">
       </div>
     </section>
-    
-    
+
+
     <footer id="footer" class="footer-container">
       <div class="margin footer-conteudo">
         <div class="footer-fale-conosco">
           <h3>Fale conosco</h3>
-          
-          <ul >
+
+          <ul>
             <li><a href="mail:tonetmed@gmail.com"><img src="img/Email.png" alt="">netmed@gmail.com</a></li>
             <li><a href="tel:9999-9999"><img src="img/Phone.png" alt="">9999-9999</a></li>
           </ul>
         </div>
-        <div class="footer-redes" >
+        <div class="footer-redes">
           <h3>Redes Sociais</h3>
           <ul class="redes-icon">
             <li><a href=""><img src="img/Instagram.png" alt=""></a></li>
@@ -257,40 +418,41 @@
             <li><a href="https://www.linkedin.com/in/be-cold-592849298/"><img src="img/LinkedIn.png" alt=""></a></li>
           </ul>
         </div>
-        
+
       </div>
       <div class="margin footer-direitos">
         <h3>NetMed</h3>
         <span>© 2024 NetMed. Todos os direitos reservados.</span>
       </div>
     </footer>
-    
+
 
   </main>
-  </body>
-  </html>
+</body>
 
-  <script>
+</html>
 
-function abrir() {
-        if (inpts_dash.style.width == '15%') {
-            inpts_dash.style.width = '0px'
-            content.style.width = '100%'
-        } else {
-            inpts_dash.style.width = '15%'
-            content.style.width = '85%'
-        }
-    }
+<script>
 
-    if (sessionStorage.logado == 1) {
-        dashUser.style.display = 'block'
-        btnUser.style.display = 'none'
-        sairUser.style.display = 'block'
+  function abrir() {
+    if (sidebar.style.width == '15%') {
+      inpts_dash.style.width = '0px'
+      content.style.width = '100%'
+    } else {
+      inpts_dash.style.width = '15%'
+      content.style.width = '85%'
     }
-    else {
-        dashUser.style.display = 'none'
-        btnUser.style.display = 'block'
-        sairUser.style.display = 'none'
-    }
-  
-  </script>
+  }
+
+  if (sessionStorage.logado == 1) {
+    dashUser.style.display = 'block'
+    btnUser.style.display = 'none'
+    sairUser.style.display = 'block'
+  }
+  else {
+    dashUser.style.display = 'none'
+    btnUser.style.display = 'block'
+    sairUser.style.display = 'none'
+  }
+
+</script>

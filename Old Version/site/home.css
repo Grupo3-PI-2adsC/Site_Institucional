@@ -152,6 +152,17 @@ padding-left: 120vh;
 padding-top: 20vh;
 }
 
+.abridor{
+  background-color: orange;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 20px 20px 0px;
+}
+
 .inicial-conteudo h1, .site-h1{
   font-size: 6vh;
   max-width: 25ch;
@@ -419,11 +430,45 @@ padding-bottom: 24px;
 }
 
 
+.sidebar {
+  height: 100%;
+  width: 0px;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  position: fixed;
+  background: #27282c;
+  border-radius: 16px 0;
 
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  padding-top: 20px;
+}
+.abridor {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  background-color: #fee07c;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: left;
+  padding-left: 15px;
+  align-items: center;
+  border-radius: 5px;
+}
 
 
 @media screen and (max-width: 1025px){
- 
+
+  .abridor{
+    display: flex;
+  }
+
+
   
   .header{
     background-color: #5274e4;  
