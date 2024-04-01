@@ -2,9 +2,10 @@
 
 *{
     font-family: "Varela", sans-serif;
-    font-weight: 400;
-    font-size: large;
+    font-weight: 700;
+    font-size: x-large;
     font-style: normal;
+    color: #22223B;
 
     margin: 0px;
     padding: 0px;
@@ -15,17 +16,18 @@ header{
     width: 100vw;
     display: flex;
     flex-direction: row;
-    height: 80px;
+    height: 100px;
     align-items: center;
+    position: fixed;
 }
 
 .logoHeader{
-    font-size: x-large;
+    font-size: xx-large;
     color: #22223B;
 }
 
 .headerLeft{
-    width: 60%;
+    width: 45%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -50,7 +52,7 @@ header{
 }
 
 .headerRight{
-    width: 40%;
+    width: 55%;
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -69,6 +71,28 @@ header{
     background-image: url("../img/vista-superior-da-recepcao-da-clinica-com-enfermeira-profissional-e-medico-senior-perguntando-a-recepcionista-sobre-a-proxima-consulta-sala-de-espera-do-hospital-com-diversas-pessoas-falando-sobre-oferta-de-folheto\ 1.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 120vh;
-    width: 100vw;
+    height: 110vh;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.conteudo_pg1{
+    height: 40%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 150px;
+}
+.conteudo_pg1 h1{
+    font-weight: 400;
+    font-size: 60px;
+}
+
+.conteudo_pg1 p{
+    font-weight: 400;
+    font-size: 40px;
 }
