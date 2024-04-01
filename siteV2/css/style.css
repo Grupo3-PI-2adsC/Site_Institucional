@@ -68,10 +68,10 @@ header{
 }
 
 .pg1{
-    background-image: url("../img/background-principal.png");
+    background-image: url("../img/background-principal-teste.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 120vh;
+    height: 130vh;
     width: 100%;
     display: flex;
     justify-content: left;
