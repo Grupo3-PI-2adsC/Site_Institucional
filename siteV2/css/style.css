@@ -21,6 +21,7 @@ header{
 
 .logoHeader{
     font-size: x-large;
+    color: #22223B;
 }
 
 .headerLeft{
@@ -38,6 +39,16 @@ header{
     column-gap: 50px;
 }
 
+.navbarOption{
+    text-decoration: none;
+    color: #22223B;
+}
+
+.navbarBtn{
+    cursor: pointer;
+    
+}
+
 .headerRight{
     width: 40%;
     display: flex;
@@ -52,4 +63,12 @@ header{
     border-radius: 15px;
     background-color: #1D3557;
     color: #F1FAEE;
+}
+
+.pg1{
+    background-image: url("../img/vista-superior-da-recepcao-da-clinica-com-enfermeira-profissional-e-medico-senior-perguntando-a-recepcionista-sobre-a-proxima-consulta-sala-de-espera-do-hospital-com-diversas-pessoas-falando-sobre-oferta-de-folheto\ 1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120vh;
+    width: 100vw;
 }
