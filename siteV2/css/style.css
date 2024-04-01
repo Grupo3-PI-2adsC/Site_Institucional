@@ -16,10 +16,16 @@ header {
     width: 100vw;
     display: flex;
     flex-direction: row;
-    height: 100px;
+    height: 67px;
     align-items: center;
     position: fixed;
     z-index: 1000;
+    transition: 0.8s;
+    border-radius: 0px 0px 50px 27px;
+}
+
+header.rolagem{
+    background-color: #E63946;
 }
 
 main {
@@ -34,16 +40,19 @@ main {
 .headerLeft {
     width: 45%;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 30px;
 }
 
-.navbar {
+.navbar2 {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     column-gap: 50px;
+    padding-left: 0%;
+    margin-bottom: 0;
 }
 
 .navbarOption {
