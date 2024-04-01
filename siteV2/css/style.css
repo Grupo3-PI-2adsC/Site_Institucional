@@ -68,10 +68,10 @@ header{
 }
 
 .pg1{
-    background-image: url("../img/vista-superior-da-recepcao-da-clinica-com-enfermeira-profissional-e-medico-senior-perguntando-a-recepcionista-sobre-a-proxima-consulta-sala-de-espera-do-hospital-com-diversas-pessoas-falando-sobre-oferta-de-folheto\ 1.png");
+    background-image: url("../img/background-principal.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 110vh;
+    height: 120vh;
     width: 100%;
     display: flex;
     justify-content: left;
@@ -90,6 +90,8 @@ header{
 .conteudo_pg1 h1{
     font-weight: 400;
     font-size: 60px;
+    color: #22223B;
+
 }
 
 .conteudo_pg1 p{
