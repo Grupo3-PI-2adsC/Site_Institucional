@@ -1,82 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
 
-* {
-    font-family: "Varela", sans-serif;
-    font-weight: 500;
-    font-size: large;
-    font-style: normal;
-    color: #22223B;
-
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-header {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    height: 67px;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;
-    transition: 0.8s;
-    border-radius: 0px 0px 50px 27px;
-}
-
-header.rolagem{
-    background-color: #E63946;
-}
-
-main {
-    background-color: #EDF2F4;
-}
-
-.logoHeader {
-    font-size: x-large;
-    color: #22223B;
-}
-
-.headerLeft {
-    width: 45%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0px 30px;
-}
-
-.navbar2 {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    column-gap: 50px;
-    padding-left: 0%;
-    margin-bottom: 0;
-}
-
-.navbarOption {
-    text-decoration: none;
-    color: #22223B;
-}
-
-.headerRight {
-    width: 55%;
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    column-gap: 30px;
-    padding-right: 50px;
-}
-
-.navbarBtn {
-    padding: 5px 15px;
-    border-radius: 15px;
-    background-color: #1D3557;
-    cursor: pointer;
-    color: #F1FAEE;
-    border: none
-}
 
 .pg {
     height: 100vh;
@@ -235,7 +157,7 @@ main {
 
 .card2 {
     position: relative;
-    transition: transform 1500ms;
+    transition: transform 1000ms;
     transform-style: preserve-3d;
 }
 

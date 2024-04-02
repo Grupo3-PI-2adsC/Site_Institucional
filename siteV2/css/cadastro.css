@@ -1,0 +1,42 @@
+main{
+    height: 100vh;
+    width: 100vw;
+}
+
+.fundo_cadastro{
+    background-image: url("../img/blackground_cadastro.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+
+}
+
+header{
+    background-color: #E63946;
+}
+
+.index{
+    z-index: 20;
+    position: absolute;
+}
+
+.div_cadastro{
+    width: 35%;
+    height: 70%;
+    background-color: #E63946;
+    transform: translateY(30%);
+    right: 15%;
+    border-radius: 30px;
+    box-shadow: 20px 15px 0px #1D3557;
+    border: #1D3557 solid 3.5px;
+
+}
+
+.texto_cadastro{
+    font-size: 60px;
+    top: 48%;
+    left: 13%;
+}

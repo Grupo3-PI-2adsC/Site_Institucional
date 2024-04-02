@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
+* {
+    font-family: "Varela", sans-serif;
+    font-weight: 500;
+    font-size: large;
+    font-style: normal;
+    color: #22223B;
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    height: 67px;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    transition: 0.8s;
+    border-radius: 0px 0px 50px 27px;
+}
+
+header.rolagem {
+    background-color: #E63946;
+}
+
+main {
+    background-color: #EDF2F4;
+}
+
+.logoHeader {
+    font-size: x-large;
+    color: #22223B;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.logoHeader:hover {
+    color: #EDF2F4;
+    transition: 300ms;
+    text-shadow: 0 0 8px black;
+}
+
+.headerLeft {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 30px;
+    
+}
+
+.navbar2 {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    padding-left: 0%;
+    margin-bottom: 0;
+}
+
+.navbarOption {
+    text-decoration: none;
+    color: #22223B;
+    font-weight: bold;
+
+}
+
+.linha_baixo {
+    position: relative;
+}
+
+.linha_baixo:hover{
+    color: #EDF2F4;
+    transition: 0.3s;
+}
+
+
+.linha_baixo:after {
+    content: "";
+    position: absolute;
+    background-color: #1D3557;
+    height: 1px;
+    width: 0%;
+    left: 0;
+    bottom: 0.3px;
+    transition: 0.3s;
+}
+
+.linha_baixo:hover:after {
+    width: 100%;
+    background-color: #EDF2F4;
+}
+
+
+.headerRight {
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    column-gap: 30px;
+    padding-right: 50px;
+}
+
+.navbarBtn {
+    padding: 5px 15px;
+    background-color: #1D3557;
+    cursor: pointer;
+    border: none
+}
+
+
+
+.btnHeader {
+    background: none;
+    cursor: pointer;
+    border: #1D3557 solid 3px;
+    transition: corPula 0, 4s linear;
+    position: relative;
+    align-self: center;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    color: #1D3557;
+    font-weight: bold;
+}
+
+.btnHeader:hover {
+    color: white;
+}
+
+.btnHeader::before {
+    content: '';
+    border-radius: 13px;
+    color: #F1FAEE;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1D3557;
+    z-index: -1;
+    transition: transform 0.65s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    transform: scaleX(0);
+}
+
+.btnHeader:hover::before {
+    transform: scaleX(1);
+}
