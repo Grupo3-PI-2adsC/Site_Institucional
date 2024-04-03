@@ -1,0 +1,12 @@
+main{
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    background-color: #E63946;
+}
+.index{
+    z-index: 20;
+    position: absolute;
+}
