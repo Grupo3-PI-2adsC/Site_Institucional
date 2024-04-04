@@ -179,3 +179,55 @@
     align-items: center;
     gap: 5rem;
 }
+
+.pg3 {
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 43px 0px 20px;
+}
+
+.cardUser1,
+.cardUser2 {
+    background-color: #A8DADC;
+    height: 30vh;
+    width: 92vh;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.userStory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quadradoMeio {
+    background-color: #E63946;
+    opacity: 0.46;
+    width: 50vh;
+    height: 10vh;
+}
+
+.grupoIconF,
+.grupoIconM {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    font-size: 17px;
+    width: 345px;
+    margin-bottom: 0rem;
+}
+
+.storyboard {
+    height: 74.5vh;
+    width: 85vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vh;
+}
