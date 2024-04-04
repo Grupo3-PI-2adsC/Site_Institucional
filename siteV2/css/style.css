@@ -1,7 +1,8 @@
 
 
 .pg {
-    height: 100vh;
+    height: 88vh;
+    width: 100%;
 }
 
 .pg1 {
@@ -9,7 +10,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 123vh;
-    width: 100%;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -39,7 +39,6 @@
 .pg2 {
     display: flex;
     align-items: center;
-    height: 88vh;
 }
 
 .carousel_serv {
@@ -181,17 +180,16 @@
 }
 
 .pg3 {
-    height: 80vh;
     display: flex;
     justify-content: space-between;
-    margin: 60px 43px 0px 20px;
+    align-items: center;
+    padding: 0px 50px;
 }
 
-.cardUser1,
-.cardUser2 {
+.cardUser {
     background-color: #A8DADC;
-    height: 30vh;
-    width: 92vh;
+    height: 30%;
+    width: 100%;
     border-radius: 80px;
     display: flex;
     align-items: center;
@@ -199,35 +197,40 @@
 }
 
 .userStory {
+    height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .quadradoMeio {
     background-color: #E63946;
     opacity: 0.46;
-    width: 50vh;
-    height: 10vh;
+    width: 50%;
+    height: 10%;
 }
 
-.grupoIconF,
-.grupoIconM {
+.grupoIcon{
     display: flex;
     flex-direction: column;
 }
 
-p {
+.cardUser p {
     font-size: 17px;
-    width: 345px;
-    margin-bottom: 0rem;
+    /* width: 345px; */
+    width: 50%;
+    margin: 0px ;
 }
 
 .storyboard {
-    height: 74.5vh;
-    width: 85vh;
+    height: 100%;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2vh;
+    align-items: center;
+    align-content: center;
+    gap: 2%;
 }
