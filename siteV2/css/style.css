@@ -234,3 +234,8 @@
     align-content: center;
     gap: 2%;
 }
+
+#img1{
+    height: 297px;
+    width: 320px;
+}
