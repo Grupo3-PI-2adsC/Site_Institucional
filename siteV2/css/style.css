@@ -1,4 +1,6 @@
-
+main{
+    overflow: hidden;
+}
 
 .pg {
     height: 88vh;
@@ -136,7 +138,7 @@
     box-shadow: 45px 30px 0px #1D355779;
 }
 
-.card2{
+.card2 {
     display: flex;
     flex-direction: column;
 
@@ -165,7 +167,7 @@
     backface-visibility: hidden;
 }
 
-.front{
+.front {
     font-size: 10px;
 }
 
@@ -212,7 +214,7 @@
     height: 10%;
 }
 
-.grupoIcon{
+.grupoIcon {
     display: flex;
     flex-direction: column;
 }
@@ -221,7 +223,7 @@
     font-size: 17px;
     /* width: 345px; */
     width: 50%;
-    margin: 0px ;
+    margin: 0px;
 }
 
 .storyboard {
@@ -235,7 +237,86 @@
     gap: 2%;
 }
 
-#img1{
+#img1 {
     height: 297px;
     width: 320px;
+}
+
+/* animação slide-infinito */
+
+.divAvaliacoes {
+    width: 200%;
+    display: flex;
+    flex-direction: row;
+    height: 20vh;
+    align-items: center;
+    overflow:hidden;
+	position:relative;
+    background-color: #CDD8DD;
+}
+
+@keyframes translatestf {
+	0% {  }
+	100% { transform:translateX(-500%);  }
+}
+
+@keyframes translateinfinite {
+	100% { transform:translateX(calc(-180px * 12));  }
+}
+.avaliacoes-copiar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.avaliacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    width: 20%;
+    height: 90%;
+    animation:translatestf 15s linear infinite forwards;
+    overflow: hidden;
+}
+
+
+.avaliacoes-cabecalho {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    height: 40%;
+}
+
+.imgPerfil{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.imgStar {
+    height: 22px;
+    width: 20px;
+    margin-bottom: 5%;
+}
+
+.avaliacoes-cabecalho h5{
+    width: 100%;
+}
+
+.avaliacoes-texto{
+    display: flex;
+    justify-content: end;
+}
+
+.text{
+    width: 95%;
+}
+
+.text h6{
+    font-size: 10px;
 }

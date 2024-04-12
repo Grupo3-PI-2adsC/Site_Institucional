@@ -14,6 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="js/slideInfinito.js"></script>
+
 </head>
 
 <body>
@@ -178,9 +180,10 @@
                 <div class="cardUser">
                     <div class="grupoIcon">
                         <img src="img/icone/Female User.png" alt="rosto feminino">
-                        <h5>FERNANDA</h5>
+                        <h5>AMANDA</h5>
                     </div>
-                    <P>​Como recepcionista eu preciso de uma rede rápida pois devo encaminhar as fichas com velocidade e eficiência para atender aos pacientes. </P>
+                    <P>​Como recepcionista eu preciso de uma rede rápida pois devo encaminhar as fichas com velocidade e
+                        eficiência para atender aos pacientes. </P>
                 </div>
                 <div class="quadradoMeio"></div>
                 <div class="cardUser">
@@ -188,12 +191,13 @@
                         <img src="img/icone/User Male.png" alt="rosto masculino">
                         <h5>AUGUSTO</h5>
                     </div>
-                    <p>​Como técnico eu preciso dos dados de hardware para garantir a continuidade dos processos e fornecer a manutenção correta. </p>
+                    <p>​Como técnico eu preciso dos dados de hardware para garantir a continuidade dos processos e
+                        fornecer a manutenção correta. </p>
                 </div>
             </div>
 
             <div class="storyboard">
-                <div class="story1">
+                <!-- <div class="story1">
                     <img src="img/Tempo de espera.png" alt="problema" id="img1">
                 </div>
                 <div class="story2">
@@ -201,11 +205,90 @@
                 </div>
                 <div class="story3">
                     <img src="img/retangulo 3.png" alt="problema resolvido">
-                </div>
+                </div> -->
             </div>
 
         </div> <!-- final página 3 -->
 
+        <div class="divAvaliacoes "> <!-- animação -->
+
+            <div class="avaliacoes-copiar">
+                <div class="avaliacoes">
+                    <div class="avaliacoes-cabecalho">
+                        <div class="imgPerfil">
+                            <img src="img/imagensAvaliação/1/7725801.jpg" alt="" class="imgPerfil">
+                        </div>
+
+                        <div class="usuarioNome">
+                            <h5 style="margin-bottom: 0;">Ketelyn Medina</h5>
+                        </div>
+
+                        <div class="imgStar">
+                            <img src="img/icone/Star_2.png" alt="" class="imgStar">
+                        </div>
+                    </div>
+
+                    <div class="avaliacoes-texto">
+                        <div class="text">
+                            <h6 style="margin-bottom: 0;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Nemo consequatur nihil quasi
+                                animi.
+                                Quo vitae, veniam unde nihil impedit maxime est!</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="avaliacoes">
+                    <div class="avaliacoes-cabecalho">
+                        <div class="imgPerfil">
+                            <img src="img/imagensAvaliação/3/7630796.jpg" alt="" class="imgPerfil">
+                        </div>
+
+                        <div class="usuarioNome">
+                            <h5 style="margin-bottom: 0;">Ketelyn Medina</h5>
+                        </div>
+
+                        <div class="imgStar">
+                            <img src="img/icone/Star_1.png" alt="" class="imgStar">
+                        </div>
+                    </div>
+
+                    <div class="avaliacoes-texto">
+                        <div class="text">
+                            <h6 style="margin-bottom: 0;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Nemo consequatur nihil quasi
+                                animi.
+                                Quo vitae, veniam unde nihil impedit maxime est!</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="avaliacoes">
+                    <div class="avaliacoes-cabecalho">
+                        <div class="imgPerfil">
+                            <img src="img/imagensAvaliação/2/7632464.jpg" alt="" class="imgPerfil">
+                        </div>
+
+                        <div class="usuarioNome">
+                            <h5 style="margin-bottom: 0;">Ketelyn Medina</h5>
+                        </div>
+
+                        <div class="imgStar">
+                            <img src="img/icone/Star_1.png" alt="" class="imgStar">
+                        </div>
+                    </div>
+
+                    <div class="avaliacoes-texto">
+                        <div class="text">
+                            <h6 style="margin-bottom: 0;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Nemo consequatur nihil quasi
+                                animi.
+                                Quo vitae, veniam unde nihil impedit maxime est!</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--final animação-->
 
     </main> <!-- final main -->
 
@@ -216,3 +299,8 @@
 </body>
 
 </html>
+
+<script>
+    var copy = document.querySelector(".avaliacoes-copiar").cloneNode(true);
+    document.querySelector(".divAvaliacoes").appendChild(copy);
+</script>
