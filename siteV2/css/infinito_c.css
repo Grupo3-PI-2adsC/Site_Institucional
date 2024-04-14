@@ -1,60 +1,76 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
 }
 
 body {
-  background: #f2f2f2;
+  margin: 0;
+  color: #CDD8DD;
+  background: #22223B;
+  font-family: "Varela", sans-serif;
+  overflow-x: hidden;
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.logos {
-  overflow: hidden;
-  padding: 60px 0;
-  background: white;
-  white-space: nowrap;
+section {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  padding-top: 100px;
 }
 
-.logos:before,
-.logos:after {
+.purple {
+    background-color: #c83dca;
+}
+
+.curva {
   position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
+  height: 250px;
+  width: 100%;
+  bottom: 0;
+}
+
+.curva::before {
   content: "";
-  z-index: 2;
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background: #22223B;
+  transform: translate(85%, 60%); /* eixo x e Y */
 }
 
-.logos:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+.curva::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+  width: 55%;
+  height: 100%;
+  background: #c83dca;
+  transform: translate(-4%, 40%);
 }
 
-.logos:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+.circulo::after {
+  content: "";
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 85%;
+  background-color: #0f0f10;
 }
 
-.logos:hover .logos-slide {
-  animation-play-state: paused;
+.circulo-content {
+  background-color: #0f0f10;
 }
 
-.logos-slide {
-  display: inline-block;
-  animation: 15s slide infinite linear;
-}
-
-.logos-slide img {
-  height: 50px;
-  margin: 0 40px;
+.custom {
+  
 }
