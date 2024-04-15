@@ -1,76 +1,79 @@
-h1 {
-  font-size: 3rem;
-}
-
-p {
-  font-size: 1.5rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: "Varela", sans-serif;
   color: #CDD8DD;
   background: #22223B;
-  font-family: "Varela", sans-serif;
-  overflow-x: hidden;
 }
 
 section {
-  position: relative;
+  min-height: 100vh;
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 400px;
-  padding-top: 100px;
 }
 
-.purple {
-    background-color: #c83dca;
+.title {
+  font-size: 3rem;
+  margin: 2rem 0rem;
 }
 
-.curva {
-  position: absolute;
-  height: 250px;
-  width: 100%;
-  bottom: 0;
+.faq {
+  max-width: 700px;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #fff;
+  cursor: pointer;
 }
 
-.curva::before {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 55%;
-  height: 100%;
-  background: #22223B;
-  transform: translate(85%, 60%); /* eixo x e Y */
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.curva::after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 55%;
-  height: 100%;
-  background: #c83dca;
-  transform: translate(-4%, 40%);
+.question h3{
+  font-size: 1.8rem;
 }
 
-.circulo::after {
-  content: "";
-  border-top-left-radius: 50% 100%;
-  border-top-right-radius: 50% 100%;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 85%;
-  background-color: #0f0f10;
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.4s ease;
 }
 
-.circulo-content {
-  background-color: #0f0f10;
+.answer p {
+  padding-top: 1rem;
+  line-height: 1.6;
+  font-size: 1.4rem;
 }
 
-.custom {
-  
+.faq.active .answer{
+  max-height: 300px;
+  animation: fade 1s ease-in-out;
+}
+
+.faq.active svg {
+  transform: rotate(-180deg);
+}
+
+svg {
+  transition: transform 0.5s ease-in;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
