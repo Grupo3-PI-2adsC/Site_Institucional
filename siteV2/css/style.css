@@ -1,4 +1,4 @@
-main{
+main {
     overflow: hidden;
 }
 
@@ -250,24 +250,31 @@ main{
     flex-direction: row;
     height: 20vh;
     align-items: center;
-    overflow:hidden;
-	position:relative;
+    overflow: hidden;
+    position: relative;
     background-color: #CDD8DD;
+    margin-bottom: 15vh;
 }
 
 @keyframes translatestf {
-	0% {  }
-	100% { transform:translateX(-500%);  }
+    0% {}
+
+    100% {
+        transform: translateX(-500%);
+    }
 }
 
 @keyframes translateinfinite {
-	100% { transform:translateX(calc(-180px * 12));  }
+    100% {
+        transform: translateX(calc(-180px * 12));
+    }
 }
-.avaliacoes-copiar{
+
+.avaliacoes-copiar {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: space-around;
 }
 
 .avaliacoes {
@@ -278,7 +285,7 @@ main{
     row-gap: 10px;
     width: 20%;
     height: 90%;
-    animation:translatestf 15s linear infinite forwards;
+    animation: translatestf 15s linear infinite forwards;
     overflow: hidden;
 }
 
@@ -292,7 +299,7 @@ main{
     height: 40%;
 }
 
-.imgPerfil{
+.imgPerfil {
     width: 55px;
     height: 55px;
     border-radius: 50%;
@@ -314,26 +321,26 @@ main{
     width: 35px;
 }
 
-.avaliacoes-cabecalho h5{
+.avaliacoes-cabecalho h5 {
     width: 100%;
 }
 
-.avaliacoes-texto{
+.avaliacoes-texto {
     display: flex;
     justify-content: end;
 }
 
-.text{
+.text {
     width: 95%;
 }
 
-.text h6{
+.text h6 {
     font-size: 10px;
 }
 
 /* página 4 */
 
-.pg4{
+.pg4 {
     position: relative;
 }
 
@@ -341,4 +348,94 @@ main{
     position: absolute;
     bottom: 0px;
     width: 100%;
+}
+
+/* FAQ */
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    gap: 50px;
+    padding-left: 30vh;
+}
+
+h3 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cardPerguntas {
+    background-color: #EDF2F4;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #E63946;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 2vh;
+    padding: 3%;
+}
+
+.pergunta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.pergunta p {
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.pergunta img {
+    display: block;
+    transition: transform 0.5s ease-in;
+}
+
+.pergunta.active img {
+    transform: rotate(90deg);
+}
+
+.resposta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+.resposta p {
+    padding-left: 4vh;
+}
+
+/* página 5 */
+
+.pg5 {
+    background-color: #E63946;
+    height: 130vh;
+    width: 100%;
+}
+
+.quemSomos {
+    width: 172vh;
+    display: flex;
+    align-items: center;
+    gap: 20%;
+}
+
+.quemSomos h2, 
+.quemSomos p {
+    color: #EDF2F4;
+    text-align: center;
+}
+
+.textoQuemSomos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.espacoTextoQuemSomos {
+    height: 9vh;
 }

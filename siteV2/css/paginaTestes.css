@@ -10,7 +10,7 @@ body {
   background: #22223B;
 }
 
-section {
+section { /* faq */
   min-height: 100vh;
   width: 80%;
   margin: 0 auto;
@@ -19,12 +19,12 @@ section {
   align-items: center;
 }
 
-.title {
+.title { /* h3 */
   font-size: 3rem;
   margin: 2rem 0rem;
 }
 
-.faq {
+.faq { /* p. frequentes */
   max-width: 700px;
   margin-top: 2rem;
   padding-bottom: 1rem;
@@ -32,7 +32,7 @@ section {
   cursor: pointer;
 }
 
-.question {
+.question { /* pergunta */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +42,7 @@ section {
   font-size: 1.8rem;
 }
 
-.answer {
+.answer { /* resposta */
   max-height: 0;
   overflow: hidden;
   transition: max-height 1.4s ease;

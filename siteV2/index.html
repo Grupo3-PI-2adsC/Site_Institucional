@@ -65,9 +65,9 @@
                                         </div>
 
                                         <div class=" quadrado_tela2 red back">
-                                            <h4>Back of Card</h4>
+                                            <!-- <h4>Back of Card</h4> -->
 
-                                            <p>Additional info on the back of the card</p>
+                                            <p>Um sistema que emite alertas instantâneos quando esses limites são ultrapassados, garantindo uma resposta rápida e eficaz do usuário em potencial situação crítica.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -80,9 +80,9 @@
                                         </div>
 
                                         <div class=" quadrado_tela2 lightBlue back">
-                                            <h4>Back of Card</h4>
+                                            <!-- <h4>Back of Card</h4> -->
 
-                                            <p>Additional info on the back of the card</p>
+                                            <p>Um sistema de monitoramento contínuo que acompanha os dados em tempo real dos computadores e redes do hospital</p>
                                         </div>
                                     </div>
                                 </div>
@@ -95,9 +95,9 @@
                                         </div>
 
                                         <div class=" quadrado_tela2 darkBlue back">
-                                            <h4>Back of Card</h4>
+                                            <!-- <h4>Back of Card</h4> -->
 
-                                            <p>Additional info on the back of the card</p>
+                                            <p>Manual de solução para problemas recorrentes</p>
                                         </div>
                                     </div>
                                 </div>
@@ -291,16 +291,83 @@
 
         <div class="pg4 pg"> <!-- inicio - página onda -->
 
+            <div class="faq">
+                <h3> Perguntas Frequentes </h3>
+
+                <div class="cardPerguntas">
+                    <div class="pergunta">
+                        <p> Como eu cosigo contratar os seus serviços?</p>
+                        <img src="img/icone/setaFaq.png" alt="seta">
+                    </div>
+                    <div class="resposta">
+                        <p>
+                            Você pode marcar um atendimento pessoal entrando em contato com a nossa empresa, todas as
+                            informações estão disponíveis no footer.
+                        </p>
+                    </div>
+                    <div class="pergunta">
+                        <p> Como eu cosigo contratar os seus serviços?</p>
+                        <img src="img/icone/setaFaq.png" alt="seta">
+                    </div>
+                    <div class="resposta">
+                        <p>
+                            Você pode marcar um atendimento pessoal entrando em contato com a nossa empresa, todas as
+                            informações estão disponíveis no footer.
+                        </p>
+                    </div>
+                    <div class="pergunta">
+                        <p> Como eu cosigo contratar os seus serviços?</p>
+                        <img src="img/icone/setaFaq.png" alt="seta">
+                    </div>
+                    <div class="resposta">
+                        <p>
+                            Você pode marcar um atendimento pessoal entrando em contato com a nossa empresa, todas as
+                            informações estão disponíveis no footer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <img src="img/74.png" alt="onda" class="marVermelho">
 
         </div> <!-- final - página onda -->
 
+        <div class="pg5 pg"> <!-- início - página 5 -->
+
+            <div class="quemSomos">
+
+                <div>
+                    <img src="img/Group 75.png" alt="">
+                </div>
+
+                <div class="textoQuemSomos">
+                    <h2>QUEM SOMOS</h2>
+                    <div class="espacoTextoQuemSomos"></div>
+                    <p>
+                        O atendimento hospitalar depende cada vez mais da tecnologia, mas problemas como quedas de rede e segurança das informações podem prejudicar a eficiência. Monitorar constantemente a rede de computadores é essencial para melhorar o atendimento e garantir o funcionamento adequado dos sistemas operacionais. Este projeto busca implementar um sistema de monitoramento baseado no ITIL para otimizar o atendimento aos pacientes na recepção hospitalar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="valores">
+                <div class="valoresTitulo">
+                    <h2>VALORES</h2>
+                </div>
+                <div class="valoresIcones">
+                    <img src="img/circuloValores.png" alt="">
+                    <img src="img/circuloValores.png" alt="">
+                    <img src="img/circuloValores.png" alt="">
+                    <img src="img/icone/iconeIntegridade.png" alt="">
+                    <img src="img/icone/iconeRespeito.png" alt="">
+                    <img src="img/icone/iconeComprometimento.png" alt="">
+                </div>
+            </div>
+
+            <div class="equipe"></div>
+
+        </div> <!-- final - página 5-->
+
     </main> <!-- final main -->
-
-    <footer>
-
-    </footer>
-
 </body>
 
 </html>
@@ -308,4 +375,21 @@
 <script>
     var copy = document.querySelector(".avaliacoes-copiar").cloneNode(true);
     document.querySelector(".divAvaliacoes").appendChild(copy);
+
+    const perguntas = document.querySelectorAll(".pergunta");
+
+    perguntas.forEach(pergunta => {
+        pergunta.addEventListener("click", () => {
+            const resposta = pergunta.nextElementSibling; // Seleciona o elemento irmão seguinte (a resposta)
+            pergunta.classList.toggle("active");
+
+            if (pergunta.classList.contains("active")) {
+                resposta.style.maxHeight = resposta.scrollHeight + "px"; // Define a altura máxima para revelar a resposta
+            } else {
+                resposta.style.maxHeight = null; // Volta para a altura máxima padrão (0)
+            }
+        });
+    });
+
+
 </script>
