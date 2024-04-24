@@ -439,3 +439,33 @@ h3 {
 .espacoTextoQuemSomos {
     height: 9vh;
 }
+
+.valoresTitulo {
+    color: #EDF2F4;
+    display: flex;
+    justify-content: center;
+}
+
+.espacoValores {
+    height: 13vh;
+}
+
+.valoresIcones {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.circuloValores {
+    position: relative;
+}
+
+.iconeValores {
+    position: absolute;
+}
+
+.valoresDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
