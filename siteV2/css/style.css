@@ -522,7 +522,7 @@ main {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 50px;
+    gap: 150px;
     justify-content: space-evenly;
 }
 
@@ -543,15 +543,16 @@ main {
 
 footer{
     background-color: black;
-    height: 35vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: end;
 }
 
 .footerRedes{
     width: 80%;
-    height: 80%;
+    height: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -573,7 +574,19 @@ footer{
 }
 
 .footerDiretos{
-    height: 20%;
+    display: flex;
+    justify-content:center;
+    text-align: center;
+    align-items: center;
+    height: 10%;
     width: 100%;
     border-top: 1px solid #EDF2F4;
+}
+.footerDiretos p{
+    color: #EDF2F4;
+    font-size: 10px;
+}
+
+p{
+    margin-bottom: 0px;
 }
