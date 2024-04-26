@@ -552,25 +552,56 @@ footer{
 
 .footerRedes{
     width: 80%;
-    height: 50%;
+    height: 34%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.footerRedes 
+.logoFooter p {
+    margin: 0;
+    height: 25%;
+    color: #EDF2F4;
+    font-size: 30px;
+}
+
+.logoFooter {
+    display: flex;
+    align-items: center;
 }
 
 .redesSociais{
     width: 30%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 .classeRede{
     height: fit-content;
 }
 
-.classeRede h7,
-.classeRede h6{
+.classeRede p{
     color: #EDF2F4;
+    font-weight: bold;
+}
+
+.divsRedesSociais {
+    display: flex;
+    flex-direction: column;
+    color: #EDF2F4;
+}
+
+.divTextoIconeRedeSocial {
+    display: flex;
+    align-items: center;
+    gap: 15%;
+}
+
+.divTextoIconeRedeSocial p {
+    margin: 0px;
+    color: #EDF2F4;
+    font-weight: 100;
+    font-size: smaller;
 }
 
 .footerDiretos{
@@ -578,15 +609,13 @@ footer{
     justify-content:center;
     text-align: center;
     align-items: center;
-    height: 10%;
+    height: 12%;
     width: 100%;
     border-top: 1px solid #EDF2F4;
 }
 .footerDiretos p{
     color: #EDF2F4;
     font-size: 10px;
-}
-
-p{
+    font-weight: bold;
     margin-bottom: 0px;
 }
