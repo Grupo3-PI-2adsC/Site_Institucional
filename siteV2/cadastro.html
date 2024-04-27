@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/header.css">
     <script src="js/script.js"></script>
-
+    <script src="js/cadastro.js"></script>
 </head>
+
 <body>
 
     <header id="header">
@@ -23,28 +25,120 @@
             </ul>
         </div>
 
-        <!--<div id="headerBtn" class="headerBtn headerRight">
-            <button class="navbarBtn btnLogar" onclick="mudarTela('login')">Login</button>
-            <button class="navbarBtn btnCadastro" onclick="mudarTela('cadastro')">Cadastrar</button>
-        </div>-->
-
     </header>
 
     <main>
         <div class="fundo_cadastro"></div>
 
-        <div class="div_cadastro index">
+        <!-- <h1 class="index texto_cadastro">Bem-Vindo à <br>
+            NETMED</h1> -->
 
+        <div class="main_cad index" id="divCad">
+
+            <h1 class="titulo_cad">CADASTRO</h1>
+
+            <div class="div_cadastro index">
+
+                <div class="inpts_cad_div inpts_cad_div_horizontal">
+                    <div id="nome_cad">
+                        <p class="white">Nome da Instituição</p>
+                        <input type="text" class="inpts_cad" id="inpt_nome_cad">
+                    </div>
+                    <div id="cnpj_cad">
+                        <p class="white">CNPJ*</p>
+                        <input type="number" class="inpts_cad" id="inpt_cnpj_cad">
+                    </div>
+                </div>
+
+                <div class="inpts_cad_div">
+                    <p class="white">Email*</p>
+                    <input type="text" class="inpts_cad" id="inpt_email_cad">
+                </div>
+
+                <div class="inpts_cad_div">
+                    <p class="white">Senha*</p>
+                    <input type="text" class="inpts_cad" id="inpt_senha_cad">
+                </div>
+
+                <div class="inpts_cad_div">
+                    <p class="white">Confirmar Senha*</p>
+                    <input type="text" class="inpts_cad" id="inpt_confSenha_cad">
+                </div>
+
+                <div class="inpts_cad_div btn_link_cad">
+                    <button class="btn_cad_cont" id="btn_continuar_cad" onclick="cadastrar()">Continuar</button>
+                    <p class="white">Já tem conta? Clique aqui para logar!</p>
+                </div>
+
+            </div>
+
+            
         </div>
 
-        <h1 class="index texto_cadastro">Bem-Vindo à <br>
-            NETMED</h1>
+        <div class="main_cad index"  id="divCad2" style="display: none;">
+
+            <h1 class="titulo_cad">CADASTRO</h1>
+
+            <div class="div_cadastro div_cadastro2 index"  >
+
+                <div class="inpts_cad_div inpts_cad_div_horizontal">
+                    <div class="div_inpts_cad2">
+                        <p class="white">Cep</p>
+                        <input type="text" class="inpts_cad inpts_cad2" id="inpt_cep_cad" oninput="pesquisacep()">
+                    </div>
+                    <div class="div_inpts_cad2">
+                        <p class="white">Rua*</p>
+                        <input type="texte" class="inpts_cad inpts_cad2" id="inpt_rua_cad">
+                    </div>
+                </div>
+
+                <div class="inpts_cad_div inpts_cad_div_horizontal">
+                    <div class="div_inpts_cad2">
+                        <p class="white">Bairro</p>
+                        <input type="text" class="inpts_cad inpts_cad2" id="inpt_bairro_cad">
+                    </div>
+                    <div class="div_inpts_cad2">
+                        <p class="white">Cidade*</p>
+                        <input type="texte" class="inpts_cad inpts_cad2" id="inpt_cidade_cad">
+                    </div>
+                </div>
+
+                <div class="inpts_cad_div inpts_cad_div_horizontal">
+                    <div class="div_inpts_cad2">
+                        <p class="white">Estado</p>
+                        <input type="text" class="inpts_cad inpts_cad2" id="inpt_estado_cad">
+                    </div>
+                    <div class="div_inpts_cad2">
+                        <p class="white">Numero*</p>
+                        <input type="number" class="inpts_cad inpts_cad2" id="inpt_numero_cad">
+                    </div>
+                </div>
+
+                <div class="inpts_cad_div inpts_cad_div_horizontal">
+                    <div class="div_inpts_cad2">
+                        <p class="white">Complemento</p>
+                        <input type="text" class="inpts_cad inpts_cad2" id="inpt_complemento_cad">
+                    </div>
+                    <div class="div_inpts_cad2 div_inpts_cad2_button">
+                        <button class="btn_cad_cont btn_cad2" id="btn_continuar_cad" onclick="animar('divCad2', 'divCad')">Voltar</button>
+
+                        <button class="btn_cad_cont btn_cad2" id="btn_continuar_cad" onclick="cadastrar2()">Cadastrar</button>
+
+                    </div>
+                </div>
+
+                <p class="white">Já tem conta? Clique aqui para logar!</p>
+
+            </div>
+        </div>
+
 
     </main>
 
     <footer>
 
     </footer>
-    
+
 </body>
+
 </html>
