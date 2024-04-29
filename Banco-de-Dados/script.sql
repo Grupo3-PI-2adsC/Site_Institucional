@@ -11,7 +11,13 @@ CREATE TABLE endereco (
     idEndereco INT PRIMARY KEY AUTO_INCREMENT,
     rua VARCHAR(255),
     bairro VARCHAR(255),
-    cidade VARCHAR(255)
+    cidade VARCHAR(255),
+    estado VARCHAR (45),
+    cep CHAR (8),
+    numero VARCHAR (10),
+    complemento VARCHAR(45),
+    fkEmpresa INT,
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
 );
 
 CREATE TABLE tecnico (
@@ -86,3 +92,6 @@ CREATE TABLE rede (
 
 
 
+SELECT * FROM empresa;
+SELECT * FROM endereco;
+DROP TABLE empresa;

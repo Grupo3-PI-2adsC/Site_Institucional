@@ -35,20 +35,20 @@ function cadastrar() {
     }
 
     if (
-        !(
-            senhaVar.indexOf("#") >= 1 ||
-            senhaVar.indexOf("@") >= 1 ||
-            senhaVar.indexOf("!") >= 1 ||
-            senhaVar.indexOf("%") >= 1 ||
-            senhaVar.indexOf("*") >= 1 ||
-            senhaVar.indexOf("$") >= 1 ||
-            senhaVar.indexOf("_") >= 1 ||
-            senhaVar.indexOf("-") >= 1 ||
-            senhaVar.indexOf("&") >= 1
+        (
+            senhaVar.indexOf("#") >= 0 ||
+            senhaVar.indexOf("@") >= 0 ||
+            senhaVar.indexOf("!") >= 0 ||
+            senhaVar.indexOf("%") >= 0 ||
+            senhaVar.indexOf("*") >= 0 ||
+            senhaVar.indexOf("$") >= 0 ||
+            senhaVar.indexOf("_") >= 0 ||
+            senhaVar.indexOf("-") >= 0 ||
+            senhaVar.indexOf("&") >= 0
         )
     ) {
         // div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
-        validacao = 1;
+        validacao != 1;
     }
 
     if (senhaVar != confirmacaoSenhaVar) {
