@@ -1,9 +1,15 @@
 {
-  "name": "demo-repo",
-  "version": "0.2.0",
-  "description": "A sample package.json",
-  "dependencies": {
-    "@primer/css": "17.0.1"
+  "name": "site",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./Site_institucional/app.js",
+    "dev": "cd Site_institucional && npm run dev",
+    "postinstall": "cd Site_institucional && npm install"
   },
-  "license": "MIT"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5"
+  }
 }
