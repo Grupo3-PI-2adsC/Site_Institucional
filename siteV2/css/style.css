@@ -180,6 +180,7 @@ main {
     transform: rotateY(-180deg);
     display: flex;
     flex-direction: column;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     gap: 5rem;
@@ -192,7 +193,7 @@ main {
     padding: 0px 50px;
 }
 
-.cardUser {
+/* .cardUser {
     background-color: #A8DADC;
     height: 30%;
     width: 100%;
@@ -200,9 +201,41 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
+} */
+
+.passo{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.passo p{
+    width: 80%;
+}
+.foto_passo_a_passo{
+    width: 50px;
+    height: 50px;
 }
 
-.userStory {
+.passos{
+    display: grid;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.One {
+    grid-column: 1;
+}
+.Two {
+    grid-column: 2;
+}
+.Three {
+    grid-column: 3;   
+}
+
+/* .userStory {
     height: 100%;
     width: 50%;
     display: flex;
@@ -216,7 +249,7 @@ main {
     opacity: 0.46;
     width: 50%;
     height: 10%;
-}
+} */
 
 .grupoIcon {
     display: flex;
