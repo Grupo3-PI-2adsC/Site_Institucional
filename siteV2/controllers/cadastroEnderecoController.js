@@ -1,14 +1,14 @@
-var enderecoModel = require("../models/enderecoModel");
+var enderecoModel = require("../models/cadastroEnderecoModel");
 
 function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaurante)
     var fkEmpresa = req.params.fkEmpresa;
-    var cep = req.body.cepServer;
     var rua = req.body.ruaServer;
+    var bairro = req.body.bairroServer;
+    var cidade = req.body.cidadeServer;
+    var estado = req.body.estadoServer;
+    var cep = req.body.cepServer;
     var numero = req.body.numeroServer;
     var complemento = req.body.complementoServer;
-    var bairro = req.body.bairroServer;
-    var estado = req.body.estadoServer;
-    var cidade = req.body.cidadeServer;
  
     if (fkEmpresa == undefined) {
         res.status(400).send("O fkEmpresa está indefinido!");
@@ -27,7 +27,7 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
     } else if (cidade == undefined) {
         res.status(403).send("O cidade está indefinido!");
     } else {
-        enderecoModel.cadastrar(rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa)
+        enderecoModel.cadastrar2(rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -77,17 +77,37 @@ function cadastrar() {
         alert('Burro');
 
     } else {
-        // div_mensagem.style.display = "none";
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              nomeServer: nomeVar,
+              cnpjServer: cnpj,
+              emailServer: emailVar,
+              senhaServer: senhaVar
+            }),
+            
+          })
+    
+         // div_mensagem.style.display = "none";
         // alert('Parabens');
 
         animar('divCad', 'divCad2');
+       
     }
+
+    
 }
 
 
 function cadastrar2() {
 
-    var cnpj = document.getElementById('inpt_cep_cad').value;
+    fkEmpresa = sessionStorage.ID_USUARIO;
+    var cep = document.getElementById('inpt_cep_cad').value;
     var rua = document.getElementById('inpt_rua_cad').value;
     var bairro = document.getElementById('inpt_bairro_cad').value;
     var estado = document.getElementById('inpt_estado_cad').value;
@@ -97,7 +117,7 @@ function cadastrar2() {
     var validacao = 0;
 
     var teste = [] 
-    teste.push(cnpj)
+    teste.push(cep)
     teste.push(rua)
     teste.push(bairro)
     teste.push(estado)
@@ -132,8 +152,26 @@ function cadastrar2() {
         alert('Burro');
 
     } else {
+        fetch(`/usuarios/cadastrar`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+             
+              ruaServer: rua,
+              bairroServer: bairro,
+              cidadeServer: cidade,
+              estadoServer: estado,
+              cepServer: cep,
+              numeroServer: numero,
+              complementoServer: complemento
+            }),
+            
+          })
+          
         alert('Cadastrado')
-        mudarTela('index');
+        // mudarTela('index');
     }
 }
 

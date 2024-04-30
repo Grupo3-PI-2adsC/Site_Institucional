@@ -95,4 +95,4 @@ CREATE TABLE rede (
 SELECT * FROM empresa;
 SELECT * FROM endereco;
 DROP TABLE empresa;
-DROP TABLE endere
+DROP TABLE endereco;
