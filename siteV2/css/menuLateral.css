@@ -1,0 +1,39 @@
+* {
+    font-family: "Varela", sans-serif;
+    font-weight: 500;
+    font-size: large;
+    font-style: normal;
+    color: #22223B;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #22223B;
+}
+
+.telaUsuario {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.menuLateral {
+    background-color: #EDF2F4;
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    border-radius: 35px;
+}
+
+.menuLateral ul a{
+    text-decoration: none;
+}
+
+.menuLateral ul {
+    list-style: none;
+}
