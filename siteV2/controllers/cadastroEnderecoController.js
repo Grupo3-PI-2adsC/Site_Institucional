@@ -1,7 +1,7 @@
 var enderecoModel = require("../models/cadastroEnderecoModel");
 
-function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaurante)
-    var fkEmpresa = req.params.fkEmpresa;
+function cadastrar2(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaurante)
+    var fkEmpresa = req.body.fkEmpresaServer;
     var rua = req.body.ruaServer;
     var bairro = req.body.bairroServer;
     var cidade = req.body.cidadeServer;
@@ -27,7 +27,7 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
     } else if (cidade == undefined) {
         res.status(403).send("O cidade está indefinido!");
     } else {
-        enderecoModel.cadastrar2(rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa)
+        enderecoModel.cadastrar(rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -44,5 +44,5 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
 }
 
 module.exports = {
-    cadastrar
+    cadastrar2
 }

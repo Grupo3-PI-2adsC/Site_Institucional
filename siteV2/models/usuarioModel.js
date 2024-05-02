@@ -23,8 +23,14 @@ function cadastrar(nome, cnpj, email, senha) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function cadastrar2(rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa) {
+    var instrucao = `INSERT INTO endereco (rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa) VALUES ('${rua}','${bairro}', '${cidade}', '${estado}', '${cep}','${numero}', '${complemento}', '${fkEmpresa}')`;
+  
+    return database.executar(instrucao);
+  }
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrar2
 };

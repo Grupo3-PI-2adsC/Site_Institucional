@@ -91,6 +91,10 @@ function cadastrar() {
               senhaServer: senhaVar
             }),
             
+          }).then(function(resposta){
+            resposta.json().then((usuario) =>{
+                sessionStorage.ID_USUARIO = usuario.insertId;
+            })
           })
     
          // div_mensagem.style.display = "none";
@@ -106,7 +110,7 @@ function cadastrar() {
 
 function cadastrar2() {
 
-    fkEmpresa = sessionStorage.ID_USUARIO;
+    var fkEmpresa = sessionStorage.ID_USUARIO;
     var cep = document.getElementById('inpt_cep_cad').value;
     var rua = document.getElementById('inpt_rua_cad').value;
     var bairro = document.getElementById('inpt_bairro_cad').value;
@@ -152,7 +156,7 @@ function cadastrar2() {
         alert('Burro');
 
     } else {
-        fetch(`/usuarios/cadastrar`, {
+        fetch(`/cadastroEndereco/cadastrar`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -165,13 +169,14 @@ function cadastrar2() {
               estadoServer: estado,
               cepServer: cep,
               numeroServer: numero,
-              complementoServer: complemento
+              complementoServer: complemento,
+              fkEmpresaServer: fkEmpresa
             }),
             
           })
           
         alert('Cadastrado')
-        // mudarTela('index');
+        mudarTela('index');
     }
 }
 
