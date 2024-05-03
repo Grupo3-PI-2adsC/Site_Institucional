@@ -1,0 +1,152 @@
+
+
+* {
+    font-family: "Varela", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #22223B;
+}
+
+nav.menu-lateral{
+    /* width: 65px;
+    height: 79%;
+    background-color: #EDF2F4;
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 #22223B;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .4s; */
+
+    width: 63px;
+    height: 74%;
+    background-color: #EDF2F4;
+    padding: 13px;
+    box-shadow: 3px 0 0 #22223B;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 25px;
+    margin-top: 70px;
+    border-radius: 15px; 
+    overflow: hidden;
+    transition: .4s;
+}
+
+nav.menu-lateral:hover{
+    width: 300px;
+}
+
+.expandir {
+    width: 100%;
+    padding-left: 14%;
+}
+
+.expandir > i{
+    color: #22223B;
+    font-size: 140%;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .4s;
+    border-radius: 45px 0px 0px 45px;
+}
+
+ul li.item-menu:hover{
+    background-color: #22223B;
+}
+
+ul li.item-menu a{
+    color: #22223B;
+    text-decoration: none;
+    font-size: 140%;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+
+
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 20px;
+}
+
+ul li.item-menu a .icone > i{
+    font-size: 30px;
+}
+
+ul li.item-menu a:hover{
+    color: #EDF2F4;
+}
+
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #22223B;
+}
+
+
+.menuLateral {
+    position: relative;
+    height: 500px;
+    background: #EDF2F4;
+    width: 300px;
+    box-shadow: 10px 0 0 #E63946;
+}
+
+.menuLateral ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+}
+
+.menuLateral ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.menuLateral ul li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: #22223B;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuLateral ul li a .icone {
+    position: relative;
+    display: block;
+    min-width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.lista {
+    margin-bottom: 15%;
+}  */
