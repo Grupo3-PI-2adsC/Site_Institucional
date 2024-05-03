@@ -1,14 +1,14 @@
 
 
-/* * {
+* {
     font-family: "Varela", sans-serif;
-    color: #22223B;
-    padding: 0;
+    background-color: #22223B;
+    /* padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; */
 }
 
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,4 +62,4 @@ body {
 
 .lista {
     margin-bottom: 15%;
-} */
+}  */
