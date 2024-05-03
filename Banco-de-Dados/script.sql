@@ -1,14 +1,14 @@
 CREATE database netmed;
 USE netmed;
 CREATE TABLE empresa(
-idEmpresa int primary key auto_increment,
+idEmpresa int primary key auto_increment NOT NULL,
 nome varchar(45),
 cnpj char(14),
 email varchar(45),
 senha varchar(45));
 
 CREATE TABLE endereco (
-    idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+    idEndereco INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     rua VARCHAR(255),
     bairro VARCHAR(255),
     cidade VARCHAR(255),
@@ -21,7 +21,7 @@ CREATE TABLE endereco (
 );
 
 CREATE TABLE tecnico (
-    idTecnico INT PRIMARY KEY AUTO_INCREMENT,
+    idTecnico INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(255),
     hospital VARCHAR(255),
     fkEmpresa INT,
@@ -29,26 +29,27 @@ CREATE TABLE tecnico (
 );
 
 CREATE TABLE atendente (
-    idAtendente INT PRIMARY KEY AUTO_INCREMENT,
+    idAtendente INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(255),
     hospital VARCHAR(255),
+    senha VARCHAR(45),
     fkEmpresa INT,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
 );
 CREATE TABLE servico (
-    idServico INT PRIMARY KEY AUTO_INCREMENT,
+    idServico INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     pid INT,
     nome VARCHAR(255),
     estado VARCHAR(50)
 );
 CREATE TABLE maquina_monitorada (
-    idMaquinaMonitorada INT PRIMARY KEY AUTO_INCREMENT,
+    idMaquinaMonitorada INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nomeMaquina VARCHAR(255),
     fkEmpresa INT,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
 );
 CREATE TABLE cpu (
-    idCpu INT PRIMARY KEY AUTO_INCREMENT,
+    idCpu INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     numPacotesFisicos INT,
     qtdCpuFisicos INT,
     qtdCpuLogicos INT,
@@ -58,7 +59,7 @@ CREATE TABLE cpu (
     FOREIGN KEY (maquinaMonitorada_idMaquinaMonitorada) REFERENCES maquina_monitorada(idMaquinaMonitorada)
 );
 CREATE TABLE memoria (
-    idMemoria INT PRIMARY KEY AUTO_INCREMENT,
+    idMemoria INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     pid INT,
     totalThreads INT,
     totalProcessosAtivos INT,
@@ -67,7 +68,7 @@ CREATE TABLE memoria (
     FOREIGN KEY (maquinaMonitorada_idMaquinaMonitorada) REFERENCES maquina_monitorada(idMaquinaMonitorada)
 );
 CREATE TABLE disco (
-    idDisco INT PRIMARY KEY AUTO_INCREMENT,
+    idDisco INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     leituras INT,
     bytesDeLeitura BIGINT,
     bytesDeEscrita BIGINT,
@@ -76,7 +77,7 @@ CREATE TABLE disco (
     FOREIGN KEY (maquinaMonitorada_idMaquinaMonitorada) REFERENCES maquina_monitorada(idMaquinaMonitorada)
 );
 CREATE TABLE rede (
-    idRede INT PRIMARY KEY AUTO_INCREMENT,
+    idRede INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(255),
     nomeExibicao VARCHAR(255),
     enderecoIpv4 VARCHAR(15),
