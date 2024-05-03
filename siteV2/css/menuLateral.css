@@ -2,11 +2,65 @@
 
 * {
     font-family: "Varela", sans-serif;
-    background-color: #22223B;
-    /* padding: 0;
+    padding: 0;
     margin: 0;
-    box-sizing: border-box; */
+    box-sizing: border-box;
 }
+
+body {
+    height: 100vh;
+    background-color: #22223B;
+}
+
+.nav, .menu-lateral{
+    width: 20vw;
+    height: 100%;
+    background-color: #EDF2F4;
+    padding: 4% 0 4% 0.5%;
+}
+
+.expandir {
+    width: 100%;
+    padding-left: 4%;
+}
+
+.expandir > i{
+    color: #22223B;
+    font-size: 140%;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .4s;
+}
+
+ul li.item-menu:hover{
+    background-color: #22223B;
+}
+
+ul li.item-menu a{
+    color: #22223B;
+    text-decoration: none;
+    font-size: 140%;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 20px;
+}
+
+ul li.item-menu a .icone > i{
+    font-size: 30px;
+}
+
 
 /* body {
     display: flex;
@@ -15,6 +69,7 @@
     min-height: 100vh;
     background-color: #22223B;
 }
+
 
 .menuLateral {
     position: relative;
