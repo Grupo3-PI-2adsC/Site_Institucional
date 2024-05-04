@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Usuario</title>
     <link rel="stylesheet" href="css/menuLateral.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -69,20 +74,25 @@
 
         <div class="container">
 
-            <div class="conteudo_user" style="display: none;">
+            <div class="conteudo_user" id="conteudo_user">
 
                 <div class="btns_user">
 
-                    <div class="botao_user border-azul" >
+                    <div class="botao_user border-azul"
+                        onclick="mudarTelaUser('conteudo_user_perfil', 'conteudo_user')">
                         <label for="html">INFORMAÇÕES DA CONTA</label>
                     </div>
 
-                    <div class="botao_user border-vermelho">
-                        <label for="html">CADASTRAR USUÁRIO</label>
+                    <div class="botao_user border-vermelho"
+                        onclick="mudarTelaUser('conteudo_user_usuario', 'conteudo_user')">
+                        <label for="html">CADASTRAR
+                            USUÁRIO</label>
                     </div>
 
-                    <div class="botao_user border-branco">
-                        <label for="html">CADASTRAR MÁQUINA</label>
+                    <div class="botao_user border-branco"
+                        onclick="mudarTelaUser('conteudo_user_computador', 'conteudo_user')">
+                        <label for="html">CADASTRAR
+                            MÁQUINA</label>
                     </div>
 
                 </div>
@@ -125,32 +135,33 @@
 
 
 
-            <div class="conteudo_user usuario" style="display: none;">
+            <div class="conteudo_user usuario" style="display: none;" id="conteudo_user_usuario">
 
                 <div class="btns_user">
 
                     <div class="div_input_cad_user">
                         <label for="html">Nome</label>
-                        <input type="text" class="input_user_cad" >
+                        <input type="text" class="input_user_cad">
                     </div>
 
                     <div class="div_input_cad_user">
                         <label for="html">E-mail</label>
-                        <input type="text" class="input_user_cad" >
+                        <input type="text" class="input_user_cad">
                     </div>
 
                     <div class="div_input_cad_user">
                         <label for="html">Senha</label>
-                        <input type="text" class="input_user_cad" >
+                        <input type="text" class="input_user_cad">
                     </div>
 
                     <div class="div_input_cad_user">
                         <label for="html">Confirmar senha</label>
-                        <input type="text" class="input_user_cad" >
+                        <input type="text" class="input_user_cad">
                     </div>
 
                     <div class="div_input_cad_user div_input_cad_user_btn">
-                        <button class="input_user_cad_btn btn_verm">Voltar</button>
+                        <button class="input_user_cad_btn btn_verm"
+                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_usuario')">Voltar</button>
                         <button class="input_user_cad_btn btn_azul">Cadastrar</button>
                     </div>
 
@@ -159,7 +170,8 @@
                 <div class="tabela_user">
 
                     <div class="header_tabela">
-                        <label for="jsdelivr" class="border-branco" style="font-size: 30px;">Usuários cadastrados</label>
+                        <label for="jsdelivr" class="border-branco" style="font-size: 30px;">Usuários
+                            cadastrados</label>
                     </div>
 
                     <div class="tabela_usuario">
@@ -170,22 +182,23 @@
             </div>
 
 
-            <div class="conteudo_user computador">
+            <div class="conteudo_user computador" id="conteudo_user_computador">
 
                 <div class="btns_user">
 
                     <div class="div_input_cad_user">
                         <label for="html">Nome</label>
-                        <input type="text" class="input_user_cad" >
+                        <input type="text" class="input_user_cad">
                     </div>
 
                     <div class="div_input_cad_user">
                         <label for="html">Área</label>
-                        <input type="text" class="input_user_cad" >
+                        <input type="text" class="input_user_cad">
                     </div>
 
                     <div class="div_input_cad_user div_input_cad_user_btn">
-                        <button class="input_user_cad_btn btn_verm">Voltar</button>
+                        <button class="input_user_cad_btn btn_verm"
+                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_computador')">Voltar</button>
                         <button class="input_user_cad_btn btn_azul">Cadastrar</button>
                     </div>
 
@@ -194,7 +207,8 @@
                 <div class="tabela_user">
 
                     <div class="header_tabela">
-                        <label for="jsdelivr" class="border-branco" style="font-size: 30px;">Máquinas cadastradas</label>
+                        <label for="jsdelivr" class="border-branco" style="font-size: 30px;">Máquinas
+                            cadastradas</label>
                     </div>
 
                     <div class="tabela_usuario">
@@ -203,6 +217,138 @@
                 </div>
 
             </div>
+
+            <div class="conteudo_user perfil" id="conteudo_user_perfil">
+
+                <div class="header_perfil">
+                    <div>
+                        <p>Aldemir De Barros</p>
+                    </div>
+                    <div>
+                        <img src="img/usuario-de-perfil.png" class="img_perfil" alt="">
+                    </div>
+                </div>
+
+
+                <div class="carousel_div">
+
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+
+
+                                <div class="campos_perfil">
+
+                                    <div class="div_campos_perfil">
+                                        <div class="div_input_cad_user">
+                                            <label>Empresa</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>CNPJ</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                    </div>
+
+                                    <div class="div_campos_perfil">
+
+                                        <div class="div_input_cad_user">
+                                            <label>Email</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>Senha</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="div_btns_perfil">
+                                        <button class="input_user_cad btn_verm">Voltar</button>
+                                        <button class="input_user_cad btn_azul"
+                                            style="background-color: #457b9d7e;">Alterações</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="carousel-item">
+    
+    
+                                <div class="campos_perfil">
+    
+                                    <div class="div_campos_perfil_end">
+                                        <div class="div_input_cad_user">
+                                            <label>CEP</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+    
+                                        <div class="div_input_cad_user">
+                                            <label>Rua</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+    
+                                        <div class="div_input_cad_user">
+                                            <label>Bairro</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                    </div>
+    
+                                    <div class="div_campos_perfil_end">
+    
+                                        <div class="div_input_cad_user">
+                                            <label>Cidade</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+    
+                                        <div class="div_input_cad_user">
+                                            <label>Estado</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+    
+                                        <div class="div_input_cad_user">
+                                            <label>Complemento</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                    </div>
+    
+                                    <div class="div_btns_perfil">
+                                        <button class="input_user_cad btn_verm">Voltar</button>
+                                        <div class="div_input_cad_user">
+                                            <label>Complemento</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                        <button class="input_user_cad btn_azul"
+                                            style="background-color: #457b9d7e;">Alterações</button>
+                                    </div>
+                                </div>
+                        </div>
+
+
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+
 
         </div>
 
@@ -210,9 +356,9 @@
 
             <div class="conteudo_user">
 
-                <div class="btns_user" >
+                <div class="btns_user">
 
-                    <div class="botao_user border-azul" >
+                    <div class="botao_user border-azul">
                         <label for="html">INFORMAÇÕES DA CONTA</label>
                     </div>
 
@@ -391,5 +537,26 @@
         // alert(`#${pg}`)
         // alert('1as1')
         document.location.href = `${pg}`
+    }
+
+
+    function mudarTelaUser(tela, telaS) {
+        elemento = document.getElementById(tela)
+        elemento2 = document.getElementById(telaS)
+
+        elemento2.style.animation = 'sumir .4s linear'
+
+        setTimeout(function () {
+            elemento.style.animation = 'sumir .4s linear reverse '
+
+            elemento.style.display = 'flex'
+            elemento2.style.display = 'none'
+        }, 400)
+
+        setTimeout(function () {
+            elemento.style.animation = null;
+            elemento2.style.animation = null;
+        }, 800);
+
     }
 </script>
