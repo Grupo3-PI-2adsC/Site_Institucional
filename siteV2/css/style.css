@@ -324,6 +324,10 @@ main {
     overflow: hidden;
 }
 
+.valoresResponsivo {
+    display: none;
+}
+
 
 .avaliacoes-cabecalho {
     width: 100%;
@@ -650,3 +654,9 @@ footer {
     font-weight: bold;
     margin-bottom: 0px;
 }
+
+/* @media screen and (max-width: 1280px){
+    .headerLeft{
+        background-color: #EDF2F4;
+    }
+} */

@@ -23,6 +23,11 @@ header {
     border-radius: 0px 0px 50px 27px;
 }
 
+.menuR{
+    display: none;
+}
+
+
 header.rolagem {
     background-color: #E63946;
 }
@@ -165,12 +170,31 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-
-
-
-
 /* cores */
 
 .white{
     color: #EDF2F4;
+}
+
+@media screen and (max-width: 1280px){
+    .navbar2, .headerBtn{
+        display: none;
+    }
+
+    .menuR{
+        display: block;
+        width: 44px;
+        height: 6%;
+        padding: 18px;
+        position: fixed;
+        top: 6px;
+        left: 310px;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: .4s;
+    }
+
+    .bi-list::before{
+        transform: scale(1.5);
+    }
 }
