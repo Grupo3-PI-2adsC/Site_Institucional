@@ -4,79 +4,584 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral</title>
+    <title>Tela Usuario</title>
     <link rel="stylesheet" href="css/menuLateral.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="sidebar">
+        <nav class="menu-lateral" id="menu-lateral">
 
-    <nav class="menu-lateral">
+            <div class="expandir">
+                <i class="bi bi-list" onclick="expandir()"></i>
+            </div>
 
-        <div class="expandir">
-            <i class="bi bi-list"></i>
-        </div>
-
-        <ul>
-            <li class="item-menu">
-                <a href="#">
-                    <span class="icone">
-                        <i class="bi bi-person"></i>
-                    </span>
+            <ul class="menu">
+                <li class="item-menu ativo" onclick="mudarContainer('#')">
+                    <i class="bi bi-person icone"></i>
                     <span class="txt-link">
                         Usuário
                     </span>
-                </a>
-            </li>
+                </li>
 
-            <li class="item-menu">
-                <a href="#">
+                <li class="item-menu" onclick="mudarContainer('#grafMax')">
                     <span class="icone">
                         <i class="bi bi-columns-gap"></i>
                     </span>
                     <span class="txt-link">
                         Geral
                     </span>
-                </a>
-            </li>
+                </li>
 
-            <li class="item-menu">
-                <a href="#">
+                <li class="item-menu" onclick="mudarContainer('#grafCard')">
                     <span class="icone">
                         <i class="bi bi-pc-display"></i>
                     </span>
                     <span class="txt-link">
                         Informações
                     </span>
-                </a>
-            </li>
+                </li>
 
-            <li class="item-menu">
-                <a href="#">
+                <li class="item-menu" onclick="mudarContainer('#grafMin')">
                     <span class="icone">
                         <i class="bi bi-speedometer2"></i>
                     </span>
                     <span class="txt-link">
                         Dashboard
                     </span>
-                </a>
-            </li>
-            
-            <li class="item-menu">
-                <a href="#">
+                </li>
+
+                <li class="item-menu" onclick="mudarContainer('#grafMin')">
                     <span class="icone">
                         <i class="bi bi-box-arrow-left"></i>
                     </span>
                     <span class="txt-link">
                         sair
                     </span>
-                </a>
-            </li>
-            
-        </ul>
-        
-    </nav>
+                </li>
 
+            </ul>
+        </nav>
+    </div>
+    <div class="conteudo">
+
+        <div class="container">
+
+            <div class="conteudo_user" id="conteudo_user">
+
+                <div class="btns_user">
+
+                    <div class="botao_user border-azul"
+                        onclick="mudarTelaUser('conteudo_user_perfil', 'conteudo_user')">
+                        <label for="html">INFORMAÇÕES DA CONTA</label>
+                    </div>
+
+                    <div class="botao_user border-vermelho"
+                        onclick="mudarTelaUser('conteudo_user_usuario', 'conteudo_user')">
+                        <label for="html">CADASTRAR
+                            USUÁRIO</label>
+                    </div>
+
+                    <div class="botao_user border-branco"
+                        onclick="mudarTelaUser('conteudo_user_computador', 'conteudo_user')">
+                        <label for="html">CADASTRAR
+                            MÁQUINA</label>
+                    </div>
+
+                </div>
+
+                <div class="tabela_user">
+
+                    <div class="header_tabela">
+
+                        <div class="radio-container">
+
+                            <label for="radio" class="radio_label">
+                                <input type="radio" id="radio" name="radio_user" />
+                                <div class="custom-radio">
+                                    <span></span>
+                                </div>
+                                <span>Computadores</span>
+                            </label>
+
+                        </div>
+
+                        <div class="radio-container">
+
+                            <label for="radio1" class="radio_label">
+                                <input type="radio" id="radio1" name="radio_user" />
+                                <div class="custom-radio">
+                                    <span></span>
+                                </div>
+                                <span>Usuarios</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="tabela_usuario">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="conteudo_user usuario" style="display: none;" id="conteudo_user_usuario">
+
+                <div class="btns_user">
+
+                    <div class="div_input_cad_user">
+                        <label for="html">Nome</label>
+                        <input type="text" class="input_user_cad">
+                    </div>
+
+                    <div class="div_input_cad_user">
+                        <label for="html">E-mail</label>
+                        <input type="text" class="input_user_cad">
+                    </div>
+
+                    <div class="div_input_cad_user">
+                        <label for="html">Senha</label>
+                        <input type="text" class="input_user_cad">
+                    </div>
+
+                    <div class="div_input_cad_user">
+                        <label for="html">Confirmar senha</label>
+                        <input type="text" class="input_user_cad">
+                    </div>
+
+                    <div class="div_input_cad_user div_input_cad_user_btn">
+                        <button class="input_user_cad_btn btn_verm"
+                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_usuario')">Voltar</button>
+                        <button class="input_user_cad_btn btn_azul">Cadastrar</button>
+                    </div>
+
+                </div>
+
+                <div class="tabela_user">
+
+                    <div class="header_tabela">
+                        <label for="jsdelivr" class="border-branco" style="font-size: 30px;">Usuários
+                            cadastrados</label>
+                    </div>
+
+                    <div class="tabela_usuario">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="conteudo_user computador" id="conteudo_user_computador">
+
+                <div class="btns_user">
+
+                    <div class="div_input_cad_user">
+                        <label for="html">Nome</label>
+                        <input type="text" class="input_user_cad">
+                    </div>
+
+                    <div class="div_input_cad_user">
+                        <label for="html">Área</label>
+                        <input type="text" class="input_user_cad">
+                    </div>
+
+                    <div class="div_input_cad_user div_input_cad_user_btn">
+                        <button class="input_user_cad_btn btn_verm"
+                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_computador')">Voltar</button>
+                        <button class="input_user_cad_btn btn_azul">Cadastrar</button>
+                    </div>
+
+                </div>
+
+                <div class="tabela_user">
+
+                    <div class="header_tabela">
+                        <label for="jsdelivr" class="border-branco" style="font-size: 30px;">Máquinas
+                            cadastradas</label>
+                    </div>
+
+                    <div class="tabela_usuario">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="conteudo_user perfil" id="conteudo_user_perfil">
+
+                <div class="header_perfil">
+                    <div>
+                        <p>Aldemir De Barros</p>
+                    </div>
+                    <div>
+                        <img src="img/usuario-de-perfil.png" class="img_perfil" alt="">
+                    </div>
+                </div>
+
+
+                <div class="carousel_div">
+
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+
+
+                                <div class="campos_perfil">
+
+                                    <div class="div_campos_perfil">
+                                        <div class="div_input_cad_user">
+                                            <label>Empresa</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>CNPJ</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                    </div>
+
+                                    <div class="div_campos_perfil">
+
+                                        <div class="div_input_cad_user">
+                                            <label>Email</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>Senha</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="div_btns_perfil">
+                                        <button class="input_user_cad btn_verm"
+                                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
+                                        <button class="input_user_cad btn_azul"
+                                            style="background-color: #457b9d7e;">Alterações</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="carousel-item">
+
+
+                                <div class="campos_perfil">
+
+                                    <div class="div_campos_perfil_end">
+                                        <div class="div_input_cad_user">
+                                            <label>CEP</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>Rua</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>Bairro</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                    </div>
+
+                                    <div class="div_campos_perfil_end">
+
+                                        <div class="div_input_cad_user">
+                                            <label>Cidade</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>Estado</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+
+                                        <div class="div_input_cad_user">
+                                            <label>Complemento</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                    </div>
+
+                                    <div class="div_btns_perfil">
+                                        <button class="input_user_cad btn_verm"
+                                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
+                                        <div class="div_input_cad_user">
+                                            <label>Complemento</label>
+                                            <input type="text" class="input_user_cad">
+                                        </div>
+                                        <button class="input_user_cad btn_azul"
+                                            style="background-color: #457b9d7e;">Alterações</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev seta" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next seta" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <div class="container grafMax" id="grafMax">
+            <div class="div_geral_kpi">
+                <div class="div_coluna_kpi">
+                    <div class="kpi">
+                        <p> Computadores Ativos</p>
+                        <span>5</span>
+                    </div>
+
+                    <div class="kpi">
+                        <p>Sistema Operacional Linux</p>
+                        <span>5</span>
+                    </div>
+
+                    <div class="kpi">
+                        <div >
+                            <input type="number" id="inpt_porc_armazem" class="inpt_limite">
+                            <p>% ou mais de<br>armazenamento disponível</p>
+                        </div>
+                        <span>5</span>
+                    </div>
+                </div>
+
+                <div class="div_coluna_kpi">
+                    <div class="kpi">
+                        <p>Todos os Computadores</p>
+                        <span>5</span>
+                    </div>
+
+                    <div class="kpi">
+                        <p>Sistema Operacional Windows</p>
+                        <span>5</span>
+                    </div>
+
+                    <div class="kpi">
+                        <div>
+                            <input type="number" id="inpt_memoria_disp" class="inpt_limite">
+                            <p>gb ou mais de Memória disponível</p>
+                        </div>
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabela_max">
+
+            </div>
+        </div>
+
+        <div class="container grafCard" id="grafCard">
+
+            <div class="header_cards_grafico">
+                <p>INFORMAÇÕES COMPUTADOR</p>
+                <select name="slct_infos_comp_cards" class="select_card" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div class="div_linha_cards" style="justify-content: space-evenly;">
+                <div class="cards">
+                    <div class="titulo_card">
+                        <p>RAM</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Threads</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Processos Ativos</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="titulo_card">
+                        <p>REDE</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Threads</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Processos Ativos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div_linha_cards">
+                <div class="cards">
+                    <div class="titulo_card">
+                        <p>DISCO</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Threads</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Processos Ativos</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="titulo_card">
+                        <p>SISTEMA</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Threads</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Processos Ativos</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="titulo_card">
+                        <p>SERVIÇO</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Threads</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <span>10</span>
+                        <p>Total de Processos Ativos</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container grafMin" id="grafMin">
+            <div class="header_cards_grafico">
+                <p>DADOS COMPUTADOR</p>
+                <select name="slct_infos_comp_cards" class="select_card" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div class="div_graficos_corpo">
+                <div class="div_graficos_geral">
+                    <div class="div_colunas_graficos">
+                        <div class="div_grafico">
+                            <div class="header_grafico">
+                                <p>Uso da CPU X Tempo</p>
+                                <div class="div_limite_componentes">
+                                    <img src="img/icone/alerta_icone.png" alt="">
+                                    <input type="number" class="inpt_limite">
+                                </div>
+                            </div>
+                            <div class="grafico">
+
+                            </div>
+                        </div>
+                        <div class="div_grafico">
+                            <div class="header_grafico">
+                                <p>Uso de disco X Tempo</p>
+                                <div class="div_limite_componentes">
+                                    <img src="img/icone/alerta_icone.png" alt="">
+                                    <input type="number" class="inpt_limite">
+                                </div>
+                            </div>
+                            <div class="grafico">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div_colunas_graficos">
+                        <div class="div_grafico">
+                            <div class="header_grafico">
+                                <p>Uso da RAM X Tempo</p>
+                                <div class="div_limite_componentes">
+                                    <img src="img/icone/alerta_icone.png" alt="">
+                                    <input type="number" class="inpt_limite">
+                                </div>
+                            </div>
+                            <div class="grafico">
+
+                            </div>
+                        </div>
+                        <div class="div_grafico">
+                            <div class="header_grafico">
+                                <p>Velocidade rede X Tempo</p>
+                                <div class="div_limite_componentes">
+                                    <img src="img/icone/alerta_icone.png" alt="">
+                                    <input type="number" class="inpt_limite">
+                                </div>
+                            </div>
+                            <div class="grafico">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div_kpi_grafico_geral">
+                    <div class="div_kpi_grafico">
+                        <div class="kpi_grafico">
+                            <div class="kpi_graf">
+
+                            </div>
+                            <div class="kpi_graf">
+
+                            </div>
+                            <div class="kpi_graf">
+
+                            </div>
+                        </div>
+                        <div class="div_kpi_incidente_grafico">
+                            <p>Incidentes registrados nos ultimos 30 dias</p>
+                            <div class="incidente_graf">
+
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="div_tabela_processos">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
 
 </html>
@@ -84,15 +589,78 @@
 <script>
     var menuItem = document.querySelectorAll('.item-menu')
 
-    function selectLink(){
-        menuItem.forEach((item)=>
-        item.classList.remove('ativo')
+    function selectLink() {
+        menuItem.forEach((item) =>
+            item.classList.remove('ativo')
+        )
+        this.classList.add('ativo')
+    }
+
+    menuItem.forEach((item) =>
+        item.addEventListener('click', selectLink)
     )
-    this.classList.add('ativo')
-}
 
-menuItem.forEach((item)=>
-    item.addEventListener('click', selectLink)
-)
 
+    function expandir() {
+
+
+
+        div1 = document.getElementById('menu-lateral');
+        txtLink = document.getElementsByClassName('txt-link')
+
+        if (div1.style.width == '100px') {
+            div1.style.width = '270px';
+            // txtLink.style.display = "none";
+            $('.txt-link').css('display', 'block');
+        } else {
+            div1.style.width = '100px'
+            txtLink.style.display = "block";
+
+        }
+
+        // item1.
+
+
+        /* .menu li.item-menu:hover a{
+    color: #EDF2F4;
+    transition: .4s;
+} */
+        /* nav.menu-lateral:hover{
+                    min-width: 270px;
+                    padding-left: 20px;
+                } */
+        /* nav.menu-lateral:hover .txt-link{
+            display: block;
+        } */
+
+
+
+    }
+
+    function mudarContainer(pg) {
+        // alert(`#${pg}`)
+        // alert('1as1')
+        document.location.href = `${pg}`
+    }
+
+
+    function mudarTelaUser(tela, telaS) {
+        elemento = document.getElementById(tela)
+        elemento2 = document.getElementById(telaS)
+
+        elemento2.style.animation = 'sumir .4s linear'
+
+        setTimeout(function () {
+            elemento.style.animation = 'sumir .4s linear reverse '
+
+            elemento.style.display = 'flex'
+            elemento2.style.display = 'none'
+        }, 400)
+
+        setTimeout(function () {
+            elemento.style.animation = null;
+            elemento2.style.animation = null;
+        }, 800);
+
+    }
 </script>
