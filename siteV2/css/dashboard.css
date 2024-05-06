@@ -66,12 +66,12 @@ header{
     width: 100%;
     height: 35%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
     align-items: center;
 }
 .header_perfil div{
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -318,4 +318,290 @@ input[type='radio']:checked+.custom-radio span {
     position: absolute !important;
     height: 100%;
     width: 100%;
+}
+.seta{
+    height: 30%;
+}
+
+
+.grafMax{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.div_geral_kpi{
+    height: 80%;
+    width: 57%;
+    display: flex;
+    justify-content: space-around;
+}
+.div_coluna_kpi{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.kpi{
+    width: 90%;
+    height: 28%;
+    background-color: #151529;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.kpi p, .kpi span {
+    color: #EDF2F4;
+}
+.kpi span{
+    font-size: 50px;
+}
+.kpi div{
+    column-gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.inpt_limite{
+    left: 20px;
+    width: 30px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+}
+.tabela_max{
+    width: 33%;
+    height: 80%;
+    background-color: #151529;
+}
+
+.tabela_max{
+    border-radius: 30px;
+}
+
+.grafCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header_cards_grafico{
+    height: 14%;
+    /* background-color: #457b9de4; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+.header_cards_grafico p{
+    color: #EDF2F4;
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+
+.div_linha_cards{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cards{
+    width: 28%;
+    height: 90%;
+    background-color: #151529;
+    border-radius: 10px;
+    border: 5px solid #457B9D;
+    position: relative;
+    display: flex;
+
+}
+
+.titulo_card{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30%;
+    height: 10%;
+    background-color: #457B9D;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 10px 0px;
+}
+.titulo_card p{
+    color: #EDF2F4;
+}
+
+.select_card{
+    height: 35%;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    color: #EDF2F4;
+    border: none !important;
+}
+
+.div_coluna_componentes{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+}
+
+.div_coluna_componentes p{
+    color: #EDF2F4;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.div_coluna_componentes span{
+    font-size: 50px;
+    color: #EDF2F4;
+    text-align: 50px;
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.select_card:active {
+  transition:.4s;
+  background-color: #22223B;
+  border: none !important;
+}
+.select_card option{
+    border: none !important;
+}
+
+.grafMin{
+    display: flex;
+    flex-direction: column;
+}
+.div_graficos_corpo{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+.div_graficos_geral{
+    width: 57%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.div_colunas_graficos{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.div_grafico{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header_grafico{
+    height: 10%;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px
+}
+.grafico{
+    height: 80%;
+    width: 85%;
+    background-color: #151529;
+    border-radius: 30px;
+}
+.header_grafico p{
+    color: #EDF2F4;
+    display: flex;
+    justify-content: space-between;
+}
+.div_limite_componentes{
+    column-gap: 10px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.div_limite_componentes img{
+    width: 30px;
+}
+.div_limite_componentes input{
+    width: 40%;
+}
+
+.div_kpi_grafico_geral{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 94%;
+}
+.div_kpi_grafico{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
+.kpi_grafico{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+.kpi_graf{
+    width: 30%;
+    height: 80%;
+    border-radius: 30px;    background-color: #151529;
+    
+}
+.div_kpi_incidente_grafico{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.div_kpi_incidente_grafico p{
+    color: #EDF2F4;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    align-items: center;
+}
+.incidente_graf{
+
+    width: 100%;
+    height: 80%;
+    background-color: #151529;
+    border-radius: 30px;
+}
+
+.div_tabela_processos{
+    width: 100%;
+    height: 45%;
+    background-color: #151529;
+    border-radius: 30px;
 }
