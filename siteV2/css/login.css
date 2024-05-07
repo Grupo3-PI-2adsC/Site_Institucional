@@ -1,37 +1,42 @@
 header{
     background-color: #EDF2F4;
+    position: static;
 }
 
+body{
+    background-color: #e63947;
+    height: 100vh;
+    width: 100vw;
+}
 main{
-    background-color: #E63946;
+    background-color: #e63947;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100% - 67px);
+    justify-content: space-around;
+    align-items: center;
 }
-
 .div_img_login_logo{
-    position: absolute;
-    width: 36%;
-    height: 80%;
-    transform: translateY(21%);
-    background-image: url("../img/forma_fund0_login.png");
+    width: 30%;
+    height: 70%;
     background-repeat: no-repeat;
     right: 0px;
-    margin-right: 50px;
 }
 .div_container{
     width: 45%;
     height: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: right;
-    left: 0;
-    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .div_login{
-    height: 70%;
+    height: 75%;
     width: 80%;
     background-color: #e6394700;
     border: #EDF2F4 solid 5px;
     box-shadow: 0px 0px 20px #0000009f;
-    transform: translateY(29%);
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -41,15 +46,15 @@ main{
 }
 
 .titulo_login{
+    font-size: 23px;
+    font-weight: bold;
     display: flex;
     align-items: center;
-    width: 50%;
-    border: #EDF2F4 solid 5px;
-    border-radius: 30px;
+    width: 40%;
+    border-bottom: #EDF2F4 solid 5px;
     justify-content:  center;
     min-height: 30px;
     height: 10%;
-    box-shadow: #0000004b -7px 7px 10px;
     color: #EDF2F4;
 }
 
@@ -74,20 +79,19 @@ main{
 
 .btn_login{
     background-color: #00000000;
-    border: #EDF2F4 solid 5px;
+    border: none;
     border-radius: 30px;
     width: 40%;
     min-height: 25px;
     height: 9%;
     cursor: pointer;
     color: #EDF2F4;
-    box-shadow: #0000004b -7px 7px 10px;
+    box-shadow: #00000085 0px 0px 20px;
 }
 
 .link_cadastro{
+    margin-top: 20px;
     width: 80%;
-    margin-bottom: 5%;
-    position: absolute;
     bottom: 0px;
     text-align: right;
 }

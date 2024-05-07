@@ -25,7 +25,7 @@ function acessar() {
           sessionStorage.EMAIL_USUARIO = json[0].email;
           sessionStorage.NOME_USUARIO = json[0].nome;
           sessionStorage.ID_USUARIO = json[0].idEmpresa; 
-        //   window.location.href = "COLOCAR O PÓS LOGIN AQUI";
+          window.location.href = "telaUsuario.html";
           // apenas para exibir o loading
       });
 
