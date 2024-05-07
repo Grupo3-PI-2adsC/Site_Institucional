@@ -111,7 +111,7 @@ nav.menu-lateral {
     transition: .4s;
 } */
 
-.menu li.ativo img{
-    background-color: #EDF2F4;
+.menu li.ativo .bi {
+    color: #EDF2F4;
 }
 

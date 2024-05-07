@@ -87,6 +87,12 @@ main{
     cursor: pointer;
     color: #EDF2F4;
     box-shadow: #00000085 0px 0px 20px;
+    transition: .5s;
+}
+
+.btn_login:hover{
+    background-color: #EDF2F4;
+    color: #e63947;
 }
 
 .link_cadastro{
