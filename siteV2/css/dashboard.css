@@ -368,10 +368,12 @@ input[type='radio']:checked+.custom-radio span {
 
 .inpt_limite{
     left: 20px;
-    width: 30px;
+    width: 40px;
     height: 20px;
     border: none;
     border-radius: 10px;
+    font-size: 15px;
+    padding-left: 7px;
 }
 .tabela_max{
     width: 33%;
@@ -490,6 +492,7 @@ input[type='radio']:checked+.custom-radio span {
     flex-direction: column;
 }
 .div_graficos_corpo{
+    column-gap: 30px;
     height: 80%;
     width: 100%;
     display: flex;
@@ -529,15 +532,19 @@ input[type='radio']:checked+.custom-radio span {
     padding: 0px 10px
 }
 .grafico{
+    padding: 10px;
     height: 80%;
-    width: 85%;
+    width: 95%;
     background-color: #151529;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
 }
 .header_grafico p{
     color: #EDF2F4;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0px;
 }
 .div_limite_componentes{
     column-gap: 10px;
@@ -549,7 +556,6 @@ input[type='radio']:checked+.custom-radio span {
     width: 30px;
 }
 .div_limite_componentes input{
-    width: 40%;
 }
 
 .div_kpi_grafico_geral{
@@ -604,4 +610,9 @@ input[type='radio']:checked+.custom-radio span {
     height: 45%;
     background-color: #151529;
     border-radius: 30px;
+}
+
+.cnvs{
+    width: 100% !important;
+    height: 80% !important;
 }
