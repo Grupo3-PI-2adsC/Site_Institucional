@@ -13,6 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -128,23 +132,7 @@
                     </div>
 
                     <div class="tabela_usuario">
-                        <table>
-                            <tr>
-                                <th>Computadores</th>
-                            </tr>
-                            <tr>
-                                <td>Computador 01</td>
-                            </tr>
-                            <tr>
-                                <td>Computador 02   </td>
-                            </tr>
-                            <tr>
-                                <td>Computador 03</td>
-                            </tr>
-                            <tr>
-                                <td>Computador 04</td>
-                            </tr>
-                        </table>
+
                     </div>
                 </div>
             </div>
@@ -384,7 +372,7 @@
                     </div>
 
                     <div class="kpi">
-                        <div >
+                        <div>
                             <input type="number" id="inpt_porc_armazem" class="inpt_limite">
                             <p>% ou mais de<br>armazenamento disponível</p>
                         </div>
@@ -522,11 +510,13 @@
                             <div class="header_grafico">
                                 <p>Uso da CPU X Tempo</p>
                                 <div class="div_limite_componentes">
-                                    <img src="img/icone/alerta_icone.png" alt="">
-                                    <input type="number" class="inpt_limite">
+                                    <img src="img/icone/Error.png" alt="">
+                                    <input type="number" class="inpt_limite" oninput="duplica(this.id)"
+                                        id="input_limite_CPU">
                                 </div>
                             </div>
                             <div class="grafico">
+                                <canvas id="grafico_CPU" class="cnvs"></canvas>
 
                             </div>
                         </div>
@@ -534,11 +524,13 @@
                             <div class="header_grafico">
                                 <p>Uso de disco X Tempo</p>
                                 <div class="div_limite_componentes">
-                                    <img src="img/icone/alerta_icone.png" alt="">
-                                    <input type="number" class="inpt_limite">
+                                    <img src="img/icone/Error.png" alt="">
+                                    <input type="number" class="inpt_limite" oninput="duplica(this.id)"
+                                        id="input_limite_DISCO">
                                 </div>
                             </div>
                             <div class="grafico">
+                                <canvas id="grafico_DISCO" class="cnvs"></canvas>
 
                             </div>
                         </div>
@@ -548,23 +540,26 @@
                             <div class="header_grafico">
                                 <p>Uso da RAM X Tempo</p>
                                 <div class="div_limite_componentes">
-                                    <img src="img/icone/alerta_icone.png" alt="">
-                                    <input type="number" class="inpt_limite">
+                                    <img src="img/icone/Error.png" alt="">
+                                    <input type="number" class="inpt_limite" oninput="duplica(this.id)"
+                                        id="input_limite_RAM">
                                 </div>
                             </div>
                             <div class="grafico">
-
+                                <canvas id="grafico_RAM" class="cnvs"></canvas>
                             </div>
                         </div>
                         <div class="div_grafico">
                             <div class="header_grafico">
                                 <p>Velocidade rede X Tempo</p>
                                 <div class="div_limite_componentes">
-                                    <img src="img/icone/alerta_icone.png" alt="">
-                                    <input type="number" class="inpt_limite">
+                                    <img src="img/icone/Error.png" alt="">
+                                    <input type="number" class="inpt_limite" oninput="duplica(this.id)"
+                                        id="input_limite_REDE">
                                 </div>
                             </div>
                             <div class="grafico">
+                                <canvas id="grafico_REDE" class="cnvs"></canvas>
 
                             </div>
                         </div>
@@ -588,7 +583,7 @@
                             <div class="incidente_graf">
 
                             </div>
-                        </div> 
+                        </div>
                     </div>
                     <div class="div_tabela_processos">
 
@@ -603,6 +598,134 @@
 </html>
 
 <script>
+
+    var graficos = ['grafico_CPU', 'grafico_DISCO', 'grafico_RAM', 'grafico_REDE'];
+    var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
+    var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
+
+    var Limite = {};
+    Limite.CPU = 75;
+    Limite.RAM = 75;
+    Limite.REDE = 75;
+    Limite.DISCO = 75;
+
+    console.log(Limite);
+
+    window.onload = plotar();
+
+
+    function duplica(idAtu) {
+        const codigomaterial = document.getElementById(idAtu).value;
+
+        if (codigomaterial > 100 || codigomaterial < 0) {
+            const codigoalterado = codigomaterial.normalize('NFD').replace(/([\u0300-\u036f]|[^_0-9a-zA-Z\s])/g, '').replace(/ /g, "_").toLowerCase().substring(0, 2);
+            document.getElementById(idAtu).value = codigoalterado;
+        }
+        mudarLimite(idAtu)
+    };
+
+    function mudarLimite(id) {
+        let valor = document.getElementById(id).value
+
+        let comp = id.slice((id.lastIndexOf("_") + 1), id.length)
+        Limite[comp] = Number(valor);
+
+        console.log(Limite);
+
+    }
+
+    function plotar() {
+        for (let i = 0; i <= 3; i++) {
+            var graficoAtual = graficos[i];
+            var labelAtual = labe[i];
+            var corAtual = cor[i]
+            plotarGrafico(graficoAtual, labelAtual, corAtual)
+
+        }
+    }
+    var labels = [];
+    var data = [];
+    var data2 = [];
+    function plotarGrafico(grafico, lab, color_border) {
+
+
+        labels = [1, 2, 3, 4, 5];
+        data = [];
+        data2 = [];
+        let comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
+        for (let i = 0; i <= 4; i++) {
+            var num = Math.floor(Math.random() * 100);
+            data.push(num);
+            data2.push(Limite[comp])
+            // data[1].push(num2);
+        }
+        let dados = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'lab',
+                    data: data,
+                    fill: false,
+                    borderColor: (color_border),
+                },
+                {
+                    label: 'Limite',
+                    data: data2,
+                    fill: true,
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: ('#00000000'),
+                    borderColor: ('#E63946'),
+                }
+            ],
+
+        };
+
+
+        const config = {
+            type: 'line',
+            data: dados,
+            options: {
+                scales: {
+                    beginAtZero: true
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                }
+            }
+
+        };
+
+        let myChart = new Chart(
+            document.getElementById(grafico),
+            config
+        );
+
+        setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
+
+    }
+
+    function atualizarGrafico(dados, dados2, myChart, labels, comp) {
+
+
+        myChart.data.labels.shift(); // apagar o primeiro
+        myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
+
+        var medidaAtual = Math.floor(Math.random() * 100);
+
+        myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
+        myChart.data.datasets[0].data.push(medidaAtual);
+
+        myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
+        myChart.data.datasets[1].data.push(Limite[comp]);
+
+        myChart.update();
+
+
+        setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
+    }
+
     var menuItem = document.querySelectorAll('.item-menu')
 
     function selectLink() {
