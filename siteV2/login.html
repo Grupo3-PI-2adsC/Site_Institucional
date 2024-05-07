@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/login.css  ">
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
 </head>
 
 <body>
@@ -43,19 +44,19 @@
                     LOGIN
                 </div>
 
-                <div class="inputs_login">
+                <div class="inputs_login"  >
                     <span>Email</span>
-                    <input type="text">
+                    <input type="text" id="ipt_email">
                 </div>
 
-                <div class="inputs_login">
+                <div class="inputs_login"  >
                     <span>Senha</span>
-                    <input type="text">
+                    <input type="text" id="ipt_senha">
 
                 </div>
 
-                <button class="btn_login">
-                    LOGAR
+                <button onclick="acessar()" class="btn_login">
+                    LOGAR 
                 </button>
             </div>
             <a class="link_cadastro" href="cadastro.html"><u >Ainda não possui Cadastro? Clique Aqui!!</u></a>

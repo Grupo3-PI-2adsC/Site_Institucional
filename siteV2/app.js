@@ -11,7 +11,7 @@
     var indexRouter = require("./routes/index");
     var usuarioRouter = require("./routes/usuarios");
     // var empresasRouter = require("routes/empresas");
-    // var enderecosRouter = require("routes/enderecos");
+    var cadastroEnderecoRouter = require("./routes/cadastroEndereco");
 
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
@@ -21,7 +21,7 @@
     app.use("/", indexRouter);
     app.use("/usuarios", usuarioRouter);
     // app.use("/empresas", empresasRouter);
-    // app.use("/enderecos", enderecosRouter);
+    app.use("/cadastroEndereco", cadastroEnderecoRouter);
 
     app.listen(PORTA, function () {
         console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

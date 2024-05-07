@@ -1,3 +1,5 @@
+const res = require("express/lib/response");
+
 function cadastrar() {
 
     var nomeVar = document.getElementById('inpt_nome_cad').value;
@@ -77,17 +79,51 @@ function cadastrar() {
         alert('Burro');
 
     } else {
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                cnpjServer: cnpj,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+
+        }).then(function (resposta) {
+            if (resposta.ok) {
+
+                resposta.json().then((usuario) => {
+                    sessionStorage.ID_USUARIO = usuario.insertId;
+                    animar('divCad', 'divCad2');
+                })
+            }else{
+                alert('cadastro não realizado')
+                throw "Houve um erro ao tentar realizar o cadastro"
+            }
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                alert('cadastro não realizado')
+            })
+
         // div_mensagem.style.display = "none";
         // alert('Parabens');
 
-        animar('divCad', 'divCad2');
+
     }
+
+
 }
 
 
 function cadastrar2() {
 
-    var cnpj = document.getElementById('inpt_cep_cad').value;
+    var fkEmpresa = sessionStorage.ID_USUARIO;
+    var cep = document.getElementById('inpt_cep_cad').value;
     var rua = document.getElementById('inpt_rua_cad').value;
     var bairro = document.getElementById('inpt_bairro_cad').value;
     var estado = document.getElementById('inpt_estado_cad').value;
@@ -96,14 +132,14 @@ function cadastrar2() {
     var complemento = document.getElementById('inpt_complemento_cad').value;
     var validacao = 0;
 
-    var teste = [] 
-    teste.push(cnpj)
+    var teste = []
+    teste.push(cep)
     teste.push(rua)
     teste.push(bairro)
     teste.push(estado)
     teste.push(cidade)
     teste.push(numero)
-    teste.push(complemento)
+    // teste.push(complemento)
 
     console.log(teste)
 
@@ -116,12 +152,12 @@ function cadastrar2() {
             Atual.indexOf("%") >= 0 ||
             Atual.indexOf("*") >= 0 ||
             Atual.indexOf("$") >= 0 ||
-            Atual == ""             ||
-            Atual == null           ||
+            Atual == "" ||
+            Atual == null ||
             Atual.indexOf("&") >= 0
         ) {
             // div_mensagem.innerHTML += `-Não pode haver caracter especial nem espaços no endereço da empresa<br>`;
-    
+
             validacao = 1;
         }
 
@@ -132,8 +168,41 @@ function cadastrar2() {
         alert('Burro');
 
     } else {
-        alert('Cadastrado')
-        mudarTela('index');
+        fetch(`/cadastroEndereco/cadastrar`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+
+                ruaServer: rua,
+                bairroServer: bairro,
+                cidadeServer: cidade,
+                estadoServer: estado,
+                cepServer: cep,
+                numeroServer: numero,
+                complementoServer: complemento,
+                fkEmpresaServer: fkEmpresa
+            }),
+
+        }).then(function (resposta) {
+            if (resposta.ok) {
+
+                resposta.json().then((usuario) => {
+                    alert('Cadastrado')
+                    mudarTela('index');
+                })
+            }else{
+                alert('cadastro não realizado')
+                throw "Houve um erro ao tentar realizar o cadastro"
+            }
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                alert('cadastro não realizado')
+            })
+
+
     }
 }
 
@@ -178,31 +247,31 @@ function pesquisacep() {
         fetch('https://viacep.com.br/ws/' + cep + '/json/', {
             method: "GET",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-          })
+        })
             .then(function (resposta) {
-              console.log("resposta: ", resposta);
-    
-              if (resposta.ok) {
-                //alert('asdasdas')
-                //alert(idUser)
-    
-                resposta.json().then((json) => {
-                    //Atualiza os campos com os valores.
-                    document.getElementById('inpt_rua_cad').value = (json.logradouro);
-                    document.getElementById('inpt_bairro_cad').value = (json.bairro);
-                    document.getElementById('inpt_cidade_cad').value = (json.localidade);
-                    document.getElementById('inpt_estado_cad').value = (json.uf);
-                });
-              } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-              }
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    //alert('asdasdas')
+                    //alert(idUser)
+
+                    resposta.json().then((json) => {
+                        //Atualiza os campos com os valores.
+                        document.getElementById('inpt_rua_cad').value = (json.logradouro);
+                        document.getElementById('inpt_bairro_cad').value = (json.bairro);
+                        document.getElementById('inpt_cidade_cad').value = (json.localidade);
+                        document.getElementById('inpt_estado_cad').value = (json.uf);
+                    });
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
             })
             .catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
+                console.log(`#ERRO: ${resposta}`);
             });
-    }else{
+    } else {
         limpa_formulário_cep();
     }
 
@@ -210,8 +279,8 @@ function pesquisacep() {
 
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
-    document.getElementById('inpt_rua_cad').value=("");
-    document.getElementById('inpt_bairro_cad').value=("");
-    document.getElementById('inpt_estado_cad').value=("");
-    document.getElementById('inpt_cidade_cad').value=("");
+    document.getElementById('inpt_rua_cad').value = ("");
+    document.getElementById('inpt_bairro_cad').value = ("");
+    document.getElementById('inpt_estado_cad').value = ("");
+    document.getElementById('inpt_cidade_cad').value = ("");
 }
