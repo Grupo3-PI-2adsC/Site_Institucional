@@ -133,7 +133,13 @@
                     </div>
 
                     <div class="tabela_usuario">
+
                         <div id="div_tabela_geral_comp">
+                            <dialog id="dialog_tabela">
+                                Excluir maquina?
+                                <button>Sim</button>
+                                <button>Não</button>
+                            </dialog>
                             <table class="tabela_geral" id="tabela_geral_comp">
                                 <tr>
                                     <th>COMPUTADORES</th>
@@ -377,53 +383,59 @@
                 <div class="div_coluna_kpi">
                     <div class="kpi">
                         <p> Computadores Ativos</p>
-                        <span>5</span>
+                        <span>7</span>
                     </div>
 
                     <div class="kpi">
                         <p>Sistema Operacional Linux</p>
-                        <span>5</span>
+                        <span>8</span>
                     </div>
 
                     <div class="kpi">
                         <div>
-                            <input type="number" id="inpt_porc_armazem" class="inpt_limite">
+                            <input type="number" id="inpt_porc_armazem" class="inpt_limite" value="70">
                             <p>% ou mais de<br>armazenamento disponível</p>
                         </div>
-                        <span>5</span>
+                        <span>2</span>
                     </div>
                 </div>
 
                 <div class="div_coluna_kpi">
                     <div class="kpi">
                         <p>Todos os Computadores</p>
-                        <span>5</span>
+                        <span>10</span>
                     </div>
 
                     <div class="kpi">
                         <p>Sistema Operacional Windows</p>
-                        <span>5</span>
+                        <span>2</span>
                     </div>
 
                     <div class="kpi">
                         <div>
-                            <input type="number" id="inpt_memoria_disp" class="inpt_limite">
+                            <input type="number" id="inpt_memoria_disp" class="inpt_limite" value="80">
                             <p>gb ou mais de Memória disponível</p>
                         </div>
-                        <span>5</span>
+                        <span>1</span>
                     </div>
                 </div>
             </div>
 
             <div class="tabela_max">
-
+                <table class="tabela_geral" id="tabela_geral_comp_max">
+                    <tr>
+                        <th>
+                            COMPUTADORES
+                        </th>
+                    </tr>
+                </table>
             </div>
         </div>
 
         <div class="container grafCard" id="grafCard">
 
             <div class="header_cards_grafico">
-                <p>INFORMAÇÕES COMPUTADOR</p>
+                <p>INFORMAÇÕES COMPUTADOR 1</p>
                 <select name="slct_infos_comp_cards" class="select_card" id="">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -435,28 +447,29 @@
             <div class="div_linha_cards" style="justify-content: space-evenly;">
                 <div class="cards">
                     <div class="titulo_card">
-                        <p>RAM</p>
+                        <p>VOLUME</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Threads</p>
-                    </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Processos Ativos</p>
+                    <div class="div_coluna_componentes" style="width: 100%;">
+                        <p>Quantidade de Volume: 3</p>
+                        <p>UUID: 4ad06ca4-4f60-4a9c-8eb2-535275a68216</p>
+                        <p>volume: /dev/nvme0n1p2</p>
+                        <p>total: 502392610816</p>
+                        <p>disponível: 415729532928</p>
+                        <p>Utilizado: total - disponível</p>
+                        <p>tipo: ext4</p>
+
                     </div>
                 </div>
                 <div class="cards">
                     <div class="titulo_card">
-                        <p>REDE</p>
+                        <p>DISCO</p>
                     </div>
                     <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Threads</p>
-                    </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Processos Ativos</p>
+                        <p>Quantidade de Discos: 1,</p>
+                        <p>Nome: /dev/nvme0n1</p>
+                        <p>Tamanho: 512110190592</p>
+                        <p>Total de processos: 350, </p>
+                        <p>Total de Thereads: 1398,</p>
                     </div>
                 </div>
             </div>
@@ -464,41 +477,39 @@
             <div class="div_linha_cards">
                 <div class="cards">
                     <div class="titulo_card">
-                        <p>DISCO</p>
+                        <p>Rede</p>
                     </div>
                     <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Threads</p>
-                    </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Processos Ativos</p>
+                        <p>Nome de domínio: matteus-Nitro-AN515-57</p>
+                        <p>Endereço IPv4: [10.18.34.149]</p>
+                        <p>Endereço IPv6: [fe80:0:0:0:651c:61e7:cfb7:ae44]</p>
+                        <p>Endereço MAC: 50:28:4a:a8:6c:59</p>
+                        <p>Servidores DNS: [127.0.0.53]</p>
                     </div>
                 </div>
                 <div class="cards">
+                    <div class="titulo_card">
+                        <p>PROCESSADOR</p>
+                    </div>
+                    <div class="div_coluna_componentes">
+                        <p>Nome: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</p>
+                        <p>Número de Pacotes Físicos: 1</p>
+                        <p>Número de CPUs Fisícas: 6</p>
+                        <p>Número de CPUs Lógicas: 12</p>
+                    </div>
+                </div>
+                <div class="cards">
+
+
+
+
                     <div class="titulo_card">
                         <p>SISTEMA</p>
                     </div>
                     <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Threads</p>
-                    </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Processos Ativos</p>
-                    </div>
-                </div>
-                <div class="cards">
-                    <div class="titulo_card">
-                        <p>SERVIÇO</p>
-                    </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Threads</p>
-                    </div>
-                    <div class="div_coluna_componentes">
-                        <span>10</span>
-                        <p>Total de Processos Ativos</p>
+                        <p>Modelo: Ubuntu</p>
+                        <p>Arquitetura: 64bits</p>
+                        <p>nicializado: 2024-05-02T19:17:16Z</p>
                     </div>
                 </div>
             </div>
@@ -552,7 +563,7 @@
                     <div class="div_colunas_graficos">
                         <div class="div_grafico">
                             <div class="header_grafico">
-                                <p>Uso da RAM X Tempo</p>
+                                <p>Uso da Memoria X Tempo</p>
                                 <div class="div_limite_componentes">
                                     <img src="img/icone/Error.png" alt="">
                                     <input type="number" class="inpt_limite" oninput="duplica(this.id)"
@@ -617,18 +628,19 @@
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
 
-    var qtdLinhasTableComp = Math.floor((Math.random() * 10) + 1);
+    var qtdLinhasTableComp = 10//Math.floor((Math.random() * 10) + 1);
     var qtdLinhasTableUser = Math.floor((Math.random() * 10) + 1);
     function PlotarTabela() {
 
 
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
+        var tabela2 = document.getElementById('tabela_geral_comp_max')
         for (let i = 0; i < qtdLinhasTableComp; i++) {
 
-            var linha = `<tr id= "linha_computador_${i}" class= "linha_geral">
-                    <td id = "computador_${i}">Computador ${i + 1}</td>
-                    <td class = "x_tabela_geral" id= "x_linha_comp_${i}" onclick="eliminarLinha(this.id)">X</td>
+            var linha = `<tr id= "linha_computador_${i}" class= "linha_geral linha_computador_${i}">
+                    <td id = "computador_${i}" class="computador_${i}">Computador ${i + 1}</td>
+                    <td class = "x_tabela_geral x_linha_comp_${i}" id= "x_linha_comp_${i}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                 </tr>`
 
             tabela.innerHTML += linha;
@@ -636,12 +648,24 @@
 
         }
 
+        for (let i = 0; i < qtdLinhasTableComp; i++) {
+
+            var linha = `<tr id= "linha_computador_max_${i}" class= "linha_geral linha_computador_max_${i}">
+                                <td id = "computador_max_${i}" class=""computador_max_${i}"">Computador ${i + 1}</td>
+                                <td class = "x_tabela_geral x_linha_comp_${i}" id= "x_linha_comp_max_${i}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+                            </tr>`
+
+            tabela2.innerHTML += linha
+
+
+        }
+
         var tabela2 = document.getElementById('tabela_geral_user')
         for (let i = 0; i < qtdLinhasTableUser; i++) {
 
-            var linha = `<tr id= "linha_usuario_${i}" class= "linha_geral">
-                            <td id = "usuario_${i}">usuario ${i + 1}</td>
-                            <td class = "x_tabela_geral" id= "x_linha_user_${i}" onclick="eliminarLinha(this.id)">X</td>
+            var linha = `<tr id= "linha_usuario_${i}" class= "linha_geral linha_usuario_${i}">
+                            <td id = "usuario_${i}" class= "usuario_${i}">usuario ${i + 1}</td>
+                            <td class = "x_tabela_geral x_linha_user_${i}" id= "x_linha_user_${i}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                         </tr>`
 
             tabela2.innerHTML += linha;
@@ -660,7 +684,11 @@
     window.onload = plotar();
     window.onload = PlotarTabela();
 
-
+    function acharClass(teste) {
+        let classAtual = teste.slice((teste.lastIndexOf(" ") + 1), teste.length)
+        // alert(classAtual)
+        return classAtual
+    }
 
     function duplica(idAtu) {
         const codigomaterial = document.getElementById(idAtu).value;
@@ -687,14 +715,34 @@
         // linha_computador_${i}
         // idLinha = id.slice((id.lastIndexOf("_") + 1), id.length)
         // alert(idLinha)
-        elemento = document.getElementById(id)
-        elementoPai = elemento.parentElement;
-        elementoVo = elementoPai.parentElement;
+        elemento = document.getElementsByClassName(id)
+        var ele1 = null;
+        var ele2 = "";
+        for (let i = 0; i < elemento.length; i++) {
+            if (i == 0) {
+
+                var element = elemento[i];
+                ele1 = document.getElementById(element.id)
+            }else{
+                var element = elemento[i];
+                ele2 = document.getElementById(element.id)
+            }
+
+        }
+        elementoPai1 = ele1.parentElement;
+        elementoVo1 = elementoPai1.parentElement;
+        elementoVo1.removeChild(elementoPai1)
+
+
+        elementoPai2 = ele2.parentElement;
+        elementoVo2 = elementoPai2.parentElement;
+        elementoVo2.removeChild(elementoPai2)
+
+
         // if (elementoVo) {
         //     elementoVo.removeChild(elementoPai);
         // }
 
-        elementoVo.removeChild(elementoPai)
     }
 
     function plotar() {
@@ -728,7 +776,7 @@
             labels: labels,
             datasets: [
                 {
-                    label: '',
+                    label: lab,
                     data: data,
                     fill: true,
                     backgroundColor: (`${color_border}33`),

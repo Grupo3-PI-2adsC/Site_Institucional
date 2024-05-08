@@ -19,7 +19,9 @@ header{
 }
     
 
-
+p{
+    margin-bottom: 0px !important;
+}
 
 
 .conteudo {
@@ -309,10 +311,10 @@ input[type='radio']:checked+.custom-radio span {
     width: 100%;
     overflow : hidden
 }
-.carousel-item{
+.carousel-item_perfil{
     position: absolute !important;
     height: 100%;
-    width: 100%;
+    width: 100% !important;
 }
 .seta{
     height: 30%;
@@ -371,6 +373,7 @@ input[type='radio']:checked+.custom-radio span {
     padding-left: 7px;
 }
 .tabela_max{
+    padding: 20px;
     width: 33%;
     height: 80%;
     background-color: #151529;
@@ -417,14 +420,24 @@ input[type='radio']:checked+.custom-radio span {
     border: 5px solid #457B9D;
     position: relative;
     display: flex;
-
+    align-items: end;
 }
+
+/* .cards .carousel {
+    width: 100%;
+}
+
+.cards .carousel .carousel-inner .carousel-item{
+    display: flex;
+    flex-direction: row;
+     width: 100%;
+} */
 
 .titulo_card{
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 30%;
+    width: 40%;
     height: 10%;
     background-color: #457B9D;
     display: flex;
@@ -445,20 +458,20 @@ input[type='radio']:checked+.custom-radio span {
 }
 
 .div_coluna_componentes{
-    height: 100%;
-    width: 50%;
+    height: 90%;
+    width: 1000%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: end;
+    justify-content: center;
+    row-gap: 10px;
+    padding: 15px;
 }
 
 .div_coluna_componentes p{
+    font-size: 14px;
     color: #EDF2F4;
-    height: 30%;
     display: flex;
-    align-items: center;
+    align-items: start;
 }
 
 .div_coluna_componentes span{
