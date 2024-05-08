@@ -1,3 +1,10 @@
+* {
+    font-family: "Varela", sans-serif !important;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 main{
     height: 100vh;
     width: 100vw;
@@ -9,4 +16,603 @@ header{
 .index{
     z-index: 20;
     position: absolute;
+}
+    
+
+
+
+
+.conteudo {
+    width: 85%;
+    height: 100vh;
+}
+
+/* user */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: c;
+}
+
+.conteudo_user {
+    width: 85%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .4s;
+    opacity: 1;
+}
+#conteudo_user_computador{
+    display: none;
+}
+
+#conteudo_user_usuario{
+    display: none;
+}
+#conteudo_user_perfil{
+    display: none;
+    flex-direction: column;
+    height: 90%;
+}
+.perfil{
+    padding: 5% 0px;
+}
+
+.header_perfil{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.header_perfil div{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.header_perfil p{
+    height: fit-content;
+    color: #EDF2F4;
+    font-size: 25px;
+}
+.img_perfil{
+    width:150px;
+    height: 150px;
+}
+.campos_perfil{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.div_campos_perfil, .div_campos_perfil_end{
+    padding: 0px 10%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.div_campos_perfil .div_input_cad_user{
+    width: 40% !important; 
+}
+.div_campos_perfil_end{
+    padding: 0px !important;
+}
+.div_campos_perfil_end .div_input_cad_user{
+    width: 30% !important; 
+}
+
+.div_campos_perfil div{
+    display: flex;
+    flex-direction: column;
+}
+.div_btns_perfil{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.div_btns_perfil .input_user_cad{
+    width: 15%;
+}
+
+.div_btns_perfil .div_input_cad_user{
+    width: 30%;
+}
+.div_btns_perfil .div_input_cad_user .input_user_cad{
+    width: 100%;
+}
+.btns_user {
+    width: 30%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.botao_user {
+    width: 80%;
+    height: 20%;
+    border-radius: 15px;
+    border: 3px solid;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao_user label{
+    cursor: pointer;
+}
+
+.border-azul {
+    border-color: #457b9de4 !important;
+    color: #457b9de4;
+}
+
+.border-vermelho {
+    border-color: #E63946e4 !important;
+    color: #E63946e4;
+}
+
+.border-branco {
+    border-color: #EDF2F4e4;
+    color: #EDF2F4e4;
+}
+
+
+.tabela_user {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_tabela {
+    height: 7%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.radio_tabela {
+    background-color: #00000000;
+    display: none;
+}
+
+@keyframes sumir {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+input[type='radio'] {
+    display: none;
+}
+
+.radio-container label {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.custom-radio {
+    border: 1px solid #EDF2F4;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+}
+
+.custom-radio,
+.radio_label span {
+    transition: 0.5s ease;
+    color: #EDF2F4;
+}
+
+.custom-radio span {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+input[type='radio']:checked+.custom-radio span {
+    background: #EDF2F4;
+}
+
+
+
+
+.tabela_usuario {
+    height: 93%;
+    width: 100%;
+    background-color: #151529;
+    border-radius: 25px;
+}
+
+.div_input_cad_user{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
+    color: #EDF2F4;
+}
+.div_input_cad_user_btn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input_user_cad{
+    width: 100%;
+    height: 30px;
+    border: #EDF2F4 solid 2px;
+    border-radius: 10px;
+    background-color: #edf2f49a;
+    color: black;
+    padding-left: 7px;
+    font-weight: bold;
+}
+.input_user_cad_btn{
+    width: 40%;
+    height: 30px;
+    border: 2px solid ;
+    border-radius: 17px;
+    color: white;
+    padding-left: 7px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.computador .btns_user{
+    height: 50%;
+}
+.btn_verm{
+    background-color: #e639477c;
+    border-color: #e63947c7;
+    color: #EDF2F4;
+}
+.btn_azul{
+    background-color: #a8dadc7a;
+    border-color: #A8DADCc7;
+    color: #EDF2F4;
+}
+.carousel_div{
+
+    height: 65%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel{
+    height: 100%;
+    width: 80%;
+    position: absolute;
+}
+.carousel-inner{
+    height: 100%;
+    width: 100%;
+    overflow : hidden
+}
+.carousel-item{
+    position: absolute !important;
+    height: 100%;
+    width: 100%;
+}
+.seta{
+    height: 30%;
+}
+
+
+.grafMax{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.div_geral_kpi{
+    height: 80%;
+    width: 57%;
+    display: flex;
+    justify-content: space-around;
+}
+.div_coluna_kpi{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.kpi{
+    width: 90%;
+    height: 28%;
+    background-color: #151529;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.kpi p, .kpi span {
+    color: #EDF2F4;
+}
+.kpi span{
+    font-size: 50px;
+}
+.kpi div{
+    column-gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.inpt_limite{
+    left: 20px;
+    width: 40px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    padding-left: 7px;
+}
+.tabela_max{
+    width: 33%;
+    height: 80%;
+    background-color: #151529;
+}
+
+.tabela_max{
+    border-radius: 30px;
+}
+
+.grafCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header_cards_grafico{
+    height: 14%;
+    /* background-color: #457b9de4; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+.header_cards_grafico p{
+    color: #EDF2F4;
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+
+.div_linha_cards{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cards{
+    width: 28%;
+    height: 90%;
+    background-color: #151529;
+    border-radius: 10px;
+    border: 5px solid #457B9D;
+    position: relative;
+    display: flex;
+
+}
+
+.titulo_card{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30%;
+    height: 10%;
+    background-color: #457B9D;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 10px 0px;
+}
+.titulo_card p{
+    color: #EDF2F4;
+}
+
+.select_card{
+    height: 35%;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    color: #EDF2F4;
+    border: none !important;
+}
+
+.div_coluna_componentes{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+}
+
+.div_coluna_componentes p{
+    color: #EDF2F4;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.div_coluna_componentes span{
+    font-size: 50px;
+    color: #EDF2F4;
+    text-align: 50px;
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.select_card:active {
+  transition:.4s;
+  background-color: #22223B;
+  border: none !important;
+}
+.select_card option{
+    border: none !important;
+}
+
+.grafMin{
+    display: flex;
+    flex-direction: column;
+}
+.div_graficos_corpo{
+    column-gap: 30px;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+.div_graficos_geral{
+    width: 57%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.div_colunas_graficos{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.div_grafico{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header_grafico{
+    height: 10%;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px
+}
+.grafico{
+    padding: 10px;
+    height: 80%;
+    width: 95%;
+    background-color: #151529;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+.header_grafico p{
+    color: #EDF2F4;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+.div_limite_componentes{
+    column-gap: 10px;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.div_limite_componentes img{
+    width: 30px;
+}
+.div_limite_componentes input{
+}
+
+.div_kpi_grafico_geral{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 94%;
+}
+.div_kpi_grafico{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
+.kpi_grafico{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+.kpi_graf{
+    width: 30%;
+    height: 80%;
+    border-radius: 30px;    background-color: #151529;
+    
+}
+.div_kpi_incidente_grafico{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.div_kpi_incidente_grafico p{
+    color: #EDF2F4;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    align-items: center;
+}
+.incidente_graf{
+
+    width: 100%;
+    height: 80%;
+    background-color: #151529;
+    border-radius: 30px;
+}
+
+.div_tabela_processos{
+    width: 100%;
+    height: 45%;
+    background-color: #151529;
+    border-radius: 30px;
+}
+
+.cnvs{
+    width: 100% !important;
+    height: 80% !important;
 }

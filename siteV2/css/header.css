@@ -35,15 +35,15 @@ main {
     background-color: #EDF2F4;
 }
 
-.logoHeader {
+.logoHeader a{
     font-size: x-large;
     color: #22223B;
     cursor: pointer;
     font-weight: bold;
-
+    text-decoration: none;
 }
 
-.logoHeader:hover {
+.logoHeader a:hover {
     color: #EDF2F4;
     transition: 300ms;
     text-shadow: 0 0 8px black;
