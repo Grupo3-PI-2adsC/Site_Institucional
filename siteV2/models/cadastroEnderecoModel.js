@@ -1,3 +1,4 @@
+
 var database = require("../database/config");
 
 function cadastrar(rua, bairro, cidade, estado, cep, numero, complemento, fkEmpresa) {

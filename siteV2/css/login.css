@@ -70,6 +70,7 @@ main{
     border-radius: 25px;
     height: 50px;
     box-shadow: #0000004b -7px 7px 10px;
+    padding-left: 10px;
 }
 
 .inputs_login span{

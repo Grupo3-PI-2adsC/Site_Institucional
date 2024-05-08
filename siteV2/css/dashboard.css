@@ -19,7 +19,10 @@ header{
 }
     
 
-
+p{
+    margin-bottom: 0px !important;
+    color: #EDF2F4;
+}
 
 
 .conteudo {
@@ -59,7 +62,9 @@ header{
     height: 90%;
 }
 .perfil{
-    padding: 5% 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
 }
 
 .header_perfil{
@@ -239,12 +244,7 @@ input[type='radio']:checked+.custom-radio span {
 
 
 
-.tabela_usuario {
-    height: 93%;
-    width: 100%;
-    background-color: #151529;
-    border-radius: 25px;
-}
+
 
 .div_input_cad_user{
     width: 80%;
@@ -297,7 +297,7 @@ input[type='radio']:checked+.custom-radio span {
 }
 .carousel_div{
 
-    height: 65%;
+    height: 50%;
     position: relative;
     width: 100%;
     display: flex;
@@ -314,10 +314,10 @@ input[type='radio']:checked+.custom-radio span {
     width: 100%;
     overflow : hidden
 }
-.carousel-item{
+.carousel-item_perfil{
     position: absolute !important;
     height: 100%;
-    width: 100%;
+    width: 100% !important;
 }
 .seta{
     height: 30%;
@@ -376,6 +376,7 @@ input[type='radio']:checked+.custom-radio span {
     padding-left: 7px;
 }
 .tabela_max{
+    padding: 20px;
     width: 33%;
     height: 80%;
     background-color: #151529;
@@ -422,14 +423,24 @@ input[type='radio']:checked+.custom-radio span {
     border: 5px solid #457B9D;
     position: relative;
     display: flex;
-
+    align-items: end;
 }
+
+/* .cards .carousel {
+    width: 100%;
+}
+
+.cards .carousel .carousel-inner .carousel-item{
+    display: flex;
+    flex-direction: row;
+     width: 100%;
+} */
 
 .titulo_card{
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 30%;
+    width: 40%;
     height: 10%;
     background-color: #457B9D;
     display: flex;
@@ -450,20 +461,20 @@ input[type='radio']:checked+.custom-radio span {
 }
 
 .div_coluna_componentes{
-    height: 100%;
-    width: 50%;
+    height: 90%;
+    width: 1000%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: end;
+    justify-content: center;
+    row-gap: 10px;
+    padding: 15px;
 }
 
 .div_coluna_componentes p{
+    font-size: 14px;
     color: #EDF2F4;
-    height: 30%;
     display: flex;
-    align-items: center;
+    align-items: start;
 }
 
 .div_coluna_componentes span{
@@ -519,7 +530,7 @@ input[type='radio']:checked+.custom-radio span {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 .header_grafico{
@@ -580,8 +591,22 @@ input[type='radio']:checked+.custom-radio span {
 .kpi_graf{
     width: 30%;
     height: 80%;
-    border-radius: 30px;    background-color: #151529;
+    border-radius: 30px;    
+    background-color: #151529;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     
+}
+.kpi_graf p, .div_kpi_componemtes p{
+    font-size: 13px;
+    text-align: center;
+}
+.kpi_graf span, .div_kpi_componemtes span{
+    color: #EDF2F4;
+    font-size: 30px;
 }
 .div_kpi_incidente_grafico{
     width: 100%;
@@ -603,9 +628,21 @@ input[type='radio']:checked+.custom-radio span {
     height: 80%;
     background-color: #151529;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #EDF2F4;
+    padding: 10px;
 }
-
+.div_kpi_componemtes{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 .div_tabela_processos{
+    padding: 20px;
     width: 100%;
     height: 45%;
     background-color: #151529;
@@ -614,5 +651,47 @@ input[type='radio']:checked+.custom-radio span {
 
 .cnvs{
     width: 100% !important;
-    height: 80% !important;
+    height: 100% !important;
+}
+
+.tabela_usuario {
+    height: 93%;
+    width: 100%;
+    background-color: #151529;
+    border-radius: 25px;
+    padding: 20px;
+}
+.tabela_geral{
+    width: 100%;
+    color: #EDF2F4;
+}
+.tabela_geral th{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.linha_geral{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    border-bottom:solid 1px #EDF2F4;
+    justify-content: space-between;
+}
+.x_tabela_geral{
+    width: 3%;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tabela_min{
+    width: 100%;
+    text-align: center;
+    color: #EDF2F4;
+}
+
+.tabela_min tr{
+    border: 1px solid #EDF2F4;
 }
