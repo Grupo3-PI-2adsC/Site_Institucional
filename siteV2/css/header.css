@@ -23,6 +23,11 @@ header {
     border-radius: 0px 0px 50px 27px;
 }
 
+.menuR{
+    display: none;
+}
+
+
 header.rolagem {
     background-color: #E63946;
 }
@@ -163,10 +168,6 @@ h1,h2,h3,h4,h5,h6{
     padding: 0px;
     margin-bottom: 0px;
 }
-
-
-
-
 
 
 /* cores */
