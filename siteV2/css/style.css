@@ -125,6 +125,7 @@ main {
 
 .quadrado_tela2 p {
     color: #EDF2F4;
+    padding: 15px;
 }
 
 .red {
@@ -224,10 +225,10 @@ main {
 }
 
 
-.foto_passo_a_passo {
+/* .foto_passo_a_passo {
     width: 40%;
     height: 40%;
-}
+} */
 
 
 
@@ -286,8 +287,8 @@ main {
     overflow: hidden;
     position: relative;
     background-color: #CDD8DD;
-    margin-top: 12vh;
-    margin-bottom: 18vh;
+    margin-top: 35vh;
+    margin-bottom: 35vh;
 }
 
 @keyframes translatestf {
@@ -436,9 +437,14 @@ main {
 .pergunta {
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    /* gap: 16px; */
     cursor: pointer;
 }
+
+/* .pergunta2 {
+    gap: 81px;
+} */
 
 .pergunta p {
     margin: 0;
@@ -509,6 +515,7 @@ main {
     height: 35vh;
     justify-content: space-between;
     margin-top: 100px;
+    row-gap: 60px;
 }
 
 .valoresTitulo {
@@ -521,8 +528,19 @@ main {
 .valoresIcones {
     display: flex;
     align-items: center;
-    column-gap: 100px;
+    /* column-gap: 100px; */
     justify-content: space-evenly;
+    padding-left: 58px;
+}
+
+.cardValores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardValores p{
+    color: #EDF2F4;
 }
 
 .circuloPreto {
@@ -561,12 +579,36 @@ main {
     justify-content: space-between;
 }
 
-.cardEquipe {
-    width: 30%;
+.cardEquipe img{
+    /* width: 30%; */
     height: 35vh;
-    background-color: #1D3557;
+    /* background-color: #1D3557; */
     border-radius: 25px;
 }
+
+/* .cardEquipe, .gabrielCard{
+    background-image: url("/img/equipe/gabriel.jpeg");
+}
+
+.cardEquipe, .kaiquiCard{
+    background-image: url("/img/equipe/kaiqui.jpeg");
+}
+
+.cardEquipe, .karenCard{
+    background-image: url("/img/equipe/karen.jpeg");
+}
+
+.cardEquipe, .ketelynCard{
+    background-image: url("/img/equipe/ket.jpeg");
+}
+
+.cardEquipe, .matteusCard{
+    background-image: url("/img/equipe/Bins.jpg");
+}
+
+.cardEquipe, .vagnerCard{
+    background-image: url("/img/equipe/vava.jpeg");
+} */
 
 /* FOOTER */
 
