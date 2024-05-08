@@ -453,9 +453,8 @@
                         <p>Quantidade de Volume: 3</p>
                         <p>UUID: 4ad06ca4-4f60-4a9c-8eb2-535275a68216</p>
                         <p>volume: /dev/nvme0n1p2</p>
-                        <p>total: 502392610816</p>
-                        <p>disponível: 415729532928</p>
-                        <p>Utilizado: total - disponível</p>
+                        <p>total: 502 GB</p>
+                        <p>disponível: 415 GB</p>
                         <p>tipo: ext4</p>
 
                     </div>
@@ -465,11 +464,11 @@
                         <p>DISCO</p>
                     </div>
                     <div class="div_coluna_componentes">
-                        <p>Quantidade de Discos: 1,</p>
+                        <p>Quantidade de Discos: 1</p>
                         <p>Nome: /dev/nvme0n1</p>
-                        <p>Tamanho: 512110190592</p>
-                        <p>Total de processos: 350, </p>
-                        <p>Total de Thereads: 1398,</p>
+                        <p>Tamanho: 512 GB</p>
+                        <p>Total de processos: 350 </p>
+                        <p>Total de Thereads: 1398</p>
                     </div>
                 </div>
             </div>
@@ -481,10 +480,10 @@
                     </div>
                     <div class="div_coluna_componentes">
                         <p>Nome de domínio: matteus-Nitro-AN515-57</p>
-                        <p>Endereço IPv4: [10.18.34.149]</p>
-                        <p>Endereço IPv6: [fe80:0:0:0:651c:61e7:cfb7:ae44]</p>
+                        <p>Endereço IPv4: 10.18.34.149</p>
+                        <p>Endereço IPv6: fe80:0:0:0:651c:61e7:cfb7:ae44</p>
                         <p>Endereço MAC: 50:28:4a:a8:6c:59</p>
-                        <p>Servidores DNS: [127.0.0.53]</p>
+                        <p>Servidores DNS: 127.0.0.53</p>
                     </div>
                 </div>
                 <div class="cards">
@@ -594,24 +593,77 @@
                     <div class="div_kpi_grafico">
                         <div class="kpi_grafico">
                             <div class="kpi_graf">
-
+                                <p>Total de incidentes ultimos 30 dias</p>
+                                <span>40</span>
                             </div>
                             <div class="kpi_graf">
-
+                                <p>Hora inicio da coleta</p>
+                                <span>10:43:35</span>
                             </div>
                             <div class="kpi_graf">
-
+                                <p>Acessos ultimos 30 dias</p>
+                                <span>25</span>
                             </div>
                         </div>
                         <div class="div_kpi_incidente_grafico">
-                            <p>Incidentes registrados nos ultimos 30 dias</p>
+                            <p>Incidentes registrados nos<br>ultimos 30 dias</p>
                             <div class="incidente_graf">
-
+                                <div class="div_kpi_componemtes">
+                                    <p>De CPU</p>
+                                    <span>25</span>
+                                </div>
+                                <div class="div_kpi_componemtes">
+                                    <p>De CPU</p>
+                                    <span>25</span>
+                                </div>
+                                <div class="div_kpi_componemtes">
+                                    <p>De CPU</p>
+                                    <span>25</span>
+                                </div>
+                                <div class="div_kpi_componemtes">
+                                    <p>De CPU</p>
+                                    <span>25</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="div_tabela_processos">
+                        <table class="tabela_min">
+                            <tr>
+                                <th>processos</th>
+                                <th>Estado</th>
+                                <th>ID</th>
+                            </tr>
+                            <tr>
+                                <td>colord</td>
+                                <td>RUNNING</td>
+                                <td>1657</td>
+                            </tr>
 
+                            <tr>
+                                <td>accounts-daemon</td>
+                                <td>RUNNING</td>
+                                <td>1662</td>
+                            </tr>
+
+                            <tr>
+                                <td>anacron</td>
+                                <td>RUNNING</td>
+                                <td>1674</td>
+                            </tr>
+
+                            <tr>
+                                <td>apparmor</td>
+                                <td>RUNNING</td>
+                                <td>1538</td>
+                            </tr>
+
+                            <tr>
+                                <td>avahi-daemon</td>
+                                <td>RUNNING</td>
+                                <td>5</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -723,7 +775,7 @@
 
                 var element = elemento[i];
                 ele1 = document.getElementById(element.id)
-            }else{
+            } else {
                 var element = elemento[i];
                 ele2 = document.getElementById(element.id)
             }
