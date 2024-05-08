@@ -62,7 +62,7 @@
                     </span>
                 </li>
 
-                <li class="item-menu" onclick="mudarContainer('#grafMin')">
+                <li class="item-menu" onclick="mudarContainer('index.html')">
                     <span class="icone">
                         <i class="bi bi-box-arrow-left"></i>
                     </span>
@@ -107,8 +107,8 @@
 
                         <div class="radio-container">
 
-                            <label for="radio" class="radio_label">
-                                <input type="radio" id="radio" name="radio_user" />
+                            <label for="radio" class="radio_label" id="radio_label_comp" onclick="mudarTabela(this.id)">
+                                <input type="radio" id="radio" name="radio_user" checked />
                                 <div class="custom-radio">
                                     <span></span>
                                 </div>
@@ -119,7 +119,8 @@
 
                         <div class="radio-container">
 
-                            <label for="radio1" class="radio_label">
+                            <label for="radio1" class="radio_label" id="radio_label_user"
+                                onclick="mudarTabela(this.id)">
                                 <input type="radio" id="radio1" name="radio_user" />
                                 <div class="custom-radio">
                                     <span></span>
@@ -132,7 +133,20 @@
                     </div>
 
                     <div class="tabela_usuario">
-
+                        <div id="div_tabela_geral_comp">
+                            <table class="tabela_geral" id="tabela_geral_comp">
+                                <tr>
+                                    <th>COMPUTADORES</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="div_tabela_geral_user" style="display: none;">
+                            <table class="tabela_geral" id="tabela_geral_user">
+                                <tr>
+                                    <th>USUARIOS</th>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -603,6 +617,38 @@
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
 
+    var qtdLinhasTableComp = Math.floor((Math.random() * 10) + 1);
+    var qtdLinhasTableUser = Math.floor((Math.random() * 10) + 1);
+    function PlotarTabela() {
+
+
+        var linhasTable = []
+        var tabela = document.getElementById('tabela_geral_comp')
+        for (let i = 0; i < qtdLinhasTableComp; i++) {
+
+            var linha = `<tr id= "linha_computador_${i}" class= "linha_geral">
+                    <td id = "computador_${i}">Computador ${i + 1}</td>
+                    <td class = "x_tabela_geral" id= "x_linha_comp_${i}" onclick="eliminarLinha(this.id)">X</td>
+                </tr>`
+
+            tabela.innerHTML += linha;
+
+
+        }
+
+        var tabela2 = document.getElementById('tabela_geral_user')
+        for (let i = 0; i < qtdLinhasTableUser; i++) {
+
+            var linha = `<tr id= "linha_usuario_${i}" class= "linha_geral">
+                            <td id = "usuario_${i}">usuario ${i + 1}</td>
+                            <td class = "x_tabela_geral" id= "x_linha_user_${i}" onclick="eliminarLinha(this.id)">X</td>
+                        </tr>`
+
+            tabela2.innerHTML += linha;
+
+        }
+    }
+
     var Limite = {};
     Limite.CPU = 75;
     Limite.RAM = 75;
@@ -612,6 +658,8 @@
     console.log(Limite);
 
     window.onload = plotar();
+    window.onload = PlotarTabela();
+
 
 
     function duplica(idAtu) {
@@ -632,6 +680,21 @@
 
         console.log(Limite);
 
+    }
+
+    function eliminarLinha(id) {
+        // x_linha_${i}
+        // linha_computador_${i}
+        // idLinha = id.slice((id.lastIndexOf("_") + 1), id.length)
+        // alert(idLinha)
+        elemento = document.getElementById(id)
+        elementoPai = elemento.parentElement;
+        elementoVo = elementoPai.parentElement;
+        // if (elementoVo) {
+        //     elementoVo.removeChild(elementoPai);
+        // }
+
+        elementoVo.removeChild(elementoPai)
     }
 
     function plotar() {
@@ -657,16 +720,20 @@
             var num = Math.floor(Math.random() * 100);
             data.push(num);
             data2.push(Limite[comp])
+            color_border
+
             // data[1].push(num2);
         }
         let dados = {
             labels: labels,
             datasets: [
                 {
-                    label: 'lab',
+                    label: '',
                     data: data,
-                    fill: false,
+                    fill: true,
+                    backgroundColor: (`${color_border}33`),
                     borderColor: (color_border),
+                    pointBackgroundColor: (color_border),
                 },
                 {
                     label: 'Limite',
@@ -675,6 +742,10 @@
                     borderColor: 'rgb(75, 192, 192)',
                     backgroundColor: ('#00000000'),
                     borderColor: ('#E63946'),
+                    borderWidth: 2,
+                    pointStyle: 'none',
+                    pointBackgroundColor: '#E63946',
+                    pointRadius: 2
                 }
             ],
 
@@ -685,12 +756,30 @@
             type: 'line',
             data: dados,
             options: {
-                scales: {
-                    beginAtZero: true
-                },
-                plugins: {
-                    legend: {
-                        display: false,
+                // scales: {
+                //     y: {
+                //         ticks: {
+                //             font: {
+                //                 size: 10 // Define o tamanho da fonte para o eixo Y
+                //             }
+                //         }
+                //     },
+                //     x: {
+                //         ticks: {
+                //             font: {
+                //                 size: 10 // Define o tamanho da fonte para o eixo X
+                //             }
+                //         }
+                //     }
+                // },
+                // plugins: {
+                //     legend: {
+                //         display: false,
+                //     }
+                // },
+                elements: {
+                    point: {
+                        backgroundColor: ('#E6394')
                     }
                 }
             }
@@ -777,6 +866,10 @@
     }
 
     function mudarContainer(pg) {
+        if (pg == 'index.html') {
+            sessionStorage.clear();
+            localStorage.clear();
+        }
         // alert(`#${pg}`)
         // alert('1as1')
         document.location.href = `${pg}`
@@ -801,5 +894,17 @@
             elemento2.style.animation = null;
         }, 800);
 
+    }
+
+    function mudarTabela(id) {
+        user = document.getElementById('div_tabela_geral_user');
+        comp = document.getElementById('div_tabela_geral_comp')
+        if (id == 'radio_label_user') {
+            comp.style.display = 'none'
+            user.style.display = 'inline'
+        } else {
+            user.style.display = 'none'
+            comp.style.display = 'inline'
+        }
     }
 </script>
