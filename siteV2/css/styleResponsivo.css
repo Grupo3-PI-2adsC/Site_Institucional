@@ -1,4 +1,12 @@
 @media screen and (max-width: 1280px) {
+    html{
+        height: fit-content;
+    }
+    body{
+        height: fit-content;
+        position: relative !important;
+        background-color: #E63946;
+    }
     .pg1 {
         background-image: url("../img/teste2.png");
         background-repeat: no-repeat;
@@ -46,6 +54,7 @@
     /* pagina 2 */
 
     .pg2 {
+        margin-top: 100px;
         height: 80vh;
     }
 
@@ -56,7 +65,12 @@
     /* pagina 3 */
 
     .pg3 {
-        height: 125vh;
+        height: fit-content;
+    }
+
+    .divAvaliacoes{
+margin-top: 10vh;
+margin-bottom: 10vh;
     }
 
     .passo-div {
@@ -117,15 +131,26 @@
     /* página 5 */
 
     .pg5 {
-        height: 250vh;
+        height: fit-content;
         display: flex;
         flex-direction: column;
         row-gap: 40px;
-        position: absolute;
+        /* position: absolute; */
+    }
+    .Cardsequipe{
+        width: 100vw;
+        justify-content: space-around;
     }
 
+    .cardEquipe {
+        width: fit-content;
+        height: fit-content;
+    }
     /* quem somos */
-
+    .cardEquipe img{
+        width: 20vw !important;
+        height: 20vw !important;
+    }
     .img_QuemSomos {
         width: 85%;
     }
@@ -156,6 +181,7 @@
 
     .valores{
         gap: 65px;
+        height: fit-content !important;
     }
 
     .valoresIcones {
@@ -177,28 +203,32 @@
     /* equipe */
 
     .equipe {
-        margin-top: 45%;
+        /* margin-top: 45%; */
+        padding: 10px 0px;
     }
 
-    .cardEquipe {
-        width: 30%;
-        height: 13vh;
-    }
+    /* .cardEquipe {
+        width: 5%;
+        height: 5vh;
+    } */
 
     .equipeCards {
         gap: 60px;
     }
 
     .circuloPreto {
+        display: none;
         bottom: 360px;
     }
 
     footer{
+        padding: 10px 0px;
+        width: 100vw;
         height: 36vh;
-    }
-
-    footer#contato {
-        position: relative;
-        margin-top: 1928px;
+        margin-bottom: -36vh;
+        align-items: center;
+        position: absolute;
+        bottom: 0px;
+        justify-content: space-between;
     }
 }
