@@ -101,3 +101,7 @@ main{
     bottom: 0px;
     text-align: right;
 }
+.erro {
+    margin: 10px;
+    color: black;
+}
