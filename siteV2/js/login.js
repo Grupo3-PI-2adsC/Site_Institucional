@@ -30,6 +30,7 @@ function acessar() {
       });
 
   } else {
+    div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
 
       console.log("Houve um erro ao tentar realizar o login!");
       resposta.text().then(texto => {
@@ -43,11 +44,5 @@ function acessar() {
 
 
   }
-  else {
-    div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
-  }
-
-
-  
  
 }
