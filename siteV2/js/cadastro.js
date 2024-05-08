@@ -1,7 +1,7 @@
 const res = require("express/lib/response");
 
 function cadastrar() {
-
+    div_mensagem.innerHTML = "";
     var nomeVar = document.getElementById('inpt_nome_cad').value;
     var cnpj = document.getElementById('inpt_cnpj_cad').value;
     var emailVar = document.getElementById('inpt_email_cad').value;
@@ -19,20 +19,19 @@ function cadastrar() {
         nomeVar.indexOf("$") >= 0 ||
         nomeVar.indexOf("&") >= 0
     ) {
-        // div_mensagem.innerHTML += `-Não pode haver caracter especial no nome da empresa<br>`;
-
+        div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome da empresa<br>`;
         validacao = 1;
     }
 
     //SENHA
 
     if (senhaVar.length < 8) {
-        // div_mensagem.innerHTML += `-A senha deve possuir no mínimo 8 caracteres <br>`;
+        div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 8 caracteres <br>`;
         validacao = 1;
     }
 
     if (senhaVar.indexOf(" ") >= 0) {
-        // div_mensagem.innerHTML += `-Não pode conter espaços na senha <br>`;
+        div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na senha <br>`;
         validacao = 1;
     }
 
@@ -49,36 +48,42 @@ function cadastrar() {
             senhaVar.indexOf("&") >= 0
         )
     ) {
-        // div_mensagem.innerHTML += `-A senha deve possuir no mínimo 1 caracter especial <br>`;
         validacao != 1;
+    }else{
+        div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 1 caracter especial <br>`;
     }
 
     if (senhaVar != confirmacaoSenhaVar) {
-        mensagem += `-Senhas incompatíveis`;
+        div_mensagem.innerHTML += `<p class="erro">-Senhas incompatíveis`;
         validacao = 1;
     }
 
     //EMAIL
 
-    if (!(emailVar.indexOf("@") >= 1)) {
-        // div_mensagem.innerHTML += `-Deve conter @ no email<br>`;
+    if (!(emailVar.indexOf("@") >= 0)) {
+        div_mensagem.innerHTML += `<p class="erro">-Deve conter @ no email<br>`;
+    
         validacao = 1;
     }
-    if (!(emailVar.indexOf(".com") >= 1)) {
-        // div_mensagem.innerHTML += `-Deve conter .com no email <br>`;
+    if (!(emailVar.indexOf(".com") >= 0)) {
+        div_mensagem.innerHTML += `<p class="erro">-Deve conter .com no email <br>`;
         validacao = 1;
+
     }
     if (emailVar.indexOf(" ") >= 0) {
-        // div_mensagem.innerHTML += `-Não pode conter espaços na email <br>`;
+        div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na email <br>`;
+        validacao = 1;
+    }
+    if(cnpj.length != 14){
+        div_mensagem.innerHTML += `<p class="erro">-O CNPJ está incorreto <br>`;
         validacao = 1;
     }
 
     if (validacao == 1) {
         // div_mensagem.style.display = "flex";
 
-        alert('Burro');
-
-    } else {
+    }
+     else{
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -110,7 +115,7 @@ function cadastrar() {
                 alert('cadastro não realizado')
             })
 
-        // div_mensagem.style.display = "none";
+        div_mensagem.style.display = "none";
         // alert('Parabens');
 
 

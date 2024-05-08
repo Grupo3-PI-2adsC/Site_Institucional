@@ -128,6 +128,19 @@ header{
     width: 45%;
 
 }
+.erro {
+    margin: 10px;
+    color: black;
+}
+
+
+#div_mensagem{
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    background-color: #EDF2F4;
+    border: 2px solid #E63946;
+}
 
 /* #nome_cad input{
     width: 100%;
