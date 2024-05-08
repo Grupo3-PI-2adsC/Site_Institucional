@@ -182,15 +182,15 @@
 
     .cardEquipe {
         width: 30%;
-        height: 13vh;
+        height: 10vh;
     }
 
     .equipeCards {
-        gap: 60px;
+        gap: 10px;
     }
 
     .circuloPreto {
-        bottom: 360px;
+        bottom: 0px;
     }
 
     footer{
