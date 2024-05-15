@@ -444,29 +444,41 @@
                     <div class="Cardsequipe">
 
                         <div class="cardEquipe gabrielCard">
-                            <img src="img/equipe/gabriel.jpeg" alt="">
+                            <img src="img/equipe/gabriel.jpeg" id="gabrielCard" class="sumir" alt=""
+                                onmouseover="sumir(this.id)">
+                            <img class="absolute" src="img/empresas_logo/image20.png" alt="">
                         </div>
 
                         <div class="cardEquipe kaiquiCard">
-                            <img src="img/equipe/kaiqui.jpeg" alt="">
+                            <img src="img/equipe/kaiqui.jpeg" id="kaiquiCard" class="sumir" alt=""
+                                onmouseover="sumir(this.id)">
+                            <img class="absolute" src="img/empresas_logo/image17.jpeg" alt="">
                         </div>
 
                         <div class="cardEquipe karenCard">
-                            <img src="img/equipe/karen.jpeg" alt="">
+                            <img src="img/equipe/karen.jpeg" id="karenCard" class="sumir" alt=""
+                                onmouseover="sumir(this.id)">
+                            <img class="absolute" src="img/empresas_logo/image19.jpeg" alt="">
                         </div>
 
                     </div>
-                    <div class="Cardsequipe ketelynCard">
-                        <div class="cardEquipe">
-                            <img src="img/equipe/ket.jpeg" alt="">
+                    <div class="Cardsequipe ">
+                        <div class="cardEquipe ketelynCard">
+                            <img src="img/equipe/ket.jpeg" id="ketelynCard" class="sumir" alt=""
+                                onmouseover="sumir(this.id)">
+                            <img class="absolute" src="img/empresas_logo/image18.png" alt="">
                         </div>
 
                         <div class="cardEquipe matteusCard">
-                            <img src="img/equipe/Bins.jpg" alt="">
+                            <img src="img/equipe/Bins.jpg" id="matteusCard" class="sumir" alt=""
+                                onmouseover="sumir(this.id)">
+                            <img class="absolute" src="img/empresas_logo/image16.jpeg" alt="">
                         </div>
 
                         <div class="cardEquipe vagnerCard">
-                            <img src="img/equipe/vava.jpeg" alt="">
+                            <img src="img/equipe/vava.jpeg" id="vagnerCard" class="sumir" alt=""
+                                onmouseover="sumir(this.id)">
+                            <img class="absolute" src="img/empresas_logo/image16.jpeg" alt="">
                         </div>
                     </div>
                 </div>
@@ -557,5 +569,40 @@
         });
     });
 
+    function sumir(id) {
+        var foto = document.getElementById(id)
 
+        let style = window.getComputedStyle(foto);
+        let anm = style.getPropertyValue('animation');
+        var indexOfFirst = anm.indexOf("reverse");
+        // alert(indexOfFirst)
+        // alert(anm)
+
+        if (anm.indexOf("reverse") < 1) {
+            foto.style.animation = null;
+            foto.style.animation = " sumir 1s linear forwards reverse";
+        } else {
+            foto.style.animation = null;
+            foto.style.animation = " sumir 1s linear forwards ";
+        }
+
+
+    }
+
+    // var hover = false;
+
+    // document.querySelector(".sumir").addEventListener("mouseover", hoverOn);
+    // document.querySelector(".sumir").addEventListener("mouseleave", hoverOff);
+    // const tween = gsap.to(".sumir", { duration: 1.5, x: 15, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true });
+
+
+
+    // function hoverOn() {
+    //     tween.play()
+    // }
+
+    // function hoverOff() {
+    //     tween.pause()
+
+    // }
 </script>

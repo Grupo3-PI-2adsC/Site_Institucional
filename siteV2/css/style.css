@@ -578,41 +578,51 @@ main {
 }
 
 .Cardsequipe {
+    height: 100%;
     width: 60%;
     display: flex;
     justify-content: space-between;
 }
 
+.cardEquipe{
+    width: 23%;
+    height: 10%;
+    position: relative;
+    left: 0px;
+}
 .cardEquipe img{
-    /* width: 30%; */
+    width: 100%;
     height: 35vh;
     /* background-color: #1D3557; */
+    z-index: 5;
+    position: relative;
     border-radius: 25px;
 }
 
-/* .cardEquipe, .gabrielCard{
-    background-image: url("/img/equipe/gabriel.jpeg");
+.absolute{
+    position: absolute !important;
+    left: 0px;
+    z-index: 3 !important;
 }
-
-.cardEquipe, .kaiquiCard{
-    background-image: url("/img/equipe/kaiqui.jpeg");
+/* .sumir{
 }
-
-.cardEquipe, .karenCard{
-    background-image: url("/img/equipe/karen.jpeg");
-}
-
-.cardEquipe, .ketelynCard{
-    background-image: url("/img/equipe/ket.jpeg");
-}
-
-.cardEquipe, .matteusCard{
-    background-image: url("/img/equipe/Bins.jpg");
-}
-
-.cardEquipe, .vagnerCard{
-    background-image: url("/img/equipe/vava.jpeg");
+.sumir:hover{
+    animation-play-state:running;
+    height: 10px;
 } */
+
+@keyframes sumir {
+
+    0%{
+        /* height: 10px; */
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+
+}
 
 /* FOOTER */
 
