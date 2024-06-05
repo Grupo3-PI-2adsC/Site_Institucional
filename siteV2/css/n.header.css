@@ -1,0 +1,149 @@
+header {
+    width: 100%;
+    padding: 9px 5%;
+    position: sticky;
+    position: fixed;
+    top: 0;
+    /* background-color: #CF2942; */
+    z-index: 3;
+    border-radius: 0px 0px 30px 30px;
+}
+
+#navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav_logo {
+    text-decoration: none;
+    font-size: 24px;
+    color: #EDF2F4;
+}
+
+#nav_logo:hover {
+    color: #EDF2F4;
+    transition: 300ms;
+    text-shadow: 0 0 8px black;
+}
+
+#nav_lista {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #F0F5F7;
+    font-weight: 600;
+}
+
+.linha_baixo {
+    position: relative;
+}
+
+.linha_baixo:hover{
+    color: #EDF2F4;
+    transition: 0.3s;
+}
+
+.linha_baixo:after {
+    content: "";
+    position: absolute;
+    background-color: #EDF2F4;
+    height: 1px;
+    width: 0%;
+    left: 0;
+    bottom: 0.3px;
+    transition: 0.5s;
+}
+
+.linha_baixo:hover:after {
+    width: 100%;
+    background-color: #EDF2F4
+}
+
+.btn-login {
+    background: none;
+    border: #EDF2F4 solid 1px;
+    border-radius: 10px;
+    color: #EDF2F4;
+    font-weight: bold;
+    align-self: center;
+    padding: 7px 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: corPula 0.4s linear;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    color: #22223B;
+}
+
+.btn-login::before {
+    content: '';
+    background-color: #EDF2F4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: transform 0.65s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    transform: scaleX(0);
+}
+
+.btn-login:hover::before {
+    transform: scaleX(1);
+}
+
+#mobile_btn {
+    display: none;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+@media screen and (max-width: 1170px) {
+    #nav_lista,
+    #navbar .btn-login {
+        display: none;
+    }
+
+    #mobile_btn {
+        display: block;
+        border: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #mobile_btn i{
+        color: #EDF2F4;
+    }
+
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile_nav_lista {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+    }
+
+    #mobile_nav_lista .nav-item {
+        list-style: none;
+        text-align: center;
+    }
+}

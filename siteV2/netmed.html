@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/netmed.css">
+    <link rel="stylesheet" href="css/n.header.css">
+    <link rel="stylesheet" href="css/n.home.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>NETMED</title>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="#" id="nav_logo">NETMED</a>
+
+            <ul id="nav_lista">
+                <li class="nav-item active linha_baixo">
+                    <a href="#servicos">Serviços</a>
+                </li>
+                <li class="nav-item linha_baixo">
+                    <a href="#quemSomos">Quem Somos</a>
+                </li>
+                <li class="nav-item linha_baixo">
+                    <a href="#Contato">Contato</a>
+                </li>
+            </ul>
+
+            <button class="btn-login">
+                Login
+            </button>
+
+            <button id="mobile_btn">
+                <i class="bi bi-list"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+
+            <ul id="mobile_nav_lista">
+                <li class="nav-item linha_baixo">
+                    <a href="#servicos">Serviços</a>
+                </li>
+                <li class="nav-item linha_baixo">
+                    <a href="#quemSomos">Quem Somos</a>
+                </li>
+                <li class="nav-item linha_baixo">
+                    <a href="#Contato">Contato</a>
+                </li>
+            </ul>
+
+            <button class="btn-login">
+                Login
+            </button>
+        </div>
+    </header>
+
+    <main id="content">
+        <section id="home">
+            <div id="cta">
+                <h1 class="titulo">
+                    NET<span>MED</span>
+                </h1>
+
+                <p class="descricao">
+                    Sua parceira confiável em monitoramento de tráfego de redes em hospitais!
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#mobile_btn').on('click', function () {
+            $('#mobile_menu').toggleClass('active');
+            $('#mobile_btn').find('i').toggleClass('bi-x');
+        });
+    });
+</script>
