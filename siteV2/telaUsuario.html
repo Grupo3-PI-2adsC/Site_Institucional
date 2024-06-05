@@ -680,19 +680,21 @@
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
 
-    var qtdLinhasTableComp = 10//Math.floor((Math.random() * 10) + 1);
-    var qtdLinhasTableUser = Math.floor((Math.random() * 10) + 1);
-    function PlotarTabela() {
-
-
+    function PlotarTabela(jsonComp, jsonUser) {
+        var qtdLinhasTableComp = jsonComp.length//Math.floor((Math.random() * 10) + 1);
+        var qtdLinhasTableUser = jsonUser.length;
+        
+        
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
         var tabela2 = document.getElementById('tabela_geral_comp_max')
         for (let i = 0; i < qtdLinhasTableComp; i++) {
 
-            var linha = `<tr id= "linha_computador_${i}" class= "linha_geral linha_computador_${i}">
-                    <td id = "computador_${i}" class="computador_${i}">Computador ${i + 1}</td>
-                    <td class = "x_tabela_geral x_linha_comp_${i}" id= "x_linha_comp_${i}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+            // console.log(jsonComp[i]);
+
+            var linha = `<tr id= "linha_computador_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_${jsonComp[i].idMaquina}">
+                    <td id = "computador_${jsonComp[i].idMaquina}" class="computador_${jsonComp[i].idMaquina}">Computador ${i + 1}</td>
+                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                 </tr>`
 
             tabela.innerHTML += linha;
@@ -702,9 +704,9 @@
 
         for (let i = 0; i < qtdLinhasTableComp; i++) {
 
-            var linha = `<tr id= "linha_computador_max_${i}" class= "linha_geral linha_computador_max_${i}">
-                                <td id = "computador_max_${i}" class=""computador_max_${i}"">Computador ${i + 1}</td>
-                                <td class = "x_tabela_geral x_linha_comp_${i}" id= "x_linha_comp_max_${i}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+            var linha = `<tr id= "linha_computador_max_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_max_${jsonComp[i].idMaquina}">
+                                <td id = "computador_max_${jsonComp[i].idMaquina}" class=""computador_max_${jsonComp[i].idMaquina}"">Computador ${i + 1}</td>
+                                <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_max_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                             </tr>`
 
             tabela2.innerHTML += linha
@@ -715,9 +717,9 @@
         var tabela2 = document.getElementById('tabela_geral_user')
         for (let i = 0; i < qtdLinhasTableUser; i++) {
 
-            var linha = `<tr id= "linha_usuario_${i}" class= "linha_geral linha_usuario_${i}">
-                            <td id = "usuario_${i}" class= "usuario_${i}">usuario ${i + 1}</td>
-                            <td class = "x_tabela_geral x_linha_user_${i}" id= "x_linha_user_${i}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+            var linha = `<tr id= "linha_usuario_${jsonUser[i].idUsuario}" class= "linha_geral linha_usuario_${jsonUser[i].idUsuario}">
+                            <td id = "usuario_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}">usuario ${i + 1}</td>
+                            <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                         </tr>`
 
             tabela2.innerHTML += linha;
@@ -733,8 +735,79 @@
 
     console.log(Limite);
 
-    window.onload = plotar();
-    window.onload = PlotarTabela();
+    window.onload = listarComputadores();
+
+
+    function listarComputadores() {
+        fetch("/computador/listarComputadores", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.status == 200) {
+
+                resposta.json().then(json => {
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log(JSON.stringify(json));
+                    // console.log(json[0].idMaquina);
+                    // PlotarTabela(json);
+                    listarUsuarios(json);
+                    
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+            
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+
+
+    }
+
+    function listarUsuarios(jsonComp){
+        fetch("/computador/listarUsuarios", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.status == 200) {
+
+                resposta.json().then(json => {
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log(JSON.stringify(json));
+                    // console.log(json[0].idMaquina);
+                    PlotarTabela(jsonComp, json);
+                    
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+            
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+    // window.onload = plotar();
+    // window.onload = PlotarTabela();
 
     function acharClass(teste) {
         let classAtual = teste.slice((teste.lastIndexOf(" ") + 1), teste.length)

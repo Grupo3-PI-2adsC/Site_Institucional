@@ -1,3 +1,13 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Varela", sans-serif;
+    font-weight: 500;
+    font-size: large;
+    font-style: normal;
+}
+
 main{
     height: 100vh;
     width: 100vw;
@@ -6,6 +16,7 @@ main{
     justify-content: end;
     padding-top: 67px;
     overflow: hidden;
+    background-color: #22223B;
 }
 
 .fundo_cadastro{
@@ -51,10 +62,10 @@ header{
 .div_cadastro{
     width: 90%;
     height: 85%;
-    background-color: #E63946;
+    background-color: #151529;
     border-radius: 30px;
-    box-shadow: 20px 15px 0px #1D3557;
-    border: #1D3557 solid 3.5px;
+    /* box-shadow: 20px 15px 0px #1D3557;
+    border: #1D3557 solid 3.5px; */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -139,14 +150,16 @@ header{
     left: 20px;
     top: 100px;
     background-color: #EDF2F4;
-    border: 2px solid #E63946;
+    border: 2px solid #1D3557;
 }
 
 /* #nome_cad input{
     width: 100%;
 } */
 
-
+.white{
+    color: #F1FAEE;
+}
 
 
 

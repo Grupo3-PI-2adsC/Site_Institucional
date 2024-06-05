@@ -7,65 +7,12 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="index.html">
     <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="stylesheet" href="css/header.css">
+    <!-- <link rel="stylesheet" href="css/header.css"> -->
     <script src="js/script.js"></script>
     <script src="js/cadastro.js"></script>
 </head>
 
 <body>
-
-    <header id="header">
-        <div class="headerLeft">
-
-            <div id="logoHeader" class="logoHeader" onclick="mudarTela('index')"><a href="#">NETMED</a></div>
-
-            <ul id="navbar2" class="navbar2">
-                <li><a class="navbarOption linha_baixo" href="index.html#pg2">Serviços</a></li>
-                <li><a class="navbarOption linha_baixo" href="index.html#pg5">Quem Somos</a></li>
-                <li><a class="navbarOption linha_baixo" href="index.html#contato">Contato</a></li>
-            </ul>
-        </div>
-
-        <div id="headerBtn" class="headerBtn headerRight">
-            <!-- <button class="btnHeader navbarBtn btnLogar" onclick="mudarTela('login')">Login</button> -->
-            <!-- <button class="btnHeader navbarBtn btnCadastro" onclick="mudarTela('cadastro')">Cadastrar</button> -->
-        </div>
-
-        <!-- responsivo -->
-
-        <div class="menuR">
-            <div class="expandir">
-                <i class="bi bi-list"></i>
-            </div>
-
-            <ul>
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="txt-link">
-                            Usuário
-                        </span>
-                    </a>
-                </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="txt-link">
-                            Geral
-                        </span>
-                    </a>
-                </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="txt-link">
-                            Informações
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-    </header> <!-- final header -->
 
     <main>
         <div class="fundo_cadastro"></div>
@@ -75,7 +22,7 @@
 
         <div class="main_cad index" id="divCad">
             <div id="div_mensagem"></div>
-            <h1 class="titulo_cad">CADASTRO</h1>
+            <div class="titulo_cad">CADASTRO</div>
 
             <div class="div_cadastro index">
 
@@ -85,7 +32,7 @@
                         <input type="text" class="inpts_cad" id="inpt_nome_cad">
                     </div>
                     <div id="cnpj_cad">
-                        <p class="white">CNPJ*</p>
+                        <p class="white">CPF*</p>
                         <input type="number" class="inpts_cad" id="inpt_cnpj_cad">
                     </div>
                 </div>
@@ -108,7 +55,7 @@
 
                 <div class="inpts_cad_div btn_link_cad">
                     <button class="btn_cad_cont" id="btn_continuar_cad" onclick="cadastrar()">Continuar</button>
-                    <p class="white"><a href="login.html" >Já tem conta? Clique aqui para logar!</a></p>
+                    <!-- <p class="white"><a href="login.html" >Já tem conta? Clique aqui para logar!</a></p> -->
                 </div>
 
             </div>
