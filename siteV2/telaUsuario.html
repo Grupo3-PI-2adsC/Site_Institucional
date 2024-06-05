@@ -682,13 +682,15 @@
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
         var tabela2 = document.getElementById('tabela_geral_comp_max')
+        tabela.innerHTML = '';
+        tabela2.innerHTML = '';
         for (let i = 0; i < qtdLinhasTableComp; i++) {
 
             // console.log(jsonComp[i]);
 
             var linha = `<tr id= "linha_computador_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_${jsonComp[i].idMaquina}">
                     <td id = "computador_${jsonComp[i].idMaquina}" class="computador_${jsonComp[i].idMaquina}">Computador ${i + 1}</td>
-                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.id))">X</td>
                 </tr>`
 
             tabela.innerHTML += linha;
@@ -733,13 +735,18 @@
 
 
     function listarComputadores() {
+        // alert("asdasdasd");
+        console.log("estou pegando as infos dos notbooks");
         fetch("/computador/listarComputadores", {
-            method: "GET",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({
+                fkEmpresaServer: sessionStorage.FK_EMPRESA,
+            })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+            console.log("ESTOU NO THEN DO COMPUTADORES()!")
 
             if (resposta.status == 200) {
 
@@ -769,11 +776,15 @@
     }
 
     function listarUsuarios(jsonComp){
-        fetch("/computador/listarUsuarios", {
-            method: "GET",
+        console.log("Estou pegando as infos de usuario");
+        fetch("/usuarios/listarUsuarios", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({
+                fkEmpresaServer: sessionStorage.FK_EMPRESA,
+            })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
@@ -834,28 +845,50 @@
         // linha_computador_${i}
         // idLinha = id.slice((id.lastIndexOf("_") + 1), id.length)
         // alert(idLinha)
-        elemento = document.getElementsByClassName(id)
-        var ele1 = null;
-        var ele2 = "";
-        for (let i = 0; i < elemento.length; i++) {
-            if (i == 0) {
+        // elemento = document.getElementById(id)
 
-                var element = elemento[i];
-                ele1 = document.getElementById(element.id)
+
+        // var ele1 = document.getElementById(elemento)
+        // console.log(ele1)
+
+        var id_computador = id.slice(id.length - 1, id.length )
+        
+        console.log(id_computador)
+
+
+
+        fetch("/computador/excluirComputador", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idComputadorServer: id_computador,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.status == 200) {
+
+                resposta.json().then(json => {
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log(JSON.stringify(json));
+                    
+                    listarComputadores();
+                    
+                });
+
             } else {
-                var element = elemento[i];
-                ele2 = document.getElementById(element.id)
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar excluir o computadore!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
             }
-
-        }
-        elementoPai1 = ele1.parentElement;
-        elementoVo1 = elementoPai1.parentElement;
-        elementoVo1.removeChild(elementoPai1)
-
-
-        elementoPai2 = ele2.parentElement;
-        elementoVo2 = elementoPai2.parentElement;
-        elementoVo2.removeChild(elementoPai2)
+            
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
 
         // if (elementoVo) {

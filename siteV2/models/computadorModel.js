@@ -1,23 +1,24 @@
 
 var database = require("../database/config")
 
-//LOGIN
-function listarComputadores() {
+function listarComputadores(fkEmpresa) {
     var instrucao = `
-        SELECT * FROM maquina WHERE ativo = 1;
+        SELECT * FROM maquina WHERE ativo = 1 and fkEmpresa = ${fkEmpresa};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function excluirComputador(idComputador) {
+    var instrucao = `
+        delete from maquina where idMaquina = ${idComputador};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 
-function listarUsuarios() {
-    var instrucao = `
-        SELECT * FROM usuario;
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
+
 
 // CADASTRO!
 
@@ -41,7 +42,6 @@ function listarUsuarios() {
 
 module.exports = {
     listarComputadores,
-    listarUsuarios,
-    // cadastrar,
+    excluirComputador
     // cadastrar2
 };
