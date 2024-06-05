@@ -22,6 +22,7 @@
 <body>
 
     <header id="header">
+
         <div class="headerLeft">
 
             <div id="logoHeader" class="logoHeader">
@@ -29,15 +30,28 @@
             </div>
 
             <ul id="navbar2" class="navbar2">
-                <li><a class="navbarOption linha_baixo" href="#pg2">Serviços</a></li>
-                <li><a class="navbarOption linha_baixo" href="#pg5">Quem Somos</a></li>
-                <li><a class="navbarOption linha_baixo" href="#contato">Contato</a></li>
+                <li>
+                    <a class="navbarOption linha_baixo" href="#pg2">Serviços</a>
+                </li>
+                <li>
+                    <a class="navbarOption linha_baixo" href="#pg5">Quem Somos</a>
+                </li>
+                <li> 
+                    <a class="navbarOption linha_baixo" href="#contato">Contato</a>
+                </li>
             </ul>
         </div>
 
         <div id="headerBtn" class="headerBtn headerRight">
-            <button class="btnHeader navbarBtn btnLogar" onclick="mudarTela('login')">Login</button>
-            <button class="btnHeader navbarBtn btnCadastro" onclick="mudarTela('cadastro')">Cadastrar</button>
+
+            <button class="btnHeader navbarBtn btnLogar" onclick="mudarTela('login')">
+                Login
+            </button>
+
+            <button class="btnHeader navbarBtn btnCadastro" onclick="mudarTela('cadastro')">
+                Cadastrar
+            </button>
+            
         </div>
 
         <!-- responsivo -->
@@ -90,75 +104,74 @@
 
             <div id="carouselExample" class="carousel slide">
 
-                        <div class="carro">
-                            <h1>SERVIÇOS</h1>
-                            <div class="carousel_serv">
-                                <div class="teste">
-                                    <div class="card2">
-                                        <div class="quadrado_tela2 darkBlue front">
-                                            <img src="./img/icone/alerta_icone.png" alt="">
-                                            <h5>ALERTAS</h5>
-                                        </div>
-
-                                        <div class=" quadrado_tela2 darkBlue back">
-                                            <!-- <h5>Back of Card</h5> -->
-
-                                            <p>Um sistema que emite alertas instantâneos quando esses limites são
-                                                ultrapassados, garantindo uma resposta rápida e eficaz do usuário em
-                                                potencial situação crítica.</p>
-                                        </div>
-                                    </div>
+                <div class="carro">
+                    <h1>SERVIÇOS</h1>
+                    <div class="carousel_serv">
+                        <div class="teste">
+                            <div class="card2">
+                                <div class="quadrado_tela2 darkBlue front">
+                                    <img src="./img/icone/alerta_icone.png" alt="">
+                                    <h5>ALERTAS</h5>
                                 </div>
 
-                                <div class="teste">
-                                    <div class="card2">
-                                        <div class="quadrado_tela2 darkBlue front">
-                                            <img src="./img/icone/Laptop_icone.png" alt="">
-                                            <h5>MONITORAMENTO</h5>
-                                        </div>
+                                <div class=" quadrado_tela2 darkBlue back">
+                                    <!-- <h5>Back of Card</h5> -->
 
-                                        <div class=" quadrado_tela2 darkBlue back">
-                                            <!-- <h5>Back of Card</h5> -->
-
-                                            <p>Um sistema de monitoramento contínuo que acompanha os dados em tempo real
-                                                dos computadores e redes do hospital</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="teste">
-                                    <div class="card2">
-                                        <div class="quadrado_tela2 darkBlue front">
-                                            <img src="./img/icone/Book_icone.png" alt="">
-                                            <h5>APOIO N1</h5>
-                                        </div>
-
-                                        <div class=" quadrado_tela2 darkBlue back">
-                                            <!-- <h4>Back of Card</h4> -->
-
-                                            <p>Manual de solução para problemas recorrentes</p>
-                                        </div>
-                                    </div>
+                                    <p>Um sistema que emite alertas instantâneos quando esses limites são
+                                        ultrapassados, garantindo uma resposta rápida e eficaz do usuário em
+                                        potencial situação crítica.</p>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="teste">
+                            <div class="card2">
+                                <div class="quadrado_tela2 darkBlue front">
+                                    <img src="./img/icone/Laptop_icone.png" alt="">
+                                    <h5>MONITORAMENTO</h5>
+                                </div>
+
+                                <div class=" quadrado_tela2 darkBlue back">
+                                    <!-- <h5>Back of Card</h5> -->
+
+                                    <p>Um sistema de monitoramento contínuo que acompanha os dados em tempo real
+                                        dos computadores e redes do hospital</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="teste">
+                            <div class="card2">
+                                <div class="quadrado_tela2 darkBlue front">
+                                    <img src="./img/icone/Book_icone.png" alt="">
+                                    <h5>APOIO N1</h5>
+                                </div>
+
+                                <div class=" quadrado_tela2 darkBlue back">
+                                    <!-- <h4>Back of Card</h4> -->
+
+                                    <p>Manual de solução para problemas recorrentes</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-
-                <button class="btnCarousel" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="btnCarousel_atras" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-
-                <button class=" btnCarousel btnCarousel2" type="button" data-bs-target="#carouselExample"
-                    data-bs-slide="next">
-                    <span class="btnCarousel_frente" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-
             </div>
+        </div>
+
+
+        <button class="btnCarousel" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="btnCarousel_atras" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class=" btnCarousel btnCarousel2" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="btnCarousel_frente" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+        </div>
 
         </div> <!-- final página 2 -->
 
@@ -521,8 +534,6 @@
         let style = window.getComputedStyle(foto);
         let anm = style.getPropertyValue('animation');
         var indexOfFirst = anm.indexOf("reverse");
-        // alert(indexOfFirst)
-        // alert(anm)
 
         if (anm.indexOf("reverse") < 1) {
             foto.style.animation = null;
@@ -534,21 +545,4 @@
 
 
     }
-
-    // var hover = false;
-
-    // document.querySelector(".sumir").addEventListener("mouseover", hoverOn);
-    // document.querySelector(".sumir").addEventListener("mouseleave", hoverOff);
-    // const tween = gsap.to(".sumir", { duration: 1.5, x: 15, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true });
-
-
-
-    // function hoverOn() {
-    //     tween.play()
-    // }
-
-    // function hoverOff() {
-    //     tween.pause()
-
-    // }
 </script>

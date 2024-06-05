@@ -8,7 +8,7 @@ main {
 }
 
 .pg1 {
-    background-image: url("../img/teste1-2.png");
+    background-image: url("../img/img_telaNetmed.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 123vh;
@@ -214,8 +214,6 @@ main {
     }
 }
 
-.One {}
-
 .Two {
     grid-column: 2;
 }
@@ -223,42 +221,6 @@ main {
 .Three {
     grid-column: 3;
 }
-
-
-/* .foto_passo_a_passo {
-    width: 40%;
-    height: 40%;
-} */
-
-
-
-/* .userStory {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.quadradoMeio {
-    background-color: #E63946;
-    opacity: 0.46;
-    width: 50%;
-    height: 10%;
-}
-
-.grupoIcon {
-    display: flex;
-    flex-direction: column;
-}
-
-.cardUser p {
-    font-size: 17px;
-    /* width: 345px; */
-/* width: 50%;
-    margin: 0px;
-} */
 
 .storyboard {
     height: 100%;
@@ -446,10 +408,6 @@ main {
     cursor: pointer;
 }
 
-/* .pergunta2 {
-    gap: 81px;
-} */
-
 .pergunta p {
     margin: 0;
     margin-bottom: 0;
@@ -604,12 +562,6 @@ main {
     left: 0px;
     z-index: 3 !important;
 }
-/* .sumir{
-}
-.sumir:hover{
-    animation-play-state:running;
-    height: 10px;
-} */
 
 @keyframes sumir {
 
@@ -705,9 +657,3 @@ footer {
     font-weight: bold;
     margin-bottom: 0px;
 }
-
-/* @media screen and (max-width: 1280px){
-    .headerLeft{
-        background-color: #EDF2F4;
-    }
-} */
