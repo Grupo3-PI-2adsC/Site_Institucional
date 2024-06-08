@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/netmed.css">
     <link rel="stylesheet" href="css/n.header.css">
     <link rel="stylesheet" href="css/n.home.css">
+    <link rel="stylesheet" href="css/n.servicos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -31,7 +32,7 @@
                 </li>
             </ul>
 
-            <button class="btn-login">
+            <button class="btn-login" onclick="mudarTela('login')">
                 Login
             </button>
 
@@ -54,7 +55,7 @@
                 </li>
             </ul>
 
-            <button class="btn-login">
+            <button class="btn-login" onclick="mudarTela('login')">
                 Login
             </button>
         </div>
@@ -72,12 +73,73 @@
                 </p>
             </div>
         </section>
+
+        <section id="servicos">
+            <div id="ctb">
+                <h1 class="titulo">
+                    SERVIÇOS
+                </h1>
+
+                <p class="descricao">
+                    Fornecemos soluções inovadoras e confiáveis para monitoramento de hardware em hospitais, com um
+                    sistema avançado que oferece visibilidade em tempo real por meio de um dashboard intuitivo,
+                    permitindo decisões informadas para manter sistemas críticos operacionais. Nossa abordagem se baseia
+                    em três serviços principais:
+                </p>
+            </div>
+
+            <div id="ctb_cards">
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-exclamation-circle"></i>
+                        ALERTAS
+                    </div>
+
+                    <p>Você terá um sistema que emite alertas instantâneos quando os limites de hardware são
+                        ultrapassados, garantindo uma resposta rápida e eficaz do usuário em potencial situação crítica.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="iconeServico">
+                        <!-- <i class="bi bi-pc-display"></i> -->
+                        <i class="bi bi-laptop"></i>
+                        MONITORAMENTO
+                    </div>
+
+                    <p>Terá um sistema de monitoramento contínuo que acompanha os dados em tempo real dos computadores e
+                        redes do hospital.</p>
+                </div>
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-journals"></i>
+                        APOIO N1
+                    </div>
+
+                    <p>Manual de solução para problemas recorrentes, te ajudando na resolução mais rápida de um
+                        impeditivo.</p>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 
 </html>
 
 <script>
+
+    window.addEventListener("scroll", function () {
+        let header = document.querySelector('header')
+        header.classList.toggle('rolagem', window.scrollY > 250)
+        header.classList.toggle('rolagem2', window.scrollY > 2900)
+        let mobile_nav_lista = document.querySelector('#mobile_menu')
+        mobile_menu.classList.toggle('rolagem', window.scrollY > 250)
+        mobile_menu.classList.toggle('rolagem2', window.screenY > 2900)
+    })
+
+    function mudarTela(tela) {
+        window.location.href = `${tela}.html`
+    }
+
     $(document).ready(function () {
         $('#mobile_btn').on('click', function () {
             $('#mobile_menu').toggleClass('active');
