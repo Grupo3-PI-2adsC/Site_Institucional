@@ -10,6 +10,21 @@ function autenticar(email, senha) {
     return database.executar(instrucao);
 }
 
+function cadastrar(nome, email, senha) {
+    var query = `INSERT INTO usuario (nome, email, senha) VALUES ('${nome}','${email}', '${senha}')`;
+    console.log(query);
+    return database.executar(query);
+}
+
+
+function deletarUsuario(idUsuario) {
+    var instrucao = `
+        DELETE FROM usuario where idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function listarUsuarios(fkEmpresa) {
     var instrucao = `
         SELECT * FROM usuario where ativo = 1 and fkEmpresa = ${fkEmpresa};
@@ -19,5 +34,7 @@ function listarUsuarios(fkEmpresa) {
 }
 module.exports = {
     autenticar,
-    listarUsuarios
+    listarUsuarios,
+    cadastrar,
+    deletarUsuario
 };

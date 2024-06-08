@@ -3,11 +3,18 @@ const res = require("express/lib/response");
 function cadastrar() {
     div_mensagem.innerHTML = "";
     var nomeVar = document.getElementById('inpt_nome_cad').value;
-    var cnpj = document.getElementById('inpt_cnpj_cad').value;
     var emailVar = document.getElementById('inpt_email_cad').value;
     var senhaVar = document.getElementById('inpt_senha_cad').value;
     var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_cad').value;
     var validacao = 0;
+
+    // div_mensagem.innerHTML = "";
+    // var nomeVar = document.getElementById('inpt_nome_cad').value;
+    // var cpf = document.getElementById('inpt_cpf_cad').value;
+    // var emailVar = document.getElementById('inpt_email_cad').value;
+    // var senhaVar = document.getElementById('inpt_senha_cad').value;
+    // var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_cad').value;
+    // var validacao = 0;
 
 
     if (
@@ -19,7 +26,7 @@ function cadastrar() {
         nomeVar.indexOf("$") >= 0 ||
         nomeVar.indexOf("&") >= 0
     ) {
-        div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome da empresa<br>`;
+        div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome do usuário<br>`;
         validacao = 1;
     }
 
@@ -74,10 +81,6 @@ function cadastrar() {
         div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na email <br>`;
         validacao = 1;
     }
-    if(cnpj.length != 14){
-        div_mensagem.innerHTML += `<p class="erro">-O CNPJ está incorreto <br>`;
-        validacao = 1;
-    }
 
     if (validacao == 1) {
         // div_mensagem.style.display = "flex";
@@ -93,7 +96,6 @@ function cadastrar() {
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                cnpjServer: cnpj,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             }),
@@ -120,9 +122,34 @@ function cadastrar() {
 
 
     }
+    
 
 
 }
+function deletarUsuario(id) {
+    fetch(`/usuarios/deletar/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(function(response) {
+        if (response.ok) {
+            // A exclusão foi bem-sucedida
+            console.log("Usuário excluído com sucesso.");
+            // Aqui você pode realizar alguma ação adicional, como atualizar a interface do usuário
+        } else {
+            // A exclusão falhou
+            console.error("Falha ao excluir usuário.");
+            // Aqui você pode lidar com o erro, exibir uma mensagem para o usuário, etc.
+        }
+    })
+    .catch(function(error) {
+        console.error("Erro ao tentar excluir usuário:", error);
+        // Aqui você pode lidar com o erro, exibir uma mensagem para o usuário, etc.
+    });
+}
+
 
 
 function cadastrar2() {
