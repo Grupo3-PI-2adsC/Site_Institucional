@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +18,14 @@
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/manual.js"></script>
+
 </head>
-<body>
+
+<body onload="listarManual()">
     
     <div class="sidebar">
-        
+
         <nav class="menu-lateral" id="menu-lateral">
 
             <div class="expandir">
@@ -75,66 +79,71 @@
             </ul>
         </nav>
     </div>
-    
-    <div class="campos_manual">
-        <div class="search-container">
-            <input type="text" id="search-bar" placeholder="Digite aqui para pesquisar">
-            <button id="search-button">Pesquisar</button>
-          </div>    
-        <div class="div_campos_manual">
-            <div class="div_input_cad_user">
-                <label>Título do Manual</label>
-                <input type="text" class="input_user_cad_manual">
+    <div class="tudo">
+        <div class="pesquisas">
+            <div class="botao1">
+                <input type="text" id="barra_pesquisar" placeholder="Pesquisar por título">
+            </div>
+            <div class="botao2">
+                <button id="botao_adicionar">Adicionar Manual</button>
             </div>
 
         </div>
+        <div class="campos_manual">
 
-        <div class="div_campos_manual">
-
-            <div class="div_input_cad_user">
-                <label>Descrição do Manual</label>
-                <input type="text" class="input_user_cad_manual_extenso">
+            <div class="div_campos_manual">
+                <div class="div_input_cad_user">
+                    <label>Título do Manual</label>
+                    <input type="text" class="input_user_cad_manual">
+                </div>
             </div>
-            
-        </div>
 
-</div>
+            <div class="div_campos_manual">
+
+                <div class="div_input_cad_user">
+                    <label>Descrição do Manual</label>
+                    <textarea class="input_user_cad_manual_extenso"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
     <script>
         function expandir() {
 
+            div1 = document.getElementById('menu-lateral');
+            txtLink = document.getElementsByClassName('txt-link')
+
+            if (div1.style.width == '100px') {
+                div1.style.width = '270px';
+                // txtLink.style.display = "none";
+                $('.txt-link').css('display', 'block');
+            } else {
+                div1.style.width = '100px'
+                txtLink.style.display = "block";
+
+            }
+
+            // item1.
 
 
-        div1 = document.getElementById('menu-lateral');
-        txtLink = document.getElementsByClassName('txt-link')
+            /* .menu li.item-menu:hover a{
+        color: #EDF2F4;
+        transition: .4s;
+    } */
+            /* nav.menu-lateral:hover{
+                        min-width: 270px;
+                        padding-left: 20px;
+                    } */
+            /* nav.menu-lateral:hover .txt-link{
+                display: block;
+            } */
 
-        if (div1.style.width == '100px') {
-            div1.style.width = '270px';
-            // txtLink.style.display = "none";
-            $('.txt-link').css('display', 'block');
-        } else {
-            div1.style.width = '100px'
-            txtLink.style.display = "block";
+
 
         }
-
-        // item1.
-
-
-        /* .menu li.item-menu:hover a{
-    color: #EDF2F4;
-    transition: .4s;
-} */
-        /* nav.menu-lateral:hover{
-                    min-width: 270px;
-                    padding-left: 20px;
-                } */
-        /* nav.menu-lateral:hover .txt-link{
-            display: block;
-        } */
-
-
-
-    }
     </script>
 </body>
+
 </html>
