@@ -92,11 +92,30 @@ function listarManual(){
         })
 }
 function atualizarManual(){
+    div_mensagem.innerHTML = "";
+    var tituloVar = document.getElementById('input_adicionar_titulo').value;
+    var descricaoVar = document.getElementById('input_adicionar_descricao').value;
+    var validacao = 0;
+
+    var dataAtual = new Date();
+
+    var ano = dataAtual.getFullYear();
+    var mes = ('0' + (dataAtual.getMonth() + 1)).slice(-2); // Adiciona um zero à esquerda, se necessário
+    var dia = ('0' + dataAtual.getDate()).slice(-2); // Adiciona um zero à esquerda, se necessário
+
+    var dataFormatada = ano + '-' + mes + '-' + dia;
+    
     fetch("/manual/atualizarManual", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+            idUsuarioServer: sessionStorage.idUsuario,
+            tituloServer: tituloVar,
+            descricaoServer: descricaoVar,
+            dataServer: dataFormatada
+        }),
 
     }).then(function (resposta) {
         if (resposta.ok) {
