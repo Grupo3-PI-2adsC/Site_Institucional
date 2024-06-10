@@ -26,7 +26,8 @@
 
 #cta .descricao {
     font-size: 1.2rem;
-    color: #EDF2F4;;
+    color: #EDF2F4;
+    text-align: left;
 }
 
 @media screen and (max-width: 1170px) {

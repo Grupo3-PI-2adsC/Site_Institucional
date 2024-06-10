@@ -1,0 +1,126 @@
+section#planos {
+    display: flex;
+    flex-direction: column;
+    row-gap: 110px;
+    align-items: center;
+    /* padding: 80px 7%; */
+    padding: 0px 80px 80px;
+}
+
+#planos p {
+    text-align: center;
+    font-size: x-large;
+}
+
+#ctb_planos {
+    /* background-color: tomato; */
+    display: flex;
+    align-items: center;
+    gap: 180px;
+}
+
+#ctb_planos a {
+    text-decoration: none;
+}
+
+.plano_card {
+    color: #F1FAEE;
+    width: 280px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 22px;
+    row-gap: 35px;
+}
+
+.plano_card:hover{
+    /* background: #B34F6C; */
+    box-shadow: 0 0 15px rgb(86, 84, 84);
+    transform: scale(1.1);
+    z-index: 1;
+    border-radius: 25px
+}
+
+.default {
+    background-color: #1D3557;
+}
+
+.premium {
+    background-color: #13212B;
+}
+
+.deluxe {
+    background-color: #911D38;
+}
+
+.titulo_planos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.logo_planos {
+    /* background: #89ACD6; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin: 5% auto 0 auto;
+    text-align: center;
+}
+
+.defaultCirculo{
+    background: #435C7E;
+}
+
+.premiumCirculo{
+    background: #3A4856;
+}
+
+.deluxeCirculo{
+    background: #B34F6C;
+}
+
+.logo_planos img {
+    height: 30px;
+}
+
+.preco_planos {
+    font-size: 30px;
+    font-weight: 400;
+    border-radius: 3px;
+    border-bottom: #FFD solid 1px;
+    width: 222px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+.preco_planos span {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.lista_planos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 222px;
+    row-gap: 12px;
+}
+
+.item_planos i {
+    color: #B0DB9C;
+}
+
+.item_planos > .transparente {
+    color: transparent;
+}
