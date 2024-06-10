@@ -35,7 +35,7 @@ section#planos {
     row-gap: 35px;
 }
 
-.plano_card:hover{
+.plano_card:hover {
     /* background: #B34F6C; */
     box-shadow: 0 0 15px rgb(86, 84, 84);
     transform: scale(1.1);
@@ -74,15 +74,15 @@ section#planos {
     text-align: center;
 }
 
-.defaultCirculo{
+.defaultCirculo {
     background: #435C7E;
 }
 
-.premiumCirculo{
+.premiumCirculo {
     background: #3A4856;
 }
 
-.deluxeCirculo{
+.deluxeCirculo {
     background: #B34F6C;
 }
 
@@ -121,6 +121,44 @@ section#planos {
     color: #B0DB9C;
 }
 
-.item_planos > .transparente {
+.item_planos>.transparente {
     color: transparent;
+}
+
+@media screen and (max-width: 1500px) {
+    section#planos {
+        height: 112vh;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    #ctb_planos {
+        gap: 65px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    section#planos {
+        height: 290vh;
+    }
+
+    #planos p {
+        width: 300px;
+        text-align: center;
+        font-size: larger;
+    }
+
+    #ctb_planos {
+        display: flex;
+        gap: 80px;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    section#planos {
+        row-gap: 85px;
+        padding: 25px 80px 80px;
+    }
 }
