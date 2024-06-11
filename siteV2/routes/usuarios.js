@@ -13,5 +13,8 @@ router.post("/deletar", function (req, res){
 router.post("/listarUsuarios", function (req, res) {
     usuarioController.listarUsuarios(req, res);
 })
+router.post("/atualizarUsuario", function (req, res) {
+    usuarioController.atualizarUsuario(req, res);
+})
 
 module.exports = router;

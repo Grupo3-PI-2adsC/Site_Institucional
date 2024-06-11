@@ -32,9 +32,15 @@ function listarUsuarios(fkEmpresa) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function atualizarUsuario(nome, email, senha, idUsuario) {
+    var query = `UPDATE usuario SET nome = '${nome}', email = '${email}', senha = '${senha}'WHERE idUsuario = '${idUsuario}'`;
+    console.log(query);
+    return database.executar(query);
+}
 module.exports = {
     autenticar,
     listarUsuarios,
     cadastrar,
-    deletarUsuario
+    deletarUsuario,
+    atualizarUsuario
 };
