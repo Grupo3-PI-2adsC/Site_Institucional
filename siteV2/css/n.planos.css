@@ -17,6 +17,10 @@ section#planos {
     display: flex;
     align-items: center;
     gap: 180px;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: (-50%, -50%); */
 }
 
 #ctb_planos a {
@@ -24,7 +28,7 @@ section#planos {
 }
 
 .plano_card {
-    color: #F1FAEE;
+    color: #EDF2F4;
     width: 280px;
     height: 500px;
     display: flex;
@@ -119,6 +123,7 @@ section#planos {
 
 .item_planos i {
     color: #B0DB9C;
+    font-size: 10px;
 }
 
 .item_planos>.transparente {
