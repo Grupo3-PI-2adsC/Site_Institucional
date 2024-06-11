@@ -1,6 +1,10 @@
 const res = require("express/lib/response");
 
 function cadastrar() {
+    // alert("asdlkmas")
+    var sla = document.getElementById("input_1")
+    sla.checked = true;
+    var cnpj = document.getElementById('inpt_cnpj_cad').value;
     div_mensagem.innerHTML = "";
     var nomeVar = document.getElementById('inpt_nome_cad').value;
     var emailVar = document.getElementById('inpt_email_cad').value;
@@ -19,110 +23,113 @@ function cadastrar() {
 
     if (
         nomeVar.indexOf("#") >= 0 ||
-        nomeVar.indexOf("@") >= 0 ||
-        nomeVar.indexOf("!") >= 0 ||
-        nomeVar.indexOf("%") >= 0 ||
-        nomeVar.indexOf("*") >= 0 ||
-        nomeVar.indexOf("$") >= 0 ||
-        nomeVar.indexOf("&") >= 0
-    ) {
-        div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome do usuário<br>`;
-        validacao = 1;
-    }
+         nomeVar.indexOf("@") >= 0 ||
+         nomeVar.indexOf("!") >= 0 ||
+         nomeVar.indexOf("%") >= 0 ||
+         nomeVar.indexOf("*") >= 0 ||
+         nomeVar.indexOf("$") >= 0 ||
+         nomeVar.indexOf("&") >= 0
+     ) {
+         div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome da empresa<br>`;
+         validacao = 1;
+     }
 
-    //SENHA
+     //SENHA
 
     if (senhaVar.length < 8) {
-        div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 8 caracteres <br>`;
-        validacao = 1;
+         div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 8 caracteres <br>`;
+         validacao = 1;
     }
 
-    if (senhaVar.indexOf(" ") >= 0) {
-        div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na senha <br>`;
-        validacao = 1;
-    }
+     if (senhaVar.indexOf(" ") >= 0) {
+         div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na senha <br>`;
+         validacao = 1;
+     }
 
-    if (
-        (
-            senhaVar.indexOf("#") >= 0 ||
-            senhaVar.indexOf("@") >= 0 ||
-            senhaVar.indexOf("!") >= 0 ||
-            senhaVar.indexOf("%") >= 0 ||
-            senhaVar.indexOf("*") >= 0 ||
-            senhaVar.indexOf("$") >= 0 ||
-            senhaVar.indexOf("_") >= 0 ||
-            senhaVar.indexOf("-") >= 0 ||
-            senhaVar.indexOf("&") >= 0
-        )
-    ) {
-        validacao != 1;
-    }else{
-        div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 1 caracter especial <br>`;
-    }
+     if (
+         (
+             senhaVar.indexOf("#") >= 0 ||
+             senhaVar.indexOf("@") >= 0 ||
+             senhaVar.indexOf("!") >= 0 ||
+             senhaVar.indexOf("%") >= 0 ||
+             senhaVar.indexOf("*") >= 0 ||
+             senhaVar.indexOf("$") >= 0 ||
+             senhaVar.indexOf("_") >= 0 ||
+             senhaVar.indexOf("-") >= 0 ||
+             senhaVar.indexOf("&") >= 0
+         )
+     ) {
+         validacao != 1;
+     }else{
+         div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 1 caracter especial <br>`;
+     }
 
-    if (senhaVar != confirmacaoSenhaVar) {
-        div_mensagem.innerHTML += `<p class="erro">-Senhas incompatíveis`;
-        validacao = 1;
-    }
+     if (senhaVar != confirmacaoSenhaVar) {
+         div_mensagem.innerHTML += `<p class="erro">-Senhas incompatíveis`;
+         validacao = 1;
+     }
 
-    //EMAIL
+     //EMAIL
 
-    if (!(emailVar.indexOf("@") >= 0)) {
-        div_mensagem.innerHTML += `<p class="erro">-Deve conter @ no email<br>`;
+     if (!(emailVar.indexOf("@") >= 0)) {
+         div_mensagem.innerHTML += `<p class="erro">-Deve conter @ no email<br>`;
     
-        validacao = 1;
-    }
-    if (!(emailVar.indexOf(".com") >= 0)) {
-        div_mensagem.innerHTML += `<p class="erro">-Deve conter .com no email <br>`;
-        validacao = 1;
+         validacao = 1;
+     }
+     if (!(emailVar.indexOf(".com") >= 0)) {
+         div_mensagem.innerHTML += `<p class="erro">-Deve conter .com no email <br>`;
+         validacao = 1;
 
-    }
-    if (emailVar.indexOf(" ") >= 0) {
-        div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na email <br>`;
-        validacao = 1;
-    }
+     }
+     if (emailVar.indexOf(" ") >= 0) {
+         div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na email <br>`;
+         validacao = 1;
+     }
+     if(cnpj.length != 14){
+         div_mensagem.innerHTML += `<p class="erro">-O CNPJ está incorreto <br>`;
+         validacao = 1;
+     }
+     if (validacao == 1) {
+         // div_mensagem.style.display = "flex";
 
-    if (validacao == 1) {
-        // div_mensagem.style.display = "flex";
+     }
+      else{
+         fetch("/usuarios/cadastrar", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+             },
+             body: JSON.stringify({
+                 // crie um atributo que recebe o valor recuperado aqui
+                 // Agora vá para o arquivo routes/usuario.js
+                 nomeServer: nomeVar,
+                 cnpjServer: cnpj,
+                 emailServer: emailVar,
+                 senhaServer: senhaVar
+             }),
 
-    }
-     else{
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            }),
+         }).then(function (resposta) {
+             if (resposta.ok) {
 
-        }).then(function (resposta) {
-            if (resposta.ok) {
-
-                resposta.json().then((usuario) => {
-                    sessionStorage.ID_USUARIO = usuario.insertId;
+                 resposta.json().then((usuario) => {
+                     sessionStorage.ID_USUARIO = usuario.insertId;
                     animar('divCad', 'divCad2');
-                })
-            }else{
-                alert('cadastro não realizado')
-                throw "Houve um erro ao tentar realizar o cadastro"
-            }
-        })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                alert('cadastro não realizado')
-            })
+                 })
+             }else{
+                 alert('cadastro não realizado')
+                 throw "Houve um erro ao tentar realizar o cadastro"
+             }
+         })
+             .catch(function (resposta) {
+                 console.log(`#ERRO: ${resposta}`);
+                 alert('cadastro não realizado')
+             })
 
-        div_mensagem.style.display = "none";
-        // alert('Parabens');
-
+         div_mensagem.style.display = "none";
+         // alert('Parabens');
+ 
 
     }
-    
 
 
 }
@@ -154,88 +161,93 @@ function deletarUsuario(id) {
 
 function cadastrar2() {
 
-    var fkEmpresa = sessionStorage.ID_USUARIO;
-    var cep = document.getElementById('inpt_cep_cad').value;
-    var rua = document.getElementById('inpt_rua_cad').value;
-    var bairro = document.getElementById('inpt_bairro_cad').value;
-    var estado = document.getElementById('inpt_estado_cad').value;
-    var cidade = document.getElementById('inpt_cidade_cad').value;
-    var numero = document.getElementById('inpt_numero_cad').value;
-    var complemento = document.getElementById('inpt_complemento_cad').value;
-    var validacao = 0;
 
-    var teste = []
-    teste.push(cep)
-    teste.push(rua)
-    teste.push(bairro)
-    teste.push(estado)
-    teste.push(cidade)
-    teste.push(numero)
-    // teste.push(complemento)
+    var sla = document.getElementById("input_0")
+    sla.checked = true;
 
-    console.log(teste)
+    animar('divCad2', 'divCad3');
+    // var fkEmpresa = sessionStorage.ID_USUARIO;
+    // var cep = document.getElementById('inpt_cep_cad').value;
+    // var rua = document.getElementById('inpt_rua_cad').value;
+    // var bairro = document.getElementById('inpt_bairro_cad').value;
+    // var estado = document.getElementById('inpt_estado_cad').value;
+    // var cidade = document.getElementById('inpt_cidade_cad').value;
+    // var numero = document.getElementById('inpt_numero_cad').value;
+    // var complemento = document.getElementById('inpt_complemento_cad').value;
+    // var validacao = 0;
 
-    for (let i = 0; i < teste.length; i++) {
-        const Atual = teste[i];
-        if (
-            Atual.indexOf("#") >= 0 ||
-            Atual.indexOf("@") >= 0 ||
-            Atual.indexOf("!") >= 0 ||
-            Atual.indexOf("%") >= 0 ||
-            Atual.indexOf("*") >= 0 ||
-            Atual.indexOf("$") >= 0 ||
-            Atual == "" ||
-            Atual == null ||
-            Atual.indexOf("&") >= 0
-        ) {
-            // div_mensagem.innerHTML += `-Não pode haver caracter especial nem espaços no endereço da empresa<br>`;
+    // var teste = []
+    // teste.push(cep)
+    // teste.push(rua)
+    // teste.push(bairro)
+    // teste.push(estado)
+    // teste.push(cidade)
+    // teste.push(numero)
+    // // teste.push(complemento)
 
-            validacao = 1;
-        }
+    // console.log(teste)
 
-    }
-    if (validacao == 1) {
-        // div_mensagem.style.display = "flex";
+    // for (let i = 0; i < teste.length; i++) {
+    //     const Atual = teste[i];
+    //     if (
+    //         Atual.indexOf("#") >= 0 ||
+    //         Atual.indexOf("@") >= 0 ||
+    //         Atual.indexOf("!") >= 0 ||
+    //         Atual.indexOf("%") >= 0 ||
+    //         Atual.indexOf("*") >= 0 ||
+    //         Atual.indexOf("$") >= 0 ||
+    //         Atual == "" ||
+    //         Atual == null ||
+    //         Atual.indexOf("&") >= 0
+    //     ) {
+    //         // div_mensagem.innerHTML += `-Não pode haver caracter especial nem espaços no endereço da empresa<br>`;
 
-        alert('Burro');
+    //         validacao = 1;
+    //     }
 
-    } else {
-        fetch(`/cadastroEndereco/cadastrar`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
+    // }
+    // if (validacao == 1) {
+    //     // div_mensagem.style.display = "flex";
 
-                ruaServer: rua,
-                bairroServer: bairro,
-                cidadeServer: cidade,
-                estadoServer: estado,
-                cepServer: cep,
-                numeroServer: numero,
-                complementoServer: complemento,
-                fkEmpresaServer: fkEmpresa
-            }),
+    //     alert('Burro');
 
-        }).then(function (resposta) {
-            if (resposta.ok) {
+    // } else {
+    //     fetch(`/cadastroEndereco/cadastrar`, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
 
-                resposta.json().then((usuario) => {
-                    alert('Cadastrado')
-                    mudarTela('index');
-                })
-            }else{
-                alert('cadastro não realizado')
-                throw "Houve um erro ao tentar realizar o cadastro"
-            }
-        })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                alert('cadastro não realizado')
-            })
+    //             ruaServer: rua,
+    //             bairroServer: bairro,
+    //             cidadeServer: cidade,
+    //             estadoServer: estado,
+    //             cepServer: cep,
+    //             numeroServer: numero,
+    //             complementoServer: complemento,
+    //             fkEmpresaServer: fkEmpresa
+    //         }),
+
+    //     }).then(function (resposta) {
+    //         if (resposta.ok) {
+
+    //             resposta.json().then((usuario) => {
+    //                 alert('Cadastrado')
+    //                 mudarTela('index');
+    //             })
+    //         }else{
+    //             alert('cadastro não realizado')
+    //             throw "Houve um erro ao tentar realizar o cadastro"
+    //         }
+    //     })
+    //         .catch(function (resposta) {
+    //             console.log(`#ERRO: ${resposta}`);
+    //             alert('cadastro não realizado')
+    //         })
 
 
-    }
+    // }
 }
 
 
