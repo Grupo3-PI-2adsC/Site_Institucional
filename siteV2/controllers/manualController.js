@@ -78,9 +78,27 @@ function atualizarManual(req, res){
                 }
             );
 }
+function removerManual(req, res){
+    var idManual = req.body.idManualServer;
+
+    manualModel.removerManual(idManual)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
 module.exports = {
     adicionarManual,
     listarManual,
-    atualizarManual
+    atualizarManual,
+    removerManual
     // cadastrar2
 }

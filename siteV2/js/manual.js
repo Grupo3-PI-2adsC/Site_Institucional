@@ -82,13 +82,13 @@ function listarManual(){
                 console.log(manual);
             })
         } else {
-            alert('Manual não realizado')
+            alert('Manuais não listados')
             throw "Houve um erro"
         }
     })
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            alert('Manual não realizado')
+            alert('Manuais não listados')
         })
 }
 function atualizarManual(){
@@ -131,5 +131,33 @@ function atualizarManual(){
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
             alert('Manual não atualizado')
+        })
+}
+function removerManual(){
+    div_mensagem.innerHTML = "";
+
+    fetch("/manual/removerManual", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idUsuarioServer: sessionStorage.ID_MANUAL,
+        }),
+
+    }).then(function (resposta) {
+        if (resposta.ok) {
+
+            resposta.json().then((manual) => {
+                console.log(manual);
+            })
+        } else {
+            alert('Manual não removido')
+            throw "Houve um erro"
+        }
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            alert('Manual não removido')
         })
 }

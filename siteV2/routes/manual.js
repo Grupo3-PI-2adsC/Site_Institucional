@@ -13,5 +13,8 @@ router.get("/listarManual", function (req, res) {
 router.put("/atualizarManual", function (req, res) {
     manualController.atualizarManual(req, res);
 })
+router.delete("/removerManual", function (req, res) {
+    manualController.removerManual(req, res);
+})
 
 module.exports = router;

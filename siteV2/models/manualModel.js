@@ -15,8 +15,14 @@ function atualizarManual(tituloManual, descricao, idUsuario, data) {
     console.log(query);
     return database.executar(query);
 }
+function removerManual(idManual) {
+    var query = `DELETE from manuais WHERE idManual = '${idManual}'` ;
+    console.log(query);
+    return database.executar(query);
+}
 module.exports = {
     adicionarManual,
     listarManual,
-    atualizarManual
+    atualizarManual,
+    removerManual
 };
