@@ -17,22 +17,32 @@
 
 #cta .titulo {
     font-size: 4rem;
-    color: var(--color-neutral-1);;
+    color: #EDF2F4;
 }
 
 #cta .titulo span {
-    color: var(--color-primary-6);
+    color: #c6e3ef;
 }
 
 #cta .descricao {
     font-size: 1.2rem;
+    color: #EDF2F4;
+    text-align: left;
 }
 
 @media screen and (max-width: 1170px) {
+
     #home {
-        /* min-height: 100%; */
-        padding: 0px;
+        min-height: 60vh;
+        padding: 32px 0 0 0;
         background-color: #5C5B70;
         background-image: none;
+    }
+
+    #cta {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        padding: 10%;
     }
 }

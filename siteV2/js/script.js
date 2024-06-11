@@ -8,7 +8,3 @@ window.addEventListener("scroll", function(){
 function mudarTela(tela){
     window.location.href =`${tela}.html`
 }
-
-
-
-

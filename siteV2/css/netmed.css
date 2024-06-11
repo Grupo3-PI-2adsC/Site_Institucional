@@ -23,6 +23,14 @@ section {
     padding: 28px 8%;
 }
 
+section#servicos{
+    height: 120vh;
+}
+
+section#planos{
+    height: 100vh;
+}
+
 .btn-login {
     border: none;
     display: flex;
@@ -37,4 +45,3 @@ section {
     cursor: pointer;
     transition: background-color .3s ease;
 }
-

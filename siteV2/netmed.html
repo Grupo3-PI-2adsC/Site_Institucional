@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/netmed.css">
     <link rel="stylesheet" href="css/n.header.css">
     <link rel="stylesheet" href="css/n.home.css">
+    <link rel="stylesheet" href="css/n.servicos.css">
+    <link rel="stylesheet" href="css/n.planos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -23,6 +25,9 @@
                 <li class="nav-item active linha_baixo">
                     <a href="#servicos">Serviços</a>
                 </li>
+                <li class="nav-item active linha_baixo">
+                    <a href="#planos">Planos</a>
+                </li>
                 <li class="nav-item linha_baixo">
                     <a href="#quemSomos">Quem Somos</a>
                 </li>
@@ -31,7 +36,7 @@
                 </li>
             </ul>
 
-            <button class="btn-login">
+            <button class="btn-login" onclick="mudarTela('login')">
                 Login
             </button>
 
@@ -46,6 +51,9 @@
                 <li class="nav-item linha_baixo">
                     <a href="#servicos">Serviços</a>
                 </li>
+                <li class="nav-item active linha_baixo">
+                    <a href="#planos">Planos</a>
+                </li>
                 <li class="nav-item linha_baixo">
                     <a href="#quemSomos">Quem Somos</a>
                 </li>
@@ -54,7 +62,7 @@
                 </li>
             </ul>
 
-            <button class="btn-login">
+            <button class="btn-login" onclick="mudarTela('login')">
                 Login
             </button>
         </div>
@@ -72,16 +80,208 @@
                 </p>
             </div>
         </section>
+
+        <section id="servicos">
+            <div id="ctb">
+                <h1 class="titulo">
+                    SERVIÇOS
+                </h1>
+
+                <p class="descricao">
+                    Fornecemos soluções inovadoras e confiáveis para monitoramento de hardware em hospitais, com um
+                    sistema avançado que oferece visibilidade em tempo real por meio de um dashboard intuitivo,
+                    permitindo decisões informadas para manter sistemas críticos operacionais. Nossa abordagem se baseia
+                    em três serviços principais:
+                </p>
+            </div>
+
+            <div id="ctb_cards">
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-exclamation-circle"></i>
+                        ALERTAS
+                    </div>
+
+                    <p>Você terá um sistema que emite alertas instantâneos quando os limites de hardware são
+                        ultrapassados, garantindo uma resposta rápida e eficaz do usuário em potencial situação crítica.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-laptop"></i>
+                        MONITORAMENTO
+                    </div>
+
+                    <p>Terá um sistema de monitoramento contínuo que acompanha os dados em tempo real dos computadores e
+                        redes do hospital.</p>
+                </div>
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-journals"></i>
+                        APOIO N1
+                    </div>
+
+                    <p>Manual de solução para problemas recorrentes, te ajudando na resolução mais rápida de um
+                        impeditivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos">
+            <p>CONHEÇA NOSSOS PLANOS <br> E FAÇA AS MELHORES DECISÕES PARA O SEU SERVIÇO</p>
+
+            <div id="ctb_planos">
+                <div class="plano_card default" id="popup_default">
+                    <div class="titulo_planos">
+                        <div class="logo_planos defaultCirculo">
+                            <img src="img/icone/Star_1.png" alt="" class="imgStar1">
+                        </div>
+                        <h1>medDefault</h1>
+                    </div>
+
+                    <div class="preco_planos">
+                        R$ 89,99<span> /MENSAL</span>
+                    </div>
+
+                    <ul class="lista_planos">
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            monitoramento de dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="plano_card premium" id="popup_premium">
+                    <div class="titulo_planos">
+                        <div class="logo_planos premiumCirculo">
+                            <img src="img/icone/Star_2.png" alt="" class="imgStar2">
+                        </div>
+                        <h1>medPremium</h1>
+                    </div>
+
+                    <div class="preco_planos">
+                        R$ 139,99<span> /MENSAL</span>
+                    </div>
+
+                    <ul class="lista_planos">
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            monitoramento de dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="plano_card deluxe" id="popup_deluxe">
+                    <div class="titulo_planos">
+                        <div class="logo_planos deluxeCirculo">
+                            <img src="img/icone/Star_3.png" alt="" class="imgStar3">
+                        </div>
+                        <h1>medDeluxe</h1>
+                    </div>
+
+                    <div class="preco_planos">
+                        R$ 259,99<span> /MENSAL</span>
+                    </div>
+
+                    <ul class="lista_planos">
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            monitoramento de dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            apresentação dos dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="avaliações">
+
+        </section>
     </main>
 </body>
 
 </html>
 
 <script>
+
+    window.addEventListener("scroll", function () {
+        let header = document.querySelector('header')
+        header.classList.toggle('rolagem', window.scrollY > 250)
+        header.classList.toggle('rolagem2', window.scrollY > 2900)
+        let mobile_nav_lista = document.querySelector('#mobile_menu')
+        mobile_menu.classList.toggle('rolagem', window.scrollY > 250)
+        mobile_menu.classList.toggle('rolagem2', window.screenY > 2900)
+    })
+
+    function mudarTela(tela) {
+        window.location.href = `${tela}.html`
+    }
+
     $(document).ready(function () {
         $('#mobile_btn').on('click', function () {
             $('#mobile_menu').toggleClass('active');
             $('#mobile_btn').find('i').toggleClass('bi-x');
         });
     });
+
 </script>
