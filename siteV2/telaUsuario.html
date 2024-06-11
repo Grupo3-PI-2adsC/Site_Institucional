@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="botao_user border-vermelho"
-                        onclick="mudarTelaUser('conteudo_user_usuario', 'conteudo_user')">
+                        onclick="mudarTela('cadastro')">
                         <label for="html" onclick="window.location.href = 'cadastro.html'">CADASTRAR
                             USUÁRIO</label>
                     </div>
@@ -670,6 +670,10 @@
 
 <script>
 
+    function mudarTela(tela){
+        window.location.href = `${tela}.html`
+    }
+
     var graficos = ['grafico_CPU', 'grafico_DISCO', 'grafico_RAM', 'grafico_REDE'];
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
@@ -1079,7 +1083,7 @@
     function mudarTelaUser(tela, telaS) {
         elemento = document.getElementById(tela)
         elemento2 = document.getElementById(telaS)
-
+        
         elemento2.style.animation = 'sumir .4s linear'
 
         setTimeout(function () {
