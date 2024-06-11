@@ -1,139 +1,139 @@
 const res = require("express/lib/response");
 
 function cadastrar() {
-    // // alert("asdlkmas")
-    // var sla = document.getElementById("input_1")
-    // var cpf = document.getElementById('inpt_cnpj_cad').value;
+    // alert("asdlkmas")
+    var sla = document.getElementById("input_1")
+    var cpf = document.getElementById('inpt_cnpj_cad').value;
+    div_mensagem.innerHTML = "";
+    var nomeVar = document.getElementById('inpt_nome_cad').value;
+    var emailVar = document.getElementById('inpt_email_cad').value;
+    var senhaVar = document.getElementById('inpt_senha_cad').value;
+    var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_cad').value;
+    var validacao = 0;
+
     // div_mensagem.innerHTML = "";
     // var nomeVar = document.getElementById('inpt_nome_cad').value;
+    // var cpf = document.getElementById('inpt_cpf_cad').value;
     // var emailVar = document.getElementById('inpt_email_cad').value;
     // var senhaVar = document.getElementById('inpt_senha_cad').value;
     // var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_cad').value;
     // var validacao = 0;
 
-    // // div_mensagem.innerHTML = "";
-    // // var nomeVar = document.getElementById('inpt_nome_cad').value;
-    // // var cpf = document.getElementById('inpt_cpf_cad').value;
-    // // var emailVar = document.getElementById('inpt_email_cad').value;
-    // // var senhaVar = document.getElementById('inpt_senha_cad').value;
-    // // var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_cad').value;
-    // // var validacao = 0;
 
+    if (
+        nomeVar.indexOf("#") >= 0 ||
+         nomeVar.indexOf("@") >= 0 ||
+         nomeVar.indexOf("!") >= 0 ||
+         nomeVar.indexOf("%") >= 0 ||
+         nomeVar.indexOf("*") >= 0 ||
+         nomeVar.indexOf("$") >= 0 ||
+         nomeVar.indexOf("&") >= 0
+     ) {
+         div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome da empresa<br>`;
+         validacao = 1;
+     }
 
-    // if (
-    //     nomeVar.indexOf("#") >= 0 ||
-    //      nomeVar.indexOf("@") >= 0 ||
-    //      nomeVar.indexOf("!") >= 0 ||
-    //      nomeVar.indexOf("%") >= 0 ||
-    //      nomeVar.indexOf("*") >= 0 ||
-    //      nomeVar.indexOf("$") >= 0 ||
-    //      nomeVar.indexOf("&") >= 0
-    //  ) {
-    //      div_mensagem.innerHTML += `<p class="erro">-Não pode haver caracter especial no nome da empresa<br>`;
-    //      validacao = 1;
-    //  }
+     //SENHA
 
-    //  //SENHA
+    if (senhaVar.length < 8) {
+         div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 8 caracteres <br>`;
+         validacao = 1;
+    }
 
-    // if (senhaVar.length < 8) {
-    //      div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 8 caracteres <br>`;
-    //      validacao = 1;
-    // }
+     if (senhaVar.indexOf(" ") >= 0) {
+         div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na senha <br>`;
+         validacao = 1;
+     }
 
-    //  if (senhaVar.indexOf(" ") >= 0) {
-    //      div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na senha <br>`;
-    //      validacao = 1;
-    //  }
+     if (
+         (
+             senhaVar.indexOf("#") >= 0 ||
+             senhaVar.indexOf("@") >= 0 ||
+             senhaVar.indexOf("!") >= 0 ||
+             senhaVar.indexOf("%") >= 0 ||
+             senhaVar.indexOf("*") >= 0 ||
+             senhaVar.indexOf("$") >= 0 ||
+             senhaVar.indexOf("_") >= 0 ||
+             senhaVar.indexOf("-") >= 0 ||
+             senhaVar.indexOf("&") >= 0
+         )
+     ) {
+         validacao != 1;
+     }else{
+         div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 1 caracter especial <br>`;
+     }
 
-    //  if (
-    //      (
-    //          senhaVar.indexOf("#") >= 0 ||
-    //          senhaVar.indexOf("@") >= 0 ||
-    //          senhaVar.indexOf("!") >= 0 ||
-    //          senhaVar.indexOf("%") >= 0 ||
-    //          senhaVar.indexOf("*") >= 0 ||
-    //          senhaVar.indexOf("$") >= 0 ||
-    //          senhaVar.indexOf("_") >= 0 ||
-    //          senhaVar.indexOf("-") >= 0 ||
-    //          senhaVar.indexOf("&") >= 0
-    //      )
-    //  ) {
-    //      validacao != 1;
-    //  }else{
-    //      div_mensagem.innerHTML += `<p class="erro">-A senha deve possuir no mínimo 1 caracter especial <br>`;
-    //  }
+     if (senhaVar != confirmacaoSenhaVar) {
+         div_mensagem.innerHTML += `<p class="erro">-Senhas incompatíveis`;
+         validacao = 1;
+     }
 
-    //  if (senhaVar != confirmacaoSenhaVar) {
-    //      div_mensagem.innerHTML += `<p class="erro">-Senhas incompatíveis`;
-    //      validacao = 1;
-    //  }
+     //EMAIL
 
-    //  //EMAIL
-
-    //  if (!(emailVar.indexOf("@") >= 0)) {
-    //      div_mensagem.innerHTML += `<p class="erro">-Deve conter @ no email<br>`;
+     if (!(emailVar.indexOf("@") >= 0)) {
+         div_mensagem.innerHTML += `<p class="erro">-Deve conter @ no email<br>`;
     
-    //      validacao = 1;
-    //  }
-    //  if (!(emailVar.indexOf(".com") >= 0)) {
-    //      div_mensagem.innerHTML += `<p class="erro">-Deve conter .com no email <br>`;
-    //      validacao = 1;
+         validacao = 1;
+     }
+     if (!(emailVar.indexOf(".com") >= 0)) {
+         div_mensagem.innerHTML += `<p class="erro">-Deve conter .com no email <br>`;
+         validacao = 1;
 
-    //  }
-    //  if (emailVar.indexOf(" ") >= 0) {
-    //      div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na email <br>`;
-    //      validacao = 1;
-    //  }
-    // //  alert(cpf)
-    //  var validacaoCpf = TestaCPF(cpf)
-    //  validacaoCpf = !validacaoCpf
-    // //  alert(validacaoCpf)
-    //  if(validacaoCpf){
-    //      div_mensagem.innerHTML += `<p class="erro">-O CPF está incorreto <br>`;
-    //      validacao = 1;
-    //  }
-    //  if (validacao == 1) {
-    //      // div_mensagem.style.display = "flex";
+     }
+     if (emailVar.indexOf(" ") >= 0) {
+         div_mensagem.innerHTML += `<p class="erro">-Não pode conter espaços na email <br>`;
+         validacao = 1;
+     }
+    //  alert(cpf)
+     var validacaoCpf = TestaCPF(cpf)
+     validacaoCpf = !validacaoCpf
+    //  alert(validacaoCpf)
+     if(validacaoCpf){
+         div_mensagem.innerHTML += `<p class="erro">-O CPF está incorreto <br>`;
+         validacao = 1;
+     }
+     if (validacao == 1) {
+         // div_mensagem.style.display = "flex";
 
-    //  }
-    //   else{
-    //      fetch("/usuarios/cadastrar", {
-    //          method: "POST",
-    //          headers: {
-    //              "Content-Type": "application/json",
-    //          },
-    //          body: JSON.stringify({
-    //              // crie um atributo que recebe o valor recuperado aqui
-    //              // Agora vá para o arquivo routes/usuario.js
-    //              nomeServer: nomeVar,
-    //              cnpjServer: cpf,
-    //              emailServer: emailVar,
-    //              senhaServer: senhaVar
-    //          }),
+     }
+      else{
+         fetch("/usuarios/cadastrar", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+             },
+             body: JSON.stringify({
+                 // crie um atributo que recebe o valor recuperado aqui
+                 // Agora vá para o arquivo routes/usuario.js
+                 nomeServer: nomeVar,
+                 cnpjServer: cpf,
+                 emailServer: emailVar,
+                 senhaServer: senhaVar
+             }),
 
-    //      }).then(function (resposta) {
-    //          if (resposta.ok) {
+         }).then(function (resposta) {
+             if (resposta.ok) {
 
-    //              resposta.json().then((usuario) => {
-    //                  sessionStorage.ID_USUARIO = usuario.insertId;
+                 resposta.json().then((usuario) => {
+                     sessionStorage.ID_USUARIO = usuario.insertId;
                     animar('divCad', 'divCad2');
-    //                 sla.checked = true;
-    //              })
-    //          }else{
-    //              alert('cadastro não realizado')
-    //              throw "Houve um erro ao tentar realizar o cadastro"
-    //          }
-    //      })
-    //          .catch(function (resposta) {
-    //              console.log(`#ERRO: ${resposta}`);
-    //              alert('cadastro não realizado')
-    //          })
+                    sla.checked = true;
+                 })
+             }else{
+                 alert('cadastro não realizado')
+                 throw "Houve um erro ao tentar realizar o cadastro"
+             }
+         })
+             .catch(function (resposta) {
+                 console.log(`#ERRO: ${resposta}`);
+                 alert('cadastro não realizado')
+             })
 
-    //      div_mensagem.style.display = "none";
-    //      // alert('Parabens');
+         div_mensagem.style.display = "none";
+         // alert('Parabens');
  
 
-    // }
+    }
 
 
 }
