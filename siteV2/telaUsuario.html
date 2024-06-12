@@ -247,7 +247,7 @@
 
                 <div class="header_perfil">
                     <div>
-                        <p>Aldemir De Barros</p>
+                        <p id="nome_tecnico"></p>
                     </div>
                     <div>
                         <img src="img/usuario-de-perfil.png" class="img_perfil" alt="">
@@ -257,117 +257,32 @@
 
                 <div class="carousel_div">
 
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
 
 
+                    <div class="campos_perfil">
 
-                                <div class="campos_perfil">
+                        <div class="div_campos_perfil">
 
-                                    <div class="div_campos_perfil">
-                                        <div class="div_input_cad_user">
-                                            <label>Empresa</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>CNPJ</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                    </div>
-
-                                    <div class="div_campos_perfil">
-
-                                        <div class="div_input_cad_user">
-                                            <label>Email</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Senha</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                    </div>
-
-                                    <div class="div_btns_perfil">
-                                        <button class="input_user_cad btn_verm"
-                                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
-                                        <button class="input_user_cad btn_azul"
-                                            style="background-color: #457b9d7e;">Alterações</button>
-                                    </div>
-                                </div>
-
+                            <div class="div_input_cad_user">
+                                <label>Email</label>
+                                <input type="text" class="input_user_cad" id="email_tecnico" disabled>
                             </div>
 
-
-                            <div class="carousel-item">
-
-
-                                <div class="campos_perfil">
-
-                                    <div class="div_campos_perfil_end">
-                                        <div class="div_input_cad_user">
-                                            <label>CEP</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Rua</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Bairro</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                    </div>
-
-                                    <div class="div_campos_perfil_end">
-
-                                        <div class="div_input_cad_user">
-                                            <label>Cidade</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Estado</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Complemento</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                    </div>
-
-                                    <div class="div_btns_perfil">
-                                        <button class="input_user_cad btn_verm"
-                                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
-                                        <div class="div_input_cad_user">
-                                            <label>Complemento</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                        <button class="input_user_cad btn_azul"
-                                            style="background-color: #457b9d7e;">Alterações</button>
-                                    </div>
-                                </div>
+                            <div class="div_input_cad_user">
+                                <label>Funcao</label>
+                                <input type="text" class="input_user_cad" id="funcao_tecnico"disabled>
                             </div>
-
 
                         </div>
+
+
+
+                        <div class="div_btns_perfil">
+                            <button class="input_user_cad btn_verm"
+                                onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
+                        </div>
                     </div>
-                    <button class="carousel-control-prev seta" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next seta" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+
                 </div>
 
             </div>
@@ -721,6 +636,23 @@
         window.location.href = `${tela}.html`
     }
 
+    window.onload = plotarUser();
+
+    function plotarUser() {
+        var user = JSON.parse(sessionStorage.USUARIO_MUDAR);
+
+        // alert(user.nome)
+
+        var nomeVar = document.getElementById('nome_tecnico').innerHTML = sessionStorage.NOME_USUARIO;
+        var emailVar = document.getElementById('email_tecnico').value = sessionStorage.EMAIL_USUARIO;
+        var senhaVar = document.getElementById('funcao_tecnico').value = sessionStorage.TIPO_USUARIO;
+        // var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_alt');
+        // var funcao = document.getElementById('inpt_funcao_cad').value = user.tipoUsuario;
+
+
+        // nomeVar.value = user.nome;
+    }
+
     var graficos = ['grafico_CPU', 'grafico_DISCO', 'grafico_RAM', 'grafico_REDE'];
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
@@ -779,14 +711,14 @@
                         </tr>`
 
             tabela2.innerHTML += linha;
-// 
+            // 
         }
     }
 
-    function alterarUser(id){
-        
+    function alterarUser(id) {
+
         var id_user = id.slice(id.length - 1, id.length)
-        
+
         sessionStorage.IDUSUARIO_MUDAR = id_user
 
         alert(sessionStorage.IDUSUARIO_MUDAR)
@@ -804,10 +736,10 @@
 
             // if(listaUser.idUsuario == id){
 
-                mudarContainer('alterarUsuario.html')
+            mudarContainer('alterarUsuario.html')
 
             // }
-            
+
         }
 
 

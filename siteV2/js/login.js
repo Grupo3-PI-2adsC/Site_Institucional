@@ -29,6 +29,7 @@ function acessar() {
           sessionStorage.TIPO_USUARIO = json[0].tipoUsuario;
           sessionStorage.FK_EMPRESA = json[0].fkEmpresa;
           sessionStorage.SENHA_USUARIO = json[0].senha;
+          // sessionStorage.TIPO_USUARIO = json[0].senha;
           window.location.href = "telaUsuario.html";
           // apenas para exibir o loading
         });
