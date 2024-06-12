@@ -2,8 +2,9 @@ function acessar() {
   var email = ipt_email.value;
   var senha = ipt_senha.value;
 
+  // console.log();
   if (email.indexOf('@') >= 0 && (email.indexOf('.') >= 0 || email.indexOf('com') >= 0)) {
-    alert('tenta')
+    alert("estou no controlar " + email + " " + senha)
     //PARA LOGAR NO SISTEMA
     fetch("/usuarios/autenticar", {
       method: "POST",

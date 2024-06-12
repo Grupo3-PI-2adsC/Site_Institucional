@@ -114,11 +114,9 @@ function cadastrar() {
          }).then(function (resposta) {
              if (resposta.ok) {
 
-                 resposta.json().then((usuario) => {
-                     sessionStorage.ID_USUARIO = usuario.insertId;
+                    // sessionStorage.ID_USUARIO = usuario.insertId;
                     animar('divCad', 'divCad2');
                     sla.checked = true;
-                 })
              }else{
                  alert('cadastro não realizado')
                  throw "Houve um erro ao tentar realizar o cadastro"

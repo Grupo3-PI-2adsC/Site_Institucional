@@ -19,11 +19,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
     <script src="js/manual.js"></script>
+    <link rel="stylesheet" href="css/manual.css">
 
 </head>
 
 <body onload="listarManual()">
-    
+
     <div class="sidebar">
 
         <nav class="menu-lateral" id="menu-lateral">
@@ -58,7 +59,7 @@
                     </span>
                 </li>
 
-                <li class="item-menu" onclick="mudarContainer('#grafMin')">
+                <li class="item-menu" onclick="mudarContainer('#manuais')">
                     <span class="icone">
                         <i class="bi bi-speedometer2"></i>
                     </span>
@@ -79,34 +80,40 @@
             </ul>
         </nav>
     </div>
-    <div class="tudo">
-        <div class="pesquisas">
-            <div class="botao1">
-                <input type="text" id="barra_pesquisar" placeholder="Pesquisar por título">
-            </div>
-            <div class="botao2">
-                <button id="botao_adicionar">Adicionar Manual</button>
-            </div>
 
-        </div>
-        <div class="campos_manual">
+    <div class="dash-right">
 
-            <div class="div_campos_manual">
-                <div class="div_input_cad_user">
-                    <label>Título do Manual</label>
-                    <input type="text" class="input_user_cad_manual">
+
+        <div class="avisos">
+            <div id="alerta">
+            </div>
+            <div class="container">
+                <h1>Publicar um aviso</h1>
+                <div class="div-form">
+                    <form id="form_postagem" method="post" onsubmit="return publicar()">
+                        <label>
+                            Título:
+                            <br>
+                            <input name="titulo" id="titulo" maxlength="100" type="text">
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            Descrição (máximo de 250 caracteres):
+                            <br>
+                            <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                        </label>
+                        <br>
+                        <br>
+                        <button>Enviar</button>
+                    </form>
+                </div>
+                <h1>Mural de Avisos</h1>
+                <div class="div-results">
+                    <div id="feed_container" class="feed-container">
+                    </div>
                 </div>
             </div>
-
-            <div class="div_campos_manual">
-
-                <div class="div_input_cad_user">
-                    <label>Descrição do Manual</label>
-                    <textarea class="input_user_cad_manual_extenso"></textarea>
-                </div>
-
-            </div>
-
         </div>
     </div>
     <script>
