@@ -51,36 +51,40 @@
 
                     <div class="inpts_cad_div">
                         <p class="white">Nome*</p>
-                        <input type="text" class="inpts_cad" id="inpt_email_cad">
+                        <input type="text" class="inpts_cad" id="inpt_email_alt">
                     </div>
-                        <!-- <div id="cnpj_cad">
+                        <!-- <div id="cnpj_alt">
                             <p class="white">CPF*</p>
-                            <input type="number" class="inpts_cad" id="inpt_cnpj_cad">
+                            <input type="number" class="inpts_cad" id="inpt_cnpj_alt">
                         </div> -->
 
                     <div class="inpts_cad_div">
                         <p class="white">Email*</p>
-                        <input type="email" class="inpts_cad" id="inpt_email_cad">
+                        <input type="email" class="inpts_cad" id="inpt_email_alt">
                     </div>
 
                     <div class="inpts_cad_div">
                         <p class="white">Senha*</p>
-                        <input type="password" class="inpts_cad" id="inpt_senha_cad">
+                        <input type="password" class="inpts_cad" id="inpt_senha_alt">
                     </div>
 
                     <div class="inpts_cad_div">
                         <p class="white">Confirmar Senha*</p>
-                        <input type="password" class="inpts_cad" id="inpt_confSenha_cad">
+                        <input type="password" class="inpts_cad" id="inpt_confSenha_alt">
                     </div>
                     <div class="inpts_cad_div">
-                        <p class="white">Confirmar Senha*</p>
-                        <input type="password" class="inpts_cad" id="inpt_confSenha_cad">
+                        <p class="white">Função*</p>
+                        <select name="" id="inpt_funcao_cad" class="select_cadastro2">
+                            <option value="gerente">N3 - Gerente</option>
+                            <option value="tecnico">N2 - Técnico</option>
+                            <option value="atendente">N1 - Atendente</option>
+                        </select>
                     </div>
 
 
                     <div class="inpts_cad_div btn_link_cad">
-                        <button class="btn_cad_cont" id="btn_continuar_cad" onclick="alterar()">Alterar</button>
-                        <button class="btn_cad_cont" id="btn_continuar_cad">Cancelar</button>
+                        <button class="btn_cad_cont" id="btn_alterar_alt" onclick="alterar()">Alterar</button>
+                        <button class="btn_cad_cont" id="btn_cancelar_alt">Cancelar</button>
                         <!-- <p class="white"><a href="login.html" >Já tem conta? Clique aqui para logar!</a></p> -->
                     </div>
 
@@ -157,12 +161,13 @@
     function alterar() {
     // alert("asdlkmas")
     var sla = document.getElementById("input_1")
-    var cpf = document.getElementById('inpt_cnpj_cad').value;
+    var cpf = document.getElementById('inpt_cnpj_alt').value;
     div_mensagem.innerHTML = "";
-    var nomeVar = document.getElementById('inpt_nome_cad').value;
-    var emailVar = document.getElementById('inpt_email_cad').value;
-    var senhaVar = document.getElementById('inpt_senha_cad').value;
-    var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_cad').value;
+    var nomeVar = document.getElementById('inpt_nome_alt').value;
+    var emailVar = document.getElementById('inpt_email_alt').value;
+    var senhaVar = document.getElementById('inpt_senha_alt').value;
+    var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_alt').value;
+    var funcao = document.getElementById('inpt_funcao_cad').value;
     var validacao = 0;
 
     // div_mensagem.innerHTML = "";
@@ -260,8 +265,9 @@
                  // crie um atributo que recebe o valor recuperado aqui
                  // Agora vá para o arquivo routes/usuario.js
                  nomeServer: nomeVar,
-                 cnpjServer: cpf,
+                 funcaoServer: funcao,
                  emailServer: emailVar,
+                 idMudarServer: sessionStorage.IDUSUARIO_MUDAR,
                  senhaServer: senhaVar
              }),
 

@@ -767,13 +767,23 @@
             var linha = `<tr id= "linha_usuario_${jsonUser[i].idUsuario}" class= "linha_geral linha_usuario_${jsonUser[i].idUsuario}">
                 <td id = "usuario_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}">usuario ${i + 1}</td>
                 <td id = "usuarioMudar_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}" 
-                onclick="mudarContainer('alterarUsuario.html')" style = "cursor: pointer;">Alterar usuário</td>
-                            <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+                onclick="" style = "cursor: pointer;">Alterar usuário</td>
+                <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                         </tr>`
 
             tabela2.innerHTML += linha;
-
+// 
         }
+    }
+
+    function alterarUser(id){
+        
+        var id_user = id.slice(id.length - 1, id.length)
+        
+        sessionStorage.IDUSUARIO_MUDAR = id_user
+        
+        mudarContainer('alterarUsuario.html')
+
     }
 
     var Limite = {};
