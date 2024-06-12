@@ -17,6 +17,7 @@
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/manual.css">
 </head>
 
 <body>
@@ -30,6 +31,13 @@
             <ul class="menu">
                 <li class="item-menu ativo" onclick="mudarContainer('#')">
                     <i class="bi bi-person icone"></i>
+                    <span class="txt-link">
+                        Usuário
+                    </span>
+                </li>
+
+                <li class="item-menu" onclick="mudarContainer('#manuais')">
+                    <i class="bi bi-journal icone"></i>
                     <span class="txt-link">
                         Usuário
                     </span>
@@ -87,8 +95,7 @@
                         <label for="html">INFORMAÇÕES DA CONTA</label>
                     </div>
 
-                    <div class="botao_user border-vermelho"
-                        onclick="mudarTelaUser('conteudo_user_usuario', 'conteudo_user')">
+                    <div class="botao_user border-vermelho" onclick="mudarTela('cadastro')">
                         <label for="html" onclick="window.location.href = 'cadastro.html'">CADASTRAR
                             USUÁRIO</label>
                     </div>
@@ -370,6 +377,46 @@
 
 
 
+        </div>
+
+        <div class="container grafMax" id="manuais">
+
+            <div class="dash-right">
+
+
+                <div class="avisos">
+                    <div id="alerta">
+                    </div>
+                    <div class="container">
+                        <h1>Publicar um aviso</h1>
+                        <div class="div-form">
+                            <form id="form_postagem" method="post" onsubmit="return publicar()">
+                                <label>
+                                    Título:
+                                    <br>
+                                    <input name="titulo" id="titulo" maxlength="100" type="text">
+                                </label>
+                                <br>
+                                <br>
+                                <label>
+                                    Descrição (máximo de 250 caracteres):
+                                    <br>
+                                    <textarea name="descricao" id="textarea_descricao" maxlength="250"
+                                        rows="5"></textarea>
+                                </label>
+                                <br>
+                                <br>
+                                <button>Enviar</button>
+                            </form>
+                        </div>
+                        <h1>Mural de Avisos</h1>
+                        <div class="div-results">
+                            <div id="feed_container" class="feed-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="container grafMax" id="grafMax">
@@ -670,6 +717,10 @@
 
 <script>
 
+    function mudarTela(tela) {
+        window.location.href = `${tela}.html`
+    }
+
     var graficos = ['grafico_CPU', 'grafico_DISCO', 'grafico_RAM', 'grafico_REDE'];
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
@@ -677,8 +728,8 @@
     function PlotarTabela(jsonComp, jsonUser) {
         var qtdLinhasTableComp = jsonComp.length//Math.floor((Math.random() * 10) + 1);
         var qtdLinhasTableUser = jsonUser.length;
-        
-        
+
+
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
         var tabela2 = document.getElementById('tabela_geral_comp_max')
@@ -714,7 +765,9 @@
         for (let i = 0; i < qtdLinhasTableUser; i++) {
 
             var linha = `<tr id= "linha_usuario_${jsonUser[i].idUsuario}" class= "linha_geral linha_usuario_${jsonUser[i].idUsuario}">
-                            <td id = "usuario_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}">usuario ${i + 1}</td>
+                <td id = "usuario_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}">usuario ${i + 1}</td>
+                <td id = "usuarioMudar_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}" 
+                onclick="mudarContainer('alterarUsuario.html')" style = "cursor: pointer;">Alterar usuário</td>
                             <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                         </tr>`
 
@@ -756,7 +809,7 @@
                     // console.log(json[0].idMaquina);
                     // PlotarTabela(json);
                     listarUsuarios(json);
-                    
+
                 });
 
             } else {
@@ -766,7 +819,7 @@
                     console.error(texto);
                 });
             }
-            
+
         }).catch(function (erro) {
             console.log(erro);
         })
@@ -775,7 +828,7 @@
 
     }
 
-    function listarUsuarios(jsonComp){
+    function listarUsuarios(jsonComp) {
         console.log("Estou pegando as infos de usuario");
         fetch("/usuarios/listarUsuarios", {
             method: "POST",
@@ -795,7 +848,7 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     PlotarTabela(jsonComp, json);
-                    
+
                 });
 
             } else {
@@ -805,7 +858,7 @@
                     console.error(texto);
                 });
             }
-            
+
         }).catch(function (erro) {
             console.log(erro);
         })
@@ -851,8 +904,8 @@
         // var ele1 = document.getElementById(elemento)
         // console.log(ele1)
 
-        var id_computador = id.slice(id.length - 1, id.length )
-        
+        var id_computador = id.slice(id.length - 1, id.length)
+
         console.log(id_computador)
 
 
@@ -873,9 +926,9 @@
                 resposta.json().then(json => {
                     // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
                     console.log(JSON.stringify(json));
-                    
+
                     listarComputadores();
-                    
+
                 });
 
             } else {
@@ -885,7 +938,7 @@
                     console.error(texto);
                 });
             }
-            
+
         }).catch(function (erro) {
             console.log(erro);
         })

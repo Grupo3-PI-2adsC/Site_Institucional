@@ -2,28 +2,36 @@ var mysql = require("mysql2");
 var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
-// var sqlServerConfig = {
-//     server: "SEU_SERVIDOR",
-//     database: "SEU_BANCO_DE_DADOS",
-//     user: "SEU_USUARIO",
-//     password: "SUA_SENHA",
-//     pool: {
-//         max: 10,
-//         min: 0,
-//         idleTimeoutMillis: 30000
-//     },
-//     options: {
-//         encrypt: true, // for azure
-//     }
-// }
+var sqlServerConfig = {
+    server: "184.73.201.251",
+    database: "netmed",
+    user: "sa",
+    password: "urubu100",
+    pool: {
+        max: 10,
+        min: 0,
+        idleTimeoutMillis: 30000
+    },
+    options: {
+        encrypt: true, // for azure
+        trustServerCertificate: true,
+    }
+}
 
 // CONEXÃO DO MYSQL WORKBENCH
-var mySqlConfig = {
-    host: "localhost",
-    database: "netmed",
-    user: "root",
-    password: "Matt@123",
-};
+// var mySqlConfig = {
+//     host: "localhost",
+//     database: "netmed",
+//     user: "root",
+//     password: "#Gf44298704890",
+// };
+
+// var mySqlConfig = {
+//         host: "localhost",
+//         database: "netmed",
+//         user: "root",
+//         password: "Matt@123",
+// }
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
@@ -44,7 +52,7 @@ function executar(instrucao) {
         });
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         return new Promise(function (resolve, reject) {
-            var conexao = mysql.createConnection(mySqlConfig);
+            var conexao = mysql.createConnection(sqlServerConfig);
             conexao.connect();
             conexao.query(instrucao, function (erro, resultados) {
                 conexao.end();
