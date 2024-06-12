@@ -4,7 +4,7 @@ function acessar() {
 
   // console.log();
   if (email.indexOf('@') >= 0 && (email.indexOf('.') >= 0 || email.indexOf('com') >= 0)) {
-    alert("estou no controlar " + email + " " + senha)
+    // alert("estou no controlar " + email + " " + senha)
     //PARA LOGAR NO SISTEMA
     fetch("/usuarios/autenticar", {
       method: "POST",
