@@ -725,10 +725,17 @@
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
 
+    var listaUser;
+    var listarComp;
+
     function PlotarTabela(jsonComp, jsonUser) {
         var qtdLinhasTableComp = jsonComp.length//Math.floor((Math.random() * 10) + 1);
         var qtdLinhasTableUser = jsonUser.length;
 
+        listaUser = jsonUser;
+        listarComp = jsonComp;
+
+        console.log(listaUser);
 
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
@@ -767,7 +774,7 @@
             var linha = `<tr id= "linha_usuario_${jsonUser[i].idUsuario}" class= "linha_geral linha_usuario_${jsonUser[i].idUsuario}">
                 <td id = "usuario_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}">usuario ${i + 1}</td>
                 <td id = "usuarioMudar_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}" 
-                onclick="" style = "cursor: pointer;">Alterar usuário</td>
+                onclick="alterarUser(this.id)" style = "cursor: pointer;">Alterar usuário</td>
                 <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                         </tr>`
 
@@ -781,8 +788,28 @@
         var id_user = id.slice(id.length - 1, id.length)
         
         sessionStorage.IDUSUARIO_MUDAR = id_user
-        
-        mudarContainer('alterarUsuario.html')
+
+        alert(sessionStorage.IDUSUARIO_MUDAR)
+
+        for (let i = 0; i < listaUser.length; i++) {
+            const element = listaUser[i];
+
+            console.log(element.idUsuario);
+
+            var jsonUser = JSON.stringify(element)
+
+            sessionStorage.IDUSUARIO_MUDAR = id_user
+
+            sessionStorage.USUARIO_MUDAR = jsonUser
+
+            // if(listaUser.idUsuario == id){
+
+                mudarContainer('alterarUsuario.html')
+
+            // }
+            
+        }
+
 
     }
 
