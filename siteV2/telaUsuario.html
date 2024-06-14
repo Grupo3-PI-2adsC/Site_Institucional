@@ -16,7 +16,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="js/script.js"></script>
+    <script src="js/manual.js"></script>
     <link rel="stylesheet" href="css/manual.css">
 </head>
 
@@ -321,7 +323,7 @@
                                 </label>
                                 <br>
                                 <br>
-                                <button>Enviar</button>
+                                <button onclick="adicionarManual()">Enviar</button>
                             </form>
                         </div>
                         <h1>Mural de Avisos</h1>
@@ -631,6 +633,7 @@
 </html>
 
 <script>
+
 
     function mudarTela(tela) {
         window.location.href = `${tela}.html`
