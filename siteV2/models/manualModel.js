@@ -1,7 +1,7 @@
 var database = require("../database/config")
 
 function adicionarManual(tituloManual, descricao, idUsuario, data) {
-    var query = `INSERT INTO manuais (tituloManual, cadastrarManual, fkUsuarioCriador, dtCriacao ) VALUES ('${tituloManual}','${descricao}', '${idUsuario}', '${data}')`;
+    var query = `INSERT INTO manuais (tituloManual, descricaoManual, fkUsuarioCriador, dtCriacao ) VALUES ('${tituloManual}','${descricao}', '${idUsuario}', '${data}')`;
     console.log(query);
     return database.executar(query);
 }
