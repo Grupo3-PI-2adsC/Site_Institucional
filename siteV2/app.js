@@ -1,5 +1,5 @@
+// process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 process.env.AMBIENTE_PROCESSO = "producao";
-// process.env.AMBIENTE_PROCESSO = "producao";
 
 var express = require("express");
 var cors = require("cors");
@@ -14,6 +14,7 @@ var usuarioRouter = require("./routes/usuarios");
 var cadastroEnderecoRouter = require("./routes/cadastroEndereco");
 var computadorRouter = require("./routes/computador");
 var manualRouter = require("./routes/manual");
+var manuaisRouter = require("./routes/manuais");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/cadastroEndereco", cadastroEnderecoRouter);
 app.use("/computador", computadorRouter);
 app.use("/manual", manualRouter);
+app.use("/manuais", manuaisRouter);
 
 
 

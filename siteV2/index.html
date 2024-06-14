@@ -7,201 +7,266 @@
     <title>NetMed</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleResponsivo.css">
-    <link rel="stylesheet" href="css/header.css">
+    <!-- <link rel="stylesheet" href="css/header.css"> -->
     <script src="js/script.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/netmed.css">
+    <link rel="stylesheet" href="css/n.header.css">
+    <link rel="stylesheet" href="css/n.home.css">
+    <link rel="stylesheet" href="css/n.servicos.css">
+    <link rel="stylesheet" href="css/n.planos.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <title>NETMED</title>
 
 </head>
 
 <body>
+    <header>
+        <nav id="navbar">
+            <a href="#" id="nav_logo">NETMED</a>
 
-    <header id="header">
-
-        <div class="headerLeft">
-
-            <div id="logoHeader" class="logoHeader">
-                <a href="#">NETMED</a>
-            </div>
-
-            <ul id="navbar2" class="navbar2">
-                <li>
-                    <a class="navbarOption linha_baixo" href="#pg2">Serviços</a>
+            <ul id="nav_lista">
+                <li class="nav-item active linha_baixo">
+                    <a href="#servicos">Serviços</a>
                 </li>
-                <li>
-                    <a class="navbarOption linha_baixo" href="#pg5">Quem Somos</a>
+                <li class="nav-item active linha_baixo">
+                    <a href="#planos">Planos</a>
                 </li>
-                <li> 
-                    <a class="navbarOption linha_baixo" href="#contato">Contato</a>
+                <li class="nav-item linha_baixo">
+                    <a href="#quemSomos">Quem Somos</a>
+                </li>
+                <li class="nav-item linha_baixo">
+                    <a href="#Contato">Contato</a>
                 </li>
             </ul>
-        </div>
 
-        <div id="headerBtn" class="headerBtn headerRight">
-
-            <button class="btnHeader navbarBtn btnLogar" onclick="mudarTela('login')">
+            <button class="btn-login" onclick="mudarTela('login')">
                 Login
             </button>
 
-            <button class="btnHeader navbarBtn btnCadastro" onclick="mudarTela('cadastro')">
-                Cadastrar
-            </button>
-            
-        </div>
-
-        <!-- responsivo -->
-
-        <div class="menuR">
-            <div class="expandir">
+            <button id="mobile_btn">
                 <i class="bi bi-list"></i>
-            </div>
+            </button>
+        </nav>
 
-            <ul>
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="txt-link">
-                            Usuário
-                        </span>
-                    </a>
+        <div id="mobile_menu">
+
+            <ul id="mobile_nav_lista">
+                <li class="nav-item linha_baixo">
+                    <a href="#servicos">Serviços</a>
                 </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="txt-link">
-                            Geral
-                        </span>
-                    </a>
+                <li class="nav-item active linha_baixo">
+                    <a href="#planos">Planos</a>
                 </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <span class="txt-link">
-                            Informações
-                        </span>
-                    </a>
+                <li class="nav-item linha_baixo">
+                    <a href="#quemSomos">Quem Somos</a>
+                </li>
+                <li class="nav-item linha_baixo">
+                    <a href="#Contato">Contato</a>
                 </li>
             </ul>
-        </div>
 
-    </header> <!-- final header -->
+            <button class="btn-login" onclick="mudarTela('login')">
+                Login
+            </button>
+        </div>
+    </header>
 
     <main>
-        <div id="pg1" class="pg pg1">
+        <section id="home">
+            <div id="cta">
+                <h1 class="titulo">
+                    NET<span>MED</span>
+                </h1>
 
-            <div class="conteudo_pg1">
-                <h1>NETMED</h1>
-                <p>Sua parceira confiável em monitoramento de tráfego de redes em hospitais!</p>
+                <p class="descricao">
+                    Sua parceira confiável em monitoramento de tráfego de redes em hospitais!
+                </p>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div id="ctb">
+                <h1 class="titulo">
+                    SERVIÇOS
+                </h1>
+
+                <p class="descricao">
+                    Fornecemos soluções inovadoras e confiáveis para monitoramento de hardware em hospitais, com um
+                    sistema avançado que oferece visibilidade em tempo real por meio de um dashboard intuitivo,
+                    permitindo decisões informadas para manter sistemas críticos operacionais. Nossa abordagem se baseia
+                    em três serviços principais:
+                </p>
             </div>
 
-        </div> <!-- final página 1 -->
-
-        <div id="pg2" class="pg pg2" style="background-color: blue;">
-
-            <div id="carouselExample" class="carousel slide" style="background-color: rgb(255, 0, 64);">
-
-                <div class="carro" style="background-color: rgb(115, 255, 0);">
-                    <h1>SERVIÇOS</h1>
-                    <div class="carousel_serv" style="background-color: rgb(255, 89, 0);">
-                        <div class="teste">
-                            <div class="card2">
-                                <div class="quadrado_tela2 darkBlue front">
-                                    <img src="./img/icone/alerta_icone.png" alt="">
-                                    <h5>ALERTAS</h5>
-                                </div>
-
-                                <div class=" quadrado_tela2 darkBlue back">
-                                    <!-- <h5>Back of Card</h5> -->
-
-                                    <p>Um sistema que emite alertas instantâneos quando esses limites são
-                                        ultrapassados, garantindo uma resposta rápida e eficaz do usuário em
-                                        potencial situação crítica.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="teste">
-                            <div class="card2">
-                                <div class="quadrado_tela2 darkBlue front">
-                                    <img src="./img/icone/Laptop_icone.png" alt="">
-                                    <h5>MONITORAMENTO</h5>
-                                </div>
-
-                                <div class=" quadrado_tela2 darkBlue back">
-                                    <!-- <h5>Back of Card</h5> -->
-
-                                    <p>Um sistema de monitoramento contínuo que acompanha os dados em tempo real
-                                        dos computadores e redes do hospital</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="teste">
-                            <div class="card2">
-                                <div class="quadrado_tela2 darkBlue front">
-                                    <img src="./img/icone/Book_icone.png" alt="">
-                                    <h5>APOIO N1</h5>
-                                </div>
-
-                                <div class=" quadrado_tela2 darkBlue back">
-                                    <!-- <h4>Back of Card</h4> -->
-
-                                    <p>Manual de solução para problemas recorrentes</p>
-                                </div>
-                            </div>
-                        </div>
+            <div id="ctb_cards">
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-exclamation-circle"></i>
+                        ALERTAS
                     </div>
 
+                    <p>Você terá um sistema que emite alertas instantâneos quando os limites de hardware são
+                        ultrapassados, garantindo uma resposta rápida e eficaz do usuário em potencial situação crítica.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-laptop"></i>
+                        MONITORAMENTO
+                    </div>
+
+                    <p>Terá um sistema de monitoramento contínuo que acompanha os dados em tempo real dos computadores e
+                        redes do hospital.</p>
+                </div>
+                <div class="card">
+                    <div class="iconeServico">
+                        <i class="bi bi-journals"></i>
+                        APOIO N1
+                    </div>
+
+                    <p>Manual de solução para problemas recorrentes, te ajudando na resolução mais rápida de um
+                        impeditivo.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <section id="planos">
+            <p>CONHEÇA NOSSOS PLANOS <br> E FAÇA AS MELHORES DECISÕES PARA O SEU SERVIÇO</p>
 
-        <button class="btnCarousel" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="btnCarousel_atras" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
+            <div id="ctb_planos">
+                <div class="plano_card default" id="popup_default">
+                    <div class="titulo_planos">
+                        <div class="logo_planos defaultCirculo">
+                            <img src="img/icone/Star_1.png" alt="" class="imgStar1">
+                        </div>
+                        <h1>medDefault</h1>
+                    </div>
 
-        <button class=" btnCarousel btnCarousel2" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="btnCarousel_frente" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+                    <div class="preco_planos">
+                        R$ 89,99<span> /MENSAL</span>
+                    </div>
 
-        </div>
-
-        </div> <!-- final página 2 -->
-
-        <div class="pg3 pg">
-
-
-            <div class="passo-div one">
-                <div class="passo One">
-                    <img src="img/1_passo.png" class="foto_passo_a_passo" alt="">
-                    <p>1º Passo:<br>
-                        Conheça a NETMED e seus serviços</p>
+                    <ul class="lista_planos">
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            monitoramento de dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="passo Two">
-                    <img src="img/2_passo.png" class="foto_passo_a_passo" alt="">
-                    <p>2ºPasso:<br>
-                        Se cadastre-se no nosso site e insira a NETMED<br>
-                        no seu hospital.</p>
+                <div class="plano_card premium" id="popup_premium">
+                    <div class="titulo_planos">
+                        <div class="logo_planos premiumCirculo">
+                            <img src="img/icone/Star_2.png" alt="" class="imgStar2">
+                        </div>
+                        <h1>medPremium</h1>
+                    </div>
+
+                    <div class="preco_planos">
+                        R$ 139,99<span> /MENSAL</span>
+                    </div>
+
+                    <ul class="lista_planos">
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            monitoramento de dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho transparente"></i>
+                            netmed
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="passo Three">
-                    <img src="img/3_passo.png" class="foto_passo_a_passo" alt="">
-                    <p>3ºPasso:<br>
-                        Tenha o monitoramento do seu hardware<br>
-                        com facilidade e rapidez.</p>
-                </div>
+                <div class="plano_card deluxe" id="popup_deluxe">
+                    <div class="titulo_planos">
+                        <div class="logo_planos deluxeCirculo">
+                            <img src="img/icone/Star_3.png" alt="" class="imgStar3">
+                        </div>
+                        <h1>medDeluxe</h1>
+                    </div>
 
+                    <div class="preco_planos">
+                        R$ 259,99<span> /MENSAL</span>
+                    </div>
+
+                    <ul class="lista_planos">
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            monitoramento de dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            apresentação dos dados
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                        <li class="item_planos">
+                            <i class="bi bi-check certinho"></i>
+                            netmed
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-        </div> <!-- final página 3 -->
+        </section>
+
 
         <div class="divAvaliacoes "> <!-- animação -->
 

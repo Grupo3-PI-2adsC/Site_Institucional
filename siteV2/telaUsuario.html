@@ -16,7 +16,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="js/script.js"></script>
+    <script src="js/manual.js"></script>
+    <script src="js/manuais.js"></script>
     <link rel="stylesheet" href="css/manual.css">
 </head>
 
@@ -247,7 +250,7 @@
 
                 <div class="header_perfil">
                     <div>
-                        <p>Aldemir De Barros</p>
+                        <p id="nome_tecnico"></p>
                     </div>
                     <div>
                         <img src="img/usuario-de-perfil.png" class="img_perfil" alt="">
@@ -257,117 +260,32 @@
 
                 <div class="carousel_div">
 
-                    <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
 
 
+                    <div class="campos_perfil">
 
-                                <div class="campos_perfil">
+                        <div class="div_campos_perfil">
 
-                                    <div class="div_campos_perfil">
-                                        <div class="div_input_cad_user">
-                                            <label>Empresa</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>CNPJ</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                    </div>
-
-                                    <div class="div_campos_perfil">
-
-                                        <div class="div_input_cad_user">
-                                            <label>Email</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Senha</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                    </div>
-
-                                    <div class="div_btns_perfil">
-                                        <button class="input_user_cad btn_verm"
-                                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
-                                        <button class="input_user_cad btn_azul"
-                                            style="background-color: #457b9d7e;">Alterações</button>
-                                    </div>
-                                </div>
-
+                            <div class="div_input_cad_user">
+                                <label>Email</label>
+                                <input type="text" class="input_user_cad" id="email_tecnico" disabled>
                             </div>
 
-
-                            <div class="carousel-item">
-
-
-                                <div class="campos_perfil">
-
-                                    <div class="div_campos_perfil_end">
-                                        <div class="div_input_cad_user">
-                                            <label>CEP</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Rua</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Bairro</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                    </div>
-
-                                    <div class="div_campos_perfil_end">
-
-                                        <div class="div_input_cad_user">
-                                            <label>Cidade</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Estado</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-
-                                        <div class="div_input_cad_user">
-                                            <label>Complemento</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                    </div>
-
-                                    <div class="div_btns_perfil">
-                                        <button class="input_user_cad btn_verm"
-                                            onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
-                                        <div class="div_input_cad_user">
-                                            <label>Complemento</label>
-                                            <input type="text" class="input_user_cad">
-                                        </div>
-                                        <button class="input_user_cad btn_azul"
-                                            style="background-color: #457b9d7e;">Alterações</button>
-                                    </div>
-                                </div>
+                            <div class="div_input_cad_user">
+                                <label>Funcao</label>
+                                <input type="text" class="input_user_cad" id="funcao_tecnico"disabled>
                             </div>
-
 
                         </div>
+
+
+
+                        <div class="div_btns_perfil">
+                            <button class="input_user_cad btn_verm"
+                                onclick="mudarTelaUser('conteudo_user', 'conteudo_user_perfil')">Voltar</button>
+                        </div>
                     </div>
-                    <button class="carousel-control-prev seta" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next seta" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+
                 </div>
 
             </div>
@@ -383,14 +301,13 @@
 
             <div class="dash-right">
 
-
                 <div class="avisos">
                     <div id="alerta">
                     </div>
                     <div class="container">
-                        <h1>Publicar um aviso</h1>
+                        <h1>Adicionar Manual</h1>
                         <div class="div-form">
-                            <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <!-- <form id="form_postagem" method="post" onsubmit="return publicar()"> -->
                                 <label>
                                     Título:
                                     <br>
@@ -406,10 +323,10 @@
                                 </label>
                                 <br>
                                 <br>
-                                <button>Enviar</button>
-                            </form>
+                                <button onclick="criarManual()">Enviar</button>
+                            <!-- </form> -->
                         </div>
-                        <h1>Mural de Avisos</h1>
+                        <h1>Manuais</h1>
                         <div class="div-results">
                             <div id="feed_container" class="feed-container">
                             </div>
@@ -717,18 +634,43 @@
 
 <script>
 
+
     function mudarTela(tela) {
         window.location.href = `${tela}.html`
+    }
+
+    window.onload = plotarUser();
+
+    function plotarUser() {
+        // var user = JSON.parse(sessionStorage.USUARIO_MUDAR);
+
+        // alert(user.nome)
+
+        var nomeVar = document.getElementById('nome_tecnico').innerHTML = sessionStorage.NOME_USUARIO;
+        var emailVar = document.getElementById('email_tecnico').value = sessionStorage.EMAIL_USUARIO;
+        var senhaVar = document.getElementById('funcao_tecnico').value = sessionStorage.TIPO_USUARIO;
+        // var confirmacaoSenhaVar = document.getElementById('inpt_confSenha_alt');
+        // var funcao = document.getElementById('inpt_funcao_cad').value = user.tipoUsuario;
+
+
+        // nomeVar.value = user.nome;
     }
 
     var graficos = ['grafico_CPU', 'grafico_DISCO', 'grafico_RAM', 'grafico_REDE'];
     var labe = ['CPU', 'DISCO', 'RAM', 'REDE'];
     var cor = ['#EDF2F4', '#A8DADC', '#457B9D', '#EDF2F4']
 
+    var listaUser;
+    var listarComp;
+
     function PlotarTabela(jsonComp, jsonUser) {
         var qtdLinhasTableComp = jsonComp.length//Math.floor((Math.random() * 10) + 1);
         var qtdLinhasTableUser = jsonUser.length;
 
+        listaUser = jsonUser;
+        listarComp = jsonComp;
+
+        console.log(listaUser);
 
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
@@ -767,13 +709,43 @@
             var linha = `<tr id= "linha_usuario_${jsonUser[i].idUsuario}" class= "linha_geral linha_usuario_${jsonUser[i].idUsuario}">
                 <td id = "usuario_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}">usuario ${i + 1}</td>
                 <td id = "usuarioMudar_${jsonUser[i].idUsuario}" class= "usuario_${jsonUser[i].idUsuario}" 
-                onclick="mudarContainer('alterarUsuario.html')" style = "cursor: pointer;">Alterar usuário</td>
-                            <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+                onclick="alterarUser(this.id)" style = "cursor: pointer;">Alterar usuário</td>
+                <td class = "x_tabela_geral x_linha_user_${jsonUser[i].idUsuario}" id= "x_linha_user_${jsonUser[i].idUsuario}" onclick="eliminarLinha(acharClass(this.className))">X</td>
                         </tr>`
 
             tabela2.innerHTML += linha;
+            // 
+        }
+    }
+
+    function alterarUser(id) {
+
+        var id_user = id.slice(id.length - 1, id.length)
+
+        sessionStorage.IDUSUARIO_MUDAR = id_user
+
+        // alert(sessionStorage.IDUSUARIO_MUDAR)
+
+        for (let i = 0; i < listaUser.length; i++) {
+            const element = listaUser[i];
+
+            console.log(element.idUsuario);
+
+            var jsonUser = JSON.stringify(element)
+
+            sessionStorage.IDUSUARIO_MUDAR = id_user
+
+            sessionStorage.USUARIO_MUDAR = jsonUser
+
+            // if(listaUser.idUsuario == id){
+
+            mudarContainer('alterarUsuario.html')
+
+            // }
 
         }
+
+
     }
 
     var Limite = {};

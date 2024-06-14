@@ -2,8 +2,8 @@ const res = require("express/lib/response");
 
 function adicionarManual() {
     div_mensagem.innerHTML = "";
-    var tituloVar = document.getElementById('input_adicionar_titulo').value;
-    var descricaoVar = document.getElementById('input_adicionar_descricao').value;
+    var tituloVar = document.getElementById('titulo').value;
+    var descricaoVar = document.getElementById('textarea_descricao').value;
     var validacao = 0;
 
     var dataAtual = new Date();

@@ -96,7 +96,7 @@ p{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
 }
 .div_campos_perfil, .div_campos_perfil_end{
     padding: 0px 10%;

@@ -49,6 +49,7 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
         usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {
+                    console.log(resultado);
                     res.json(resultado);
                 }
             )
@@ -88,6 +89,8 @@ function atualizarUsuario(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idR
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var funcao = req.body.funcaoServer;
+    var idUsuario = req.body.idMudarServer;
 
     if (nome == undefined) {
         res.status(400).send("O nome está indefinido!");
@@ -98,7 +101,7 @@ function atualizarUsuario(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idR
         res.status(403).send("O senha está indefinido!");
 
     } else {
-        usuarioModel.atualizarUsuario(nome, email, senha, idUsuario)
+        usuarioModel.atualizarUsuario(nome, email, senha, idUsuario, funcao)
             .then(
                 function (resultado) {
                     res.json(resultado);

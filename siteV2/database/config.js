@@ -26,12 +26,12 @@ var sqlServerConfig = {
 //     password: "#Gf44298704890",
 // };
 
-// var mySqlConfig = {
-//         host: "localhost",
-//         database: "netmed",
-//         user: "root",
-//         password: "Matt@123",
-// }
+var mySqlConfig = {
+        host: "localhost",
+        database: "netmed",
+        user: "root",
+        password: "Matt@123",
+}
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
@@ -52,7 +52,7 @@ function executar(instrucao) {
         });
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         return new Promise(function (resolve, reject) {
-            var conexao = mysql.createConnection(sqlServerConfig);
+            var conexao = mysql.createConnection(mySqlConfig);
             conexao.connect();
             conexao.query(instrucao, function (erro, resultados) {
                 conexao.end();

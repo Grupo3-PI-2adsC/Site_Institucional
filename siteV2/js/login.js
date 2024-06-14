@@ -4,7 +4,7 @@ function acessar() {
 
   // console.log();
   if (email.indexOf('@') >= 0 && (email.indexOf('.') >= 0 || email.indexOf('com') >= 0)) {
-    alert("estou no controlar " + email + " " + senha)
+    // alert("estou no controlar " + email + " " + senha)
     //PARA LOGAR NO SISTEMA
     fetch("/usuarios/autenticar", {
       method: "POST",
@@ -28,6 +28,8 @@ function acessar() {
           sessionStorage.ID_USUARIO = json[0].idUsuario;
           sessionStorage.TIPO_USUARIO = json[0].tipoUsuario;
           sessionStorage.FK_EMPRESA = json[0].fkEmpresa;
+          sessionStorage.SENHA_USUARIO = json[0].senha;
+          // sessionStorage.TIPO_USUARIO = json[0].senha;
           window.location.href = "telaUsuario.html";
           // apenas para exibir o loading
         });
