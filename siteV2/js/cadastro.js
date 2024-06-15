@@ -3,7 +3,7 @@ const res = require("express/lib/response");
 function cadastrar() {
     // alert("asdlkmas")
     var sla = document.getElementById("input_1")
-    var cpf = document.getElementById('inpt_cnpj_cad').value;
+    // var cpf = document.getElementById('inpt_cnpj_cad').value;
     div_mensagem.innerHTML = "";
     var nomeVar = document.getElementById('inpt_nome_cad').value;
     var emailVar = document.getElementById('inpt_email_cad').value;
