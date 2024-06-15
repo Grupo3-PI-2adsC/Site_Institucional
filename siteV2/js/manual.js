@@ -37,7 +37,7 @@ function adicionarManual() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                idUsuarioServer: sessionStorage.idUsuario,
+                idUsuarioServer: 1,
                 tituloServer: tituloVar,
                 descricaoServer: descricaoVar,
                 dataServer: dataFormatada

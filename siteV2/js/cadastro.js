@@ -85,13 +85,13 @@ function cadastrar() {
          validacao = 1;
      }
     //  alert(cpf)
-     var validacaoCpf = TestaCPF(cpf)
-     validacaoCpf = !validacaoCpf
+    //  var validacaoCpf = TestaCPF(cpf)
+    //  validacaoCpf = !validacaoCpf
     //  alert(validacaoCpf)
-     if(validacaoCpf){
-         div_mensagem.innerHTML += `<p class="erro">-O CPF está incorreto <br>`;
-         validacao = 1;
-     }
+    //  if(validacaoCpf){
+        //  div_mensagem.innerHTML += `<p class="erro">-O CPF está incorreto <br>`;
+        //  validacao = 1;
+    //  }
      if (validacao == 1) {
          // div_mensagem.style.display = "flex";
 
@@ -106,7 +106,7 @@ function cadastrar() {
                  // crie um atributo que recebe o valor recuperado aqui
                  // Agora vá para o arquivo routes/usuario.js
                  nomeServer: nomeVar,
-                 cnpjServer: cpf,
+                //  cnpjServer: cpf,
                  emailServer: emailVar,
                  senhaServer: senhaVar
              }),
