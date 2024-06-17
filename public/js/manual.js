@@ -1,4 +1,4 @@
-const res = require("express/lib/response");
+// const res = require("express/lib/response");
 
 function adicionarManual() {
     div_mensagem.innerHTML = "";

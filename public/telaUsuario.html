@@ -17,9 +17,9 @@
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="js/script.js"></script>
+    <!-- <script src="js/script.js"></script> -->
     <script src="js/manual.js"></script>
-    <script src="js/manuais.js"></script>
+    <!-- <script src="js/manuais.js"></script> -->
     <link rel="stylesheet" href="css/manual.css">
 </head>
 
@@ -394,12 +394,12 @@
         <div class="container grafCard" id="grafCard">
 
             <div class="header_cards_grafico">
-                <p>INFORMAÇÕES COMPUTADOR 1</p>
-                <select name="slct_infos_comp_cards" class="select_card" id="">
-                    <option value="1">1</option>
+                <p>INFORMAÇÕES COMPUTADOR</p>
+                <select name="slct_infos_comp_cards" id="slct_cards" class="select_card" onchange="mudarComp()">
+                    <!-- <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="4">4</option> -->
                 </select>
             </div>
 
@@ -478,11 +478,11 @@
         <div class="container grafMin" id="grafMin">
             <div class="header_cards_grafico">
                 <p>DADOS COMPUTADOR</p>
-                <select name="slct_infos_comp_cards" class="select_card" id="">
-                    <option value="1">1</option>
+                <select name="slct_infos_comp_cards" class="select_card" id="slct_grafiMin" onchange="mudarComp()">
+                    <!-- <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="4">4</option> -->
                 </select>
             </div>
 
@@ -635,6 +635,24 @@
 
 <script>
 
+// var c = document.getElementById("combo"), i=0;
+// 	for (; i<c.options.length; i++)
+// 	{	
+// 		if (c.options[i].value == uf)
+// 		{
+// 			c.options[i].selected = true;
+// 			break;
+// 		}
+// 	}
+
+    // function mudarComp(computador){
+        
+    //     var slct = document.getElementById("slct_cards");
+    //     var slct2 = document.getElementById("slct_grafiMin");
+
+
+    // }
+
 
     function mudarTela(tela) {
         window.location.href = `${tela}.html`
@@ -671,20 +689,21 @@
         listaUser = jsonUser;
         listarComp = jsonComp;
 
-        console.log(listaUser);
+        // console.log(listaUser);
 
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
         var tabela2 = document.getElementById('tabela_geral_comp_max')
+
         tabela.innerHTML = '';
         tabela2.innerHTML = '';
         for (let i = 0; i < qtdLinhasTableComp; i++) {
-
+            // console.log(listarComp[i]);
             // console.log(jsonComp[i]);
 
             var linha = `<tr id= "linha_computador_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_${jsonComp[i].idMaquina}">
-                    <td id = "computador_${jsonComp[i].idMaquina}" class="computador_${jsonComp[i].idMaquina}">Computador ${i + 1}</td>
-                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.id))">X</td>
+                    <td id = "computador_${jsonComp[i].idMaquina}" class="computador_${jsonComp[i].idMaquina}">Computador ${i + 1} - ${listarComp[i].hostName}</td>
+                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "${jsonComp[i].idMaquina}" onclick="eliminarLinha(this.id)">X</td>
                 </tr>`
 
             tabela.innerHTML += linha;
@@ -695,14 +714,29 @@
         for (let i = 0; i < qtdLinhasTableComp; i++) {
 
             var linha = `<tr id= "linha_computador_max_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_max_${jsonComp[i].idMaquina}">
-                                <td id = "computador_max_${jsonComp[i].idMaquina}" class=""computador_max_${jsonComp[i].idMaquina}"">Computador ${i + 1}</td>
-                                <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_max_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+                                <td id = "computador_max_${jsonComp[i].idMaquina}" class=""computador_max_${jsonComp[i].idMaquina}"">Computador ${i + 1} - ${listarComp[i].hostName}</td>
+                                <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "${jsonComp[i].idMaquina}" onclick="eliminarLinha(this.id)">X</td>
                             </tr>`
 
             tabela2.innerHTML += linha
 
 
         }
+
+        var slct = document.getElementById("slct_cards");
+        var slct2 = document.getElementById("slct_grafiMin");
+
+        // console.log(slct2);
+        for (let j = 0; j < qtdLinhasTableComp; j++) {
+            // alert(j)
+            
+            var opcao = `<option value = "${listarComp[j].hostName}">${j + 1} - ${listarComp[j].hostName}</option>`
+                    // <option value="4">4</option>
+                    // alert(opcao)
+            slct.innerHTML += opcao;
+            slct2.innerHTML += opcao;
+        }
+
 
         var tabela2 = document.getElementById('tabela_geral_user')
         for (let i = 0; i < qtdLinhasTableUser; i++) {
@@ -877,9 +911,9 @@
         // var ele1 = document.getElementById(elemento)
         // console.log(ele1)
 
-        var id_computador = id.slice(id.length - 1, id.length)
+        // var id_computador = id.slice(id.length - 1, id.length)
 
-        console.log(id_computador)
+        console.log(id)
 
 
 
@@ -889,20 +923,20 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                idComputadorServer: id_computador,
+                idComputadorServer: id,
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.status == 200) {
-
-                resposta.json().then(json => {
+                
+                // alert("teste")
+                listarComputadores();
+                resposta.then(json => {
                     // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
                     console.log(JSON.stringify(json));
-
-                    listarComputadores();
-
-                });
+                    
+                    });
 
             } else {
                 // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
