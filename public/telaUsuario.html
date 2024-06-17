@@ -273,7 +273,7 @@
 
                             <div class="div_input_cad_user">
                                 <label>Funcao</label>
-                                <input type="text" class="input_user_cad" id="funcao_tecnico"disabled>
+                                <input type="text" class="input_user_cad" id="funcao_tecnico" disabled>
                             </div>
 
                         </div>
@@ -308,23 +308,22 @@
                         <h1>Adicionar Manual</h1>
                         <div class="div-form">
                             <!-- <form id="form_postagem" method="post" onsubmit="return publicar()"> -->
-                                <label>
-                                    Título:
-                                    <br>
-                                    <input name="titulo" id="titulo" maxlength="100" type="text">
-                                </label>
+                            <label>
+                                Título:
                                 <br>
+                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
                                 <br>
-                                <label>
-                                    Descrição (máximo de 250 caracteres):
-                                    <br>
-                                    <textarea name="descricao" id="textarea_descricao" maxlength="250"
-                                        rows="5"></textarea>
-                                </label>
-                                <div id="div_mensagem"></div>
-                                <br>
-                                <br>
-                                <button onclick="adicionarManual()">Enviar</button>
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <div id="div_mensagem"></div>
+                            <br>
+                            <br>
+                            <button onclick="adicionarManual()">Enviar</button>
                             <!-- </form> -->
                         </div>
                         <h1>Manuais</h1>
@@ -478,11 +477,11 @@
         <div class="container grafMin" id="grafMin">
             <div class="header_cards_grafico">
                 <p>DADOS COMPUTADOR</p>
-                <select name="slct_infos_comp_cards" class="select_card" id="">
-                    <option value="1">1</option>
+                <select name="slct_infos_comp_cards" class="select_card" id="slct_grafiMin" onchange="mudarComp()">
+                    <!-- <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="4">4</option> -->
                 </select>
             </div>
 
@@ -635,18 +634,18 @@
 
 <script>
 
-// var c = document.getElementById("combo"), i=0;
-// 	for (; i<c.options.length; i++)
-// 	{	
-// 		if (c.options[i].value == uf)
-// 		{
-// 			c.options[i].selected = true;
-// 			break;
-// 		}
-// 	}
+    // var c = document.getElementById("combo"), i=0;
+    // 	for (; i<c.options.length; i++)
+    // 	{	
+    // 		if (c.options[i].value == uf)
+    // 		{
+    // 			c.options[i].selected = true;
+    // 			break;
+    // 		}
+    // 	}
 
     // function mudarComp(computador){
-        
+
     //     var slct = document.getElementById("slct_cards");
     //     var slct2 = document.getElementById("slct_grafiMin");
 
@@ -729,10 +728,10 @@
         // console.log(slct2);
         for (let j = 0; j < qtdLinhasTableComp; j++) {
             // alert(j)
-            
+
             var opcao = `<option value = "${listarComp[j].hostName}">${j + 1} - ${listarComp[j].hostName}</option>`
-                    // <option value="4">4</option>
-                    // alert(opcao)
+            // <option value="4">4</option>
+            // alert(opcao)
             slct.innerHTML += opcao;
             slct2.innerHTML += opcao;
         }
@@ -815,14 +814,6 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     // PlotarTabela(json);
-                    json.forEach(maquina => {
-                        comboInfoMaquinas.innerHTML += `
-                            <option value="${maquina.idMaquina}">${maquina.idMaquina}</option>
-                        `
-                        comboDadosMaquinas.innerHTML += `
-                            <option value="${maquina.idMaquina}">${maquina.idMaquina}</option>
-                        `
-                    })
                     listarUsuarios(json);
 
                 });
@@ -863,7 +854,6 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     PlotarTabela(jsonComp, json);
-                    plotar();
 
                 });
 
@@ -887,6 +877,49 @@
         let classAtual = teste.slice((teste.lastIndexOf(" ") + 1), teste.length)
         // alert(classAtual)
         return classAtual
+    }
+
+    function mudarContainer(pg) {
+        if (pg == 'index.html') {
+            sessionStorage.clear();
+            localStorage.clear();
+        }
+        // alert(`#${pg}`)
+        // alert('1as1')
+        document.location.href = `${pg}`
+    }
+
+
+    function mudarTelaUser(tela, telaS) {
+        elemento = document.getElementById(tela)
+        elemento2 = document.getElementById(telaS)
+
+        elemento2.style.animation = 'sumir .4s linear'
+
+        setTimeout(function () {
+            elemento.style.animation = 'sumir .4s linear reverse '
+
+            elemento.style.display = 'flex'
+            elemento2.style.display = 'none'
+        }, 400)
+
+        setTimeout(function () {
+            elemento.style.animation = null;
+            elemento2.style.animation = null;
+        }, 800);
+
+    }
+
+    function mudarTabela(id) {
+        user = document.getElementById('div_tabela_geral_user');
+        comp = document.getElementById('div_tabela_geral_comp')
+        if (id == 'radio_label_user') {
+            comp.style.display = 'none'
+            user.style.display = 'inline'
+        } else {
+            user.style.display = 'none'
+            comp.style.display = 'inline'
+        }
     }
 
     function duplica(idAtu) {
@@ -938,14 +971,14 @@
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.status == 200) {
-                
+
                 // alert("teste")
                 listarComputadores();
                 resposta.then(json => {
                     // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
                     console.log(JSON.stringify(json));
-                    
-                    });
+
+                });
 
             } else {
                 // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
@@ -965,6 +998,8 @@
         // }
 
     }
+
+
     function plotar() {
         for (let i = 0; i <= 3; i++) {
             var graficoAtual = graficos[i];
@@ -974,7 +1009,7 @@
 
         }
     }
-    
+
     var labels = [];
     var data = [];
     var data2 = [];
@@ -983,7 +1018,7 @@
         let comp;
         let myChart;
 
-        fetch("/dash/buscarUltimasMedidas"+componenteAtual, {
+        fetch("/dash/buscarUltimasMedidas" + componenteAtual, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -998,121 +1033,121 @@
 
                 resposta.json().then(json => {
                     console.log(json);
-                
-
-                labels = [];
-                data = [];
-                data2 = [];
-                comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
-                for (let i = 0; i < json.length; i++) {
 
 
-                    let dataHora = new Date(json[i].dataHora);
-                    let hora = dataHora.getHours();
-                    let minutos = dataHora.getMinutes();
-                    let segundos = dataHora.getSeconds();
+                    labels = [];
+                    data = [];
+                    data2 = [];
+                    comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
+                    for (let i = 0; i < json.length; i++) {
 
-                    let horario = (hora + ":" + minutos + ":" + segundos);
 
-                    console.log(json[i].valorCampo)
-                    var num = json[i].valorCampo;
-                    data.push(num);
-                    data2.push(Limite[comp])
-                    labels.push(horario)
-                    color_border
+                        let dataHora = new Date(json[i].dataHora);
+                        let hora = dataHora.getHours();
+                        let minutos = dataHora.getMinutes();
+                        let segundos = dataHora.getSeconds();
 
-                }
-                let dados = {
-                    labels: labels,
-                    datasets: [
-                        {
-                            label: lab,
-                            data: data,
-                            fill: true,
-                            backgroundColor: (`${color_border}33`),
-                            borderColor: (color_border),
-                            pointBackgroundColor: (color_border),
-                        },
-                        {
-                            label: 'Limite',
-                            data: data2,
-                            fill: true,
-                            borderColor: 'rgb(75, 192, 192)',
-                            backgroundColor: ('#00000000'),
-                            borderColor: ('#E63946'),
-                            borderWidth: 2,
-                            pointStyle: 'none',
-                            pointBackgroundColor: '#E63946',
-                            pointRadius: 2
-                        }
-                    ],
+                        let horario = (hora + ":" + minutos + ":" + segundos);
 
-                };
+                        console.log(json[i].valorCampo)
+                        var num = json[i].valorCampo;
+                        data.push(num);
+                        data2.push(Limite[comp])
+                        labels.push(horario)
+                        color_border
 
-                const config = {
-                type: 'line',
-                data: dados,
-                options: {
-                    // scales: {
-                    //     y: {
-                    //         ticks: {
-                    //             font: {
-                    //                 size: 10 // Define o tamanho da fonte para o eixo Y
-                    //             }
-                    //         }
-                    //     },
-                    //     x: {
-                    //         ticks: {
-                    //             font: {
-                    //                 size: 10 // Define o tamanho da fonte para o eixo X
-                    //             }
-                    //         }
-                    //     }
-                    // },
-                    // plugins: {
-                    //     legend: {
-                    //         display: false,
-                    //     }
-                    // },
-                    elements: {
-                        point: {
-                            backgroundColor: ('#E6394')
-                        }
                     }
-                }
+                    let dados = {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: lab,
+                                data: data,
+                                fill: true,
+                                backgroundColor: (`${color_border}33`),
+                                borderColor: (color_border),
+                                pointBackgroundColor: (color_border),
+                            },
+                            {
+                                label: 'Limite',
+                                data: data2,
+                                fill: true,
+                                borderColor: 'rgb(75, 192, 192)',
+                                backgroundColor: ('#00000000'),
+                                borderColor: ('#E63946'),
+                                borderWidth: 2,
+                                pointStyle: 'none',
+                                pointBackgroundColor: '#E63946',
+                                pointRadius: 2
+                            }
+                        ],
 
-            };
+                    };
 
-            myChart = new Chart(
-                document.getElementById(grafico),
-                config
-            );
+                    const config = {
+                        type: 'line',
+                        data: dados,
+                        options: {
+                            // scales: {
+                            //     y: {
+                            //         ticks: {
+                            //             font: {
+                            //                 size: 10 // Define o tamanho da fonte para o eixo Y
+                            //             }
+                            //         }
+                            //     },
+                            //     x: {
+                            //         ticks: {
+                            //             font: {
+                            //                 size: 10 // Define o tamanho da fonte para o eixo X
+                            //             }
+                            //         }
+                            //     }
+                            // },
+                            // plugins: {
+                            //     legend: {
+                            //         display: false,
+                            //     }
+                            // },
+                            elements: {
+                                point: {
+                                    backgroundColor: ('#E6394')
+                                }
+                            }
+                        }
+
+                    };
+
+                    myChart = new Chart(
+                        document.getElementById(grafico),
+                        config
+                    );
 
 
-            });
+                });
 
-        } else {
-            // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
-            console.log("Houve um erro ao tentar listar os computadores!");
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
 
         }).catch(function (erro) {
-        console.log(erro);
+            console.log(erro);
         })
 
 
 
-        
+
         setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
 
     }
 
     function atualizarGrafico(dados, dados2, myChart, labels, comp) {
         console.log(comp)
-        fetch("/dash/atualizarMedidas"+comp.toLowerCase(), {
+        fetch("/dash/atualizarMedidas" + comp.toLowerCase(), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -1124,34 +1159,35 @@
             if (resposta.status == 200) {
 
                 resposta.json().then(json => {
-                    if(json.length > 0){
+                    if (json.length > 0) {
                         let dataHora = new Date(json[0].dataHora);
                         let hora = dataHora.getHours();
                         let minutos = dataHora.getMinutes();
                         let segundos = dataHora.getSeconds();
-    
+
                         let horario = (hora + ":" + minutos + ":" + segundos);
 
                         console.log(myChart)
-                        
+
                         // myChart.data.labels.shift(); // apagar o primeiro
                         // myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
-                
+
                         var medidaAtual = json[0].valorCampo;
-                
+
                         myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
                         myChart.data.datasets[0].data.push(medidaAtual);
-                        
+
                         myChart.data.labels.shift();  // apagar o primeiro de temperatura
                         myChart.data.labels.push(horario);
-                
+
                         myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
                         myChart.data.datasets[1].data.push(Limite[comp]);
-                
+
                         myChart.update();
                     }
-                })}
-            
+                })
+            }
+
         }).catch(function (erro) {
             console.log(erro);
         })
@@ -1328,48 +1364,49 @@
 
 
 
-    }
+    // }
 
-    function mudarContainer(pg) {
-        if (pg == 'index.html') {
-            sessionStorage.clear();
-            localStorage.clear();
-        }
-        // alert(`#${pg}`)
-        // alert('1as1')
-        document.location.href = `${pg}`
-    }
+    // function mudarContainer(pg) {
+    //     if (pg == 'index.html') {
+    //         sessionStorage.clear();
+    //         localStorage.clear();
+    //     }
+    //     // alert(`#${pg}`)
+    //     // alert('1as1')
+    //     document.location.href = `${pg}`
+    // }
 
 
-    function mudarTelaUser(tela, telaS) {
-        elemento = document.getElementById(tela)
-        elemento2 = document.getElementById(telaS)
+    // function mudarTelaUser(tela, telaS) {
+    //     elemento = document.getElementById(tela)
+    //     elemento2 = document.getElementById(telaS)
 
-        elemento2.style.animation = 'sumir .4s linear'
+    //     elemento2.style.animation = 'sumir .4s linear'
 
-        setTimeout(function () {
-            elemento.style.animation = 'sumir .4s linear reverse '
+    //     setTimeout(function () {
+    //         elemento.style.animation = 'sumir .4s linear reverse '
 
-            elemento.style.display = 'flex'
-            elemento2.style.display = 'none'
-        }, 400)
+    //         elemento.style.display = 'flex'
+    //         elemento2.style.display = 'none'
+    //     }, 400)
 
-        setTimeout(function () {
-            elemento.style.animation = null;
-            elemento2.style.animation = null;
-        }, 800);
+    //     setTimeout(function () {
+    //         elemento.style.animation = null;
+    //         elemento2.style.animation = null;
+    //     }, 800);
 
-    }
+    // }
 
-    function mudarTabela(id) {
-        user = document.getElementById('div_tabela_geral_user');
-        comp = document.getElementById('div_tabela_geral_comp')
-        if (id == 'radio_label_user') {
-            comp.style.display = 'none'
-            user.style.display = 'inline'
-        } else {
-            user.style.display = 'none'
-            comp.style.display = 'inline'
-        }
+    // function mudarTabela(id) {
+    //     user = document.getElementById('div_tabela_geral_user');
+    //     comp = document.getElementById('div_tabela_geral_comp')
+    //     if (id == 'radio_label_user') {
+    //         comp.style.display = 'none'
+    //         user.style.display = 'inline'
+    //     } else {
+    //         user.style.display = 'none'
+    //         comp.style.display = 'inline'
+    //     }
+    // }
     }
 </script>
