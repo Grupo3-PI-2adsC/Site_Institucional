@@ -3,7 +3,7 @@ var database = require("../database/config")
 
 function listarComputadores(fkEmpresa) {
     var instrucao = `
-        SELECT * FROM maquina WHERE fkEmpresa = ${fkEmpresa};
+        SELECT * FROM maquina WHERE fkEmpresa = ${fkEmpresa} and ativo = 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -11,11 +11,36 @@ function listarComputadores(fkEmpresa) {
 
 function excluirComputador(idComputador) {
     var instrucao = `
-        delete from maquina where idMaquina = ${idComputador};
+        update maquina set ativo = 0 where idMaquina = '${idComputador}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
+// select infos gerais pcs
+
+// select top 1
+// (select count(*) from maquina where fkEmpresa = 1) as totalMaquinas,
+// (select count(*) from maquina where ativo = 1 and fkEmpresa = 1) as totalMaquinasAtivas,
+// (
+// select count(*) from maquina as m
+// left join dadosFixos as df on m.idMaquina = df.fkMaquina
+// where m.ativo = 1
+// and df.nomeCampo = 'modelo do Sistema'
+// and df.valorCampo like ('windows')
+// and fkEmpresa = 1
+// ) as totalMaquinasWindows,
+
+// (
+// select count(*) from maquina as m
+// left join dadosFixos as df on m.idMaquina = df.fkMaquina
+// where m.ativo = 1
+// and df.nomeCampo = 'modelo do Sistema'
+// and df.valorCampo not like ('windows')
+// and fkEmpresa = 1
+// ) as totalMaquinasLinux
+// from 
+// maquina;
 
 
 

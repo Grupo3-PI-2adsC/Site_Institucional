@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Usuario</title>
-    <link rel="stylesheet" href="css/menuLateral.css">
+
+    <link rel="stylesheet" href="css/manual.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/menuLateral.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/manual.js"></script>
+<<<<<<< HEAD
+    <script src="js/manuais.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="js/script.js"></script>
-    <script src="js/manual.js"></script>
-    <script src="js/manuais.js"></script>
+=======
+    <!-- <script src="js/manuais.js"></script> -->
     <link rel="stylesheet" href="css/manual.css">
+>>>>>>> 1d004315dec0475b4db377b46a56f23869094ad9
 </head>
 
 <body>
@@ -273,7 +282,7 @@
 
                             <div class="div_input_cad_user">
                                 <label>Funcao</label>
-                                <input type="text" class="input_user_cad" id="funcao_tecnico"disabled>
+                                <input type="text" class="input_user_cad" id="funcao_tecnico" disabled>
                             </div>
 
                         </div>
@@ -297,35 +306,31 @@
 
         </div>
 
-        <div class="container grafMax" id="manuais">
-
-            <div class="dash-right">
-
-                <div class="avisos">
-                    <div id="alerta">
-                    </div>
+        <!-- <div class="container grafMax" id="manuais" style="background-color: aqua;">
+            <div class="dash-right" style="background-color: brown;">
+                <div class="avisos" style="background-color: burlywood; width: 90%;" >
+                    <div id="alerta"></div>
                     <div class="container">
                         <h1>Adicionar Manual</h1>
-                        <div class="div-form">
-                            <!-- <form id="form_postagem" method="post" onsubmit="return publicar()"> -->
-                                <label>
-                                    Título:
-                                    <br>
-                                    <input name="titulo" id="titulo" maxlength="100" type="text">
-                                </label>
+                        <div class="div-form" style="background-color: blueviolet;">
+                            <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <label>
+                                Título:
                                 <br>
+                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
                                 <br>
-                                <label>
-                                    Descrição (máximo de 250 caracteres):
-                                    <br>
-                                    <textarea name="descricao" id="textarea_descricao" maxlength="250"
-                                        rows="5"></textarea>
-                                </label>
-                                <div id="div_mensagem"></div>
-                                <br>
-                                <br>
-                                <button onclick="adicionarManual()">Enviar</button>
-                            <!-- </form> -->
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <div id="div_mensagem"></div>
+                            <br>
+                            <br>
+                            <button onclick="adicionarManual()">Enviar</button>
+                            </form>
                         </div>
                         <h1>Manuais</h1>
                         <div class="div-results">
@@ -334,6 +339,117 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div> -->
+        <div class="container grafMax containerManual" id="manuais">
+            <h1>Manuais e Comentários</h1>
+
+            <div id="pesquisaManuais">
+                <div id="barraPesquisa">
+                    <div id="pesquisaManual">
+                        <input type="text" placeholder="Pesquisar por título" aria-placeholder="SLA">
+                        <i class="bi bi-search"></i>
+                    </div>
+                </div>
+
+                <div id="botaoAdicionar">
+                    <button id="buttonAdicionar">
+                        Adicionar Manual
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="historicoManuais">
+                <div class="itemManual headerManual">
+                    <span>TITULO</span>
+                    <div>
+                        <i class="bi bi-pencil"></i>
+                    </div>
+                </div>
+
+                <div class="itemManual textoManual">
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, et dolores illum consequatur
+                        veniam aliquam nulla iste sed quaerat hic dignissimos aliquid sunt dicta! Dolorem ut numquam
+                        illum porro assumenda!
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
+                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
+                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
+                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!</span>
+                </div>
+
+                <div class="itemManual footerManual">
+                    <div class="item-footer-manual divCriacao">
+                        <div>
+                            <p><b>Criado por:</b> nomeUsuario</p>
+                        </div>
+
+                        <div>
+                            <p><b>Dia:</b> 00/00/0000</p>
+                        </div>
+                    </div>
+
+                    <div class=" item-footer-manual divModificacao">
+                        <div>
+                            <p><b>Última modificação por:</b> nomeUsuario</p>
+                        </div>
+
+                        <div>
+                            <p><b>Dia:</b> 00/00/0000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popAdicionar">
+                <div class="headerAdicionar">
+                    <h3>Novo Manual</h3>
+                    <i class="bi bi-x-circle-fill" id="imgFechar"></i>
+                </div>
+
+                <div class="divInput tituloManual">
+                    Título do Manual
+
+                    <label>
+                        <input name="titulo" id="titulo" maxlength="100" type="text">
+                    </label>
+                </div>
+
+                <div class="divInput descricaoManual">
+                    Descrição do Manual
+
+                    <label>
+                        <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                    </label>
+                </div>
+
+                <button onclick="adicionarManual()" id="buttonEnviar">
+                    Adicionar
+                </button>
             </div>
         </div>
 
@@ -394,12 +510,12 @@
         <div class="container grafCard" id="grafCard">
 
             <div class="header_cards_grafico">
-                <p>INFORMAÇÕES COMPUTADOR 1</p>
-                <select name="slct_infos_comp_cards" class="select_card" id="">
-                    <option value="1">1</option>
+                <p>INFORMAÇÕES COMPUTADOR</p>
+                <select name="slct_infos_comp_cards" id="slct_cards" class="select_card" onchange="mudarComp()">
+                    <!-- <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="4">4</option> -->
                 </select>
             </div>
 
@@ -478,11 +594,11 @@
         <div class="container grafMin" id="grafMin">
             <div class="header_cards_grafico">
                 <p>DADOS COMPUTADOR</p>
-                <select name="slct_infos_comp_cards" class="select_card" id="">
-                    <option value="1">1</option>
+                <select name="slct_infos_comp_cards" class="select_card" id="slct_grafiMin" onchange="mudarComp()">
+                    <!-- <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option value="4">4</option> -->
                 </select>
             </div>
 
@@ -635,6 +751,24 @@
 
 <script>
 
+    // var c = document.getElementById("combo"), i=0;
+    // 	for (; i<c.options.length; i++)
+    // 	{	
+    // 		if (c.options[i].value == uf)
+    // 		{
+    // 			c.options[i].selected = true;
+    // 			break;
+    // 		}
+    // 	}
+
+    // function mudarComp(computador){
+
+    //     var slct = document.getElementById("slct_cards");
+    //     var slct2 = document.getElementById("slct_grafiMin");
+
+
+    // }
+
 
     function mudarTela(tela) {
         window.location.href = `${tela}.html`
@@ -671,20 +805,21 @@
         listaUser = jsonUser;
         listarComp = jsonComp;
 
-        console.log(listaUser);
+        // console.log(listaUser);
 
         var linhasTable = []
         var tabela = document.getElementById('tabela_geral_comp')
         var tabela2 = document.getElementById('tabela_geral_comp_max')
+
         tabela.innerHTML = '';
         tabela2.innerHTML = '';
         for (let i = 0; i < qtdLinhasTableComp; i++) {
-
+            // console.log(listarComp[i]);
             // console.log(jsonComp[i]);
 
             var linha = `<tr id= "linha_computador_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_${jsonComp[i].idMaquina}">
-                    <td id = "computador_${jsonComp[i].idMaquina}" class="computador_${jsonComp[i].idMaquina}">Computador ${i + 1}</td>
-                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.id))">X</td>
+                    <td id = "computador_${jsonComp[i].idMaquina}" class="computador_${jsonComp[i].idMaquina}">Computador ${i + 1} - ${listarComp[i].hostName}</td>
+                    <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "${jsonComp[i].idMaquina}" onclick="eliminarLinha(this.id)">X</td>
                 </tr>`
 
             tabela.innerHTML += linha;
@@ -695,14 +830,29 @@
         for (let i = 0; i < qtdLinhasTableComp; i++) {
 
             var linha = `<tr id= "linha_computador_max_${jsonComp[i].idMaquina}" class= "linha_geral linha_computador_max_${jsonComp[i].idMaquina}">
-                                <td id = "computador_max_${jsonComp[i].idMaquina}" class=""computador_max_${jsonComp[i].idMaquina}"">Computador ${i + 1}</td>
-                                <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "x_linha_comp_max_${jsonComp[i].idMaquina}" onclick="eliminarLinha(acharClass(this.className))">X</td>
+                                <td id = "computador_max_${jsonComp[i].idMaquina}" class=""computador_max_${jsonComp[i].idMaquina}"">Computador ${i + 1} - ${listarComp[i].hostName}</td>
+                                <td class = "x_tabela_geral x_linha_comp_${jsonComp[i].idMaquina}" id= "${jsonComp[i].idMaquina}" onclick="eliminarLinha(this.id)">X</td>
                             </tr>`
 
             tabela2.innerHTML += linha
 
 
         }
+
+        var slct = document.getElementById("slct_cards");
+        var slct2 = document.getElementById("slct_grafiMin");
+
+        // console.log(slct2);
+        for (let j = 0; j < qtdLinhasTableComp; j++) {
+            // alert(j)
+
+            var opcao = `<option value = "${listarComp[j].hostName}">${j + 1} - ${listarComp[j].hostName}</option>`
+            // <option value="4">4</option>
+            // alert(opcao)
+            slct.innerHTML += opcao;
+            slct2.innerHTML += opcao;
+        }
+
 
         var tabela2 = document.getElementById('tabela_geral_user')
         for (let i = 0; i < qtdLinhasTableUser; i++) {
@@ -846,6 +996,49 @@
         return classAtual
     }
 
+    function mudarContainer(pg) {
+        if (pg == 'index.html') {
+            sessionStorage.clear();
+            localStorage.clear();
+        }
+        // alert(`#${pg}`)
+        // alert('1as1')
+        document.location.href = `${pg}`
+    }
+
+
+    function mudarTelaUser(tela, telaS) {
+        elemento = document.getElementById(tela)
+        elemento2 = document.getElementById(telaS)
+
+        elemento2.style.animation = 'sumir .4s linear'
+
+        setTimeout(function () {
+            elemento.style.animation = 'sumir .4s linear reverse '
+
+            elemento.style.display = 'flex'
+            elemento2.style.display = 'none'
+        }, 400)
+
+        setTimeout(function () {
+            elemento.style.animation = null;
+            elemento2.style.animation = null;
+        }, 800);
+
+    }
+
+    function mudarTabela(id) {
+        user = document.getElementById('div_tabela_geral_user');
+        comp = document.getElementById('div_tabela_geral_comp')
+        if (id == 'radio_label_user') {
+            comp.style.display = 'none'
+            user.style.display = 'inline'
+        } else {
+            user.style.display = 'none'
+            comp.style.display = 'inline'
+        }
+    }
+
     function duplica(idAtu) {
         const codigomaterial = document.getElementById(idAtu).value;
 
@@ -877,9 +1070,9 @@
         // var ele1 = document.getElementById(elemento)
         // console.log(ele1)
 
-        var id_computador = id.slice(id.length - 1, id.length)
+        // var id_computador = id.slice(id.length - 1, id.length)
 
-        console.log(id_computador)
+        console.log(id)
 
 
 
@@ -889,18 +1082,18 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                idComputadorServer: id_computador,
+                idComputadorServer: id,
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.status == 200) {
 
-                resposta.json().then(json => {
+                // alert("teste")
+                listarComputadores();
+                resposta.then(json => {
                     // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
                     console.log(JSON.stringify(json));
-
-                    listarComputadores();
 
                 });
 
@@ -923,6 +1116,7 @@
 
     }
 
+
     function plotar() {
         for (let i = 0; i <= 3; i++) {
             var graficoAtual = graficos[i];
@@ -932,114 +1126,312 @@
 
         }
     }
+
     var labels = [];
     var data = [];
     var data2 = [];
     function plotarGrafico(grafico, lab, color_border) {
+        var componenteAtual = lab.toLowerCase();
+        let comp;
+        let myChart;
+
+        fetch("/dash/buscarUltimasMedidas" + componenteAtual, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkMaquinaServer: comboDadosMaquinas.value,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO COMPUTADORES()!")
+
+            if (resposta.status == 200) {
+
+                resposta.json().then(json => {
+                    console.log(json);
 
 
-        labels = [1, 2, 3, 4, 5];
-        data = [];
-        data2 = [];
-        let comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
-        for (let i = 0; i <= 4; i++) {
-            var num = Math.floor(Math.random() * 100);
-            data.push(num);
-            data2.push(Limite[comp])
-            color_border
-
-            // data[1].push(num2);
-        }
-        let dados = {
-            labels: labels,
-            datasets: [
-                {
-                    label: lab,
-                    data: data,
-                    fill: true,
-                    backgroundColor: (`${color_border}33`),
-                    borderColor: (color_border),
-                    pointBackgroundColor: (color_border),
-                },
-                {
-                    label: 'Limite',
-                    data: data2,
-                    fill: true,
-                    borderColor: 'rgb(75, 192, 192)',
-                    backgroundColor: ('#00000000'),
-                    borderColor: ('#E63946'),
-                    borderWidth: 2,
-                    pointStyle: 'none',
-                    pointBackgroundColor: '#E63946',
-                    pointRadius: 2
-                }
-            ],
-
-        };
+                    labels = [];
+                    data = [];
+                    data2 = [];
+                    comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
+                    for (let i = 0; i < json.length; i++) {
 
 
-        const config = {
-            type: 'line',
-            data: dados,
-            options: {
-                // scales: {
-                //     y: {
-                //         ticks: {
-                //             font: {
-                //                 size: 10 // Define o tamanho da fonte para o eixo Y
-                //             }
-                //         }
-                //     },
-                //     x: {
-                //         ticks: {
-                //             font: {
-                //                 size: 10 // Define o tamanho da fonte para o eixo X
-                //             }
-                //         }
-                //     }
-                // },
-                // plugins: {
-                //     legend: {
-                //         display: false,
-                //     }
-                // },
-                elements: {
-                    point: {
-                        backgroundColor: ('#E6394')
+                        let dataHora = new Date(json[i].dataHora);
+                        let hora = dataHora.getHours();
+                        let minutos = dataHora.getMinutes();
+                        let segundos = dataHora.getSeconds();
+
+                        let horario = (hora + ":" + minutos + ":" + segundos);
+
+                        console.log(json[i].valorCampo)
+                        var num = json[i].valorCampo;
+                        data.push(num);
+                        data2.push(Limite[comp])
+                        labels.push(horario)
+                        color_border
+
                     }
-                }
+                    let dados = {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: lab,
+                                data: data,
+                                fill: true,
+                                backgroundColor: (`${color_border}33`),
+                                borderColor: (color_border),
+                                pointBackgroundColor: (color_border),
+                            },
+                            {
+                                label: 'Limite',
+                                data: data2,
+                                fill: true,
+                                borderColor: 'rgb(75, 192, 192)',
+                                backgroundColor: ('#00000000'),
+                                borderColor: ('#E63946'),
+                                borderWidth: 2,
+                                pointStyle: 'none',
+                                pointBackgroundColor: '#E63946',
+                                pointRadius: 2
+                            }
+                        ],
+
+                    };
+
+                    const config = {
+                        type: 'line',
+                        data: dados,
+                        options: {
+                            // scales: {
+                            //     y: {
+                            //         ticks: {
+                            //             font: {
+                            //                 size: 10 // Define o tamanho da fonte para o eixo Y
+                            //             }
+                            //         }
+                            //     },
+                            //     x: {
+                            //         ticks: {
+                            //             font: {
+                            //                 size: 10 // Define o tamanho da fonte para o eixo X
+                            //             }
+                            //         }
+                            //     }
+                            // },
+                            // plugins: {
+                            //     legend: {
+                            //         display: false,
+                            //     }
+                            // },
+                            elements: {
+                                point: {
+                                    backgroundColor: ('#E6394')
+                                }
+                            }
+                        }
+
+                    };
+
+                    myChart = new Chart(
+                        document.getElementById(grafico),
+                        config
+                    );
+
+
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
             }
 
-        };
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
-        let myChart = new Chart(
-            document.getElementById(grafico),
-            config
-        );
+
+
 
         setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
 
     }
 
     function atualizarGrafico(dados, dados2, myChart, labels, comp) {
+        console.log(comp)
+        fetch("/dash/atualizarMedidas" + comp.toLowerCase(), {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkMaquinaServer: comboDadosMaquinas.value,
+            })
+        }).then(function (resposta) {
+            if (resposta.status == 200) {
 
+                resposta.json().then(json => {
+                    if (json.length > 0) {
+                        let dataHora = new Date(json[0].dataHora);
+                        let hora = dataHora.getHours();
+                        let minutos = dataHora.getMinutes();
+                        let segundos = dataHora.getSeconds();
 
-        myChart.data.labels.shift(); // apagar o primeiro
-        myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
+                        let horario = (hora + ":" + minutos + ":" + segundos);
 
-        var medidaAtual = Math.floor(Math.random() * 100);
+                        console.log(myChart)
 
-        myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
-        myChart.data.datasets[0].data.push(medidaAtual);
+                        // myChart.data.labels.shift(); // apagar o primeiro
+                        // myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
 
-        myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
-        myChart.data.datasets[1].data.push(Limite[comp]);
+                        var medidaAtual = json[0].valorCampo;
 
-        myChart.update();
+                        myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
+                        myChart.data.datasets[0].data.push(medidaAtual);
+
+                        myChart.data.labels.shift();  // apagar o primeiro de temperatura
+                        myChart.data.labels.push(horario);
+
+                        myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        myChart.data.datasets[1].data.push(Limite[comp]);
+
+                        myChart.update();
+                    }
+                })
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
 
 
         setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
     }
+
+
+    // function plotar() {
+    //     for (let i = 0; i <= 3; i++) {
+    //         var graficoAtual = graficos[i];
+    //         var labelAtual = labe[i];
+    //         var corAtual = cor[i]
+    //         plotarGrafico(graficoAtual, labelAtual, corAtual)
+
+    //     }
+    // }
+    // var labels = [];
+    // var data = [];
+    // var data2 = [];
+    // function plotarGrafico(grafico, lab, color_border) {
+
+
+    //     labels = [1, 2, 3, 4, 5];
+    //     data = [];
+    //     data2 = [];
+    //     let comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
+    //     for (let i = 0; i <= 4; i++) {
+    //         var num = Math.floor(Math.random() * 100);
+    //         data.push(num);
+    //         data2.push(Limite[comp])
+    //         color_border
+
+    //         // data[1].push(num2);
+    //     }
+    //     let dados = {
+    //         labels: labels,
+    //         datasets: [
+    //             {
+    //                 label: lab,
+    //                 data: data,
+    //                 fill: true,
+    //                 backgroundColor: (`${color_border}33`),
+    //                 borderColor: (color_border),
+    //                 pointBackgroundColor: (color_border),
+    //             },
+    //             {
+    //                 label: 'Limite',
+    //                 data: data2,
+    //                 fill: true,
+    //                 borderColor: 'rgb(75, 192, 192)',
+    //                 backgroundColor: ('#00000000'),
+    //                 borderColor: ('#E63946'),
+    //                 borderWidth: 2,
+    //                 pointStyle: 'none',
+    //                 pointBackgroundColor: '#E63946',
+    //                 pointRadius: 2
+    //             }
+    //         ],
+
+    //     };
+
+
+    //     const config = {
+    //         type: 'line',
+    //         data: dados,
+    //         options: {
+    //             // scales: {
+    //             //     y: {
+    //             //         ticks: {
+    //             //             font: {
+    //             //                 size: 10 // Define o tamanho da fonte para o eixo Y
+    //             //             }
+    //             //         }
+    //             //     },
+    //             //     x: {
+    //             //         ticks: {
+    //             //             font: {
+    //             //                 size: 10 // Define o tamanho da fonte para o eixo X
+    //             //             }
+    //             //         }
+    //             //     }
+    //             // },
+    //             // plugins: {
+    //             //     legend: {
+    //             //         display: false,
+    //             //     }
+    //             // },
+    //             elements: {
+    //                 point: {
+    //                     backgroundColor: ('#E6394')
+    //                 }
+    //             }
+    //         }
+
+    //     };
+
+    //     let myChart = new Chart(
+    //         document.getElementById(grafico),
+    //         config
+    //     );
+
+    //     setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
+
+    // }
+
+    // function atualizarGrafico(dados, dados2, myChart, labels, comp) {
+
+
+    //     myChart.data.labels.shift(); // apagar o primeiro
+    //     myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
+
+    //     var medidaAtual = Math.floor(Math.random() * 100);
+
+    //     myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
+    //     myChart.data.datasets[0].data.push(medidaAtual);
+
+    //     myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
+    //     myChart.data.datasets[1].data.push(Limite[comp]);
+
+    //     myChart.update();
+
+
+    //     setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
+    // }
 
     var menuItem = document.querySelectorAll('.item-menu')
 
@@ -1089,48 +1481,57 @@
 
 
 
+    // }
+
+    // function mudarContainer(pg) {
+    //     if (pg == 'index.html') {
+    //         sessionStorage.clear();
+    //         localStorage.clear();
+    //     }
+    //     // alert(`#${pg}`)
+    //     // alert('1as1')
+    //     document.location.href = `${pg}`
+    // }
+
+
+    // function mudarTelaUser(tela, telaS) {
+    //     elemento = document.getElementById(tela)
+    //     elemento2 = document.getElementById(telaS)
+
+    //     elemento2.style.animation = 'sumir .4s linear'
+
+    //     setTimeout(function () {
+    //         elemento.style.animation = 'sumir .4s linear reverse '
+
+    //         elemento.style.display = 'flex'
+    //         elemento2.style.display = 'none'
+    //     }, 400)
+
+    //     setTimeout(function () {
+    //         elemento.style.animation = null;
+    //         elemento2.style.animation = null;
+    //     }, 800);
+
+    // }
+
+    // function mudarTabela(id) {
+    //     user = document.getElementById('div_tabela_geral_user');
+    //     comp = document.getElementById('div_tabela_geral_comp')
+    //     if (id == 'radio_label_user') {
+    //         comp.style.display = 'none'
+    //         user.style.display = 'inline'
+    //     } else {
+    //         user.style.display = 'none'
+    //         comp.style.display = 'inline'
+    //     }
+    // }
     }
 
-    function mudarContainer(pg) {
-        if (pg == 'index.html') {
-            sessionStorage.clear();
-            localStorage.clear();
-        }
-        // alert(`#${pg}`)
-        // alert('1as1')
-        document.location.href = `${pg}`
-    }
+    document.getElementById('buttonAdicionar').addEventListener('click', function(){
+        document.querySelector(".popAdicionar").style.display = "flex";
+    });
 
-
-    function mudarTelaUser(tela, telaS) {
-        elemento = document.getElementById(tela)
-        elemento2 = document.getElementById(telaS)
-
-        elemento2.style.animation = 'sumir .4s linear'
-
-        setTimeout(function () {
-            elemento.style.animation = 'sumir .4s linear reverse '
-
-            elemento.style.display = 'flex'
-            elemento2.style.display = 'none'
-        }, 400)
-
-        setTimeout(function () {
-            elemento.style.animation = null;
-            elemento2.style.animation = null;
-        }, 800);
-
-    }
-
-    function mudarTabela(id) {
-        user = document.getElementById('div_tabela_geral_user');
-        comp = document.getElementById('div_tabela_geral_comp')
-        if (id == 'radio_label_user') {
-            comp.style.display = 'none'
-            user.style.display = 'inline'
-        } else {
-            user.style.display = 'none'
-            comp.style.display = 'inline'
-        }
-    }
+    document.getElementById('imgFechar').addEventListener('click', function(){
+        document.querySelector(".popAdicionar").style.display = "none";
+    });
 </script>
