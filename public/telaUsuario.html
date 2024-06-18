@@ -961,7 +961,7 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     PlotarTabela(jsonComp, json);
-
+                    plotar();
                 });
 
             } else {
@@ -1131,7 +1131,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                fkMaquinaServer: comboDadosMaquinas.value,
+                fkMaquinaServer: slct_grafiMin.value,
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO COMPUTADORES()!")
@@ -1195,27 +1195,6 @@
                         type: 'line',
                         data: dados,
                         options: {
-                            // scales: {
-                            //     y: {
-                            //         ticks: {
-                            //             font: {
-                            //                 size: 10 // Define o tamanho da fonte para o eixo Y
-                            //             }
-                            //         }
-                            //     },
-                            //     x: {
-                            //         ticks: {
-                            //             font: {
-                            //                 size: 10 // Define o tamanho da fonte para o eixo X
-                            //             }
-                            //         }
-                            //     }
-                            // },
-                            // plugins: {
-                            //     legend: {
-                            //         display: false,
-                            //     }
-                            // },
                             elements: {
                                 point: {
                                     backgroundColor: ('#E6394')
@@ -1260,7 +1239,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                fkMaquinaServer: comboDadosMaquinas.value,
+                fkMaquinaServer: slct_grafiMin.value,
             })
         }).then(function (resposta) {
             if (resposta.status == 200) {
@@ -1274,12 +1253,12 @@
 
                         let horario = (hora + ":" + minutos + ":" + segundos);
 
-                        console.log(myChart)
-
+                        
                         // myChart.data.labels.shift(); // apagar o primeiro
                         // myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
-
+                        
                         var medidaAtual = json[0].valorCampo;
+                        console.log(comp + ": " + medidaAtual)
 
                         myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
                         myChart.data.datasets[0].data.push(medidaAtual);
@@ -1301,127 +1280,8 @@
 
 
 
-        setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
+        setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 20000);
     }
-
-
-    // function plotar() {
-    //     for (let i = 0; i <= 3; i++) {
-    //         var graficoAtual = graficos[i];
-    //         var labelAtual = labe[i];
-    //         var corAtual = cor[i]
-    //         plotarGrafico(graficoAtual, labelAtual, corAtual)
-
-    //     }
-    // }
-    // var labels = [];
-    // var data = [];
-    // var data2 = [];
-    // function plotarGrafico(grafico, lab, color_border) {
-
-
-    //     labels = [1, 2, 3, 4, 5];
-    //     data = [];
-    //     data2 = [];
-    //     let comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
-    //     for (let i = 0; i <= 4; i++) {
-    //         var num = Math.floor(Math.random() * 100);
-    //         data.push(num);
-    //         data2.push(Limite[comp])
-    //         color_border
-
-    //         // data[1].push(num2);
-    //     }
-    //     let dados = {
-    //         labels: labels,
-    //         datasets: [
-    //             {
-    //                 label: lab,
-    //                 data: data,
-    //                 fill: true,
-    //                 backgroundColor: (`${color_border}33`),
-    //                 borderColor: (color_border),
-    //                 pointBackgroundColor: (color_border),
-    //             },
-    //             {
-    //                 label: 'Limite',
-    //                 data: data2,
-    //                 fill: true,
-    //                 borderColor: 'rgb(75, 192, 192)',
-    //                 backgroundColor: ('#00000000'),
-    //                 borderColor: ('#E63946'),
-    //                 borderWidth: 2,
-    //                 pointStyle: 'none',
-    //                 pointBackgroundColor: '#E63946',
-    //                 pointRadius: 2
-    //             }
-    //         ],
-
-    //     };
-
-
-    //     const config = {
-    //         type: 'line',
-    //         data: dados,
-    //         options: {
-    //             // scales: {
-    //             //     y: {
-    //             //         ticks: {
-    //             //             font: {
-    //             //                 size: 10 // Define o tamanho da fonte para o eixo Y
-    //             //             }
-    //             //         }
-    //             //     },
-    //             //     x: {
-    //             //         ticks: {
-    //             //             font: {
-    //             //                 size: 10 // Define o tamanho da fonte para o eixo X
-    //             //             }
-    //             //         }
-    //             //     }
-    //             // },
-    //             // plugins: {
-    //             //     legend: {
-    //             //         display: false,
-    //             //     }
-    //             // },
-    //             elements: {
-    //                 point: {
-    //                     backgroundColor: ('#E6394')
-    //                 }
-    //             }
-    //         }
-
-    //     };
-
-    //     let myChart = new Chart(
-    //         document.getElementById(grafico),
-    //         config
-    //     );
-
-    //     setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
-
-    // }
-
-    // function atualizarGrafico(dados, dados2, myChart, labels, comp) {
-
-
-    //     myChart.data.labels.shift(); // apagar o primeiro
-    //     myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
-
-    //     var medidaAtual = Math.floor(Math.random() * 100);
-
-    //     myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
-    //     myChart.data.datasets[0].data.push(medidaAtual);
-
-    //     myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
-    //     myChart.data.datasets[1].data.push(Limite[comp]);
-
-    //     myChart.update();
-
-
-    //     setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
-    // }
 
     var menuItem = document.querySelectorAll('.item-menu')
 
@@ -1453,68 +1313,6 @@
             txtLink.style.display = "block";
 
         }
-
-        // item1.
-
-
-        /* .menu li.item-menu:hover a{
-    color: #EDF2F4;
-    transition: .4s;
-} */
-        /* nav.menu-lateral:hover{
-                    min-width: 270px;
-                    padding-left: 20px;
-                } */
-        /* nav.menu-lateral:hover .txt-link{
-            display: block;
-        } */
-
-
-
-    // }
-
-    // function mudarContainer(pg) {
-    //     if (pg == 'index.html') {
-    //         sessionStorage.clear();
-    //         localStorage.clear();
-    //     }
-    //     // alert(`#${pg}`)
-    //     // alert('1as1')
-    //     document.location.href = `${pg}`
-    // }
-
-
-    // function mudarTelaUser(tela, telaS) {
-    //     elemento = document.getElementById(tela)
-    //     elemento2 = document.getElementById(telaS)
-
-    //     elemento2.style.animation = 'sumir .4s linear'
-
-    //     setTimeout(function () {
-    //         elemento.style.animation = 'sumir .4s linear reverse '
-
-    //         elemento.style.display = 'flex'
-    //         elemento2.style.display = 'none'
-    //     }, 400)
-
-    //     setTimeout(function () {
-    //         elemento.style.animation = null;
-    //         elemento2.style.animation = null;
-    //     }, 800);
-
-    // }
-
-    // function mudarTabela(id) {
-    //     user = document.getElementById('div_tabela_geral_user');
-    //     comp = document.getElementById('div_tabela_geral_comp')
-    //     if (id == 'radio_label_user') {
-    //         comp.style.display = 'none'
-    //         user.style.display = 'inline'
-    //     } else {
-    //         user.style.display = 'none'
-    //         comp.style.display = 'inline'
-    //     }
-    // }
     }
 
     document.getElementById('buttonAdicionar').addEventListener('click', function(){
