@@ -332,14 +332,21 @@
             </div>
         </div> -->
         <div class="container grafMax containerManual" id="manuais">
-            <h1>Manuais e Comentários</h1>
+            <h1>MANUAIS</h1>
 
             <div id="pesquisaManuais">
                 <div id="barraPesquisa">
                     <div id="pesquisaManual">
-                        <input type="text" placeholder="Pesquisar por título" aria-placeholder="SLA">
-                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Pesquisar por título">
+                        <button onclick="listarManual()" id="buttonPesquisar">
+                            <i class="bi bi-search"></i>
+                        </button>
                     </div>
+                    <!-- <div class="divLista">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div> -->
                 </div>
 
                 <div id="botaoAdicionar">
@@ -353,8 +360,8 @@
             <div id="historicoManuais">
                 <div class="itemManual headerManual">
                     <span>TITULO</span>
-                    <div>
-                        <i class="bi bi-pencil"></i>
+                    <div class="pencil">
+                        <i class="bi bi-pencil" id="imgAlterar"></i>
                     </div>
                 </div>
 
@@ -440,6 +447,40 @@
                 <button onclick="adicionarManual()" id="buttonEnviar">
                     Adicionar
                 </button>
+            </div>
+
+            <div class="popAlterar">
+                <div class="headerAlterar">
+                    <h3>Alterar Manual</h3>
+                    <i class="bi bi-x-circle-fill" id="imgFecharAlterar"></i>
+                </div>
+
+                <div class="divInput tituloManual">
+                    Título do Manual
+
+                    <label>
+                        <input name="titulo" id="titulo" maxlength="100" type="text">
+                    </label>
+                </div>
+
+                <div class="divInput descricaoManual">
+                    Descrição do Manual
+
+                    <label>
+                        <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                    </label>
+                </div>
+
+                <div class="botoes">
+                    <button onclick="atualizarManual()" id="buttonAlterar">
+                        Confirmar Alteração
+                    </button>
+
+                    <button onclick="removerManual()" id="buttonDeletar">
+                        <i class="bi bi-trash"></i>
+                        Excluir
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -1471,57 +1512,67 @@
 
 
 
-    // }
+        // }
 
-    // function mudarContainer(pg) {
-    //     if (pg == 'index.html') {
-    //         sessionStorage.clear();
-    //         localStorage.clear();
-    //     }
-    //     // alert(`#${pg}`)
-    //     // alert('1as1')
-    //     document.location.href = `${pg}`
-    // }
+        // function mudarContainer(pg) {
+        //     if (pg == 'index.html') {
+        //         sessionStorage.clear();
+        //         localStorage.clear();
+        //     }
+        //     // alert(`#${pg}`)
+        //     // alert('1as1')
+        //     document.location.href = `${pg}`
+        // }
 
 
-    // function mudarTelaUser(tela, telaS) {
-    //     elemento = document.getElementById(tela)
-    //     elemento2 = document.getElementById(telaS)
+        // function mudarTelaUser(tela, telaS) {
+        //     elemento = document.getElementById(tela)
+        //     elemento2 = document.getElementById(telaS)
 
-    //     elemento2.style.animation = 'sumir .4s linear'
+        //     elemento2.style.animation = 'sumir .4s linear'
 
-    //     setTimeout(function () {
-    //         elemento.style.animation = 'sumir .4s linear reverse '
+        //     setTimeout(function () {
+        //         elemento.style.animation = 'sumir .4s linear reverse '
 
-    //         elemento.style.display = 'flex'
-    //         elemento2.style.display = 'none'
-    //     }, 400)
+        //         elemento.style.display = 'flex'
+        //         elemento2.style.display = 'none'
+        //     }, 400)
 
-    //     setTimeout(function () {
-    //         elemento.style.animation = null;
-    //         elemento2.style.animation = null;
-    //     }, 800);
+        //     setTimeout(function () {
+        //         elemento.style.animation = null;
+        //         elemento2.style.animation = null;
+        //     }, 800);
 
-    // }
+        // }
 
-    // function mudarTabela(id) {
-    //     user = document.getElementById('div_tabela_geral_user');
-    //     comp = document.getElementById('div_tabela_geral_comp')
-    //     if (id == 'radio_label_user') {
-    //         comp.style.display = 'none'
-    //         user.style.display = 'inline'
-    //     } else {
-    //         user.style.display = 'none'
-    //         comp.style.display = 'inline'
-    //     }
-    // }
+        // function mudarTabela(id) {
+        //     user = document.getElementById('div_tabela_geral_user');
+        //     comp = document.getElementById('div_tabela_geral_comp')
+        //     if (id == 'radio_label_user') {
+        //         comp.style.display = 'none'
+        //         user.style.display = 'inline'
+        //     } else {
+        //         user.style.display = 'none'
+        //         comp.style.display = 'inline'
+        //     }
+        // }
     }
 
-    document.getElementById('buttonAdicionar').addEventListener('click', function(){
+    // MANUAIS
+    document.getElementById('buttonAdicionar').addEventListener('click', function () {
         document.querySelector(".popAdicionar").style.display = "flex";
     });
 
-    document.getElementById('imgFechar').addEventListener('click', function(){
+    document.getElementById('imgFechar').addEventListener('click', function () {
         document.querySelector(".popAdicionar").style.display = "none";
     });
+
+    document.getElementById('imgAlterar').addEventListener('click', function () {
+        document.querySelector(".popAlterar").style.display = "flex";
+    });
+
+    document.getElementById('imgFecharAlterar').addEventListener('click', function () {
+        document.querySelector(".popAlterar").style.display = "none";
+    });
+
 </script>
