@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Usuario</title>
-    <link rel="stylesheet" href="css/menuLateral.css">
+
+    <link rel="stylesheet" href="css/manual.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/menuLateral.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="js/script.js"></script>
     <script src="js/manual.js"></script>
     <script src="js/manuais.js"></script>
-    <link rel="stylesheet" href="css/manual.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -273,7 +277,7 @@
 
                             <div class="div_input_cad_user">
                                 <label>Funcao</label>
-                                <input type="text" class="input_user_cad" id="funcao_tecnico"disabled>
+                                <input type="text" class="input_user_cad" id="funcao_tecnico" disabled>
                             </div>
 
                         </div>
@@ -297,35 +301,31 @@
 
         </div>
 
-        <div class="container grafMax" id="manuais">
-
-            <div class="dash-right">
-
-                <div class="avisos">
-                    <div id="alerta">
-                    </div>
+        <!-- <div class="container grafMax" id="manuais" style="background-color: aqua;">
+            <div class="dash-right" style="background-color: brown;">
+                <div class="avisos" style="background-color: burlywood; width: 90%;" >
+                    <div id="alerta"></div>
                     <div class="container">
                         <h1>Adicionar Manual</h1>
-                        <div class="div-form">
-                            <!-- <form id="form_postagem" method="post" onsubmit="return publicar()"> -->
-                                <label>
-                                    Título:
-                                    <br>
-                                    <input name="titulo" id="titulo" maxlength="100" type="text">
-                                </label>
+                        <div class="div-form" style="background-color: blueviolet;">
+                            <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <label>
+                                Título:
                                 <br>
+                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
                                 <br>
-                                <label>
-                                    Descrição (máximo de 250 caracteres):
-                                    <br>
-                                    <textarea name="descricao" id="textarea_descricao" maxlength="250"
-                                        rows="5"></textarea>
-                                </label>
-                                <div id="div_mensagem"></div>
-                                <br>
-                                <br>
-                                <button onclick="adicionarManual()">Enviar</button>
-                            <!-- </form> -->
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <div id="div_mensagem"></div>
+                            <br>
+                            <br>
+                            <button onclick="adicionarManual()">Enviar</button>
+                            </form>
                         </div>
                         <h1>Manuais</h1>
                         <div class="div-results">
@@ -334,6 +334,117 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div> -->
+        <div class="container grafMax containerManual" id="manuais">
+            <h1>Manuais e Comentários</h1>
+
+            <div id="pesquisaManuais">
+                <div id="barraPesquisa">
+                    <div id="pesquisaManual">
+                        <input type="text" placeholder="Pesquisar por título" aria-placeholder="SLA">
+                        <i class="bi bi-search"></i>
+                    </div>
+                </div>
+
+                <div id="botaoAdicionar">
+                    <button id="buttonAdicionar">
+                        Adicionar Manual
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="historicoManuais">
+                <div class="itemManual headerManual">
+                    <span>TITULO</span>
+                    <div>
+                        <i class="bi bi-pencil"></i>
+                    </div>
+                </div>
+
+                <div class="itemManual textoManual">
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, et dolores illum consequatur
+                        veniam aliquam nulla iste sed quaerat hic dignissimos aliquid sunt dicta! Dolorem ut numquam
+                        illum porro assumenda!
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
+                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
+                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
+                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
+                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
+                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
+                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
+                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
+                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!</span>
+                </div>
+
+                <div class="itemManual footerManual">
+                    <div class="item-footer-manual divCriacao">
+                        <div>
+                            <p><b>Criado por:</b> nomeUsuario</p>
+                        </div>
+
+                        <div>
+                            <p><b>Dia:</b> 00/00/0000</p>
+                        </div>
+                    </div>
+
+                    <div class=" item-footer-manual divModificacao">
+                        <div>
+                            <p><b>Última modificação por:</b> nomeUsuario</p>
+                        </div>
+
+                        <div>
+                            <p><b>Dia:</b> 00/00/0000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popAdicionar">
+                <div class="headerAdicionar">
+                    <h3>Novo Manual</h3>
+                    <i class="bi bi-x-circle-fill" id="imgFechar"></i>
+                </div>
+
+                <div class="divInput tituloManual">
+                    Título do Manual
+
+                    <label>
+                        <input name="titulo" id="titulo" maxlength="100" type="text">
+                    </label>
+                </div>
+
+                <div class="divInput descricaoManual">
+                    Descrição do Manual
+
+                    <label>
+                        <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                    </label>
+                </div>
+
+                <button onclick="adicionarManual()" id="buttonEnviar">
+                    Adicionar
+                </button>
             </div>
         </div>
 
@@ -1133,4 +1244,12 @@
             comp.style.display = 'inline'
         }
     }
+
+    document.getElementById('buttonAdicionar').addEventListener('click', function(){
+        document.querySelector(".popAdicionar").style.display = "flex";
+    });
+
+    document.getElementById('imgFechar').addEventListener('click', function(){
+        document.querySelector(".popAdicionar").style.display = "none";
+    });
 </script>
