@@ -489,12 +489,12 @@
                 <div class="div_coluna_kpi">
                     <div class="kpi">
                         <p> Computadores Ativos</p>
-                        <span>7</span>
+                        <span id="KPI_comp_ativos">7</span>
                     </div>
 
                     <div class="kpi">
                         <p>Sistema Operacional Linux</p>
-                        <span>8</span>
+                        <span id="KPI_comp_linux">8</span>
                     </div>
 
                     <div class="kpi">
@@ -502,19 +502,19 @@
                             <input type="number" id="inpt_porc_armazem" class="inpt_limite" value="70">
                             <p>% ou mais de<br>armazenamento disponível</p>
                         </div>
-                        <span>2</span>
+                        <span id="KPI_comp_arma_disp">2</span>
                     </div>
                 </div>
 
                 <div class="div_coluna_kpi">
                     <div class="kpi">
                         <p>Todos os Computadores</p>
-                        <span>10</span>
+                        <span id="KPI_comp_todos">10</span>
                     </div>
 
                     <div class="kpi">
                         <p>Sistema Operacional Windows</p>
-                        <span>2</span>
+                        <span id="KPI_comp_windows">2</span>
                     </div>
 
                     <div class="kpi">
@@ -522,7 +522,7 @@
                             <input type="number" id="inpt_memoria_disp" class="inpt_limite" value="80">
                             <p>gb ou mais de Memória disponível</p>
                         </div>
-                        <span>1</span>
+                        <span id="KPI_comp_memoria_disp">1</span>
                     </div>
                 </div>
             </div>
@@ -555,13 +555,13 @@
                     <div class="titulo_card">
                         <p>VOLUME</p>
                     </div>
-                    <div class="div_coluna_componentes" style="width: 100%;">
-                        <p>Quantidade de Volume: 3</p>
+                    <div class="div_coluna_componentes" style="width: 100%;" id="div_Volume">
+                        <!-- <p>Quantidade de Volume: 3</p>
                         <p>UUID: 4ad06ca4-4f60-4a9c-8eb2-535275a68216</p>
                         <p>volume: /dev/nvme0n1p2</p>
                         <p>total: 502 GB</p>
                         <p>disponível: 415 GB</p>
-                        <p>tipo: ext4</p>
+                        <p>tipo: ext4</p> -->
 
                     </div>
                 </div>
@@ -569,12 +569,12 @@
                     <div class="titulo_card">
                         <p>DISCO</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <p>Quantidade de Discos: 1</p>
+                    <div class="div_coluna_componentes" id="div_Disco">
+                        <!-- <p>Quantidade de Discos: 1</p>
                         <p>Nome: /dev/nvme0n1</p>
                         <p>Tamanho: 512 GB</p>
                         <p>Total de processos: 350 </p>
-                        <p>Total de Thereads: 1398</p>
+                        <p>Total de Thereads: 1398</p> -->
                     </div>
                 </div>
             </div>
@@ -596,11 +596,11 @@
                     <div class="titulo_card">
                         <p>PROCESSADOR</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <p>Nome: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</p>
+                    <div class="div_coluna_componentes" id="div_CPU">
+                        <!-- <p>Nome: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</p>
                         <p>Número de Pacotes Físicos: 1</p>
                         <p>Número de CPUs Fisícas: 6</p>
-                        <p>Número de CPUs Lógicas: 12</p>
+                        <p>Número de CPUs Lógicas: 12</p> -->
                     </div>
                 </div>
                 <div class="cards">
@@ -611,10 +611,10 @@
                     <div class="titulo_card">
                         <p>SISTEMA</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <p>Modelo: Ubuntu</p>
+                    <div class="div_coluna_componentes" id="div_Sistemaoperacional">
+                        <!-- <p>Modelo: Ubuntu</p>
                         <p>Arquitetura: 64bits</p>
-                        <p>nicializado: 2024-05-02T19:17:16Z</p>
+                        <p>nicializado: 2024-05-02T19:17:16Z</p> -->
                     </div>
                 </div>
             </div>
@@ -914,6 +914,7 @@
 
     }
 
+    var Limite = {};
 
     // console.log(Limite);
 
@@ -981,6 +982,8 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     PlotarTabela(jsonComp, json);
+                    listarKpis();
+                    trazerInfosComputador();
                     listarLimites();
                 });
 
@@ -999,6 +1002,115 @@
 
     // window.onload = plotar();
     // window.onload = PlotarTabela();
+
+    function trazerInfosComputador(){
+        fetch("/computador/trazerInfosComputador", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresaServer: slct_cards.value,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO listarKPIS()!")
+            
+            if (resposta.status == 200) {
+                // alert("asldkasd");
+                
+                resposta.json().then(json => {
+                    // alert("unfo")
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log("aquiiiii3333333333333: " + JSON.stringify(json));
+
+                    json.forEach((item) =>{
+
+                        
+                        var compDaVez = item.nomeComponente;
+                        var comp = compDaVez.replace(/\s/g, '');
+                        var elemento_div = document.getElementById(`div_${comp}`)
+                        var tamanhoDesc = item.combined_col.length;
+                        var i = 0;
+                        var paragrafo = "<p>";
+                        for (let i = 0; i < item.combined_col.length; i++) {
+                            const element = item.combined_col[i];
+                            
+                            if(element != ","){
+                                paragrafo += element;
+                            }else{
+                                i++
+                                paragrafo += "</p>";
+                                elemento_div.innerHTML += paragrafo;
+                                paragrafo = "<p>";
+                            }
+                        }
+                        // while(true){
+                        //     i++;
+
+                            
+
+                        //     if(i == tamanhoDesc){
+                        //         break
+                        //     }
+                        // }
+
+                    })
+                    // console.log(json[0].idMaquina);
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            // alert("numfo")
+            console.log(erro);
+        })
+    }
+
+    function listarKpis() {
+        // alert(sessionStorage.FK_EMPRESA)
+        fetch("/dash/trazerKpis", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresaServer: sessionStorage.FK_EMPRESA,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO listarKPIS()!")
+
+            if (resposta.status == 200) {
+                // alert("asldkasd");
+
+                resposta.json().then(json => {
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log("aquiiiii: " + JSON.stringify(json));
+                    KPI_comp_todos.innerHTML = json[0].totalMaquinas;
+                    KPI_comp_ativos.innerHTML = json[0].totalMaquinasAtivas;
+                    KPI_comp_windows.innerHTML = json[0].totalMaquinasWindows;
+                    KPI_comp_linux.innerHTML = json[0].totalMaquinasLinux;
+                    // console.log(json[0].idMaquina);
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
 
     function acharClass(teste) {
         let classAtual = teste.slice((teste.lastIndexOf(" ") + 1), teste.length)
@@ -1050,23 +1162,22 @@
     }
 
     function duplica(idAtu) {
-        const codigomaterial = document.getElementById(idAtu).value;
+        // const codigomaterial = document.getElementById(idAtu).value;
 
-        if (codigomaterial > 100 || codigomaterial < 0) {
-            const codigoalterado = codigomaterial.normalize('NFD').replace(/([\u0300-\u036f]|[^_0-9a-zA-Z\s])/g, '').replace(/ /g, "_").toLowerCase().substring(0, 2);
-            document.getElementById(idAtu).value = codigoalterado;
-        }
+        // if (codigomaterial > 100 || codigomaterial < 0) {
+        //     const codigoalterado = codigomaterial.normalize('NFD').replace(/([\u0300-\u036f]|[^_0-9a-zA-Z\s])/g, '').replace(/ /g, "_").toLowerCase().substring(0, 2);
+        //     document.getElementById(idAtu).value = codigoalterado;
+        // }
         mudarLimite(idAtu)
     };
 
     function mudarLimite(id) {
         let valor = document.getElementById(id).value
-
+        // var tabela = 
         let comp = id.slice((id.lastIndexOf("_") + 1), id.length)
         if (comp == 'RAM') {
             comp = 'Memoria'
         }
-
         fetch("/dash/atualizarParametro", {
             method: "POST",
             headers: {
@@ -1161,12 +1272,12 @@
     }
 
 
-    function plotar(Limite) {
+    function plotar() {
         for (let i = 0; i <= 3; i++) {
             var graficoAtual = graficos[i];
             var labelAtual = labe[i];
             var corAtual = cor[i]
-            plotarGrafico(graficoAtual, labelAtual, corAtual, Limite)
+            plotarGrafico(graficoAtual, labelAtual, corAtual)
 
         }
     }
@@ -1183,25 +1294,25 @@
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO Listar Limites()!")
-            
+
             if (resposta.status == 200) {
-                
-                var Limite = {};
+
+                // var Limite = {};
                 //  = 75;
                 //  = 75;
                 //  = 75;
                 //  = 75;
-                
+
                 resposta.json().then(json => {
-                    alert(json[0].CPU)
+                    // alert(json[0].CPU)
                     console.log(json);
                     Limite.CPU = json[0].CPU;
-                    Limite.RAM = json[0].RAM;
+                    Limite.RAM = json[0].MEMORIA;
                     Limite.REDE = json[0].DISCO;
                     Limite.DISCO = json[0].REDE;
 
                     console.log(Limite);
-                    plotar(Limite)
+                    plotar()
 
                 });
             } else {
@@ -1220,7 +1331,7 @@
 
     var labels = [];
     var data = [];
-    function plotarGrafico(grafico, lab, color_border, Limite) {
+    function plotarGrafico(grafico, lab, color_border) {
         var componenteAtual = lab.toLowerCase();
         let comp;
         let myChart;
@@ -1266,30 +1377,32 @@
                         color_border
 
                     }
+                    let dataset = [
+
+                        {
+                            label: lab,
+                            data: data,
+                            fill: true,
+                            backgroundColor: (`${color_border}33`),
+                            borderColor: (color_border),
+                            pointBackgroundColor: (color_border),
+                        },
+                        {
+                            label: 'Limite',
+                            data: data2,
+                            fill: true,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: ('#00000000'),
+                            borderColor: ('#E63946'),
+                            borderWidth: 2,
+                            pointStyle: 'none',
+                            pointBackgroundColor: '#E63946',
+                            pointRadius: 2
+                        }
+                    ]
                     let dados = {
                         labels: labels,
-                        datasets: [
-                            {
-                                label: lab,
-                                data: data,
-                                fill: true,
-                                backgroundColor: (`${color_border}33`),
-                                borderColor: (color_border),
-                                pointBackgroundColor: (color_border),
-                            },
-                            {
-                                label: 'Limite',
-                                data: data2,
-                                fill: true,
-                                borderColor: 'rgb(75, 192, 192)',
-                                backgroundColor: ('#00000000'),
-                                borderColor: ('#E63946'),
-                                borderWidth: 2,
-                                pointStyle: 'none',
-                                pointBackgroundColor: '#E63946',
-                                pointRadius: 2
-                            }
-                        ],
+                        datasets: dataset,
 
                     };
 
@@ -1372,6 +1485,7 @@
                         myChart.data.datasets[1].data.push(Limite[comp]);
 
                         myChart.update();
+
                     }
                 })
             }
@@ -1381,6 +1495,7 @@
         })
 
 
+        listarKpis();
 
         setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 20000);
     }

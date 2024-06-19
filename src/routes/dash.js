@@ -35,6 +35,9 @@ router.post("/atualizarParametro", function (req, res) {
 router.post("/listarLimites", function (req, res) {
     dashController.listarLimites(req, res);
 })
+router.post("/trazerKpis", function (req, res) {
+    dashController.trazerKpis(req, res);
+})
 
 
 module.exports = router;

@@ -68,7 +68,7 @@ function atualizarMedidasDisco(fkMaquina) {
 }
 function atualizarParametro(valor, componente, idEmpresa) {
     instrucaoSql = `
-        update tipoComponente set metricaEstabelecida =  ${valor} where nomeComponente = '${componente} and fkEmpresa = ${idEmpresa}' 
+        update tipoComponente set metricaEstabelecida =  ${valor} where nomeComponente = '${componente}' and fkEmpresa = '${idEmpresa}' 
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -95,6 +95,34 @@ function listarLimites(idEmpresa) {
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+}function trazerKpis(idEmpresa) {
+    instrucaoSql = `    
+        select top 1
+        (select count(*) from maquina where fkEmpresa = ${idEmpresa}) as totalMaquinas,
+        (select count(*) from maquina where ativo = 1 and fkEmpresa = ${idEmpresa}) as totalMaquinasAtivas,
+        (
+        select count(*) from maquina as m
+        left join dadosFixos as df on m.idMaquina = df.fkMaquina
+        where m.ativo = 1
+        and df.nomeCampo = 'modelo do Sistema'
+        and df.valorCampo like ('windows')
+        and fkEmpresa = ${idEmpresa}
+        ) as totalMaquinasWindows,
+
+        (
+        select count(*) from maquina as m
+        left join dadosFixos as df on m.idMaquina = df.fkMaquina
+        where m.ativo = 1
+        and df.nomeCampo = 'modelo do Sistema'
+        and df.valorCampo not like ('windows')
+        and fkEmpresa = ${idEmpresa}
+        ) as totalMaquinasLinux
+        from 
+        maquina;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
@@ -107,5 +135,6 @@ module.exports = {
     atualizarMedidasDisco,
     atualizarMedidasRede,
     atualizarParametro,
-    listarLimites
+    listarLimites,
+    trazerKpis
 }

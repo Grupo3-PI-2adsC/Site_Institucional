@@ -22,8 +22,19 @@ function excluirComputador(req, res) {
     })
 }
 
+function trazerInfosComputador(req, res) {
+    var fkEmpresa = req.body.idEmpresaServer;
+    computadorModel.trazerInfosComputador(fkEmpresa).then(function (resultado) {
+        res.status(200).json(resultado);
+    }).catch(function (erro) {
+        res.status(500).json(erro.sqlMessage)
+        return;
+    })
+}
+
 module.exports = {
     listarComputadores,
-    excluirComputador
+    excluirComputador,
+    trazerInfosComputador
     // cadastrar2
 }
