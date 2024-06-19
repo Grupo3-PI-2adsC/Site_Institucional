@@ -12,5 +12,8 @@ router.post("/excluirComputador", function (req, res) {
     computadorController.excluirComputador(req, res);
 })
 
+router.post("/trazerInfosComputador", function (req, res) {
+    computadorController.trazerInfosComputador(req, res);
+})
 
 module.exports = router;

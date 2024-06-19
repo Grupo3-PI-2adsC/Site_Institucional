@@ -16,7 +16,6 @@
 
     <!-- <script src="js/script.js"></script> -->
     <script src="js/manual.js"></script>
-<<<<<<< HEAD
     <script src="js/manuais.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -26,13 +25,9 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-=======
-    <!-- <script src="js/manuais.js"></script> -->
-    <link rel="stylesheet" href="css/manual.css">
->>>>>>> 1d004315dec0475b4db377b46a56f23869094ad9
 </head>
 
-<body>
+<body onload="listarManual()">
     <div class="sidebar">
         <nav class="menu-lateral" id="menu-lateral">
 
@@ -299,11 +294,6 @@
 
             </div>
 
-
-
-
-
-
         </div>
 
         <!-- <div class="container grafMax" id="manuais" style="background-color: aqua;">
@@ -342,14 +332,21 @@
             </div>
         </div> -->
         <div class="container grafMax containerManual" id="manuais">
-            <h1>Manuais e Comentários</h1>
+            <h1>MANUAIS</h1>
 
             <div id="pesquisaManuais">
                 <div id="barraPesquisa">
                     <div id="pesquisaManual">
-                        <input type="text" placeholder="Pesquisar por título" aria-placeholder="SLA">
-                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Pesquisar por título">
+                        <button onclick="listarManual()" id="buttonPesquisar">
+                            <i class="bi bi-search"></i>
+                        </button>
                     </div>
+                    <!-- <div class="divLista">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div> -->
                 </div>
 
                 <div id="botaoAdicionar">
@@ -361,68 +358,7 @@
             </div>
 
             <div id="historicoManuais">
-                <div class="itemManual headerManual">
-                    <span>TITULO</span>
-                    <div>
-                        <i class="bi bi-pencil"></i>
-                    </div>
-                </div>
 
-                <div class="itemManual textoManual">
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, et dolores illum consequatur
-                        veniam aliquam nulla iste sed quaerat hic dignissimos aliquid sunt dicta! Dolorem ut numquam
-                        illum porro assumenda!
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
-                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
-                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
-                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!</span>
-                </div>
-
-                <div class="itemManual footerManual">
-                    <div class="item-footer-manual divCriacao">
-                        <div>
-                            <p><b>Criado por:</b> nomeUsuario</p>
-                        </div>
-
-                        <div>
-                            <p><b>Dia:</b> 00/00/0000</p>
-                        </div>
-                    </div>
-
-                    <div class=" item-footer-manual divModificacao">
-                        <div>
-                            <p><b>Última modificação por:</b> nomeUsuario</p>
-                        </div>
-
-                        <div>
-                            <p><b>Dia:</b> 00/00/0000</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="popAdicionar">
@@ -430,7 +366,7 @@
                     <h3>Novo Manual</h3>
                     <i class="bi bi-x-circle-fill" id="imgFechar"></i>
                 </div>
-
+                <div id="div_mensagem"></div>
                 <div class="divInput tituloManual">
                     Título do Manual
 
@@ -451,6 +387,40 @@
                     Adicionar
                 </button>
             </div>
+
+            <div class="popAlterar">
+                <div class="headerAlterar">
+                    <h3>Alterar Manual</h3>
+                    <i class="bi bi-x-circle-fill" id="imgFecharAlterar"></i>
+                </div>
+
+                <div class="divInput tituloManual">
+                    Título do Manual
+
+                    <label>
+                        <input name="titulo" id="titulo_alterar" maxlength="100" type="text">
+                    </label>
+                </div>
+
+                <div class="divInput descricaoManual">
+                    Descrição do Manual
+
+                    <label>
+                        <textarea name="descricao" id="descricao_alterar" maxlength="250" rows="5"></textarea>
+                    </label>
+                </div>
+
+                <div class="botoes">
+                    <button onclick="atualizarManual()" id="buttonAlterar">
+                        Confirmar Alteração
+                    </button>
+
+                    <button onclick="removerManual()" id="buttonDeletar">
+                        <i class="bi bi-trash"></i>
+                        Excluir
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="container grafMax" id="grafMax">
@@ -458,12 +428,12 @@
                 <div class="div_coluna_kpi">
                     <div class="kpi">
                         <p> Computadores Ativos</p>
-                        <span>7</span>
+                        <span id="KPI_comp_ativos">7</span>
                     </div>
 
                     <div class="kpi">
                         <p>Sistema Operacional Linux</p>
-                        <span>8</span>
+                        <span id="KPI_comp_linux">8</span>
                     </div>
 
                     <div class="kpi">
@@ -471,19 +441,19 @@
                             <input type="number" id="inpt_porc_armazem" class="inpt_limite" value="70">
                             <p>% ou mais de<br>armazenamento disponível</p>
                         </div>
-                        <span>2</span>
+                        <span id="KPI_comp_arma_disp">2</span>
                     </div>
                 </div>
 
                 <div class="div_coluna_kpi">
                     <div class="kpi">
                         <p>Todos os Computadores</p>
-                        <span>10</span>
+                        <span id="KPI_comp_todos">10</span>
                     </div>
 
                     <div class="kpi">
                         <p>Sistema Operacional Windows</p>
-                        <span>2</span>
+                        <span id="KPI_comp_windows">2</span>
                     </div>
 
                     <div class="kpi">
@@ -491,7 +461,7 @@
                             <input type="number" id="inpt_memoria_disp" class="inpt_limite" value="80">
                             <p>gb ou mais de Memória disponível</p>
                         </div>
-                        <span>1</span>
+                        <span id="KPI_comp_memoria_disp">1</span>
                     </div>
                 </div>
             </div>
@@ -524,13 +494,13 @@
                     <div class="titulo_card">
                         <p>VOLUME</p>
                     </div>
-                    <div class="div_coluna_componentes" style="width: 100%;">
-                        <p>Quantidade de Volume: 3</p>
+                    <div class="div_coluna_componentes" style="width: 100%;" id="div_Volume">
+                        <!-- <p>Quantidade de Volume: 3</p>
                         <p>UUID: 4ad06ca4-4f60-4a9c-8eb2-535275a68216</p>
                         <p>volume: /dev/nvme0n1p2</p>
                         <p>total: 502 GB</p>
                         <p>disponível: 415 GB</p>
-                        <p>tipo: ext4</p>
+                        <p>tipo: ext4</p> -->
 
                     </div>
                 </div>
@@ -538,12 +508,12 @@
                     <div class="titulo_card">
                         <p>DISCO</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <p>Quantidade de Discos: 1</p>
+                    <div class="div_coluna_componentes" id="div_Disco">
+                        <!-- <p>Quantidade de Discos: 1</p>
                         <p>Nome: /dev/nvme0n1</p>
                         <p>Tamanho: 512 GB</p>
                         <p>Total de processos: 350 </p>
-                        <p>Total de Thereads: 1398</p>
+                        <p>Total de Thereads: 1398</p> -->
                     </div>
                 </div>
             </div>
@@ -565,11 +535,11 @@
                     <div class="titulo_card">
                         <p>PROCESSADOR</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <p>Nome: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</p>
+                    <div class="div_coluna_componentes" id="div_CPU">
+                        <!-- <p>Nome: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz</p>
                         <p>Número de Pacotes Físicos: 1</p>
                         <p>Número de CPUs Fisícas: 6</p>
-                        <p>Número de CPUs Lógicas: 12</p>
+                        <p>Número de CPUs Lógicas: 12</p> -->
                     </div>
                 </div>
                 <div class="cards">
@@ -580,10 +550,10 @@
                     <div class="titulo_card">
                         <p>SISTEMA</p>
                     </div>
-                    <div class="div_coluna_componentes">
-                        <p>Modelo: Ubuntu</p>
+                    <div class="div_coluna_componentes" id="div_Sistemaoperacional">
+                        <!-- <p>Modelo: Ubuntu</p>
                         <p>Arquitetura: 64bits</p>
-                        <p>nicializado: 2024-05-02T19:17:16Z</p>
+                        <p>nicializado: 2024-05-02T19:17:16Z</p> -->
                     </div>
                 </div>
             </div>
@@ -664,7 +634,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="div_kpi_grafico_geral">
+                <!-- <div class="div_kpi_grafico_geral">
                     <div class="div_kpi_grafico">
                         <div class="kpi_grafico">
                             <div class="kpi_graf">
@@ -740,7 +710,7 @@
                             </tr>
                         </table>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -751,23 +721,7 @@
 
 <script>
 
-    // var c = document.getElementById("combo"), i=0;
-    // 	for (; i<c.options.length; i++)
-    // 	{	
-    // 		if (c.options[i].value == uf)
-    // 		{
-    // 			c.options[i].selected = true;
-    // 			break;
-    // 		}
-    // 	}
 
-    // function mudarComp(computador){
-
-    //     var slct = document.getElementById("slct_cards");
-    //     var slct2 = document.getElementById("slct_grafiMin");
-
-
-    // }
 
 
     function mudarTela(tela) {
@@ -900,15 +854,12 @@
     }
 
     var Limite = {};
-    Limite.CPU = 75;
-    Limite.RAM = 75;
-    Limite.REDE = 75;
-    Limite.DISCO = 75;
 
-    console.log(Limite);
+    // console.log(Limite);
 
     window.onload = listarComputadores();
 
+    window.onload = listarManual();
 
     function listarComputadores() {
         // alert("asdasdasd");
@@ -971,7 +922,9 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     PlotarTabela(jsonComp, json);
-
+                    listarKpis();
+                    trazerInfosComputador();
+                    listarLimites();
                 });
 
             } else {
@@ -989,6 +942,115 @@
 
     // window.onload = plotar();
     // window.onload = PlotarTabela();
+
+    function trazerInfosComputador(){
+        fetch("/computador/trazerInfosComputador", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresaServer: slct_cards.value,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO listarKPIS()!")
+            
+            if (resposta.status == 200) {
+                // alert("asldkasd");
+                
+                resposta.json().then(json => {
+                    // alert("unfo")
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log("aquiiiii3333333333333: " + JSON.stringify(json));
+
+                    json.forEach((item) =>{
+
+                        
+                        var compDaVez = item.nomeComponente;
+                        var comp = compDaVez.replace(/\s/g, '');
+                        var elemento_div = document.getElementById(`div_${comp}`)
+                        var tamanhoDesc = item.combined_col.length;
+                        var i = 0;
+                        var paragrafo = "<p>";
+                        for (let i = 0; i < item.combined_col.length; i++) {
+                            const element = item.combined_col[i];
+                            
+                            if(element != ","){
+                                paragrafo += element;
+                            }else{
+                                i++
+                                paragrafo += "</p>";
+                                elemento_div.innerHTML += paragrafo;
+                                paragrafo = "<p>";
+                            }
+                        }
+                        // while(true){
+                        //     i++;
+
+                            
+
+                        //     if(i == tamanhoDesc){
+                        //         break
+                        //     }
+                        // }
+
+                    })
+                    // console.log(json[0].idMaquina);
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            // alert("numfo")
+            console.log(erro);
+        })
+    }
+
+    function listarKpis() {
+        // alert(sessionStorage.FK_EMPRESA)
+        fetch("/dash/trazerKpis", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresaServer: sessionStorage.FK_EMPRESA,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO listarKPIS()!")
+
+            if (resposta.status == 200) {
+                // alert("asldkasd");
+
+                resposta.json().then(json => {
+                    // console.log(json[0].nomeFantasia); //vetor, pegando o nomeFantasia do primeiro item
+                    console.log("aquiiiii: " + JSON.stringify(json));
+                    KPI_comp_todos.innerHTML = json[0].totalMaquinas;
+                    KPI_comp_ativos.innerHTML = json[0].totalMaquinasAtivas;
+                    KPI_comp_windows.innerHTML = json[0].totalMaquinasWindows;
+                    KPI_comp_linux.innerHTML = json[0].totalMaquinasLinux;
+                    // console.log(json[0].idMaquina);
+                });
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar listar os computadores!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
 
     function acharClass(teste) {
         let classAtual = teste.slice((teste.lastIndexOf(" ") + 1), teste.length)
@@ -1040,19 +1102,52 @@
     }
 
     function duplica(idAtu) {
-        const codigomaterial = document.getElementById(idAtu).value;
+        // const codigomaterial = document.getElementById(idAtu).value;
 
-        if (codigomaterial > 100 || codigomaterial < 0) {
-            const codigoalterado = codigomaterial.normalize('NFD').replace(/([\u0300-\u036f]|[^_0-9a-zA-Z\s])/g, '').replace(/ /g, "_").toLowerCase().substring(0, 2);
-            document.getElementById(idAtu).value = codigoalterado;
-        }
+        // if (codigomaterial > 100 || codigomaterial < 0) {
+        //     const codigoalterado = codigomaterial.normalize('NFD').replace(/([\u0300-\u036f]|[^_0-9a-zA-Z\s])/g, '').replace(/ /g, "_").toLowerCase().substring(0, 2);
+        //     document.getElementById(idAtu).value = codigoalterado;
+        // }
         mudarLimite(idAtu)
     };
 
     function mudarLimite(id) {
         let valor = document.getElementById(id).value
-
+        // var tabela = 
         let comp = id.slice((id.lastIndexOf("_") + 1), id.length)
+        if (comp == 'RAM') {
+            comp = 'Memoria'
+        }
+        fetch("/dash/atualizarParametro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                valorServer: valor,
+                componenteServer: comp,
+                idEmpresaServer: sessionStorage.FK_EMPRESA
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO Atualizar Limite()!")
+
+            if (resposta.status == 200) {
+
+                console.log("Limite de metrica atualizado com sucesso");
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar atualizar o limite!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+
         Limite[comp] = Number(valor);
 
         console.log(Limite);
@@ -1127,13 +1222,61 @@
         }
     }
 
+    function listarLimites() {
+
+        fetch("/dash/listarLimites", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresaServer: sessionStorage.FK_EMPRESA,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO Listar Limites()!")
+
+            if (resposta.status == 200) {
+
+                // var Limite = {};
+                //  = 75;
+                //  = 75;
+                //  = 75;
+                //  = 75;
+
+                resposta.json().then(json => {
+                    // alert(json[0].CPU)
+                    console.log(json);
+                    Limite.CPU = json[0].CPU;
+                    Limite.RAM = json[0].MEMORIA;
+                    Limite.REDE = json[0].DISCO;
+                    Limite.DISCO = json[0].REDE;
+
+                    console.log(Limite);
+                    plotar()
+
+                });
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar excluir o listarLimites!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+    }
+
     var labels = [];
     var data = [];
-    var data2 = [];
     function plotarGrafico(grafico, lab, color_border) {
         var componenteAtual = lab.toLowerCase();
         let comp;
         let myChart;
+        // alert("ue")
+        console.log(Limite);
 
         fetch("/dash/buscarUltimasMedidas" + componenteAtual, {
             method: "POST",
@@ -1141,7 +1284,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                fkMaquinaServer: comboDadosMaquinas.value,
+                fkMaquinaServer: slct_grafiMin.value,
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO COMPUTADORES()!")
@@ -1174,30 +1317,32 @@
                         color_border
 
                     }
+                    let dataset = [
+
+                        {
+                            label: lab,
+                            data: data,
+                            fill: true,
+                            backgroundColor: (`${color_border}33`),
+                            borderColor: (color_border),
+                            pointBackgroundColor: (color_border),
+                        },
+                        {
+                            label: 'Limite',
+                            data: data2,
+                            fill: true,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: ('#00000000'),
+                            borderColor: ('#E63946'),
+                            borderWidth: 2,
+                            pointStyle: 'none',
+                            pointBackgroundColor: '#E63946',
+                            pointRadius: 2
+                        }
+                    ]
                     let dados = {
                         labels: labels,
-                        datasets: [
-                            {
-                                label: lab,
-                                data: data,
-                                fill: true,
-                                backgroundColor: (`${color_border}33`),
-                                borderColor: (color_border),
-                                pointBackgroundColor: (color_border),
-                            },
-                            {
-                                label: 'Limite',
-                                data: data2,
-                                fill: true,
-                                borderColor: 'rgb(75, 192, 192)',
-                                backgroundColor: ('#00000000'),
-                                borderColor: ('#E63946'),
-                                borderWidth: 2,
-                                pointStyle: 'none',
-                                pointBackgroundColor: '#E63946',
-                                pointRadius: 2
-                            }
-                        ],
+                        datasets: dataset,
 
                     };
 
@@ -1205,27 +1350,6 @@
                         type: 'line',
                         data: dados,
                         options: {
-                            // scales: {
-                            //     y: {
-                            //         ticks: {
-                            //             font: {
-                            //                 size: 10 // Define o tamanho da fonte para o eixo Y
-                            //             }
-                            //         }
-                            //     },
-                            //     x: {
-                            //         ticks: {
-                            //             font: {
-                            //                 size: 10 // Define o tamanho da fonte para o eixo X
-                            //             }
-                            //         }
-                            //     }
-                            // },
-                            // plugins: {
-                            //     legend: {
-                            //         display: false,
-                            //     }
-                            // },
                             elements: {
                                 point: {
                                     backgroundColor: ('#E6394')
@@ -1270,9 +1394,10 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                fkMaquinaServer: comboDadosMaquinas.value,
+                fkMaquinaServer: slct_grafiMin.value,
             })
         }).then(function (resposta) {
+            // alert("tgeste")
             if (resposta.status == 200) {
 
                 resposta.json().then(json => {
@@ -1284,12 +1409,12 @@
 
                         let horario = (hora + ":" + minutos + ":" + segundos);
 
-                        console.log(myChart)
 
                         // myChart.data.labels.shift(); // apagar o primeiro
                         // myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
 
                         var medidaAtual = json[0].valorCampo;
+                        console.log(comp + ": " + medidaAtual)
 
                         myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
                         myChart.data.datasets[0].data.push(medidaAtual);
@@ -1301,6 +1426,7 @@
                         myChart.data.datasets[1].data.push(Limite[comp]);
 
                         myChart.update();
+
                     }
                 })
             }
@@ -1310,128 +1436,10 @@
         })
 
 
+        listarKpis();
 
-        setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
+        setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 20000);
     }
-
-
-    // function plotar() {
-    //     for (let i = 0; i <= 3; i++) {
-    //         var graficoAtual = graficos[i];
-    //         var labelAtual = labe[i];
-    //         var corAtual = cor[i]
-    //         plotarGrafico(graficoAtual, labelAtual, corAtual)
-
-    //     }
-    // }
-    // var labels = [];
-    // var data = [];
-    // var data2 = [];
-    // function plotarGrafico(grafico, lab, color_border) {
-
-
-    //     labels = [1, 2, 3, 4, 5];
-    //     data = [];
-    //     data2 = [];
-    //     let comp = grafico.slice((grafico.indexOf("_") + 1), grafico.length)
-    //     for (let i = 0; i <= 4; i++) {
-    //         var num = Math.floor(Math.random() * 100);
-    //         data.push(num);
-    //         data2.push(Limite[comp])
-    //         color_border
-
-    //         // data[1].push(num2);
-    //     }
-    //     let dados = {
-    //         labels: labels,
-    //         datasets: [
-    //             {
-    //                 label: lab,
-    //                 data: data,
-    //                 fill: true,
-    //                 backgroundColor: (`${color_border}33`),
-    //                 borderColor: (color_border),
-    //                 pointBackgroundColor: (color_border),
-    //             },
-    //             {
-    //                 label: 'Limite',
-    //                 data: data2,
-    //                 fill: true,
-    //                 borderColor: 'rgb(75, 192, 192)',
-    //                 backgroundColor: ('#00000000'),
-    //                 borderColor: ('#E63946'),
-    //                 borderWidth: 2,
-    //                 pointStyle: 'none',
-    //                 pointBackgroundColor: '#E63946',
-    //                 pointRadius: 2
-    //             }
-    //         ],
-
-    //     };
-
-
-    //     const config = {
-    //         type: 'line',
-    //         data: dados,
-    //         options: {
-    //             // scales: {
-    //             //     y: {
-    //             //         ticks: {
-    //             //             font: {
-    //             //                 size: 10 // Define o tamanho da fonte para o eixo Y
-    //             //             }
-    //             //         }
-    //             //     },
-    //             //     x: {
-    //             //         ticks: {
-    //             //             font: {
-    //             //                 size: 10 // Define o tamanho da fonte para o eixo X
-    //             //             }
-    //             //         }
-    //             //     }
-    //             // },
-    //             // plugins: {
-    //             //     legend: {
-    //             //         display: false,
-    //             //     }
-    //             // },
-    //             elements: {
-    //                 point: {
-    //                     backgroundColor: ('#E6394')
-    //                 }
-    //             }
-    //         }
-
-    //     };
-
-    //     let myChart = new Chart(
-    //         document.getElementById(grafico),
-    //         config
-    //     );
-
-    //     setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
-
-    // }
-
-    // function atualizarGrafico(dados, dados2, myChart, labels, comp) {
-
-
-    //     myChart.data.labels.shift(); // apagar o primeiro
-    //     myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
-
-    //     var medidaAtual = Math.floor(Math.random() * 100);
-
-    //     myChart.data.datasets[0].data.shift();  // apagar o primeiro de temperatura
-    //     myChart.data.datasets[0].data.push(medidaAtual);
-
-    //     myChart.data.datasets[1].data.shift();  // apagar o primeiro de temperatura
-    //     myChart.data.datasets[1].data.push(Limite[comp]);
-
-    //     myChart.update();
-
-
-    //     setTimeout(() => atualizarGrafico(data, data2, myChart, labels, comp), 5000);
-    // }
 
     var menuItem = document.querySelectorAll('.item-menu')
 
@@ -1463,75 +1471,28 @@
             txtLink.style.display = "block";
 
         }
-
-        // item1.
-
-
-        /* .menu li.item-menu:hover a{
-    color: #EDF2F4;
-    transition: .4s;
-} */
-        /* nav.menu-lateral:hover{
-                    min-width: 270px;
-                    padding-left: 20px;
-                } */
-        /* nav.menu-lateral:hover .txt-link{
-            display: block;
-        } */
-
-
-
-    // }
-
-    // function mudarContainer(pg) {
-    //     if (pg == 'index.html') {
-    //         sessionStorage.clear();
-    //         localStorage.clear();
-    //     }
-    //     // alert(`#${pg}`)
-    //     // alert('1as1')
-    //     document.location.href = `${pg}`
-    // }
-
-
-    // function mudarTelaUser(tela, telaS) {
-    //     elemento = document.getElementById(tela)
-    //     elemento2 = document.getElementById(telaS)
-
-    //     elemento2.style.animation = 'sumir .4s linear'
-
-    //     setTimeout(function () {
-    //         elemento.style.animation = 'sumir .4s linear reverse '
-
-    //         elemento.style.display = 'flex'
-    //         elemento2.style.display = 'none'
-    //     }, 400)
-
-    //     setTimeout(function () {
-    //         elemento.style.animation = null;
-    //         elemento2.style.animation = null;
-    //     }, 800);
-
-    // }
-
-    // function mudarTabela(id) {
-    //     user = document.getElementById('div_tabela_geral_user');
-    //     comp = document.getElementById('div_tabela_geral_comp')
-    //     if (id == 'radio_label_user') {
-    //         comp.style.display = 'none'
-    //         user.style.display = 'inline'
-    //     } else {
-    //         user.style.display = 'none'
-    //         comp.style.display = 'inline'
-    //     }
-    // }
     }
 
-    document.getElementById('buttonAdicionar').addEventListener('click', function(){
+    document.getElementById('buttonAdicionar').addEventListener('click', function () {
         document.querySelector(".popAdicionar").style.display = "flex";
     });
 
-    document.getElementById('imgFechar').addEventListener('click', function(){
+    document.getElementById('imgFechar').addEventListener('click', function () {
         document.querySelector(".popAdicionar").style.display = "none";
     });
+
+    // document.getElementById('imgAlterar').addEventListener('click', function () {
+    // });
+    function editarManual(idManual, tituloManual, descricaoManual) {
+        document.querySelector(".popAlterar").style.display = "flex";
+        document.getElementById("titulo_alterar").value = tituloManual;
+        document.getElementById("descricao_alterar").value = descricaoManual;
+        document.getElementById("buttonAlterar").onclick = function () {
+            atualizarManual(idManual);
+        };
+        document.getElementById("buttonDeletar").onclick = function () {
+            removerManual(idManual);
+        }
+    }
+
 </script>

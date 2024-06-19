@@ -37,7 +37,8 @@ function adicionarManual() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                idUsuarioServer: 1,
+          
+                idUsuarioServer: sessionStorage.ID_USUARIO,
                 tituloServer: tituloVar,
                 descricaoServer: descricaoVar,
                 dataServer: dataFormatada
@@ -45,10 +46,7 @@ function adicionarManual() {
 
         }).then(function (resposta) {
             if (resposta.ok) {
-
-                resposta.json().then((manual) => {
-                    sessionStorage.ID_MANUAL = manual.insertId;
-                })
+                console.log(resposta);
             } else {
                 alert('Manual não realizado')
                 throw "Houve um erro"
@@ -77,9 +75,33 @@ function listarManual(){
 
     }).then(function (resposta) {
         if (resposta.ok) {
-
             resposta.json().then((manual) => {
                 console.log(manual);
+                manual.forEach(element => {
+                    element.dtCriacao = new Date(element.dtCriacao);
+                    document.getElementById("historicoManuais").innerHTML += `
+                    <div class="manual">
+                    <div class="itemManual headerManual">
+                        <span>${element.tituloManual}</span>
+                        <div class="pencil" onclick="editarManual(${element.idManual},'${element.tituloManual}', '${element.descricaoManual}')">
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                    </div>
+
+                    <div class="itemManual textoManual">
+                        <span>${element.descricaoManual}</span>
+                    </div>
+
+                    <div class="itemManual footerManual">
+                        <div class="item-footer-manual divCriacao">
+                            <div>
+                                <p><b>Criado por:</b> ${element.nome}</p>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>`
+                });
             })
         } else {
             alert('Manuais não listados')
@@ -91,19 +113,10 @@ function listarManual(){
             alert('Manuais não listados')
         })
 }
-function atualizarManual(){
+function atualizarManual(idManualVar){
     div_mensagem.innerHTML = "";
-    var tituloVar = document.getElementById('input_adicionar_titulo').value;
-    var descricaoVar = document.getElementById('input_adicionar_descricao').value;
-    var validacao = 0;
-
-    var dataAtual = new Date();
-
-    var ano = dataAtual.getFullYear();
-    var mes = ('0' + (dataAtual.getMonth() + 1)).slice(-2); // Adiciona um zero à esquerda, se necessário
-    var dia = ('0' + dataAtual.getDate()).slice(-2); // Adiciona um zero à esquerda, se necessário
-
-    var dataFormatada = ano + '-' + mes + '-' + dia;
+    var tituloVar = document.getElementById('titulo_alterar').value;
+    var descricaoVar = document.getElementById('descricao_alterar').value;
     
     fetch("/manual/atualizarManual", {
         method: "PUT",
@@ -111,18 +124,14 @@ function atualizarManual(){
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            idUsuarioServer: sessionStorage.idUsuario,
+            idManualServer: idManualVar,
             tituloServer: tituloVar,
             descricaoServer: descricaoVar,
-            dataServer: dataFormatada
         }),
 
     }).then(function (resposta) {
         if (resposta.ok) {
-
-            resposta.json().then((manual) => {
-                console.log(manual);
-            })
+            window.location = "";
         } else {
             alert('Manual não atualizado')
             throw "Houve um erro"
@@ -133,24 +142,18 @@ function atualizarManual(){
             alert('Manual não atualizado')
         })
 }
-function removerManual(){
+function removerManual(idManual){
     div_mensagem.innerHTML = "";
 
-    fetch("/manual/removerManual", {
+    fetch(`/manual/removerManual/${idManual}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            idUsuarioServer: sessionStorage.ID_MANUAL,
-        }),
 
     }).then(function (resposta) {
         if (resposta.ok) {
-
-            resposta.json().then((manual) => {
-                console.log(manual);
-            })
+            window.location = "";
         } else {
             alert('Manual não removido')
             throw "Houve um erro"

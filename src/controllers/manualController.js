@@ -28,21 +28,7 @@ function adicionarManual(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRe
             );
     }
 }
-function listarManual(req, res){
-    manualModel.listarManual()
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            )
-            .catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-}
+
 function listarManual(req, res){
     manualModel.listarManual()
             .then(
@@ -61,10 +47,9 @@ function listarManual(req, res){
 function atualizarManual(req, res){
     var tituloManual = req.body.tituloServer;
     var descricao = req.body.descricaoServer;
-    var idUsuario = req.body.idUsuarioServer;
-    var data = req.body.dataServer;
+    var idManual = req.body.idManualServer;
 
-    manualModel.atualizarManual(tituloManual, descricao, idUsuario, data)
+    manualModel.atualizarManual(tituloManual, descricao, idManual)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -79,7 +64,7 @@ function atualizarManual(req, res){
             );
 }
 function removerManual(req, res){
-    var idManual = req.body.idManualServer;
+    var idManual = req.params.idManual;
 
     manualModel.removerManual(idManual)
             .then(

@@ -49,6 +49,12 @@ input::placeholder {
   font-weight: bold;
 }
 
+#buttonPesquisar{
+  outline: none;
+  background: none;
+  border: none;
+}
+
 #botaoAdicionar button {
   padding: 8px;
   border: 2px solid brown;
@@ -59,11 +65,13 @@ input::placeholder {
 }
 
 #historicoManuais {
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 95%;
   padding: 5px;
+  height: 40%;
   /* background-color: chocolate; */
   border: 1px solid aliceblue;
   border-radius: 8px;
@@ -136,15 +144,18 @@ input::placeholder {
   justify-content: center;
 }
 
-.headerAdicionar i {
+.headerAdicionar i,
+.headerAlterar i {
   position: absolute;
   top: 2%;
   right: 4%;
   cursor: pointer;
 }
 
-.headerAdicionar i:hover{
+.headerAdicionar i:hover,
+.headerAlterar i:hover {
   color: #530f0f;
+  transition: 0.5s;
 }
 
 .divInput {
@@ -166,17 +177,44 @@ textarea {
   width: 80%;
 }
 
+#imgAlterar{
+  cursor: pointer;
+}
+
 .descricaoManual textarea {
   height: 255px;
 }
 
-.popAdicionar button {
+.popAdicionar button,
+.popAlterar button {
   padding: 10px;
   border-radius: 8px;
   background: aliceblue;
   color: #000;
   border: none;
   font-size: 14px;
+}
+
+.popAlterar {
+  width: 520px;
+  height: 600px;
+  background: #6c757d;
+  border-radius: 6px;
+  position: absolute;
+  top: 153%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 30px
+}
+
+.botoes {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
 }
 
 /* pagina mural */

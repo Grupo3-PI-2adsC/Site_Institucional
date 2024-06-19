@@ -29,6 +29,15 @@ router.post("/atualizarMedidasdisco", function (req, res) {
 router.post("/atualizarMedidasrede", function (req, res) {
     dashController.atualizarMedidasRede(req, res);
 })
+router.post("/atualizarParametro", function (req, res) {
+    dashController.atualizarParametro(req, res);
+})
+router.post("/listarLimites", function (req, res) {
+    dashController.listarLimites(req, res);
+})
+router.post("/trazerKpis", function (req, res) {
+    dashController.trazerKpis(req, res);
+})
 
 
 module.exports = router;

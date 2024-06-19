@@ -12,9 +12,14 @@ header.rolagem {
     background-color: #CF2942;
 }
 
-header.rolagem2 {
+/* header.rolagem2 {
     background-color: #EDF2F4;
+} */
+
+#nav_logo.rolagem2{
+    color: #22223B;
 }
+
 
 #navbar {
     width: 100%;
