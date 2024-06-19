@@ -11,7 +11,7 @@ function buscarUltimasMedidasCpu(fkMaquina) {
 }
 function buscarUltimasMedidasRede(fkMaquina) {
     instrucaoSql = `
-    select top 5 * from dadosTempoReal where fkMaquina = '${fkMaquina}' and fkTipoComponente = 4 order by dataHora asc;
+    select top 5 * from variaveisRede where fkMaquina = '${fkMaquina}' order by dataHora asc;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -52,7 +52,7 @@ function atualizarMedidasRam(fkMaquina) {
 }
 function atualizarMedidasRede(fkMaquina) {
     instrucaoSql = `
-    select top 1 * from dadosTempoReal where fkMaquina = '${fkMaquina}' and fkTipoComponente = 4 order by dataHora desc;
+    select top 1 * from variaveisRede where fkMaquina = '${fkMaquina}' order by dataHora desc;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
