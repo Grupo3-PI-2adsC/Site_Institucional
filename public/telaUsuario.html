@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body onload="listarManual()">
     <div class="sidebar">
         <nav class="menu-lateral" id="menu-lateral">
 
@@ -358,68 +358,7 @@
             </div>
 
             <div id="historicoManuais">
-                <div class="itemManual headerManual">
-                    <span>TITULO</span>
-                    <div class="pencil">
-                        <i class="bi bi-pencil" id="imgAlterar"></i>
-                    </div>
-                </div>
 
-                <div class="itemManual textoManual">
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, et dolores illum consequatur
-                        veniam aliquam nulla iste sed quaerat hic dignissimos aliquid sunt dicta! Dolorem ut numquam
-                        illum porro assumenda!
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
-                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
-                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!Lorem ipsum
-                        dolor sit, amet consectetur adipisicing elit. Ex dolorem veniam optio saepe.
-                        Corrupti veniam iste omnis necessitatibus quidem nesciunt, aperiam quod non quos officiis rerum
-                        explicabo iusto eius dicta?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi magni
-                        consequatur aperiam atque id optio alias quae suscipit. Eligendi doloribus nobis tempore
-                        veritatis ipsum? Laborum placeat eos dignissimos autem non. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Repudiandae dolor enim sequi itaque. Illum pariatur impedit
-                        adipisci, similique dolorum beatae optio deleniti veniam rem esse, facere libero!</span>
-                </div>
-
-                <div class="itemManual footerManual">
-                    <div class="item-footer-manual divCriacao">
-                        <div>
-                            <p><b>Criado por:</b> nomeUsuario</p>
-                        </div>
-
-                        <div>
-                            <p><b>Dia:</b> 00/00/0000</p>
-                        </div>
-                    </div>
-
-                    <div class=" item-footer-manual divModificacao">
-                        <div>
-                            <p><b>Última modificação por:</b> nomeUsuario</p>
-                        </div>
-
-                        <div>
-                            <p><b>Dia:</b> 00/00/0000</p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="popAdicionar">
@@ -459,7 +398,7 @@
                     Título do Manual
 
                     <label>
-                        <input name="titulo" id="titulo" maxlength="100" type="text">
+                        <input name="titulo" id="titulo_alterar" maxlength="100" type="text">
                     </label>
                 </div>
 
@@ -467,7 +406,7 @@
                     Descrição do Manual
 
                     <label>
-                        <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                        <textarea name="descricao" id="descricao_alterar" maxlength="250" rows="5"></textarea>
                     </label>
                 </div>
 
@@ -920,6 +859,7 @@
 
     window.onload = listarComputadores();
 
+    window.onload = listarManual();
 
     function listarComputadores() {
         // alert("asdasdasd");
@@ -1540,12 +1480,18 @@
         document.querySelector(".popAdicionar").style.display = "none";
     });
 
-    document.getElementById('imgAlterar').addEventListener('click', function () {
+    // document.getElementById('imgAlterar').addEventListener('click', function () {
+    // });
+    function editarManual(idManual, tituloManual, descricaoManual) {
         document.querySelector(".popAlterar").style.display = "flex";
-    });
-
-    document.getElementById('imgFecharAlterar').addEventListener('click', function () {
-        document.querySelector(".popAlterar").style.display = "none";
-    });
+        document.getElementById("titulo_alterar").value = tituloManual;
+        document.getElementById("descricao_alterar").value = descricaoManual;
+        document.getElementById("buttonAlterar").onclick = function () {
+            atualizarManual(idManual);
+        };
+        document.getElementById("buttonDeletar").onclick = function () {
+            removerManual(idManual);
+        }
+    }
 
 </script>
