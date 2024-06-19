@@ -782,23 +782,7 @@
 
 <script>
 
-    // var c = document.getElementById("combo"), i=0;
-    // 	for (; i<c.options.length; i++)
-    // 	{	
-    // 		if (c.options[i].value == uf)
-    // 		{
-    // 			c.options[i].selected = true;
-    // 			break;
-    // 		}
-    // 	}
 
-    // function mudarComp(computador){
-
-    //     var slct = document.getElementById("slct_cards");
-    //     var slct2 = document.getElementById("slct_grafiMin");
-
-
-    // }
 
 
     function mudarTela(tela) {
@@ -1084,6 +1068,9 @@
         let valor = document.getElementById(id).value
 
         let comp = id.slice((id.lastIndexOf("_") + 1), id.length)
+        if(comp == 'RAM'){
+            comp = 'Memoria'
+        }
         Limite[comp] = Number(valor);
 
         console.log(Limite);
