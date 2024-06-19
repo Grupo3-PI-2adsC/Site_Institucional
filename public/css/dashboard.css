@@ -543,6 +543,7 @@ input[type='radio']:checked+.custom-radio span {
     align-items: center;
     padding: 0px 10px
 }
+
 .grafico{
     padding: 10px;
     height: 80%;
