@@ -1,3 +1,4 @@
+const { UDT } = require("mssql");
 var database = require("../database/config");
 
 function buscarUltimasMedidasCpu(fkMaquina) {
@@ -65,7 +66,36 @@ function atualizarMedidasDisco(fkMaquina) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function atualizarParametro(valor, componente, idEmpresa) {
+    instrucaoSql = `
+        update tipoComponente set metricaEstabelecida =  ${valor} where nomeComponente = '${componente} and fkEmpresa = ${idEmpresa}' 
+    `;
 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function listarLimites(idEmpresa) {
+    instrucaoSql = `    
+        select top 1
+        (
+        select metricaEstabelecida from tipoComponente where nomeComponente in ('CPU')  and fkEmpresa = ${idEmpresa}
+        ) as CPU,
+        (
+        select metricaEstabelecida from tipoComponente where nomeComponente in ('MEMORIA')  and fkEmpresa = ${idEmpresa}
+        ) as MEMORIA,
+        (
+        select metricaEstabelecida from tipoComponente where nomeComponente in ('DISCO')  and fkEmpresa = ${idEmpresa}
+        ) as DISCO,
+        (
+        select metricaEstabelecida from tipoComponente where nomeComponente in ('REDE')  and fkEmpresa = ${idEmpresa}
+        ) as REDE
+        from 
+        tipoComponente;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     buscarUltimasMedidasCpu,
@@ -75,5 +105,7 @@ module.exports = {
     atualizarMedidasCpu,
     atualizarMedidasRam,
     atualizarMedidasDisco,
-    atualizarMedidasRede
+    atualizarMedidasRede,
+    atualizarParametro,
+    listarLimites
 }

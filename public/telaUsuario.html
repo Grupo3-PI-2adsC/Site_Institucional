@@ -914,13 +914,8 @@
 
     }
 
-    var Limite = {};
-    Limite.CPU = 75;
-    Limite.RAM = 75;
-    Limite.REDE = 75;
-    Limite.DISCO = 75;
 
-    console.log(Limite);
+    // console.log(Limite);
 
     window.onload = listarComputadores();
 
@@ -986,7 +981,7 @@
                     console.log(JSON.stringify(json));
                     // console.log(json[0].idMaquina);
                     PlotarTabela(jsonComp, json);
-                    plotar();
+                    listarLimites();
                 });
 
             } else {
@@ -1068,9 +1063,40 @@
         let valor = document.getElementById(id).value
 
         let comp = id.slice((id.lastIndexOf("_") + 1), id.length)
-        if(comp == 'RAM'){
+        if (comp == 'RAM') {
             comp = 'Memoria'
         }
+
+        fetch("/dash/atualizarParametro", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                valorServer: valor,
+                componenteServer: comp,
+                idEmpresaServer: sessionStorage.FK_EMPRESA
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO Atualizar Limite()!")
+
+            if (resposta.status == 200) {
+
+                console.log("Limite de metrica atualizado com sucesso");
+
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar atualizar o limite!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+
         Limite[comp] = Number(valor);
 
         console.log(Limite);
@@ -1135,23 +1161,71 @@
     }
 
 
-    function plotar() {
+    function plotar(Limite) {
         for (let i = 0; i <= 3; i++) {
             var graficoAtual = graficos[i];
             var labelAtual = labe[i];
             var corAtual = cor[i]
-            plotarGrafico(graficoAtual, labelAtual, corAtual)
+            plotarGrafico(graficoAtual, labelAtual, corAtual, Limite)
 
         }
     }
 
+    function listarLimites() {
+
+        fetch("/dash/listarLimites", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idEmpresaServer: sessionStorage.FK_EMPRESA,
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO Listar Limites()!")
+            
+            if (resposta.status == 200) {
+                
+                var Limite = {};
+                //  = 75;
+                //  = 75;
+                //  = 75;
+                //  = 75;
+                
+                resposta.json().then(json => {
+                    alert(json[0].CPU)
+                    console.log(json);
+                    Limite.CPU = json[0].CPU;
+                    Limite.RAM = json[0].RAM;
+                    Limite.REDE = json[0].DISCO;
+                    Limite.DISCO = json[0].REDE;
+
+                    console.log(Limite);
+                    plotar(Limite)
+
+                });
+            } else {
+                // div_mensagem.innerHTML = '<p class="erro">E-mail ou Senha inválidos<br></p>'
+                console.log("Houve um erro ao tentar excluir o listarLimites!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+    }
+
     var labels = [];
     var data = [];
-    var data2 = [];
-    function plotarGrafico(grafico, lab, color_border) {
+    function plotarGrafico(grafico, lab, color_border, Limite) {
         var componenteAtual = lab.toLowerCase();
         let comp;
         let myChart;
+        // alert("ue")
+        console.log(Limite);
 
         fetch("/dash/buscarUltimasMedidas" + componenteAtual, {
             method: "POST",
@@ -1281,10 +1355,10 @@
 
                         let horario = (hora + ":" + minutos + ":" + segundos);
 
-                        
+
                         // myChart.data.labels.shift(); // apagar o primeiro
                         // myChart.data.labels.push(myChart.data.labels.length + 2); // incluir um novo momento
-                        
+
                         var medidaAtual = json[0].valorCampo;
                         console.log(comp + ": " + medidaAtual)
 
@@ -1343,7 +1417,7 @@
         }
     }
 
-    document.getElementById('buttonAdicionar').addEventListener('click', function(){
+    document.getElementById('buttonAdicionar').addEventListener('click', function () {
         document.querySelector(".popAdicionar").style.display = "flex";
     });
 
