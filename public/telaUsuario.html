@@ -634,7 +634,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="div_kpi_grafico_geral">
+                <!-- <div class="div_kpi_grafico_geral">
                     <div class="div_kpi_grafico">
                         <div class="kpi_grafico">
                             <div class="kpi_graf">
@@ -710,7 +710,7 @@
                             </tr>
                         </table>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -1397,6 +1397,7 @@
                 fkMaquinaServer: slct_grafiMin.value,
             })
         }).then(function (resposta) {
+            // alert("tgeste")
             if (resposta.status == 200) {
 
                 resposta.json().then(json => {
