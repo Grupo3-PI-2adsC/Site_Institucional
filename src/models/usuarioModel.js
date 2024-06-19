@@ -10,8 +10,8 @@ function autenticar(email, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome, email, senha) {
-    var query = `INSERT INTO usuario (nome, email, senha) VALUES ('${nome}','${email}', '${senha}')`;
+function cadastrar(nome, email, senha, funcao) {
+    var query = `INSERT INTO usuario (nome, email, senha, tipoUsuario) VALUES ('${nome}','${email}', '${senha}', '${funcao}')`;
     console.log(query);
     return database.executar(query);
 }

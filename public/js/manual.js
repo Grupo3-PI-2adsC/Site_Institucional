@@ -37,7 +37,7 @@ function adicionarManual() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                idUsuarioServer: 1,
+                idUsuarioServer: sessionStorage.idUsuario,
                 tituloServer: tituloVar,
                 descricaoServer: descricaoVar,
                 dataServer: dataFormatada
@@ -45,10 +45,7 @@ function adicionarManual() {
 
         }).then(function (resposta) {
             if (resposta.ok) {
-
-                resposta.json().then((manual) => {
-                    sessionStorage.ID_MANUAL = manual.insertId;
-                })
+                console.log(resposta);
             } else {
                 alert('Manual não realizado')
                 throw "Houve um erro"

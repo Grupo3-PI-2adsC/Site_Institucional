@@ -36,6 +36,7 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var funcao = req.body.funcaoServer;
 
     if (nome == undefined) {
         res.status(400).send("O nome está indefinido!");
@@ -44,11 +45,15 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
     }
     else if (senha == undefined) {
         res.status(403).send("O senha está indefinido!");
+    } 
+    else if (funcao == undefined) {
+        res.status(403).send("O senha está indefinido!");
 
     } else {
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, funcao)
             .then(
                 function (resultado) {
+                    // sessionStorage.nome 
                     console.log(resultado);
                     res.json(resultado);
                 }
@@ -62,6 +67,7 @@ function cadastrar(req, res) { // PARA CADASTRAR MEU CARDAPIO COM FK (idRestaura
             );
     }
 }
+
 
 function deletarUsuario(req, res) {
     var idUsuario = req.body.idUsuarioServer;
