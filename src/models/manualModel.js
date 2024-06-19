@@ -7,13 +7,18 @@ function adicionarManual(tituloManual, descricao, idUsuario, data) {
 }
 
 function listarManual() {
-    var query = `SELECT * FROM manuais`;
+    var query = `SELECT *
+FROM 
+    manuais m
+JOIN 
+    usuario u ON m.fkUsuarioCriador = u.idUsuario;
+`;
     console.log(query);
     return database.executar(query);
 }
 
-function atualizarManual(tituloManual, descricao, idUsuario, data) {
-    var query = `UPDATE manuais SET tituloManual = '${tituloManual}', descricaoManual = '${descricao}', dtUltimaAlteracao ='${data} WHERE fkUsuarioCriador = '${idUsuario}'` ;
+function atualizarManual(tituloManual, descricao, idManual) {
+    var query = `UPDATE manuais SET tituloManual = '${tituloManual}', descricaoManual = '${descricao}' WHERE idManual = '${idManual}'` ;
     console.log(query);
     return database.executar(query);
 }
